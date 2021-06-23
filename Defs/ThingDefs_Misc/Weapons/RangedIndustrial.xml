@@ -111,6 +111,7 @@
     </recipeMaker>
     <comps>
       <li Class="GunNut.CompProperties_GunNut">
+        <jobDef>EquipAttachment</jobDef>
         <attachments>
           <li>Scope</li>
         </attachments>

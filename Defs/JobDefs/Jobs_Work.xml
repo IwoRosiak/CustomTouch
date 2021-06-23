@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+
+  <!--============= Item hauling ===============-->
+  <JobDef>
+		<defName>EquipAttachment</defName>
+		<driverClass>GunNut.JobDriver_EquipAttachment</driverClass>
+		<reportString>Attaching the attachment to the weapon.</reportString>
+	</JobDef>
+
+</Defs>

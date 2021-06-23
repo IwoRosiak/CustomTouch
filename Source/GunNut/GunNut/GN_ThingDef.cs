@@ -1,8 +1,10 @@
 ﻿using HarmonyLib;
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 using Verse;
+using Verse.AI;
 
 namespace GunNut
 {
@@ -284,6 +286,8 @@ namespace GunNut
         // Token: 0x04001CEA RID: 7402
         public List<string> attachments;
 
+        public JobDef jobDef;
+
     }
     public class GN_ThingComp : ThingComp
     {
@@ -325,6 +329,62 @@ namespace GunNut
                 Log.Message(this.Attachments[0]);
             }
         }
+
+        private bool TryGiveWeaponRepairJobToPawn(Pawn pawn)
+        {
+
+            Job job = new Job(this.Props.jobDef, parent);
+            job.count = 1;
+            return pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
+
+
+
+        }
+
+        public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
+        {
+            Action hoverAction = delegate ()
+            {
+                //Thing availableTwinThing = this.GetAvailableTwinThing(selPawn);
+                //MoteMaker.MakeStaticMote(availableTwinThing.Position, this.parent.Map, ThingDefOf.Mote_FeedbackGoto, 1f);
+            };
+            Action giveRepairJob = delegate ()
+            {
+                this.TryGiveWeaponRepairJobToPawn(selPawn);
+            };
+            yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Test", giveRepairJob, MenuOptionPriority.Default, hoverAction, null, 0f, null, null), selPawn, this.parent, "ReservedBy");
+            yield break;
+        }
+    }
+
+    public class JobDriver_EquipAttachment : JobDriver
+    {
+        public override bool TryMakePreToilReservations(bool errorOnFailed)
+        {
+            return true;
+        }
+
+        protected override IEnumerable<Toil> MakeNewToils()
+        {
+
+            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.ClosestTouch).FailOnDespawnedNullOrForbidden(TargetIndex.A);
+            yield break;
+        }
+
+
+
+        //public const TargetIndex WorkbenchIndex = TargetIndex.A;
+
+        public const TargetIndex WeaponMasterIndex = TargetIndex.A;
+
+        public const TargetIndex AttachmentIngredientIndex = TargetIndex.B;
+
+        public const PathEndMode GotoWeaponPathEndMode = PathEndMode.ClosestTouch;
+
+        private Thing weaponMaster;
+
+        // Token: 0x0400000C RID: 12
+        private Thing attachmentIngredient;
 
     }
 }
