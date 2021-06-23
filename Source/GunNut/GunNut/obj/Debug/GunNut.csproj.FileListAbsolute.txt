@@ -4,3 +4,5 @@ C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\GunNut\Source\GunNut
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\GunNut\Source\GunNut\GunNut\obj\Debug\GunNut.csproj.CoreCompileInputs.cache
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\GunNut\Source\GunNut\GunNut\obj\Debug\GunNut.dll
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\GunNut\Source\GunNut\GunNut\obj\Debug\GunNut.pdb
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\GunNut\Assemblies\GunNut.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\GunNut\Assemblies\GunNut.pdb
