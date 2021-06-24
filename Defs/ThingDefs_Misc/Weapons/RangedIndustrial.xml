@@ -112,16 +112,46 @@
     <comps>
       <li Class="GunNut.CompProperties_GunNut">
         <jobDef>EquipAttachment</jobDef>
-        <attachments>
-          <li>Scope</li>
-        </attachments>
+        <!--<attachments>
+          <li>scope</li>
+          <li>receiver</li>
+          <li>barrel</li>
+          <li>stock</li>
+          <li>magazine</li>
+        </attachments><slots>
+          <scope>scope</scope>
+          <receiver>receiver</receiver>
+          <barrel>barrel</barrel>
+          <stock>stock</stock>
+          <magazine>magazine</magazine>
+        </slots>
+
+        <li>receiver</li>
+        <li>barrel</li>
+        <li>stock</li>
+        <li>magazine</li>-->
+        <slots>
+          <li>
+            <weaponPart>scope</weaponPart>
+            <attachmentName>Improved Scope</attachmentName>
+            <attachmentDesc>Improved scope. Quite rare on this planet.</attachmentDesc>
+          </li>
+          <li>
+            <weaponPart>magazine</weaponPart>
+            <attachmentName>Improved Scope</attachmentName>
+          </li>
+          <li>
+            <weaponPart>stock</weaponPart>
+          </li>
+
+        </slots>
       </li>
     </comps>
     <verbs>
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <defaultProjectile>GN_Bullet</defaultProjectile>
+        <defaultProjectile>Bullet_BoltActionRifle</defaultProjectile>
         <warmupTime>1.7</warmupTime>
         <range>36.9</range>
         <soundCast>Shot_BoltActionRifle</soundCast>
@@ -150,23 +180,39 @@
     </tools>
   </ThingDef>
   <ThingDef ParentName="BaseBullet">
-    <defName>GN_Bullet</defName>
-    <label>machine pistol bullet</label>
-    <graphicData>
-      <texPath>Things/Projectile/Bullet_Small</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-    </graphicData>
+    <defName>Bullet_BoltActionRifle</defName>
+    <label>bolt-action rifle bullet</label>
     <projectile>
       <damageDef>Bullet</damageDef>
-      <damageAmountBase>6</damageAmountBase>
-      <speed>55</speed>
+      <damageAmountBase>18</damageAmountBase>
+      <stoppingPower>1.5</stoppingPower>
+      <speed>70</speed>
     </projectile>
-    <modExtensions>
-    <li Class="GunNut.ModExtension_BulletPower">
-
-      <damage>10</damage>
-    </li>
-    </modExtensions>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
   </ThingDef>
+<!--
+<ThingDef Class = "GunNut.GN_SlotDef">
+  <defName>slot</defName>
+  <label>slot</label>
+</ThingDef>
+
+<ThingDef Class = "GunNut.GN_SlotDef">
+  <defName>barrel</defName>
+</ThingDef>
+
+<ThingDef Class = "GunNut.GN_SlotDef">
+  <defName>stock</defName>
+</ThingDef>
+
+<ThingDef Class = "GunNut.GN_SlotDef">
+  <defName>magazine</defName>
+</ThingDef>
+
+<ThingDef Class = "GunNut.GN_SlotDef">
+  <defName>receiver</defName>
+</ThingDef> -->
 
 </Defs>

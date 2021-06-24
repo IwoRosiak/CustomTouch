@@ -57,8 +57,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GN_CompQuality.cs" />
-    <Compile Include="GN_ThingDef.cs" />
+    <Compile Include="GN_Comps.cs" />
+    <Compile Include="GN_Defs.cs" />
+    <Compile Include="HarmonyPatches.cs" />
+    <Compile Include="JobDriver_EquipAttachment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

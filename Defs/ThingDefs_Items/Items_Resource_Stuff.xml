@@ -21,7 +21,7 @@
     <pathCost>14</pathCost>
   </ThingDef>
 
-  <ThingDef ParentName="GunModBase">
+  <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
     <defName>Scope</defName>
     <label>scope</label>
     <description>Scope. Can be used to modify weapons.</description>
@@ -29,6 +29,7 @@
       <texPath>Things/Item/Resource/Steel</texPath>
       <graphicClass>Graphic_StackCount</graphicClass>
     </graphicData>
+    <!--<slot>scope<slot> HERE -->
     <soundInteract>Metal_Drop</soundInteract>
     <soundDrop>Metal_Drop</soundDrop>
     <statBases>
