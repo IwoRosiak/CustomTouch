@@ -75,7 +75,7 @@ namespace GunNut
 
                 GN_ThingComp weapon = curJob.GetTarget(TargetIndex.A).Thing.TryGetComp<GN_ThingComp>();
                 Thing attachment = curJob.GetTarget(TargetIndex.B).Thing;
-                //weapon.Attachments.Add("Scope");
+                weapon.Slots[0].attachment = (GN_AttachmentDef)attachment.def;
                 attachment.Destroy(DestroyMode.Vanish);
 
             });

@@ -133,12 +133,10 @@
         <slots>
           <li>
             <weaponPart>scope</weaponPart>
-            <attachmentName>Improved Scope</attachmentName>
-            <attachmentDesc>Improved scope. Quite rare on this planet.</attachmentDesc>
+
           </li>
           <li>
             <weaponPart>magazine</weaponPart>
-            <attachmentName>Improved Scope</attachmentName>
           </li>
           <li>
             <weaponPart>stock</weaponPart>

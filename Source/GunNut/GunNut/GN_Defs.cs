@@ -35,7 +35,24 @@ namespace GunNut
 
         public static GN_AttachmentDef Scope;
 
+        public static GN_AttachmentDef Magazine;
+
+        public static GN_AttachmentDef Stock;
+
+
+
     }
+
+    public static class GN_AttachmentList
+    {
+        public static List<GN_AttachmentDef> allAttachments = new List<GN_AttachmentDef>()
+        {
+            GN_ThingDefOf.Scope,
+            GN_ThingDefOf.Magazine,
+            GN_ThingDefOf.Stock
+        };
+    }
+
 
     [DefOf]
     public static class GN_SlotDefOf
@@ -53,12 +70,12 @@ namespace GunNut
     public class Slot
     {
         public GN_ThingDefOf.WeaponPart weaponPart;
-        public string attachmentName = "Default";
-        public string attachmentDesc = " ";
+        public GN_AttachmentDef attachment = null;
     }
 
     public class GN_AttachmentDef : ThingDef
     {
+        public GN_ThingDefOf.WeaponPart weaponPart;
         //public GN_ThingDefOf.AttachmentSlots slot;
 
         /*public override IEnumerable<StatDrawEntry> SpecialDisplayStats(StatRequest req)
@@ -92,7 +109,23 @@ namespace GunNut
             {
                 foreach (var slot in slots)
                 {
-                    yield return new StatDrawEntry(GN_StatCategoryDefOf.Attachments, slot.weaponPart.ToString(), slot.attachmentName, slot.attachmentDesc, 5391, null, null, false);
+
+
+                    string attachmentName = "Default";
+                    string attachmentDesc = "Default";
+                    if (slot.attachment == null)
+                    {
+                        attachmentName = "Default";
+                        attachmentDesc = "Default " + slot.weaponPart.ToString() + " that came with the weapon.";
+                    }
+                    else
+                    {
+                        attachmentName = slot.attachment.label;
+                        attachmentDesc = slot.attachment.description;
+                    }
+
+
+                    yield return new StatDrawEntry(GN_StatCategoryDefOf.Attachments, slot.weaponPart.ToString(), attachmentName.CapitalizeFirst(), attachmentDesc, 5391, null, null, false);
                 }
             }
         }

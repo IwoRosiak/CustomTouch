@@ -24,6 +24,57 @@
   <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
     <defName>Scope</defName>
     <label>scope</label>
+    <weaponPart>scope</weaponPart>
+    <description>Scope. Can be used to modify weapons.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/Steel</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <!--<slot>scope<slot> HERE -->
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Metal_Drop</soundDrop>
+    <statBases>
+      <MarketValue>1.9</MarketValue>
+      <Mass>0.5</Mass>
+    </statBases>
+    <useHitPoints>false</useHitPoints>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <thingCategories>
+      <li>ResourcesRaw</li>
+    </thingCategories>
+    <burnableByRecipe>false</burnableByRecipe>
+    <smeltable>true</smeltable>
+  </ThingDef>
+
+  <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+    <defName>Magazine</defName>
+    <label>magazine</label>
+    <weaponPart>magazine</weaponPart>
+    <description>Scope. Can be used to modify weapons.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/Steel</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <!--<slot>scope<slot> HERE -->
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Metal_Drop</soundDrop>
+    <statBases>
+      <MarketValue>1.9</MarketValue>
+      <Mass>0.5</Mass>
+    </statBases>
+    <useHitPoints>false</useHitPoints>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <thingCategories>
+      <li>ResourcesRaw</li>
+    </thingCategories>
+    <burnableByRecipe>false</burnableByRecipe>
+    <smeltable>true</smeltable>
+  </ThingDef>
+
+  <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+    <defName>Stock</defName>
+    <label>stock</label>
+    <weaponPart>stock</weaponPart>
     <description>Scope. Can be used to modify weapons.</description>
     <graphicData>
       <texPath>Things/Item/Resource/Steel</texPath>

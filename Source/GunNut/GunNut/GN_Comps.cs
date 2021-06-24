@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using RimWorld;
+using System;
+using System.Collections.Generic;
 using Verse;
+using Verse.AI;
 
 namespace GunNut
 {
@@ -27,15 +30,7 @@ namespace GunNut
             }
 
         }
-
-
-
-
         public List<Slot> Slots = new List<Slot>();
-
-
-
-
 
         //new List<GN_SlotDef>();
         public override void CompTick()
@@ -47,10 +42,9 @@ namespace GunNut
             }
 
         }
-        /*
-        private bool TryGiveWeaponRepairJobToPawn(Pawn pawn)
+
+        private bool TryGiveWeaponRepairJobToPawn(Pawn pawn, Thing attachment)
         {
-            Thing attachment = GetAvailableAttachment(pawn);
             if (attachment != null)
             {
                 Job job = new Job(this.Props.jobDef, parent, attachment);
@@ -63,36 +57,73 @@ namespace GunNut
 
         public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
         {
-            Action hoverAction = delegate ()
+            foreach (FloatMenuOption fmo in base.CompFloatMenuOptions(selPawn))
             {
-                //Thing availableTwinThing = this.GetAvailableTwinThing(selPawn);
-                //MoteMaker.MakeStaticMote(availableTwinThing.Position, this.parent.Map, ThingDefOf.Mote_FeedbackGoto, 1f);
-            };
-            Action giveRepairJob = delegate ()
+                yield return fmo;
+            }
+
+            foreach (var slot in this.Slots)
             {
-                this.TryGiveWeaponRepairJobToPawn(selPawn);
-            };
-            yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Test", giveRepairJob, MenuOptionPriority.Default, hoverAction, null, 0f, null, null), selPawn, this.parent, "ReservedBy");
+                if (slot.attachment != null)
+                {
+                    yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Slot for " + slot.weaponPart.ToString() + " is already taken.", null, MenuOptionPriority.Default, null, null, 0f, null, null), selPawn, this.parent, "ReservedBy");
+                    continue;
+                }
+                List<Thing> AccessableAttachments = GetAvailableAttachment(selPawn, slot.weaponPart);
+                if (AccessableAttachments.NullOrEmpty() == true)
+                {
+                    yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Haven't found any attachments for " + slot.weaponPart.ToString() + ".", null, MenuOptionPriority.Default, null, null, 0f, null, null), selPawn, this.parent, "ReservedBy");
+                    continue;
+                }
+
+                foreach (var attachment in AccessableAttachments)
+                {
+                    if (!selPawn.CanReach(this.parent, PathEndMode.Touch, Danger.Deadly, false, TraverseMode.ByPawn))
+                    {
+                        yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Cannot reach.", null, MenuOptionPriority.Default, null, null, 0f, null, null), selPawn, this.parent, "ReservedBy");
+                        continue;
+                    }
+
+                    Action hoverAction = delegate ()
+                    {
+                        //Thing availableTwinThing = this.GetAvailableTwinThing(selPawn);
+                        //MoteMaker.MakeStaticMote(availableTwinThing.Position, this.parent.Map, ThingDefOf.Mote_FeedbackGoto, 1f);
+                    };
+                    Action giveAttachJob = delegate ()
+                    {
+                        this.TryGiveWeaponRepairJobToPawn(selPawn, attachment);
+                    };
+                    yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Install " + attachment.def.label, giveAttachJob, MenuOptionPriority.Default, hoverAction, null, 0f, null, null), selPawn, this.parent, "ReservedBy");
+                }
+            }
             yield break;
         }
 
-        private Thing GetAvailableAttachment(Pawn pawn)
+        private List<Thing> GetAvailableAttachment(Pawn pawn, GN_ThingDefOf.WeaponPart part)
         {
-            bool flag = pawn == null || !pawn.Spawned || pawn.Downed || pawn.Map == null;
-            Thing result = null;
-            if (flag)
+            List<Thing> results = new List<Thing>();
+
+            if (pawn == null || !pawn.Spawned || pawn.Downed || pawn.Map == null)
             {
-                result = null;
+                results = null;
             }
             else
             {
-                List<Thing> list = new List<Thing>();
-                foreach (Thing thing in this.parent.Map.listerThings.ThingsOfDef(GN_ThingDefOf.Scope))
+                foreach (var attachment in GN_AttachmentList.allAttachments)
                 {
-                    return thing;
+                    if (attachment.weaponPart == part)
+                    {
+                        foreach (Thing thing in this.parent.Map.listerThings.ThingsOfDef(attachment))
+                        {
+                            results.Add(thing);
+                        }
+                    }
+
                 }
             }
-            return result;
-        }*/
+            return results;
+        }
+
+
     }
 }
