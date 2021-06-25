@@ -13,11 +13,21 @@ namespace GunNut
             this.compClass = typeof(GN_ThingComp);
         }
 
+        public List<Slot> Slots
+        {
+            get
+            {
+                return this.slots;
+            }
+        }
+
         public List<Slot> slots;
 
         //public List<string> attachments;
 
         public JobDef jobDef;
+
+
 
     }
     public class GN_ThingComp : ThingComp
@@ -26,22 +36,36 @@ namespace GunNut
         {
             get
             {
+
                 return (CompProperties_GunNut)this.props;
             }
 
         }
+
+        public List<Slot> SlotsProps
+        {
+            get
+            {
+                return Props.Slots;
+            }
+        }
         public List<Slot> Slots = new List<Slot>();
 
-        //new List<GN_SlotDef>();
         public override void CompTick()
         {
             base.CompTick();
-            if (Slots.Count == 0)
+            if (Slots == null || Slots.Count == 0)
             {
-                Slots = Props.slots;
+                Slots = this.SlotsProps;
             }
-
         }
+
+        public override void PostExposeData()
+
+        {
+            Scribe_Collections.Look<Slot>(ref Slots, "SlotsAttachment", LookMode.Deep);
+        }
+
 
         private bool TryGiveWeaponRepairJobToPawn(Pawn pawn, Thing attachment)
         {

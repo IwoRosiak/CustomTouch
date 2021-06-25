@@ -5,12 +5,13 @@
     <thingClass>ThingWithComps</thingClass>
     <category>Item</category>
     <resourceReadoutPriority>Middle</resourceReadoutPriority>
-    <useHitPoints>true</useHitPoints>
     <selectable>true</selectable>
     <altitudeLayer>Item</altitudeLayer>
     <stackLimit>1</stackLimit>
     <statBases>
       <Beauty>-4</Beauty>
+      <MarketValue>1.9</MarketValue>
+      <Mass>0.5</Mass>
     </statBases>
     <comps>
       <li Class="CompProperties_Forbiddable"/>
@@ -19,6 +20,15 @@
     <drawGUIOverlay>true</drawGUIOverlay>
     <rotatable>false</rotatable>
     <pathCost>14</pathCost>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Metal_Drop</soundDrop>
+    <useHitPoints>false</useHitPoints>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <thingCategories>
+      <li>ResourcesRaw</li>
+    </thingCategories>
+    <burnableByRecipe>false</burnableByRecipe>
+    <smeltable>true</smeltable>
   </ThingDef>
 
   <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
@@ -30,20 +40,23 @@
       <texPath>Things/Item/Resource/Steel</texPath>
       <graphicClass>Graphic_StackCount</graphicClass>
     </graphicData>
-    <!--<slot>scope<slot> HERE -->
-    <soundInteract>Metal_Drop</soundInteract>
-    <soundDrop>Metal_Drop</soundDrop>
-    <statBases>
-      <MarketValue>1.9</MarketValue>
-      <Mass>0.5</Mass>
-    </statBases>
-    <useHitPoints>false</useHitPoints>
-    <healthAffectsPrice>false</healthAffectsPrice>
-    <thingCategories>
-      <li>ResourcesRaw</li>
-    </thingCategories>
-    <burnableByRecipe>false</burnableByRecipe>
-    <smeltable>true</smeltable>
+    <cooldownTimeReduction>0.9</cooldownTimeReduction>
+    <accuracyImproveLong>0.1</accuracyImproveLong>
+    <warmupTimeReduction>0.9</warmupTimeReduction>
+  </ThingDef>
+
+  <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+    <defName>Chuj</defName>
+    <label>chujek</label>
+    <weaponPart>stock</weaponPart>
+    <description>Scope. Can be used to modify weapons.</description>
+
+
+    <graphicData>
+      <texPath>Things/Item/Resource/Steel</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+
   </ThingDef>
 
   <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
@@ -55,20 +68,6 @@
       <texPath>Things/Item/Resource/Steel</texPath>
       <graphicClass>Graphic_StackCount</graphicClass>
     </graphicData>
-    <!--<slot>scope<slot> HERE -->
-    <soundInteract>Metal_Drop</soundInteract>
-    <soundDrop>Metal_Drop</soundDrop>
-    <statBases>
-      <MarketValue>1.9</MarketValue>
-      <Mass>0.5</Mass>
-    </statBases>
-    <useHitPoints>false</useHitPoints>
-    <healthAffectsPrice>false</healthAffectsPrice>
-    <thingCategories>
-      <li>ResourcesRaw</li>
-    </thingCategories>
-    <burnableByRecipe>false</burnableByRecipe>
-    <smeltable>true</smeltable>
   </ThingDef>
 
   <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
@@ -80,20 +79,6 @@
       <texPath>Things/Item/Resource/Steel</texPath>
       <graphicClass>Graphic_StackCount</graphicClass>
     </graphicData>
-    <!--<slot>scope<slot> HERE -->
-    <soundInteract>Metal_Drop</soundInteract>
-    <soundDrop>Metal_Drop</soundDrop>
-    <statBases>
-      <MarketValue>1.9</MarketValue>
-      <Mass>0.5</Mass>
-    </statBases>
-    <useHitPoints>false</useHitPoints>
-    <healthAffectsPrice>false</healthAffectsPrice>
-    <thingCategories>
-      <li>ResourcesRaw</li>
-    </thingCategories>
-    <burnableByRecipe>false</burnableByRecipe>
-    <smeltable>true</smeltable>
   </ThingDef>
 
 </Defs>

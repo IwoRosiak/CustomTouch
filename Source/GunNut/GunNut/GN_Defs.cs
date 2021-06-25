@@ -35,9 +35,17 @@ namespace GunNut
 
         public static GN_AttachmentDef Scope;
 
+        public static GN_AttachmentDef Chuj;
+
         public static GN_AttachmentDef Magazine;
 
         public static GN_AttachmentDef Stock;
+
+        //public static GN_AttachmentDef MakeshiftScope;
+
+        //public static GN_AttachmentDef Magazine;
+
+        //public static GN_AttachmentDef Stock;
 
 
 
@@ -48,8 +56,12 @@ namespace GunNut
         public static List<GN_AttachmentDef> allAttachments = new List<GN_AttachmentDef>()
         {
             GN_ThingDefOf.Scope,
+            GN_ThingDefOf.Chuj,
             GN_ThingDefOf.Magazine,
             GN_ThingDefOf.Stock
+            //GN_ThingDefOf.MakeshiftScope,
+            //GN_ThingDefOf.Magazine,
+            //GN_ThingDefOf.Stock
         };
     }
 
@@ -67,8 +79,13 @@ namespace GunNut
 
     }
 
-    public class Slot
+    public class Slot : IExposable
     {
+        public void ExposeData()
+        {
+
+        }
+
         public GN_ThingDefOf.WeaponPart weaponPart;
         public GN_AttachmentDef attachment = null;
     }
@@ -76,6 +93,25 @@ namespace GunNut
     public class GN_AttachmentDef : ThingDef
     {
         public GN_ThingDefOf.WeaponPart weaponPart;
+
+        public float damageIncreasePer = 0;
+
+        public float damageIncreaseFlat = 0;
+
+        public float warmupTimeReduction = 0;
+
+        public float cooldownTimeReduction = 0;
+
+        public float massReduction = 0;
+
+        public float accuracyImproveTouch = 0;
+
+        public float accuracyImproveShort = 0;
+
+        public float accuracyImproveMedium = 0;
+
+        public float accuracyImproveLong = 0;
+
         //public GN_ThingDefOf.AttachmentSlots slot;
 
         /*public override IEnumerable<StatDrawEntry> SpecialDisplayStats(StatRequest req)

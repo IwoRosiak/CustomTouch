@@ -57,6 +57,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accuracy.cs" />
     <Compile Include="GN_Comps.cs" />
     <Compile Include="GN_Defs.cs" />
     <Compile Include="HarmonyPatches.cs" />
