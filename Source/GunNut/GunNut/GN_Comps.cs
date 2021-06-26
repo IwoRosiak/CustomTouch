@@ -63,7 +63,13 @@ namespace GunNut
         public override void PostExposeData()
 
         {
-            Scribe_Collections.Look<Slot>(ref Slots, "SlotsAttachment", LookMode.Deep);
+
+            Scribe_Collections.Look<Slot>(ref Slots, "SlotsAttachment" + this.parent.ThingID, LookMode.Deep);
+
+            /*foreach (var slot in Slots)
+            {
+                slot.ExposeData();
+            }*/
         }
 
 
