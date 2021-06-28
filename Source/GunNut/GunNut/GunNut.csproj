@@ -61,7 +61,8 @@
     <Compile Include="GN_Comps.cs" />
     <Compile Include="GN_Defs.cs" />
     <Compile Include="HarmonyPatches.cs" />
-    <Compile Include="JobDriver_EquipAttachment.cs" />
+    <Compile Include="JobDriver_EquipAttachment - Copy.cs" />
+    <Compile Include="JobDriver_RemoveAttachment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

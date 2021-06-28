@@ -25,9 +25,9 @@ namespace GunNut
 
         //public List<string> attachments;
 
-        public JobDef jobDef;
+        public JobDef jobDefInstall;
 
-
+        public JobDef jobDefRemove;
 
     }
     public class GN_ThingComp : ThingComp
@@ -54,6 +54,7 @@ namespace GunNut
         public override void CompTick()
         {
             base.CompTick();
+
             if (Slots == null || Slots.Count == 0)
             {
                 Slots = this.SlotsProps;
@@ -66,6 +67,8 @@ namespace GunNut
 
             Scribe_Collections.Look<Slot>(ref Slots, "SlotsAttachment" + this.parent.ThingID, LookMode.Deep);
 
+
+
             /*foreach (var slot in Slots)
             {
                 slot.ExposeData();
@@ -73,11 +76,23 @@ namespace GunNut
         }
 
 
-        private bool TryGiveWeaponRepairJobToPawn(Pawn pawn, Thing attachment)
+        private bool TryInstallAttachment(Pawn pawn, Thing attachment)
         {
             if (attachment != null)
             {
-                Job job = new Job(this.Props.jobDef, parent, attachment);
+                Job job = new Job(this.Props.jobDefInstall, parent, attachment);
+                job.count = 1;
+                return pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
+
+            }
+            return false;
+        }
+
+        private bool TryRemoveAttachment(Pawn pawn, Slot slot)
+        {
+            if (slot.attachment != null)
+            {
+                Job job = new Job(this.Props.jobDefRemove, parent);
                 job.count = 1;
                 return pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
 
@@ -96,7 +111,13 @@ namespace GunNut
             {
                 if (slot.attachment != null)
                 {
-                    yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Slot for " + slot.weaponPart.ToString() + " is already taken.", null, MenuOptionPriority.Default, null, null, 0f, null, null), selPawn, this.parent, "ReservedBy");
+                    Action giveJob = delegate ()
+                    {
+                        this.TryRemoveAttachment(selPawn, slot);
+                    };
+                    yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Remove " + slot.attachment.label, giveJob, MenuOptionPriority.Default, null, null, 0f, null, null), selPawn, this.parent, "ReservedBy");
+
+                    //yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Slot for " + slot.weaponPart.ToString() + " is already taken.", null, MenuOptionPriority.Default, null, null, 0f, null, null), selPawn, this.parent, "ReservedBy");
                     continue;
                 }
                 List<Thing> AccessableAttachments = GetAvailableAttachment(selPawn, slot.weaponPart);
@@ -121,7 +142,7 @@ namespace GunNut
                     };
                     Action giveAttachJob = delegate ()
                     {
-                        this.TryGiveWeaponRepairJobToPawn(selPawn, attachment);
+                        this.TryInstallAttachment(selPawn, attachment);
                     };
                     yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Install " + attachment.def.label, giveAttachJob, MenuOptionPriority.Default, hoverAction, null, 0f, null, null), selPawn, this.parent, "ReservedBy");
                 }

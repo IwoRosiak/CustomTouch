@@ -31,7 +31,9 @@ namespace GunNut
 
         public enum WeaponPart { scope, magazine, stock, barrel }
 
-        public static GN_ThingDef Gun_BoltActionRifle_Scope;
+        //public static GN_ThingDef Gun_BoltActionRifle_Scope;
+
+        //public static GN_ThingDef Gun_BoltActionRifle;
 
         public static GN_AttachmentDef Scope;
 
@@ -139,6 +141,7 @@ namespace GunNut
             }
 
             var slots = req.Thing.TryGetComp<GN_ThingComp>().Slots;
+
             //var attachment = req.Thing.TryGetComp<GN_ThingComp>().Slots;
             //var attachments = req.Thing.TryGetComp<GN_ThingComp>().Slots[0].attachment;
 

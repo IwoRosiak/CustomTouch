@@ -80,7 +80,7 @@
       <li Class="CompProperties_BiocodableWeapon"/>
     </comps>
   </ThingDef> -->
-
+<!--
   <ThingDef Class="GunNut.GN_ThingDef" ParentName="BaseHumanMakeableGun">
     <defName>Gun_BoltActionRifle_Scope</defName>
     <label>bolt-action rifle with scope</label>
@@ -112,24 +112,6 @@
     <comps>
       <li Class="GunNut.CompProperties_GunNut">
         <jobDef>EquipAttachment</jobDef>
-        <!--<attachments>
-          <li>scope</li>
-          <li>receiver</li>
-          <li>barrel</li>
-          <li>stock</li>
-          <li>magazine</li>
-        </attachments><slots>
-          <scope>scope</scope>
-          <receiver>receiver</receiver>
-          <barrel>barrel</barrel>
-          <stock>stock</stock>
-          <magazine>magazine</magazine>
-        </slots>
-
-        <li>receiver</li>
-        <li>barrel</li>
-        <li>stock</li>
-        <li>magazine</li>-->
         <slots>
           <li>
             <weaponPart>scope</weaponPart>
@@ -190,7 +172,7 @@
       <texPath>Things/Projectile/Bullet_big</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
-  </ThingDef>
+  </ThingDef> -->
 <!--
 <ThingDef Class = "GunNut.GN_SlotDef">
   <defName>slot</defName>

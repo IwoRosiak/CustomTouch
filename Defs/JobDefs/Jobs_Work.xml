@@ -9,4 +9,10 @@
 		<reportString>Attaching the attachment to the weapon.</reportString>
 	</JobDef>
 
+  <JobDef>
+    <defName>RemoveAttachment</defName>
+    <driverClass>GunNut.JobDriver_RemoveAttachment</driverClass>
+    <reportString>Removing the attachment from the weapon.</reportString>
+  </JobDef>
+
 </Defs>
