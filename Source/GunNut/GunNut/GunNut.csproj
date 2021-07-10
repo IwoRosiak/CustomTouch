@@ -60,6 +60,8 @@
     <Compile Include="Accuracy.cs" />
     <Compile Include="GN_Comps.cs" />
     <Compile Include="GN_Defs.cs" />
+    <Compile Include="GN_StatPart_Quality.cs" />
+    <Compile Include="GN_Verb_Shoot.cs" />
     <Compile Include="HarmonyPatches.cs" />
     <Compile Include="JobDriver_EquipAttachment - Copy.cs" />
     <Compile Include="JobDriver_RemoveAttachment.cs" />

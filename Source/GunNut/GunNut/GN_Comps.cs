@@ -88,16 +88,12 @@ namespace GunNut
             return false;
         }
 
-        private bool TryRemoveAttachment(Pawn pawn, Slot slot)
+        private void TryRemoveAttachment(Pawn pawn)
         {
-            if (slot.attachment != null)
-            {
-                Job job = new Job(this.Props.jobDefRemove, parent);
-                job.count = 1;
-                return pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
 
-            }
-            return false;
+            Job job = new Job(this.Props.jobDefRemove, parent);
+            job.count = 1;
+            pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
         }
 
         public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
@@ -107,19 +103,10 @@ namespace GunNut
                 yield return fmo;
             }
 
+            bool hasAttachments = false;
+
             foreach (var slot in this.Slots)
             {
-                if (slot.attachment != null)
-                {
-                    Action giveJob = delegate ()
-                    {
-                        this.TryRemoveAttachment(selPawn, slot);
-                    };
-                    yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Remove " + slot.attachment.label, giveJob, MenuOptionPriority.Default, null, null, 0f, null, null), selPawn, this.parent, "ReservedBy");
-
-                    //yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Slot for " + slot.weaponPart.ToString() + " is already taken.", null, MenuOptionPriority.Default, null, null, 0f, null, null), selPawn, this.parent, "ReservedBy");
-                    continue;
-                }
                 List<Thing> AccessableAttachments = GetAvailableAttachment(selPawn, slot.weaponPart);
                 if (AccessableAttachments.NullOrEmpty() == true)
                 {
@@ -129,9 +116,22 @@ namespace GunNut
 
                 foreach (var attachment in AccessableAttachments)
                 {
-                    if (!selPawn.CanReach(this.parent, PathEndMode.Touch, Danger.Deadly, false, TraverseMode.ByPawn))
+                    if (!selPawn.CanReach(this.parent, PathEndMode.Touch, Danger.Deadly, false, false, TraverseMode.ByPawn))
                     {
                         yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Cannot reach.", null, MenuOptionPriority.Default, null, null, 0f, null, null), selPawn, this.parent, "ReservedBy");
+                        continue;
+                    }
+
+                    if (slot.attachment != null)
+                    {
+                        hasAttachments = true;
+                        Action giveJob = delegate ()
+                        {
+                            this.TryInstallAttachment(selPawn, attachment);
+                        };
+                        yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Replace " + slot.attachment.label + " with " + attachment.def.label, giveJob, MenuOptionPriority.Default, null, null, 0f, null, null), selPawn, this.parent, "ReservedBy");
+
+                        //yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Slot for " + slot.weaponPart.ToString() + " is already taken.", null, MenuOptionPriority.Default, null, null, 0f, null, null), selPawn, this.parent, "ReservedBy");
                         continue;
                     }
 
@@ -144,8 +144,17 @@ namespace GunNut
                     {
                         this.TryInstallAttachment(selPawn, attachment);
                     };
-                    yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Install " + attachment.def.label, giveAttachJob, MenuOptionPriority.Default, hoverAction, null, 0f, null, null), selPawn, this.parent, "ReservedBy");
+                    yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Install " + attachment.def.label, giveAttachJob, MenuOptionPriority.Default, null, null, 0f, null, null), selPawn, this.parent, "ReservedBy");
                 }
+            }
+
+            if (hasAttachments)
+            {
+                Action giveJob = delegate ()
+                {
+                    this.TryRemoveAttachment(selPawn);
+                };
+                yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Remove all attachments.", giveJob, MenuOptionPriority.Default, null, null, 0f, null, null), selPawn, this.parent, "ReservedBy");
             }
             yield break;
         }

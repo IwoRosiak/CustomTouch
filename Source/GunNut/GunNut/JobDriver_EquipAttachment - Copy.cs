@@ -81,6 +81,11 @@ namespace GunNut
                     var attachmentDef = (GN_AttachmentDef)attachment.def;
                     if (slot.weaponPart == attachmentDef.weaponPart)
                     {
+                        if (slot.attachment != null)
+                        {
+                            Thing thing = ThingMaker.MakeThing(slot.attachment, null);
+                            GenPlace.TryPlaceThing(thing, curJob.GetTarget(TargetIndex.A).Thing.Position, curJob.GetTarget(TargetIndex.A).Thing.Map, ThingPlaceMode.Near, null, null, default(Rot4));
+                        }
                         slot.attachment = attachmentDef;
                         attachment.Destroy(DestroyMode.Vanish);
                         break;
