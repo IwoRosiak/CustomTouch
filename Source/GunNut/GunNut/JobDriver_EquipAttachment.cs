@@ -89,7 +89,9 @@ namespace GunNut
                         slot.attachment = attachmentDef;
                         attachment.Destroy(DestroyMode.Vanish);
                         //curJob.GetTarget(TargetIndex.A).Thing.ForceSetStateToUnspawned();
-                        curJob.GetTarget(TargetIndex.A).Thing.Map.mapDrawer.RegenerateEverythingNow();
+                        //curJob.GetTarget(TargetIndex.A).Thing.Map.mapDrawer.RegenerateEverythingNow();
+                        //curJob.GetTarget(TargetIndex.A).Thing.Map.mapDrawer.SectionAt(curJob.GetTarget(TargetIndex.A).Thing.Position).RegenerateAllLayers();
+                        curJob.GetTarget(TargetIndex.A).Thing.DirtyMapMesh(curJob.GetTarget(TargetIndex.A).Thing.Map);
                         break;
                     }
                 }
