@@ -63,7 +63,7 @@
     <Compile Include="GN_StatPart_Quality.cs" />
     <Compile Include="GN_Verb_Shoot.cs" />
     <Compile Include="HarmonyPatches.cs" />
-    <Compile Include="JobDriver_EquipAttachment - Copy.cs" />
+    <Compile Include="JobDriver_EquipAttachment.cs" />
     <Compile Include="JobDriver_RemoveAttachment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

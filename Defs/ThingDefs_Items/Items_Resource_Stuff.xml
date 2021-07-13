@@ -39,6 +39,7 @@
     <graphicData>
       <texPath>Things/Item/Resource/Steel</texPath>
       <graphicClass>Graphic_StackCount</graphicClass>
+      <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
     </graphicData>
     <cooldownTimeReduction>0.5</cooldownTimeReduction>
     <accuracyImproveLong>0.1</accuracyImproveLong>

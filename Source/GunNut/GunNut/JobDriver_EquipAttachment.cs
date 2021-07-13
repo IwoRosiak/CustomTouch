@@ -88,12 +88,16 @@ namespace GunNut
                         }
                         slot.attachment = attachmentDef;
                         attachment.Destroy(DestroyMode.Vanish);
+                        //curJob.GetTarget(TargetIndex.A).Thing.ForceSetStateToUnspawned();
+                        curJob.GetTarget(TargetIndex.A).Thing.Map.mapDrawer.RegenerateEverythingNow();
                         break;
                     }
                 }
 
 
             });
+
+
             toil.handlingFacing = true;
             toil.defaultCompleteMode = ToilCompleteMode.Delay;
             toil.defaultDuration = duration;

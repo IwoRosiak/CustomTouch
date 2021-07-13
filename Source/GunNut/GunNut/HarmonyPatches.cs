@@ -52,6 +52,60 @@ namespace GunNut
         }
     } */
 
+    /*[HarmonyPatch(typeof(Thing), "DrawGUIOverlay")]
+    //[HarmonyPatch(new Type[] { typeof(SectionLayer), typeof(Thing), typeof(float) })]
+    public static class GN_PrintPatch
+    {
+        [HarmonyPostfix]
+        public static void GN_PrintPostfix(Thing __instance)
+        {
+            if (__instance.TryGetComp<GN_ThingComp>() != null)
+            {
+                var weapon = __instance.TryGetComp<GN_ThingComp>();
+                weapon.Draw();
+                //Log.Message("Hi!");
+
+
+
+                /*foreach (var slot in __instance.TryGetComp<GN_ThingComp>().Slots)
+                {
+                    if (slot.attachment != null)
+                    {
+                        Log.Message("hi");
+                        //slot.attachment.graphic.Print(__instance, __instance, 0f);
+                        //slot.attachment.graphic.draw
+                        //Printer_Plane.PrintPlane(layer, center, size, mat);
+                        //slot.attachment.graphic.Draw(drawPos, Rot4.North, __instance);
+                    }
+                }*/
+    // }
+    // }
+    // }
+
+
+    [HarmonyPatch(typeof(Thing), "Print")]
+    //[HarmonyPatch(new Type[] { typeof(SectionLayer) })]
+    public static class GN_PrintPatch
+    {
+        [HarmonyPostfix]
+        public static void GN_PrintPostfix(Thing __instance, SectionLayer layer)
+        {
+            if (__instance.TryGetComp<GN_ThingComp>() != null)
+            {
+                var weapon = __instance.TryGetComp<GN_ThingComp>();
+
+                foreach (var slot in weapon.Slots)
+                {
+                    if (slot.attachment != null)
+                    {
+                        slot.attachment.graphic.Print(layer, __instance, __instance.Graphic.DrawRotatedExtraAngleOffset);
+                        //Printer_Plane.PrintPlane(layer, center, size, mat);
+                        //slot.attachment.graphic.DrawFromDef(thing.DrawPos, Rot4.North, null);
+                    }
+                }
+            }
+        }
+    }
 
 
     [HarmonyPatch(typeof(Verb), "TryStartCastOn")]

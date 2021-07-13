@@ -54,11 +54,82 @@ namespace GunNut
         public override void CompTick()
         {
             base.CompTick();
-
             if (Slots == null || Slots.Count == 0)
             {
                 Slots = this.SlotsProps;
             }
+        }
+
+        /*public override void PostPrintOnto(SectionLayer layer)
+        {
+            base.PostPrintOnto(layer);
+            foreach (var slot in Slots)
+            {
+                if (slot.attachment != null)
+                {
+                    //Printer_Plane.PrintPlane(layer, center, size, mat);
+                    slot.attachment.graphic.DrawFromDef(parent.DrawPos, Rot4.North, null);
+                }
+            }
+
+        }*/
+        public void Draw()
+        {
+
+            UnityEngine.Vector3 drawPos = this.parent.DrawPos;
+            drawPos.y += 0.04054054f;
+
+
+            foreach (var slot in this.Slots)
+            {
+                if (slot.attachment != null)
+                {
+                    //UnityEngine.Graphics.DrawMesh(MeshPool.GridPlane(slot.attachment.graphicData.drawSize), drawPos, this.parent.Rotation.AsQuat, slot.attachment.DrawMatSingle, 0);
+                    //slot.attachment.graphic.draw
+                    //Printer_Plane.PrintPlane(layer, center, size, mat);
+                    slot.attachment.graphic.Draw(drawPos, Rot4.North, this.parent);
+                }
+            }
+
+            //CompFireOverlay.FireGraphic.Draw(drawPos, Rot4.North, this.parent, 0f);
+
+
+
+
+            /*foreach (var slot in Slots)
+            {
+                slot.ExposeData();
+            }*/
+        }
+
+        public override void PostDraw()
+        {
+            //Log.Message("hi");
+            /*
+            UnityEngine.Vector3 drawPos = this.parent.DrawPos;
+            drawPos.y += 0.04054054f;
+
+
+            foreach (var slot in this.Slots)
+            {
+                if (slot.attachment != null)
+                {
+                    Graphics.DrawMesh(MeshPool.GridPlane(slot.attachment.graphicData.drawSize), drawPos, this.parent.Rotation.AsQuat, slot.attachment.DrawMatSingle, 0);
+                    //slot.attachment.graphic.draw
+                    //Printer_Plane.PrintPlane(layer, center, size, mat);
+                    //slot.attachment.graphic.Draw(drawPos, Rot4.North, this.parent);
+                }
+            }*/
+
+            //CompFireOverlay.FireGraphic.Draw(drawPos, Rot4.North, this.parent, 0f);
+
+
+
+
+            /*foreach (var slot in Slots)
+            {
+                slot.ExposeData();
+            }*/
         }
 
         public override void PostExposeData()
@@ -145,6 +216,10 @@ namespace GunNut
                         this.TryInstallAttachment(selPawn, attachment);
                     };
                     yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Install " + attachment.def.label, giveAttachJob, MenuOptionPriority.Default, null, null, 0f, null, null), selPawn, this.parent, "ReservedBy");
+                }
+                if (slot.attachment != null)
+                {
+                    hasAttachments = true;
                 }
             }
 
