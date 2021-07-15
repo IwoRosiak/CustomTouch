@@ -58,6 +58,12 @@ namespace GunNut
             {
                 Slots = this.SlotsProps;
             }
+
+            if (this.parent.def.defName == "Gun_BoltActionRifle")
+            {
+                //Log.Message(this.parent.Graphic.drawSize.ToAngle().ToString()); ;
+
+            }
         }
 
         /*public override void PostPrintOnto(SectionLayer layer)
@@ -68,7 +74,7 @@ namespace GunNut
                 if (slot.attachment != null)
                 {
                     //Printer_Plane.PrintPlane(layer, center, size, mat);
-                    slot.attachment.graphic.DrawFromDef(parent.DrawPos, Rot4.North, null);
+                    
                 }
             }
 
@@ -87,7 +93,8 @@ namespace GunNut
                     //UnityEngine.Graphics.DrawMesh(MeshPool.GridPlane(slot.attachment.graphicData.drawSize), drawPos, this.parent.Rotation.AsQuat, slot.attachment.DrawMatSingle, 0);
                     //slot.attachment.graphic.draw
                     //Printer_Plane.PrintPlane(layer, center, size, mat);
-                    slot.attachment.graphic.Draw(drawPos, Rot4.North, this.parent);
+                    //slot.attachment.graphic.Draw(drawPos, Rot4.North, this.parent);
+                    //slot.attachment.graphic.DrawFromDef(parent.DrawPos, Rot4.North, null);
                 }
             }
 

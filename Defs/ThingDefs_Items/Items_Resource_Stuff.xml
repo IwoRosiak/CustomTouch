@@ -37,8 +37,8 @@
     <weaponPart>scope</weaponPart>
     <description>Scope. Can be used to modify weapons.</description>
     <graphicData>
-      <texPath>Things/Item/Resource/Steel</texPath>
-      <graphicClass>Graphic_StackCount</graphicClass>
+      <texPath>Things/Item/Equipment/WeaponRanged/scope</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <cooldownTimeReduction>0.5</cooldownTimeReduction>
     <accuracyImproveLong>0.1</accuracyImproveLong>
@@ -47,7 +47,6 @@
     <accuracyImproveTouch>0.30</accuracyImproveTouch>
     <warmupTimeReduction>0.9</warmupTimeReduction>
     <damageIncrease>5.0</damageIncrease>
-
   </ThingDef>
 
   <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
