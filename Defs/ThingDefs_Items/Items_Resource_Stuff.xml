@@ -80,8 +80,8 @@
     <weaponPart>stock</weaponPart>
     <description>Scope. Can be used to modify weapons.</description>
     <graphicData>
-      <texPath>Things/Item/Resource/Steel</texPath>
-      <graphicClass>Graphic_StackCount</graphicClass>
+      <texPath>Things/Item/Equipment/WeaponRanged/stock</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
   </ThingDef>
 
