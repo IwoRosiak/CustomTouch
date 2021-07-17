@@ -106,6 +106,54 @@ namespace GunNut
         }
     }
 
+    [HarmonyPatch(typeof(Widgets), "ThingIcon")]
+    [HarmonyPatch(new Type[] { typeof(Rect), typeof(Thing), typeof(float), typeof(Rot4) })]
+    public static class ThingIconPatch
+    {
+        [HarmonyPostfix]
+        public static void GN_AdjustFullCyclePostfix(Thing thing, Rect rect)
+        {
+            if (thing.TryGetComp<GN_ThingComp>() != null)
+            {
+                Log.Message("ThingIcon Patch");
+
+                var weapon = thing.TryGetComp<GN_ThingComp>();
+
+                foreach (var slot in weapon.Slots)
+                {
+                    if (slot.attachment != null)
+                    {
+                        Log.Message("Displaying attachment");
+                        //var oldTextPath = slot.attachment.graphic.path;
+                        //Widgets.ThingIconWorker(rect, thing.def, slot.attachment.uiIcon, slot.attachment.uiIconAngle, 1f);
+
+                        Texture texture = slot.attachment.onWeaponGraphic.Graphic.MatSingle.mainTexture;
+
+                        Vector2 texProportions = new Vector2((float)texture.width, (float)slot.attachment.uiIcon.height);
+                        Rect texCoords = new Rect(0f, 0f, 1f, 1f);
+                        if (slot.attachment.onWeaponGraphic != null)
+                        {
+                            texProportions = slot.attachment.onWeaponGraphic.drawSize.RotatedBy(slot.attachment.defaultPlacingRot);
+                            if (slot.attachment.uiIconPath.NullOrEmpty() && slot.attachment.onWeaponGraphic.linkFlags != LinkFlags.None)
+                            {
+                                texCoords = new Rect(0f, 0.5f, 0.25f, 0.25f);
+                            }
+                        }
+                        Widgets.DrawTextureFitted(rect, texture, GenUI.IconDrawScale(slot.attachment) * 1, texProportions, texCoords, slot.attachment.uiIconAngle, null);
+
+
+                    }
+                }
+
+
+            }
+        }
+
+        //public static void ThingIcon(Rect rect, Thing thing, float alpha = 1f, Rot4? rot = null)
+    }
+
+
+
     [HarmonyPatch(typeof(Verb), "TryStartCastOn")]
     [HarmonyPatch(new Type[] { typeof(LocalTargetInfo), typeof(LocalTargetInfo), typeof(bool), typeof(bool), typeof(bool) })]
     public static class FullCycleLOLPatch

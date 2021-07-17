@@ -58,11 +58,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Accuracy.cs" />
-    <Compile Include="AttachmentGraphicComp.cs" />
     <Compile Include="GN_Comps.cs" />
     <Compile Include="GN_Defs.cs" />
     <Compile Include="GN_StatPart_Quality.cs" />
-    <Compile Include="GN_Verb_Shoot.cs" />
     <Compile Include="HarmonyPatches.cs" />
     <Compile Include="JobDriver_EquipAttachment.cs" />
     <Compile Include="JobDriver_RemoveAttachment.cs" />

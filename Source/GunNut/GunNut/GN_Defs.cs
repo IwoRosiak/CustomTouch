@@ -123,7 +123,12 @@ namespace GunNut
 
     public class GN_ThingDef : ThingDef
     {
+        protected override void ResolveIcon()
+        {
+            base.ResolveIcon();
 
+
+        }
         public override IEnumerable<StatDrawEntry> SpecialDisplayStats(StatRequest req)
         {
             foreach (StatDrawEntry statDrawEntry in base.SpecialDisplayStats(req))

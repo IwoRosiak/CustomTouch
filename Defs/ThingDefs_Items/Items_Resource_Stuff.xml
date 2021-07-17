@@ -29,13 +29,6 @@
     </thingCategories>
     <burnableByRecipe>false</burnableByRecipe>
     <smeltable>true</smeltable>
-  </ThingDef>
-
-  <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
-    <defName>Scope</defName>
-    <label>scope</label>
-    <weaponPart>scope</weaponPart>
-    <description>Scope. Can be used to modify weapons.</description>
     <graphicData>
       <!--<texPath>Things/Item/Equipment/WeaponRanged/scope</texPath>-->
       <texPath>Things/Item/Health/HealthItem</texPath>
@@ -43,6 +36,13 @@
       <drawSize>0.80</drawSize>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
+  </ThingDef>
+
+  <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+    <defName>Scope</defName>
+    <label>scope</label>
+    <weaponPart>scope</weaponPart>
+    <description>Scope. Can be used to modify weapons.</description>
     <onWeaponGraphic>
       <texPath>Things/Item/Equipment/WeaponRanged/scope</texPath>
       <drawSize>0.80</drawSize>
@@ -90,10 +90,11 @@
     <label>stock</label>
     <weaponPart>stock</weaponPart>
     <description>Scope. Can be used to modify weapons.</description>
-    <graphicData>
+    <onWeaponGraphic>
       <texPath>Things/Item/Equipment/WeaponRanged/stock</texPath>
+      <drawSize>0.80</drawSize>
       <graphicClass>Graphic_Single</graphicClass>
-    </graphicData>
+    </onWeaponGraphic>
   </ThingDef>
 
 </Defs>
