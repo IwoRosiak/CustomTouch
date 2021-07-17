@@ -29,7 +29,6 @@ namespace GunNut
 
                 if (thing.TryGetComp<GN_ThingComp>() != null)
                 {
-                    Log.Message("I'm in");
                     var weapon = thing.TryGetComp<GN_ThingComp>();
 
                     foreach (var slot in weapon.Slots)
@@ -37,7 +36,10 @@ namespace GunNut
                         if (slot.attachment != null)
                         {
                             Log.Message("Displaying attachment");
-                            slot.attachment.graphic.Print(layer, thing, extraRotation);
+                            //var oldTextPath = slot.attachment.graphic.path;
+
+
+                            slot.attachment.onWeaponGraphic.Graphic.Print(layer, thing, extraRotation);
                         }
                     }
                 }
@@ -97,7 +99,7 @@ namespace GunNut
                             matSingle = eq.Graphic.MatSingle;
                         }
                         drawLoc.y += 1;
-                        Graphics.DrawMesh(mesh, drawLoc, Quaternion.AngleAxis(num, Vector3.up), slot.attachment.graphic.MatSingle, 0);
+                        Graphics.DrawMesh(mesh, drawLoc, Quaternion.AngleAxis(num, Vector3.up), slot.attachment.onWeaponGraphic.Graphic.MatSingle, 0);
                     }
                 }
             }

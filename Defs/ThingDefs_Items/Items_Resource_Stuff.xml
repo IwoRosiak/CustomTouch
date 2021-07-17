@@ -37,9 +37,20 @@
     <weaponPart>scope</weaponPart>
     <description>Scope. Can be used to modify weapons.</description>
     <graphicData>
-      <texPath>Things/Item/Equipment/WeaponRanged/scope</texPath>
+      <!--<texPath>Things/Item/Equipment/WeaponRanged/scope</texPath>-->
+      <texPath>Things/Item/Health/HealthItem</texPath>
+      <color>(64, 64, 64)</color>
+      <drawSize>0.80</drawSize>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
+    <onWeaponGraphic>
+      <texPath>Things/Item/Equipment/WeaponRanged/scope</texPath>
+      <drawSize>0.80</drawSize>
+      <graphicClass>Graphic_Single</graphicClass>
+    </onWeaponGraphic>
+  <!--  <alternateGraphics>
+      <texPath>Things/Item/Equipment/WeaponRanged/scope</texPath>
+    </alternateGraphics> -->
     <cooldownTimeReduction>0.5</cooldownTimeReduction>
     <accuracyImproveLong>0.1</accuracyImproveLong>
     <accuracyImproveMedium>0.50</accuracyImproveMedium>

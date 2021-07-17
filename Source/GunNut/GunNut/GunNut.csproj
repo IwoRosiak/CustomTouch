@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Accuracy.cs" />
+    <Compile Include="AttachmentGraphicComp.cs" />
     <Compile Include="GN_Comps.cs" />
     <Compile Include="GN_Defs.cs" />
     <Compile Include="GN_StatPart_Quality.cs" />

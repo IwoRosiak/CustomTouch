@@ -97,6 +97,9 @@ namespace GunNut
     {
         public GN_ThingDefOf.WeaponPart weaponPart;
 
+
+        public GraphicData onWeaponGraphic;
+
         public float damageIncreasePer = 0;
 
         public float damageIncrease = 0;
@@ -115,19 +118,6 @@ namespace GunNut
 
         public float accuracyImproveLong = 0;
 
-        //public GN_ThingDefOf.AttachmentSlots slot;
-
-        /*public override IEnumerable<StatDrawEntry> SpecialDisplayStats(StatRequest req)
-        {    
-            var attachments = req.Thing.TryGetComp<GN_ThingComp>().Attachments;
-            if (attachments != null)
-            {
-                foreach (var attachment in attachments)
-                {
-                    yield return new StatDrawEntry(GN_StatCategoryDefOf.Attachments, "Attachments", attachment, "Attachment for a weapon.", 5391, null, null, false);
-                }
-            }
-        }*/
     }
 
 
