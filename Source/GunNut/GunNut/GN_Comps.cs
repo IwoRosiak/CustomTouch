@@ -49,6 +49,22 @@ namespace GunNut
                 return Props.Slots;
             }
         }
+
+        public bool hasAnyAttachments
+        {
+            get
+            {
+                foreach (var slot in this.Slots)
+                {
+                    if (slot.attachment != null)
+                    {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+        }
         public List<Slot> Slots = new List<Slot>();
 
         public override void CompTick()
@@ -58,101 +74,12 @@ namespace GunNut
             {
                 Slots = this.SlotsProps;
             }
-
-            if (this.parent.def.defName == "Gun_BoltActionRifle")
-            {
-                //Log.Message(this.parent.Graphic.drawSize.ToAngle().ToString()); ;
-
-            }
-        }
-
-        /*public override void PostPrintOnto(SectionLayer layer)
-        {
-            base.PostPrintOnto(layer);
-            foreach (var slot in Slots)
-            {
-                if (slot.attachment != null)
-                {
-                    //Printer_Plane.PrintPlane(layer, center, size, mat);
-                    
-                }
-            }
-
-        }*/
-        public void Draw()
-        {
-
-            UnityEngine.Vector3 drawPos = this.parent.DrawPos;
-            drawPos.y += 0.04054054f;
-
-
-            foreach (var slot in this.Slots)
-            {
-                if (slot.attachment != null)
-                {
-                    //UnityEngine.Graphics.DrawMesh(MeshPool.GridPlane(slot.attachment.graphicData.drawSize), drawPos, this.parent.Rotation.AsQuat, slot.attachment.DrawMatSingle, 0);
-                    //slot.attachment.graphic.draw
-                    //Printer_Plane.PrintPlane(layer, center, size, mat);
-                    //slot.attachment.graphic.Draw(drawPos, Rot4.North, this.parent);
-                    //slot.attachment.graphic.DrawFromDef(parent.DrawPos, Rot4.North, null);
-                }
-            }
-
-            //CompFireOverlay.FireGraphic.Draw(drawPos, Rot4.North, this.parent, 0f);
-
-
-
-
-            /*foreach (var slot in Slots)
-            {
-                slot.ExposeData();
-            }*/
-        }
-
-        public override void PostDraw()
-        {
-            //Log.Message("hi");
-            /*
-            UnityEngine.Vector3 drawPos = this.parent.DrawPos;
-            drawPos.y += 0.04054054f;
-
-
-            foreach (var slot in this.Slots)
-            {
-                if (slot.attachment != null)
-                {
-                    Graphics.DrawMesh(MeshPool.GridPlane(slot.attachment.graphicData.drawSize), drawPos, this.parent.Rotation.AsQuat, slot.attachment.DrawMatSingle, 0);
-                    //slot.attachment.graphic.draw
-                    //Printer_Plane.PrintPlane(layer, center, size, mat);
-                    //slot.attachment.graphic.Draw(drawPos, Rot4.North, this.parent);
-                }
-            }*/
-
-            //CompFireOverlay.FireGraphic.Draw(drawPos, Rot4.North, this.parent, 0f);
-
-
-
-
-            /*foreach (var slot in Slots)
-            {
-                slot.ExposeData();
-            }*/
         }
 
         public override void PostExposeData()
-
         {
-
             Scribe_Collections.Look<Slot>(ref Slots, "SlotsAttachment" + this.parent.ThingID, LookMode.Deep);
-
-
-
-            /*foreach (var slot in Slots)
-            {
-                slot.ExposeData();
-            }*/
         }
-
 
         private bool TryInstallAttachment(Pawn pawn, Thing attachment)
         {
@@ -181,18 +108,27 @@ namespace GunNut
                 yield return fmo;
             }
 
-            bool hasAttachments = false;
+            if (this.hasAnyAttachments)
+            {
+                Action giveJob = delegate ()
+                {
+                    this.TryRemoveAttachment(selPawn);
+                };
+                yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Remove all attachments.", giveJob, MenuOptionPriority.Default, null, null, 0f, null, null), selPawn, this.parent, "ReservedBy");
+            }
 
             foreach (var slot in this.Slots)
             {
-                List<Thing> AccessableAttachments = GetAvailableAttachment(selPawn, slot.weaponPart);
-                if (AccessableAttachments.NullOrEmpty() == true)
+                bool slotHasAttachment = slot.attachment != null;
+
+                List<Thing> FindCompatibleAttachments = GetAvailableAttachment(selPawn, slot.weaponPart);
+                if (FindCompatibleAttachments.NullOrEmpty() == true)
                 {
                     yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Haven't found any attachments for " + slot.weaponPart.ToString() + ".", null, MenuOptionPriority.Default, null, null, 0f, null, null), selPawn, this.parent, "ReservedBy");
                     continue;
                 }
 
-                foreach (var attachment in AccessableAttachments)
+                foreach (var attachment in FindCompatibleAttachments)
                 {
                     if (!selPawn.CanReach(this.parent, PathEndMode.Touch, Danger.Deadly, false, false, TraverseMode.ByPawn))
                     {
@@ -200,9 +136,8 @@ namespace GunNut
                         continue;
                     }
 
-                    if (slot.attachment != null)
+                    if (slotHasAttachment)
                     {
-                        hasAttachments = true;
                         Action giveJob = delegate ()
                         {
                             this.TryInstallAttachment(selPawn, attachment);
@@ -224,19 +159,6 @@ namespace GunNut
                     };
                     yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Install " + attachment.def.label, giveAttachJob, MenuOptionPriority.Default, null, null, 0f, null, null), selPawn, this.parent, "ReservedBy");
                 }
-                if (slot.attachment != null)
-                {
-                    hasAttachments = true;
-                }
-            }
-
-            if (hasAttachments)
-            {
-                Action giveJob = delegate ()
-                {
-                    this.TryRemoveAttachment(selPawn);
-                };
-                yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Remove all attachments.", giveJob, MenuOptionPriority.Default, null, null, 0f, null, null), selPawn, this.parent, "ReservedBy");
             }
             yield break;
         }
@@ -260,12 +182,9 @@ namespace GunNut
                             results.Add(thing);
                         }
                     }
-
                 }
             }
             return results;
         }
-
-
     }
 }
