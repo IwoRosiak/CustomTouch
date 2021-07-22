@@ -139,20 +139,17 @@ namespace GunNut
                         yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Cannot reach.", null, MenuOptionPriority.Default, null, null, 0f, null, null), pawn, this.parent, "ReservedBy");
                         continue;
                     }
-
                     if (slotHasAttachment)
                     {
                         Action<Rect> hoverActionReplacing = delegate
-                    {
-                        FleckMaker.Static(attachment.Position, pawn.Map, FleckDefOf.FeedbackGoto, 1f);
-                    };
+                        {
+                            FleckMaker.Static(attachment.Position, pawn.Map, FleckDefOf.FeedbackGoto, 1f);
+                        };
                         Action giveJobReplacing = delegate ()
                         {
                             this.TryInstallAttachment(pawn, attachment);
                         };
                         yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Replace " + slot.attachment.label + " with " + attachment.def.label, giveJobReplacing, MenuOptionPriority.Default, hoverActionReplacing, null, 0f, null, null), pawn, this.parent, "ReservedBy");
-
-                        //yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Slot for " + slot.weaponPart.ToString() + " is already taken.", null, MenuOptionPriority.Default, null, null, 0f, null, null), pawn, this.parent, "ReservedBy");
                         continue;
                     }
 
@@ -164,7 +161,6 @@ namespace GunNut
                     {
                         this.TryInstallAttachment(pawn, attachment);
                     };
-
                     yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Install " + attachment.def.label, giveJobAttaching, MenuOptionPriority.Default, hoverActionAttaching, null, 0f, null, null), pawn, this.parent, "ReservedBy");
                 }
             }
