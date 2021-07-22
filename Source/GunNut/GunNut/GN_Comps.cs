@@ -1,6 +1,8 @@
 ﻿using RimWorld;
+using RimWorld.Planet;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 using Verse;
 using Verse.AI;
 
@@ -101,6 +103,8 @@ namespace GunNut
             pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
         }
 
+
+
         public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
         {
             foreach (FloatMenuOption fmo in base.CompFloatMenuOptions(selPawn))
@@ -121,14 +125,14 @@ namespace GunNut
             {
                 bool slotHasAttachment = slot.attachment != null;
 
-                List<Thing> FindCompatibleAttachments = GetAvailableAttachment(selPawn, slot.weaponPart);
-                if (FindCompatibleAttachments.NullOrEmpty() == true)
+                List<Thing> CompatibleAttachments = FindAvailableAttachment(selPawn, slot.weaponPart);
+                if (CompatibleAttachments.NullOrEmpty() == true)
                 {
                     yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Haven't found any attachments for " + slot.weaponPart.ToString() + ".", null, MenuOptionPriority.Default, null, null, 0f, null, null), selPawn, this.parent, "ReservedBy");
                     continue;
                 }
 
-                foreach (var attachment in FindCompatibleAttachments)
+                foreach (var attachment in CompatibleAttachments)
                 {
                     if (!selPawn.CanReach(this.parent, PathEndMode.Touch, Danger.Deadly, false, false, TraverseMode.ByPawn))
                     {
@@ -148,43 +152,56 @@ namespace GunNut
                         continue;
                     }
 
-                    Action hoverAction = delegate ()
+                    Action<Rect> hoverAction = delegate
                     {
                         //Thing availableTwinThing = this.GetAvailableTwinThing(selPawn);
-                        //MoteMaker.MakeStaticMote(availableTwinThing.Position, this.parent.Map, ThingDefOf.Mote_FeedbackGoto, 1f);
+                        //MoteMaker.MakeStaticMote(attachment.Position, this.parent.Map, ThingDefOf.Mote_ForceJob, 1f);
+                        MoteMaker.MakeConnectingLine(selPawn.Position.ToVector3(), attachment.Position.ToVector3(), ThingDefOf.Mote_ForceJob, selPawn.Map);
                     };
                     Action giveAttachJob = delegate ()
                     {
                         this.TryInstallAttachment(selPawn, attachment);
                     };
+
                     yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Install " + attachment.def.label, giveAttachJob, MenuOptionPriority.Default, null, null, 0f, null, null), selPawn, this.parent, "ReservedBy");
                 }
             }
             yield break;
         }
 
-        private List<Thing> GetAvailableAttachment(Pawn pawn, GN_ThingDefOf.WeaponPart part)
+
+        private List<Thing> FindAvailableAttachment(Pawn pawn, GN_ThingDefOf.WeaponPart desiredPart)
         {
             List<Thing> results = new List<Thing>();
 
             if (pawn == null || !pawn.Spawned || pawn.Downed || pawn.Map == null)
             {
-                results = null;
+                return null;
             }
             else
             {
                 foreach (var attachment in GN_AttachmentList.allAttachments)
                 {
-                    if (attachment.weaponPart == part)
+                    if (attachment.weaponPart == desiredPart)
                     {
-                        foreach (Thing thing in this.parent.Map.listerThings.ThingsOfDef(attachment))
+                        var closestAttachmentOfThisType = GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForDef(attachment), PathEndMode.InteractionCell, TraverseParms.For(pawn, pawn.NormalMaxDanger(), TraverseMode.ByPawn, false, false, false), 9999f, (Thing x) => !x.IsForbidden(pawn) && pawn.CanReserve(x, 1, -1, null, false), null, 0, -1, false, RegionType.Set_Passable, false);
+                        if (closestAttachmentOfThisType != null)
                         {
-                            results.Add(thing);
+                            results.Add(closestAttachmentOfThisType);
                         }
+
+                        //Log.Message(pawn.Position.GetFirstThing(pawn.Map, attachment).ToString());
+                        // if (pawn.Position.GetFirstThing(pawn.Map, attachment) != null)
+                        // {
+                        //return pawn.Position.GetFirstThing(pawn.Map, attachment);
+                        // }
+
+
                     }
                 }
             }
             return results;
+            //return results;
         }
     }
 }
