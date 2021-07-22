@@ -105,9 +105,9 @@ namespace GunNut
 
 
 
-        public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
+        public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn pawn)
         {
-            foreach (FloatMenuOption fmo in base.CompFloatMenuOptions(selPawn))
+            foreach (FloatMenuOption fmo in base.CompFloatMenuOptions(pawn))
             {
                 yield return fmo;
             }
@@ -116,54 +116,56 @@ namespace GunNut
             {
                 Action giveJob = delegate ()
                 {
-                    this.TryRemoveAttachment(selPawn);
+                    this.TryRemoveAttachment(pawn);
                 };
-                yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Remove all attachments.", giveJob, MenuOptionPriority.Default, null, null, 0f, null, null), selPawn, this.parent, "ReservedBy");
+                yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Remove all attachments.", giveJob, MenuOptionPriority.Default, null, null, 0f, null, null), pawn, this.parent, "ReservedBy");
             }
 
             foreach (var slot in this.Slots)
             {
                 bool slotHasAttachment = slot.attachment != null;
 
-                List<Thing> CompatibleAttachments = FindAvailableAttachment(selPawn, slot.weaponPart);
+                List<Thing> CompatibleAttachments = FindAvailableAttachment(pawn, slot.weaponPart);
                 if (CompatibleAttachments.NullOrEmpty() == true)
                 {
-                    yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Haven't found any attachments for " + slot.weaponPart.ToString() + ".", null, MenuOptionPriority.Default, null, null, 0f, null, null), selPawn, this.parent, "ReservedBy");
+                    yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Haven't found any attachments for " + slot.weaponPart.ToString() + ".", null, MenuOptionPriority.Default, null, null, 0f, null, null), pawn, this.parent, "ReservedBy");
                     continue;
                 }
 
                 foreach (var attachment in CompatibleAttachments)
                 {
-                    if (!selPawn.CanReach(this.parent, PathEndMode.Touch, Danger.Deadly, false, false, TraverseMode.ByPawn))
+                    if (!pawn.CanReach(this.parent, PathEndMode.Touch, Danger.Deadly, false, false, TraverseMode.ByPawn))
                     {
-                        yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Cannot reach.", null, MenuOptionPriority.Default, null, null, 0f, null, null), selPawn, this.parent, "ReservedBy");
+                        yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Cannot reach.", null, MenuOptionPriority.Default, null, null, 0f, null, null), pawn, this.parent, "ReservedBy");
                         continue;
                     }
 
                     if (slotHasAttachment)
                     {
-                        Action giveJob = delegate ()
+                        Action<Rect> hoverActionReplacing = delegate
+                    {
+                        FleckMaker.Static(attachment.Position, pawn.Map, FleckDefOf.FeedbackGoto, 1f);
+                    };
+                        Action giveJobReplacing = delegate ()
                         {
-                            this.TryInstallAttachment(selPawn, attachment);
+                            this.TryInstallAttachment(pawn, attachment);
                         };
-                        yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Replace " + slot.attachment.label + " with " + attachment.def.label, giveJob, MenuOptionPriority.Default, null, null, 0f, null, null), selPawn, this.parent, "ReservedBy");
+                        yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Replace " + slot.attachment.label + " with " + attachment.def.label, giveJobReplacing, MenuOptionPriority.Default, hoverActionReplacing, null, 0f, null, null), pawn, this.parent, "ReservedBy");
 
-                        //yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Slot for " + slot.weaponPart.ToString() + " is already taken.", null, MenuOptionPriority.Default, null, null, 0f, null, null), selPawn, this.parent, "ReservedBy");
+                        //yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Slot for " + slot.weaponPart.ToString() + " is already taken.", null, MenuOptionPriority.Default, null, null, 0f, null, null), pawn, this.parent, "ReservedBy");
                         continue;
                     }
 
-                    Action<Rect> hoverAction = delegate
+                    Action<Rect> hoverActionAttaching = delegate
                     {
-                        //Thing availableTwinThing = this.GetAvailableTwinThing(selPawn);
-                        //MoteMaker.MakeStaticMote(attachment.Position, this.parent.Map, ThingDefOf.Mote_ForceJob, 1f);
-                        MoteMaker.MakeConnectingLine(selPawn.Position.ToVector3(), attachment.Position.ToVector3(), ThingDefOf.Mote_ForceJob, selPawn.Map);
+                        FleckMaker.Static(attachment.Position, pawn.Map, FleckDefOf.FeedbackGoto, 1f);
                     };
-                    Action giveAttachJob = delegate ()
+                    Action giveJobAttaching = delegate ()
                     {
-                        this.TryInstallAttachment(selPawn, attachment);
+                        this.TryInstallAttachment(pawn, attachment);
                     };
 
-                    yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Install " + attachment.def.label, giveAttachJob, MenuOptionPriority.Default, null, null, 0f, null, null), selPawn, this.parent, "ReservedBy");
+                    yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Install " + attachment.def.label, giveJobAttaching, MenuOptionPriority.Default, hoverActionAttaching, null, 0f, null, null), pawn, this.parent, "ReservedBy");
                 }
             }
             yield break;
@@ -189,19 +191,10 @@ namespace GunNut
                         {
                             results.Add(closestAttachmentOfThisType);
                         }
-
-                        //Log.Message(pawn.Position.GetFirstThing(pawn.Map, attachment).ToString());
-                        // if (pawn.Position.GetFirstThing(pawn.Map, attachment) != null)
-                        // {
-                        //return pawn.Position.GetFirstThing(pawn.Map, attachment);
-                        // }
-
-
                     }
                 }
             }
             return results;
-            //return results;
         }
     }
 }
