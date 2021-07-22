@@ -29,9 +29,11 @@ namespace GunNut
                 }
                 return result;
             });
+            this.FailOnBurningImmobile(TargetIndex.B);
+            this.FailOnBurningImmobile(TargetIndex.A);
             yield return Toils_Reserve.Reserve(TargetIndex.A, 1, -1, null);
             yield return Toils_Reserve.Reserve(TargetIndex.B, 1, -1, null);
-            yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.ClosestTouch).FailOnDespawnedNullOrForbidden(TargetIndex.B);
+            yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.ClosestTouch).FailOnDespawnedNullOrForbidden(TargetIndex.B).FailOnSomeonePhysicallyInteracting(TargetIndex.B); ;
             yield return new Toil
             {
                 initAction = delegate ()
@@ -46,12 +48,11 @@ namespace GunNut
 
             Toil findPlaceTarget = Toils_JobTransforms.SetTargetToIngredientPlaceCell(TargetIndex.A, TargetIndex.B, TargetIndex.B);
             yield return findPlaceTarget;
-            yield return Toils_Haul.PlaceHauledThingInCell(TargetIndex.B, findPlaceTarget, false, false);
+            yield return Toils_Haul.PlaceHauledThingInCell(TargetIndex.A, findPlaceTarget, false, false).FailOnDespawnedNullOrForbidden(TargetIndex.B).FailOnSomeonePhysicallyInteracting(TargetIndex.B);
             yield return new Toil
             {
                 initAction = delegate ()
                 {
-
                     base.GetActor().jobs.curJob.SetTarget(TargetIndex.B, this.attachmentIngredient);
                 },
                 defaultCompleteMode = ToilCompleteMode.Instant
@@ -107,10 +108,6 @@ namespace GunNut
             toil.PlaySustainerOrSound(() => SoundDef.Named(soundDefName));
             return toil;
         }
-
-
-
-        //public const TargetIndex WorkbenchIndex = TargetIndex.A;
 
         public const TargetIndex WeaponMasterIndex = TargetIndex.A;
 
