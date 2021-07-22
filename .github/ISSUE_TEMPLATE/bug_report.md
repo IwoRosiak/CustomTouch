@@ -1,9 +1,9 @@
 ---
 name: Bug report
-about: Create a report to help us improve
-title: '[BUG] - "TITLE OF THE BUG"'
-labels: ''
-assignees: ''
+about: Create a report to help us improve the mod
+title: "[BUG] - "
+labels: bug
+assignees: QarsoonMeel
 
 ---
 
@@ -17,7 +17,7 @@ Steps to reproduce the behavior:
 3. Scroll down to '....'
 4. See error
 
-**Expected behavior**
+**Expected behaviour**
 A clear and concise description of what you expected to happen.
 
 **Screenshots**
@@ -26,4 +26,4 @@ If applicable, add screenshots to help explain your problem.
 **Additional context**
 Add any other context about the problem here.
 
-PS - Thank you for taking time to report this. I do my best to fix any issues as soon as their arise :>
+PS - Thank you for taking time to report this. I do my best to fix any issues as soon as they arise :>
