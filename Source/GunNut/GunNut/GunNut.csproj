@@ -65,7 +65,7 @@
     <Compile Include="HarmonyPatches\Patch Helpers\GN_AdjustedAccuracyPatchHelper.cs" />
     <Compile Include="HarmonyPatches\GN_PrintPatch.cs" />
     <Compile Include="Defs\GN_WeaponDef.cs" />
-    <Compile Include="Slot.cs" />
+    <Compile Include="Comps\GN_Slot.cs" />
     <Compile Include="Defs\DefsOf\GN_SlotDefOf.cs" />
     <Compile Include="UI\GN_StatPart_Attachment.cs" />
     <Compile Include="Defs\DefsOf\GN_StatCegoryDefOf.cs" />

@@ -36,13 +36,12 @@ namespace GunNut.HarmonyPatches
             if (weapon.TryGetComp<GN_AttachmentComp>() != null && weapon.TryGetComp<GN_AttachmentComp>().Slots != null)
             {
                 float improvement = 1;
-                //string defName = this.parentStat.defName;
 
-                foreach (var slot in weapon.TryGetComp<GN_AttachmentComp>().Slots)
+                foreach (var attachment in weapon.TryGetComp<GN_AttachmentComp>().AttachmentsOnWeapon)
                 {
-                    if (slot.attachment != null)
+                    if (attachment != null)
                     {
-                        improvement += slot.attachment.damageIncrease;
+                        improvement += attachment.damageIncrease;
                     }
                 }
 

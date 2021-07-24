@@ -13,13 +13,11 @@ namespace GunNut
             if (verb.EquipmentSource.TryGetComp<GN_AttachmentComp>() != null)
             {
                 var weapon = verb.EquipmentSource.TryGetComp<GN_AttachmentComp>();
-                foreach (var slot in weapon.Slots)
+
+                foreach (var attachment in weapon.AttachmentsOnWeapon)
                 {
-                    if (slot.attachment != null)
-                    {
-                        Widgets.DrawTextureFitted(rect, slot.attachment.onWeaponGraphic.Graphic.MatSingle.mainTexture,
-                            this.iconDrawScale * 0.85f, this.iconProportions, this.iconTexCoords);
-                    }
+                    Widgets.DrawTextureFitted(rect, attachment.onWeaponGraphic.Graphic.MatSingle.mainTexture,
+                        this.iconDrawScale * 0.85f, this.iconProportions, this.iconTexCoords);
                 }
             }
         }

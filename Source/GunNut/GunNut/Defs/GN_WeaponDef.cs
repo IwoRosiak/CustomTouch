@@ -6,11 +6,6 @@ namespace GunNut
 {
     public class GN_WeaponDef : ThingDef
     {
-        protected override void ResolveIcon()
-        {
-            base.ResolveIcon();
-        }
-
         public override IEnumerable<StatDrawEntry> SpecialDisplayStats(StatRequest req)
         {
             foreach (StatDrawEntry statDrawEntry in base.SpecialDisplayStats(req))
@@ -18,40 +13,34 @@ namespace GunNut
                 yield return statDrawEntry;
             }
 
-            var slots = req.Thing.TryGetComp<GN_AttachmentComp>().Slots;
+            var weapon = req.Thing.TryGetComp<GN_AttachmentComp>();
 
-            if (slots != null)
+            float warmupImprove = 1.0f;
+
+            foreach (var attachment in weapon.AttachmentsOnWeapon)
             {
-                float warmupImprove = 1.0f;
-
-                foreach (var slot in req.Thing.TryGetComp<GN_AttachmentComp>().Slots)
-                {
-                    if (slot.attachment != null)
-                    {
-                        warmupImprove = warmupImprove - slot.attachment.warmupTimeReduction;
-                    }
-                }
-
-                foreach (var slot in slots)
-                {
-                    string attachmentName = "Default";
-                    string attachmentDesc = "Default";
-                    if (slot.attachment == null)
-                    {
-                        attachmentName = "Default";
-                        attachmentDesc = "Default " + slot.weaponPart.ToString() + " that came with the weapon.";
-                    }
-                    else
-                    {
-                        attachmentName = slot.attachment.label;
-                        attachmentDesc = slot.attachment.description;
-                    }
-
-                    yield return new StatDrawEntry(GN_StatCategoryDefOf.Attachments, slot.weaponPart.ToString(), attachmentName.CapitalizeFirst(), attachmentDesc, 5391, null, null, false);
-                }
-
-                yield return new StatDrawEntry(StatCategoryDefOf.Weapon, "Final Warmup: ", (warmupImprove * req.Thing.def.Verbs[0].warmupTime).ToString() + " s", "Final warmup time after applying attachments.", 100, null, null, false);
+                warmupImprove -= attachment.warmupTimeReduction;
             }
+
+            foreach (var slot in weapon.Slots)
+            {
+                string attachmentName;
+                string attachmentDesc;
+                if (slot.attachment != null)
+                {
+                    attachmentName = slot.attachment.label;
+                    attachmentDesc = slot.attachment.description;
+                }
+                else
+                {
+                    attachmentName = "Default";
+                    attachmentDesc = "Default " + slot.weaponPart.ToString() + " that came with the weapon.";
+                }
+
+                yield return new StatDrawEntry(GN_StatCategoryDefOf.Attachments, slot.weaponPart.ToString(), attachmentName.CapitalizeFirst(), attachmentDesc, 5391, null, null, false);
+            }
+
+            yield return new StatDrawEntry(StatCategoryDefOf.Weapon, "Final Warmup: ", (warmupImprove * req.Thing.def.Verbs[0].warmupTime).ToString() + " s", "Final warmup time after applying attachments.", 100, null, null, false);
         }
     }
 }

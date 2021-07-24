@@ -19,35 +19,32 @@ namespace GunNut
                 float improvement = 1;
                 string defName = this.parentStat.defName;
 
-                foreach (var slot in req.Thing.TryGetComp<GN_AttachmentComp>().Slots)
+                foreach (var attachment in req.Thing.TryGetComp<GN_AttachmentComp>().AttachmentsOnWeapon)
                 {
-                    if (slot.attachment != null)
+                    if (defName == "AccuracyLong")
                     {
-                        if (defName == "AccuracyLong")
+                        improvement += attachment.accuracyImproveLong;
+                    }
+                    else if (defName == "AccuracyMedium")
+                    {
+                        improvement += attachment.accuracyImproveMedium;
+                    }
+                    else if (defName == "AccuracyShort")
+                    {
+                        improvement += attachment.accuracyImproveShort;
+                    }
+                    else if (defName == "AccuracyTouch")
+                    {
+                        improvement += attachment.accuracyImproveTouch;
+                    }
+                    else if (defName == "RangedWeapon_DamageMultiplier")
+                    {
+                        foreach (var item in this.parentStat.parts)
                         {
-                            improvement += slot.attachment.accuracyImproveLong;
+                            Log.Message(item.ToString());
                         }
-                        else if (defName == "AccuracyMedium")
-                        {
-                            improvement += slot.attachment.accuracyImproveMedium;
-                        }
-                        else if (defName == "AccuracyShort")
-                        {
-                            improvement += slot.attachment.accuracyImproveShort;
-                        }
-                        else if (defName == "AccuracyTouch")
-                        {
-                            improvement += slot.attachment.accuracyImproveTouch;
-                        }
-                        else if (defName == "RangedWeapon_DamageMultiplier")
-                        {
-                            foreach (var item in this.parentStat.parts)
-                            {
-                                Log.Message(item.ToString());
-                            }
 
-                            improvement += slot.attachment.damageIncrease;
-                        }
+                        improvement += attachment.damageIncrease;
                     }
                 }
 
@@ -79,30 +76,27 @@ namespace GunNut
                     float improvement = 1;
                     string defName = this.parentStat.defName;
 
-                    foreach (var slot in req.Thing.TryGetComp<GN_AttachmentComp>().Slots)
+                    foreach (var attachment in req.Thing.TryGetComp<GN_AttachmentComp>().AttachmentsOnWeapon)
                     {
-                        if (slot.attachment != null)
+                        if (defName == "AccuracyLong")
                         {
-                            if (defName == "AccuracyLong")
-                            {
-                                improvement += slot.attachment.accuracyImproveLong;
-                            }
-                            else if (defName == "AccuracyMedium")
-                            {
-                                improvement += slot.attachment.accuracyImproveMedium;
-                            }
-                            else if (defName == "AccuracyShort")
-                            {
-                                improvement += slot.attachment.accuracyImproveShort;
-                            }
-                            else if (defName == "AccuracyTouch")
-                            {
-                                improvement += slot.attachment.accuracyImproveTouch;
-                            }
-                            else if (defName == "RangedWeapon_DamageMultiplier")
-                            {
-                                improvement += slot.attachment.damageIncrease;
-                            }
+                            improvement += attachment.accuracyImproveLong;
+                        }
+                        else if (defName == "AccuracyMedium")
+                        {
+                            improvement += attachment.accuracyImproveMedium;
+                        }
+                        else if (defName == "AccuracyShort")
+                        {
+                            improvement += attachment.accuracyImproveShort;
+                        }
+                        else if (defName == "AccuracyTouch")
+                        {
+                            improvement += attachment.accuracyImproveTouch;
+                        }
+                        else if (defName == "RangedWeapon_DamageMultiplier")
+                        {
+                            improvement += attachment.damageIncrease;
                         }
                     }
 
@@ -119,7 +113,6 @@ namespace GunNut
             return null;
         }
 
-        // Token: 0x06006708 RID: 26376 RVA: 0x0023D920 File Offset: 0x0023BB20
         private float QualityMultiplier(QualityCategory qc)
         {
             switch (qc)
@@ -150,7 +143,6 @@ namespace GunNut
             }
         }
 
-        // Token: 0x06006709 RID: 26377 RVA: 0x0023D988 File Offset: 0x0023BB88
         private float MaxGain(QualityCategory qc)
         {
             switch (qc)
@@ -181,51 +173,34 @@ namespace GunNut
             }
         }
 
-        // private float improvement = 1;
-
-        // Token: 0x04003F0C RID: 16140
         private bool applyToNegativeValues;
 
-        // Token: 0x04003F0D RID: 16141
         private float factorAwful = 1f;
 
-        // Token: 0x04003F0E RID: 16142
         private float factorPoor = 1f;
 
-        // Token: 0x04003F0F RID: 16143
         private float factorNormal = 1f;
 
-        // Token: 0x04003F10 RID: 16144
         private float factorGood = 1f;
 
-        // Token: 0x04003F11 RID: 16145
         private float factorExcellent = 1f;
 
-        // Token: 0x04003F12 RID: 16146
         private float factorMasterwork = 1f;
 
-        // Token: 0x04003F13 RID: 16147
         private float factorLegendary = 1f;
 
-        // Token: 0x04003F14 RID: 16148
         private float maxGainAwful = 9999999f;
 
-        // Token: 0x04003F15 RID: 16149
         private float maxGainPoor = 9999999f;
 
-        // Token: 0x04003F16 RID: 16150
         private float maxGainNormal = 9999999f;
 
-        // Token: 0x04003F17 RID: 16151
         private float maxGainGood = 9999999f;
 
-        // Token: 0x04003F18 RID: 16152
         private float maxGainExcellent = 9999999f;
 
-        // Token: 0x04003F19 RID: 16153
         private float maxGainMasterwork = 9999999f;
 
-        // Token: 0x04003F1A RID: 16154
         private float maxGainLegendary = 9999999f;
     }
 }

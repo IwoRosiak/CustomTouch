@@ -15,12 +15,9 @@ namespace GunNut
                 {
                     var weapon = thing.TryGetComp<GN_AttachmentComp>();
 
-                    foreach (var slot in weapon.Slots)
+                    foreach (var attachment in weapon.AttachmentsOnWeapon)
                     {
-                        if (slot.attachment != null)
-                        {
-                            slot.attachment.onWeaponGraphic.Graphic.Print(layer, thing, extraRotation);
-                        }
+                        attachment.onWeaponGraphic.Graphic.Print(layer, thing, extraRotation);
                     }
                 }
             }

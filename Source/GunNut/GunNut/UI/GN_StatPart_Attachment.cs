@@ -15,18 +15,15 @@ namespace GunNut
             if (req.Thing.TryGetComp<GN_AttachmentComp>() != null && req.Thing.TryGetComp<GN_AttachmentComp>().Slots != null)
             {
                 float improvement = 1;
-                foreach (var slot in req.Thing.TryGetComp<GN_AttachmentComp>().Slots)
+                foreach (var attachment in req.Thing.TryGetComp<GN_AttachmentComp>().AttachmentsOnWeapon)
                 {
-                    if (slot.attachment != null)
+                    if (this.parentStat.defName == "RangedWeapon_Cooldown")
                     {
-                        if (this.parentStat.defName == "RangedWeapon_Cooldown")
-                        {
-                            improvement -= slot.attachment.cooldownTimeReduction;
-                        }
-                        else if (this.parentStat.defName == "RangedWeapon_DamageMultiplier")
-                        {
-                            improvement += slot.attachment.damageIncrease;
-                        }
+                        improvement -= attachment.cooldownTimeReduction;
+                    }
+                    else if (this.parentStat.defName == "RangedWeapon_DamageMultiplier")
+                    {
+                        improvement += attachment.damageIncrease;
                     }
                 }
 
@@ -49,18 +46,15 @@ namespace GunNut
                 if (req.Thing.TryGetComp<GN_AttachmentComp>() != null && req.Thing.TryGetComp<GN_AttachmentComp>().Slots != null)
                 {
                     float improvement = 1;
-                    foreach (var slot in req.Thing.TryGetComp<GN_AttachmentComp>().Slots)
+                    foreach (var attachment in req.Thing.TryGetComp<GN_AttachmentComp>().AttachmentsOnWeapon)
                     {
-                        if (slot.attachment != null)
+                        if (this.parentStat.defName == "RangedWeapon_Cooldown")
                         {
-                            if (this.parentStat.defName == "RangedWeapon_Cooldown")
-                            {
-                                improvement -= slot.attachment.cooldownTimeReduction;
-                            }
-                            else if (this.parentStat.defName == "RangedWeapon_DamageMultiplier")
-                            {
-                                improvement += slot.attachment.damageIncrease;
-                            }
+                            improvement -= attachment.cooldownTimeReduction;
+                        }
+                        else if (this.parentStat.defName == "RangedWeapon_DamageMultiplier")
+                        {
+                            improvement += attachment.damageIncrease;
                         }
                     }
 

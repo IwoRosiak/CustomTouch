@@ -14,30 +14,23 @@ namespace GunNut
         {
             if (thing.TryGetComp<GN_AttachmentComp>() != null)
             {
-                Log.Message("ThingIcon Patch");
-
                 var weapon = thing.TryGetComp<GN_AttachmentComp>();
 
-                foreach (var slot in weapon.Slots)
+                foreach (var attachment in weapon.AttachmentsOnWeapon)
                 {
-                    if (slot.attachment != null)
+                    Texture texture = attachment.onWeaponGraphic.Graphic.MatSingle.mainTexture;
+
+                    Vector2 texProportions = new Vector2((float)texture.width, (float)attachment.uiIcon.height);
+                    Rect texCoords = new Rect(0f, 0f, 1f, 1f);
+                    if (attachment.onWeaponGraphic != null)
                     {
-                        Log.Message("Displaying attachment");
-
-                        Texture texture = slot.attachment.onWeaponGraphic.Graphic.MatSingle.mainTexture;
-
-                        Vector2 texProportions = new Vector2((float)texture.width, (float)slot.attachment.uiIcon.height);
-                        Rect texCoords = new Rect(0f, 0f, 1f, 1f);
-                        if (slot.attachment.onWeaponGraphic != null)
+                        texProportions = attachment.onWeaponGraphic.drawSize.RotatedBy(attachment.defaultPlacingRot);
+                        if (attachment.uiIconPath.NullOrEmpty() && attachment.onWeaponGraphic.linkFlags != LinkFlags.None)
                         {
-                            texProportions = slot.attachment.onWeaponGraphic.drawSize.RotatedBy(slot.attachment.defaultPlacingRot);
-                            if (slot.attachment.uiIconPath.NullOrEmpty() && slot.attachment.onWeaponGraphic.linkFlags != LinkFlags.None)
-                            {
-                                texCoords = new Rect(0f, 0.5f, 0.25f, 0.25f);
-                            }
+                            texCoords = new Rect(0f, 0.5f, 0.25f, 0.25f);
                         }
-                        Widgets.DrawTextureFitted(rect, texture, GenUI.IconDrawScale(slot.attachment) * 1, texProportions, texCoords, slot.attachment.uiIconAngle, null);
                     }
+                    Widgets.DrawTextureFitted(rect, texture, GenUI.IconDrawScale(attachment) * 1, texProportions, texCoords, attachment.uiIconAngle, null);
                 }
             }
         }

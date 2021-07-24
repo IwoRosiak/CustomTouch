@@ -16,13 +16,10 @@ namespace GunNut
             if (__instance.CasterIsPawn && __instance.verbProps.warmupTime > 0f && __instance.EquipmentSource.TryGetComp<GN_AttachmentComp>() != null)
             {
                 float warmupImprove = 1.0f;
-
-                foreach (var slot in __instance.EquipmentSource.TryGetComp<GN_AttachmentComp>().Slots)
+                var weapon = __instance.EquipmentSource.TryGetComp<GN_AttachmentComp>();
+                foreach (var attachment in weapon.AttachmentsOnWeapon)
                 {
-                    if (slot.attachment != null)
-                    {
-                        warmupImprove = warmupImprove - slot.attachment.warmupTimeReduction;
-                    }
+                    warmupImprove -= attachment.warmupTimeReduction;
                 }
 
                 ShootLine newShootLine;

@@ -26,7 +26,22 @@ namespace GunNut
             }
         }
 
-        public bool hasAnyAttachments
+        public IEnumerable<GN_AttachmentDef> AttachmentsOnWeapon
+        {
+            get
+            {
+                foreach (var slot in this.Slots)
+                {
+                    if (slot.attachment != null)
+                    {
+                        yield return slot.attachment;
+                    }
+                }
+                //yield break;
+            }
+        }
+
+        public bool HasAnyAttachments
         {
             get
             {
@@ -37,7 +52,6 @@ namespace GunNut
                         return true;
                     }
                 }
-
                 return false;
             }
         }
@@ -83,7 +97,7 @@ namespace GunNut
                 yield return fmo;
             }
 
-            if (this.hasAnyAttachments)
+            if (this.HasAnyAttachments)
             {
                 Action giveJob = delegate ()
                 {
