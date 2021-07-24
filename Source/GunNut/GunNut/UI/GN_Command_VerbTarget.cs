@@ -10,9 +10,9 @@ namespace GunNut
             base.DrawIcon(rect, buttonMat, parms);
             rect.position += new Vector2(this.iconOffset.x * rect.size.x, this.iconOffset.y * rect.size.y);
 
-            if (verb.EquipmentSource.TryGetComp<GN_ThingComp>() != null)
+            if (verb.EquipmentSource.TryGetComp<GN_AttachmentComp>() != null)
             {
-                var weapon = verb.EquipmentSource.TryGetComp<GN_ThingComp>();
+                var weapon = verb.EquipmentSource.TryGetComp<GN_AttachmentComp>();
                 foreach (var slot in weapon.Slots)
                 {
                     if (slot.attachment != null)

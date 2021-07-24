@@ -6,7 +6,6 @@ namespace GunNut
 {
     public class JobDriver_RemoveAttachment : JobDriver
     {
-
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
             return this.pawn.Reserve(this.job.targetA, this.job, 1, -1, null, errorOnFailed);
@@ -51,7 +50,7 @@ namespace GunNut
 
                 var weapon = curJob.GetTarget(TargetIndex.A).Thing;
 
-                var weaponComp = weapon.TryGetComp<GN_ThingComp>();
+                var weaponComp = weapon.TryGetComp<GN_AttachmentComp>();
 
                 foreach (var slot in weaponComp.Slots)
                 {
@@ -64,8 +63,6 @@ namespace GunNut
                         slot.attachment = null;
                     }
                 }
-
-
             });
             toil.handlingFacing = true;
             toil.defaultCompleteMode = ToilCompleteMode.Delay;
@@ -74,8 +71,6 @@ namespace GunNut
             toil.PlaySustainerOrSound(() => SoundDef.Named(soundDefName));
             return toil;
         }
-
-
 
         //public const TargetIndex WorkbenchIndex = TargetIndex.A;
 
@@ -89,7 +84,5 @@ namespace GunNut
 
         // Token: 0x0400000C RID: 12
         private Thing attachmentIngredient;
-
-
     }
 }

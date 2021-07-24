@@ -4,7 +4,7 @@ using Verse;
 
 namespace GunNut
 {
-    public class GN_ThingDef : ThingDef
+    public class GN_WeaponDef : ThingDef
     {
         protected override void ResolveIcon()
         {
@@ -18,16 +18,13 @@ namespace GunNut
                 yield return statDrawEntry;
             }
 
-            var slots = req.Thing.TryGetComp<GN_ThingComp>().Slots;
-
-            //var attachment = req.Thing.TryGetComp<GN_ThingComp>().Slots;
-            //var attachments = req.Thing.TryGetComp<GN_ThingComp>().Slots[0].attachment;
+            var slots = req.Thing.TryGetComp<GN_AttachmentComp>().Slots;
 
             if (slots != null)
             {
                 float warmupImprove = 1.0f;
 
-                foreach (var slot in req.Thing.TryGetComp<GN_ThingComp>().Slots)
+                foreach (var slot in req.Thing.TryGetComp<GN_AttachmentComp>().Slots)
                 {
                     if (slot.attachment != null)
                     {

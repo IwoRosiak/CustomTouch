@@ -8,17 +8,17 @@ using Verse.AI;
 
 namespace GunNut
 {
-    public class GN_ThingComp : ThingComp
+    public class GN_AttachmentComp : ThingComp
     {
-        public CompProperties_GunNut Props
+        public GN_AttachmentCompProperties Props
         {
             get
             {
-                return (CompProperties_GunNut)this.props;
+                return (GN_AttachmentCompProperties)this.props;
             }
         }
 
-        public List<Slot> SlotsProps
+        public List<GN_Slot> SlotsProps
         {
             get
             {
@@ -42,7 +42,7 @@ namespace GunNut
             }
         }
 
-        public List<Slot> Slots = new List<Slot>();
+        public List<GN_Slot> Slots = new List<GN_Slot>();
 
         public override void CompTick()
         {
@@ -55,7 +55,7 @@ namespace GunNut
 
         public override void PostExposeData()
         {
-            Scribe_Collections.Look<Slot>(ref Slots, "SlotsAttachment" + this.parent.ThingID, LookMode.Deep);
+            Scribe_Collections.Look<GN_Slot>(ref Slots, "SlotsAttachment" + this.parent.ThingID, LookMode.Deep);
         }
 
         private bool TryInstallAttachment(Pawn pawn, Thing attachment)

@@ -12,10 +12,10 @@ namespace GunNut
                 return;
             }
             float num = 0;
-            if (req.Thing.TryGetComp<GN_ThingComp>() != null && req.Thing.TryGetComp<GN_ThingComp>().Slots != null)
+            if (req.Thing.TryGetComp<GN_AttachmentComp>() != null && req.Thing.TryGetComp<GN_AttachmentComp>().Slots != null)
             {
                 float improvement = 1;
-                foreach (var slot in req.Thing.TryGetComp<GN_ThingComp>().Slots)
+                foreach (var slot in req.Thing.TryGetComp<GN_AttachmentComp>().Slots)
                 {
                     if (slot.attachment != null)
                     {
@@ -46,10 +46,10 @@ namespace GunNut
             {
                 string text = "";
 
-                if (req.Thing.TryGetComp<GN_ThingComp>() != null && req.Thing.TryGetComp<GN_ThingComp>().Slots != null)
+                if (req.Thing.TryGetComp<GN_AttachmentComp>() != null && req.Thing.TryGetComp<GN_AttachmentComp>().Slots != null)
                 {
                     float improvement = 1;
-                    foreach (var slot in req.Thing.TryGetComp<GN_ThingComp>().Slots)
+                    foreach (var slot in req.Thing.TryGetComp<GN_AttachmentComp>().Slots)
                     {
                         if (slot.attachment != null)
                         {

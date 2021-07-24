@@ -3,14 +3,14 @@ using Verse;
 
 namespace GunNut
 {
-    public class CompProperties_GunNut : CompProperties
+    public class GN_AttachmentCompProperties : CompProperties
     {
-        public CompProperties_GunNut()
+        public GN_AttachmentCompProperties()
         {
-            this.compClass = typeof(GN_ThingComp);
+            this.compClass = typeof(GN_AttachmentComp);
         }
 
-        public List<Slot> Slots
+        public List<GN_Slot> Slots
         {
             get
             {
@@ -18,7 +18,7 @@ namespace GunNut
             }
         }
 
-        public List<Slot> slots;
+        public List<GN_Slot> slots;
 
         public JobDef jobDefInstall;
 

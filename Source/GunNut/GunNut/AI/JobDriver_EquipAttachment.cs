@@ -6,7 +6,6 @@ namespace GunNut
 {
     public class JobDriver_EquipAttachment : JobDriver
     {
-
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
             return this.pawn.Reserve(this.job.targetA, this.job, 1, -1, null, errorOnFailed) && this.pawn.Reserve(this.job.targetB, this.job, 1, -1, null, errorOnFailed);
@@ -74,7 +73,7 @@ namespace GunNut
                 Pawn actor = toil.actor;
                 Job curJob = actor.jobs.curJob;
 
-                GN_ThingComp weapon = curJob.GetTarget(TargetIndex.A).Thing.TryGetComp<GN_ThingComp>();
+                GN_AttachmentComp weapon = curJob.GetTarget(TargetIndex.A).Thing.TryGetComp<GN_AttachmentComp>();
                 Thing attachment = curJob.GetTarget(TargetIndex.B).Thing;
 
                 foreach (var slot in weapon.Slots)
@@ -96,10 +95,7 @@ namespace GunNut
                         break;
                     }
                 }
-
-
             });
-
 
             toil.handlingFacing = true;
             toil.defaultCompleteMode = ToilCompleteMode.Delay;
@@ -119,7 +115,5 @@ namespace GunNut
 
         // Token: 0x0400000C RID: 12
         private Thing attachmentIngredient;
-
-
     }
 }

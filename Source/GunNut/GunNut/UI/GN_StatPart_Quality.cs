@@ -14,12 +14,12 @@ namespace GunNut
                 return;
             }
             float num;
-            if (req.Thing.TryGetComp<GN_ThingComp>() != null && req.Thing.TryGetComp<GN_ThingComp>().Slots != null)
+            if (req.Thing.TryGetComp<GN_AttachmentComp>() != null && req.Thing.TryGetComp<GN_AttachmentComp>().Slots != null)
             {
                 float improvement = 1;
                 string defName = this.parentStat.defName;
 
-                foreach (var slot in req.Thing.TryGetComp<GN_ThingComp>().Slots)
+                foreach (var slot in req.Thing.TryGetComp<GN_AttachmentComp>().Slots)
                 {
                     if (slot.attachment != null)
                     {
@@ -74,12 +74,12 @@ namespace GunNut
                 string text = "StatsReport_QualityMultiplier".Translate() + ": x" + this.QualityMultiplier(qc).ToStringPercent();
                 float num = this.MaxGain(qc);
 
-                if (req.Thing.TryGetComp<GN_ThingComp>() != null && req.Thing.TryGetComp<GN_ThingComp>().Slots != null)
+                if (req.Thing.TryGetComp<GN_AttachmentComp>() != null && req.Thing.TryGetComp<GN_AttachmentComp>().Slots != null)
                 {
                     float improvement = 1;
                     string defName = this.parentStat.defName;
 
-                    foreach (var slot in req.Thing.TryGetComp<GN_ThingComp>().Slots)
+                    foreach (var slot in req.Thing.TryGetComp<GN_AttachmentComp>().Slots)
                     {
                         if (slot.attachment != null)
                         {

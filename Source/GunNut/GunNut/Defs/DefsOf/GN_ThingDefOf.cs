@@ -12,10 +12,6 @@ namespace GunNut
 
         public enum WeaponPart { scope, magazine, stock, barrel }
 
-        //public static GN_ThingDef Gun_BoltActionRifle_Scope;
-
-        //public static GN_ThingDef Gun_BoltActionRifle;
-
         public static GN_AttachmentDef Scope;
 
         public static GN_AttachmentDef Chuj;

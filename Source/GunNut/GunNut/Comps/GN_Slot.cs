@@ -2,7 +2,7 @@
 
 namespace GunNut
 {
-    public class Slot : IExposable
+    public class GN_Slot : IExposable
     {
         public void ExposeData()
         {
