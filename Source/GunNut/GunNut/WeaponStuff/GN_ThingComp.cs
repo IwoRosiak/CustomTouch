@@ -8,40 +8,14 @@ using Verse.AI;
 
 namespace GunNut
 {
-    public class CompProperties_GunNut : CompProperties
-    {
-        public CompProperties_GunNut()
-        {
-            this.compClass = typeof(GN_ThingComp);
-        }
-
-        public List<Slot> Slots
-        {
-            get
-            {
-                return this.slots;
-            }
-        }
-
-        public List<Slot> slots;
-
-        //public List<string> attachments;
-
-        public JobDef jobDefInstall;
-
-        public JobDef jobDefRemove;
-
-    }
     public class GN_ThingComp : ThingComp
     {
         public CompProperties_GunNut Props
         {
             get
             {
-
                 return (CompProperties_GunNut)this.props;
             }
-
         }
 
         public List<Slot> SlotsProps
@@ -67,6 +41,7 @@ namespace GunNut
                 return false;
             }
         }
+
         public List<Slot> Slots = new List<Slot>();
 
         public override void CompTick()
@@ -90,20 +65,16 @@ namespace GunNut
                 Job job = new Job(this.Props.jobDefInstall, parent, attachment);
                 job.count = 1;
                 return pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
-
             }
             return false;
         }
 
         private void TryRemoveAttachment(Pawn pawn)
         {
-
             Job job = new Job(this.Props.jobDefRemove, parent);
             job.count = 1;
             pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
         }
-
-
 
         public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn pawn)
         {
@@ -166,7 +137,6 @@ namespace GunNut
             }
             yield break;
         }
-
 
         private List<Thing> FindAvailableAttachment(Pawn pawn, GN_ThingDefOf.WeaponPart desiredPart)
         {

@@ -9,7 +9,7 @@ using Verse;
 namespace GunNut
 {
     [StaticConstructorOnStartup]
-    static class HarmonyPatches
+    internal static class HarmonyPatches
     {
         static HarmonyPatches()
         {
@@ -26,7 +26,6 @@ namespace GunNut
         {
             if (__instance.data.texPath == thing.def.graphicData.texPath)
             {
-
                 if (thing.TryGetComp<GN_ThingComp>() != null)
                 {
                     var weapon = thing.TryGetComp<GN_ThingComp>();
@@ -35,10 +34,6 @@ namespace GunNut
                     {
                         if (slot.attachment != null)
                         {
-                            Log.Message("Displaying attachment");
-                            //var oldTextPath = slot.attachment.graphic.path;
-
-
                             slot.attachment.onWeaponGraphic.Graphic.Print(layer, thing, extraRotation);
                         }
                     }
@@ -124,8 +119,6 @@ namespace GunNut
                     if (slot.attachment != null)
                     {
                         Log.Message("Displaying attachment");
-                        //var oldTextPath = slot.attachment.graphic.path;
-                        //Widgets.ThingIconWorker(rect, thing.def, slot.attachment.uiIcon, slot.attachment.uiIconAngle, 1f);
 
                         Texture texture = slot.attachment.onWeaponGraphic.Graphic.MatSingle.mainTexture;
 
@@ -140,48 +133,8 @@ namespace GunNut
                             }
                         }
                         Widgets.DrawTextureFitted(rect, texture, GenUI.IconDrawScale(slot.attachment) * 1, texProportions, texCoords, slot.attachment.uiIconAngle, null);
-
-
                     }
                 }
-
-
-            }
-        }
-
-        //public static void ThingIcon(Rect rect, Thing thing, float alpha = 1f, Rot4? rot = null)
-    }
-
-
-
-    [HarmonyPatch(typeof(Verb), "TryStartCastOn")]
-    [HarmonyPatch(new Type[] { typeof(LocalTargetInfo), typeof(LocalTargetInfo), typeof(bool), typeof(bool), typeof(bool) })]
-    public static class FullCycleLOLPatch
-    {
-        [HarmonyPostfix]
-        public static void GN_AdjustFullCyclePostfix(Verb __instance, LocalTargetInfo castTarg)
-        {
-            if (__instance.CasterIsPawn && __instance.verbProps.warmupTime > 0f && __instance.EquipmentSource.TryGetComp<GN_ThingComp>() != null)
-            {
-                float warmupImprove = 1.0f;
-
-                foreach (var slot in __instance.EquipmentSource.TryGetComp<GN_ThingComp>().Slots)
-                {
-                    if (slot.attachment != null)
-                    {
-                        warmupImprove = warmupImprove - slot.attachment.warmupTimeReduction;
-                    }
-                }
-
-                ShootLine newShootLine;
-                if (!__instance.TryFindShootLineFromTo(__instance.caster.Position, castTarg, out newShootLine))
-                {
-                    return;
-                }
-                __instance.CasterPawn.Drawer.Notify_WarmingCastAlongLine(newShootLine, __instance.caster.Position);
-                float statValue = __instance.caster.GetStatValue(StatDefOf.AimingDelayFactor, true);
-                int ticks = (__instance.verbProps.warmupTime * warmupImprove * statValue).SecondsToTicks();
-                __instance.CasterPawn.stances.SetStance(new Stance_Warmup(ticks, castTarg, __instance));
             }
         }
     }
@@ -191,6 +144,7 @@ namespace GunNut
     public static class ExplanationPatch
     {
         private static readonly FieldInfo damageAmountBase = AccessTools.Field(typeof(ProjectileProperties), "damageAmountBase");
+
         [HarmonyPrefix]
         public static bool GN_GetDamageAmount_PostFix(ref int __result, ProjectileProperties __instance, Thing weapon, StringBuilder explanation)
         {
@@ -246,14 +200,12 @@ namespace GunNut
     }
 
     [HarmonyPatch(typeof(VerbTracker), "CreateVerbTargetCommand")]
-
     public static class TestPatch1
     {
-
         [HarmonyPrefix]
         public static bool GN_GetDamageAmount_PostFix(VerbTracker __instance, Thing ownerThing, Verb verb, ref Command_VerbTarget __result)
         {
-            GN_Command command_VerbTarget = new GN_Command();
+            GN_Command_VerbTarget command_VerbTarget = new GN_Command_VerbTarget();
             ThingStyleDef styleDef = ownerThing.StyleDef;
             command_VerbTarget.defaultDesc = ownerThing.LabelCap + ": " + ownerThing.def.description.CapitalizeFirst();
             command_VerbTarget.icon = ((styleDef != null && styleDef.UIIcon != null) ? styleDef.UIIcon : ownerThing.def.uiIcon);
@@ -291,8 +243,6 @@ namespace GunNut
             }
             __result = command_VerbTarget;
             return false;
-
         }
     }
-
 }

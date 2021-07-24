@@ -7,7 +7,6 @@ namespace GunNut
 {
     public class GN_StatPart_Quality : StatPart_Quality
     {
-        // Token: 0x06006706 RID: 26374 RVA: 0x0023D7E4 File Offset: 0x0023B9E4
         public override void TransformValue(StatRequest req, ref float val)
         {
             if (val <= 0f && !this.applyToNegativeValues)
@@ -17,7 +16,6 @@ namespace GunNut
             float num;
             if (req.Thing.TryGetComp<GN_ThingComp>() != null && req.Thing.TryGetComp<GN_ThingComp>().Slots != null)
             {
-
                 float improvement = 1;
                 string defName = this.parentStat.defName;
 
@@ -54,28 +52,18 @@ namespace GunNut
                 }
 
                 num = val * improvement * this.QualityMultiplier(req.QualityCategory) - val;
-                // num = val * this.QualityMultiplier(req.QualityCategory) - val;
-
             }
             else
             {
                 num = val * this.QualityMultiplier(req.QualityCategory) - val;
             }
 
-
-
-
-
             num = Mathf.Min(num, this.MaxGain(req.QualityCategory));
             val += num;
         }
 
-        // Token: 0x06006707 RID: 26375 RVA: 0x0023D834 File Offset: 0x0023BA34
         public override string ExplanationPart(StatRequest req)
         {
-
-
-
             if (req.HasThing && !this.applyToNegativeValues && req.Thing.GetStatValue(this.parentStat, true) <= 0f)
             {
                 return null;
@@ -86,10 +74,8 @@ namespace GunNut
                 string text = "StatsReport_QualityMultiplier".Translate() + ": x" + this.QualityMultiplier(qc).ToStringPercent();
                 float num = this.MaxGain(qc);
 
-
                 if (req.Thing.TryGetComp<GN_ThingComp>() != null && req.Thing.TryGetComp<GN_ThingComp>().Slots != null)
                 {
-
                     float improvement = 1;
                     string defName = this.parentStat.defName;
 
@@ -123,13 +109,10 @@ namespace GunNut
                     text += "\nMultiplier from attachments: x" + improvement.ToStringPercent();
                 }
 
-
-
                 if (num < 999999f)
                 {
                     text += "\n    (" + "StatsReport_MaxGain".Translate() + ": " + num.ToStringByStyle(this.parentStat.ToStringStyleUnfinalized, this.parentStat.toStringNumberSense) + ")";
                 }
-
 
                 return text;
             }
@@ -143,18 +126,25 @@ namespace GunNut
             {
                 case QualityCategory.Awful:
                     return this.factorAwful;
+
                 case QualityCategory.Poor:
                     return this.factorPoor;
+
                 case QualityCategory.Normal:
                     return this.factorNormal;
+
                 case QualityCategory.Good:
                     return this.factorGood;
+
                 case QualityCategory.Excellent:
                     return this.factorExcellent;
+
                 case QualityCategory.Masterwork:
                     return this.factorMasterwork;
+
                 case QualityCategory.Legendary:
                     return this.factorLegendary;
+
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -167,22 +157,30 @@ namespace GunNut
             {
                 case QualityCategory.Awful:
                     return this.maxGainAwful;
+
                 case QualityCategory.Poor:
                     return this.maxGainPoor;
+
                 case QualityCategory.Normal:
                     return this.maxGainNormal;
+
                 case QualityCategory.Good:
                     return this.maxGainGood;
+
                 case QualityCategory.Excellent:
                     return this.maxGainExcellent;
+
                 case QualityCategory.Masterwork:
                     return this.maxGainMasterwork;
+
                 case QualityCategory.Legendary:
                     return this.maxGainLegendary;
+
                 default:
                     throw new ArgumentOutOfRangeException();
             }
         }
+
         // private float improvement = 1;
 
         // Token: 0x04003F0C RID: 16140
@@ -229,87 +227,5 @@ namespace GunNut
 
         // Token: 0x04003F1A RID: 16154
         private float maxGainLegendary = 9999999f;
-    }
-
-    public class GN_StatPart_Attachment : StatPart
-    {
-        // Token: 0x06006706 RID: 26374 RVA: 0x0023D7E4 File Offset: 0x0023B9E4
-        public override void TransformValue(StatRequest req, ref float val)
-        {
-            if (val <= 0f)
-            {
-                return;
-            }
-            float num = 0;
-            if (req.Thing.TryGetComp<GN_ThingComp>() != null && req.Thing.TryGetComp<GN_ThingComp>().Slots != null)
-            {
-
-                float improvement = 1;
-                foreach (var slot in req.Thing.TryGetComp<GN_ThingComp>().Slots)
-                {
-                    if (slot.attachment != null)
-                    {
-                        if (this.parentStat.defName == "RangedWeapon_Cooldown")
-                        {
-                            improvement -= slot.attachment.cooldownTimeReduction;
-                        }
-                        else if (this.parentStat.defName == "RangedWeapon_DamageMultiplier")
-                        {
-                            improvement += slot.attachment.damageIncrease;
-                        }
-                    }
-                }
-
-                num = val * improvement - val;
-                // num = val * this.QualityMultiplier(req.QualityCategory) - val;
-
-            }
-
-
-
-
-
-
-            //num = Mathf.Min(num, this.MaxGain(req.QualityCategory));
-            val += num;
-        }
-
-        // Token: 0x06006707 RID: 26375 RVA: 0x0023D834 File Offset: 0x0023BA34
-        public override string ExplanationPart(StatRequest req)
-        {
-            if (req.HasThing && req.Thing.GetStatValue(this.parentStat, true) <= 0f)
-            {
-                return null;
-            }
-            if (req.HasThing)
-            {
-                string text = "";
-
-
-                if (req.Thing.TryGetComp<GN_ThingComp>() != null && req.Thing.TryGetComp<GN_ThingComp>().Slots != null)
-                {
-
-                    float improvement = 1;
-                    foreach (var slot in req.Thing.TryGetComp<GN_ThingComp>().Slots)
-                    {
-                        if (slot.attachment != null)
-                        {
-                            if (this.parentStat.defName == "RangedWeapon_Cooldown")
-                            {
-                                improvement -= slot.attachment.cooldownTimeReduction;
-                            }
-                            else if (this.parentStat.defName == "RangedWeapon_DamageMultiplier")
-                            {
-                                improvement += slot.attachment.damageIncrease;
-                            }
-                        }
-                    }
-
-                    text += "Multiplier from attachments: x" + improvement.ToStringPercent();
-                }
-                return text;
-            }
-            return null;
-        }
     }
 }
