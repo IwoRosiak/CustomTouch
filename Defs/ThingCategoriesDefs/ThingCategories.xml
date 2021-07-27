@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+  <ThingCategoryDef>
+    <defName>Attachment</defName>
+    <label>attachments for weapons</label>
+    <parent>Weapons</parent>
+  </ThingCategoryDef>
+</Defs>

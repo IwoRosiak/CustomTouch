@@ -110,14 +110,7 @@ namespace GunNut
             {
                 bool slotHasAttachment = slot.attachment != null;
 
-                List<Thing> CompatibleAttachments = FindAvailableAttachment(pawn, slot.weaponPart);
-                if (CompatibleAttachments.NullOrEmpty() == true)
-                {
-                    yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Haven't found any attachments for " + slot.weaponPart.ToString() + ".", null, MenuOptionPriority.Default, null, null, 0f, null, null), pawn, this.parent, "ReservedBy");
-                    continue;
-                }
-
-                foreach (var attachment in CompatibleAttachments)
+                foreach (var attachment in FindAvailableAttachmentForWeaponPart(pawn, slot.weaponPart))
                 {
                     if (!pawn.CanReach(this.parent, PathEndMode.Touch, Danger.Deadly, false, false, TraverseMode.ByPawn))
                     {
@@ -152,29 +145,36 @@ namespace GunNut
             yield break;
         }
 
-        private List<Thing> FindAvailableAttachment(Pawn pawn, GN_ThingDefOf.WeaponPart desiredPart)
+        private IEnumerable<Thing> FindAvailableAttachmentForWeaponPart(Pawn pawn, GN_ThingDefOf.WeaponPart desiredPart)
         {
-            List<Thing> results = new List<Thing>();
-
             if (pawn == null || !pawn.Spawned || pawn.Downed || pawn.Map == null)
             {
-                return null;
+                yield break;
             }
             else
             {
-                foreach (var attachment in GN_AttachmentList.allAttachments)
+                foreach (var attachmentDef in GetDefsOfAttachmentsOnMap(pawn.Map, desiredPart))
                 {
-                    if (attachment.weaponPart == desiredPart)
+                    if (attachmentDef.weaponPart == desiredPart)
                     {
-                        var closestAttachmentOfThisType = GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForDef(attachment), PathEndMode.InteractionCell, TraverseParms.For(pawn, pawn.NormalMaxDanger(), TraverseMode.ByPawn, false, false, false), 9999f, (Thing x) => !x.IsForbidden(pawn) && pawn.CanReserve(x, 1, -1, null, false), null, 0, -1, false, RegionType.Set_Passable, false);
-                        if (closestAttachmentOfThisType != null)
-                        {
-                            results.Add(closestAttachmentOfThisType);
-                        }
+                        yield return GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForDef(attachmentDef), PathEndMode.InteractionCell, TraverseParms.For(pawn, pawn.NormalMaxDanger(), TraverseMode.ByPawn, false, false, false), 9999f, (Thing x) => !x.IsForbidden(pawn) && pawn.CanReserve(x, 1, -1, null, false), null, 0, -1, false, RegionType.Set_Passable, false);
                     }
                 }
             }
-            return results;
+        }
+
+        private IEnumerable<GN_AttachmentDef> GetDefsOfAttachmentsOnMap(Map map, GN_ThingDefOf.WeaponPart desiredPart)
+        {
+            List<GN_AttachmentDef> uniqueAttachmentDefs = new List<GN_AttachmentDef>();
+
+            foreach (var thing in map.listerThings.ThingsInGroup(ThingRequestGroup.HaulableEver))
+            {
+                if (thing.def.category.ToString() == "Attachment" && !uniqueAttachmentDefs.Contains((GN_AttachmentDef)thing.def))
+                {
+                    uniqueAttachmentDefs.Add((GN_AttachmentDef)thing.def);
+                }
+            }
+            return uniqueAttachmentDefs;
         }
     }
 }

@@ -3,13 +3,12 @@
 
   <ThingDef Name="GunModBase" Abstract="True">
     <thingClass>ThingWithComps</thingClass>
-    <category>Item</category>
+    <category>Attachment</category>
     <resourceReadoutPriority>Middle</resourceReadoutPriority>
     <selectable>true</selectable>
     <altitudeLayer>Item</altitudeLayer>
     <stackLimit>1</stackLimit>
     <statBases>
-      <Beauty>-4</Beauty>
       <MarketValue>1.9</MarketValue>
       <Mass>0.5</Mass>
     </statBases>
