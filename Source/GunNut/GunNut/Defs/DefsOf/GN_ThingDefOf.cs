@@ -14,11 +14,11 @@ namespace GunNut
 
         public static GN_AttachmentDef Scope;
 
-        public static GN_AttachmentDef Chuj;
+        //public static GN_AttachmentDef Chuj;
 
-        public static GN_AttachmentDef Magazine;
+        //public static GN_AttachmentDef Magazine;
 
-        public static GN_AttachmentDef Stock;
+        //public static GN_AttachmentDef Stock;
 
         //public static GN_AttachmentDef MakeshiftScope;
 

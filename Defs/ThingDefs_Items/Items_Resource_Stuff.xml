@@ -3,7 +3,7 @@
 
   <ThingDef Name="GunModBase" Abstract="True">
     <thingClass>ThingWithComps</thingClass>
-    <category>Attachment</category>
+    <category>Item</category>
     <resourceReadoutPriority>Middle</resourceReadoutPriority>
     <selectable>true</selectable>
     <altitudeLayer>Item</altitudeLayer>
@@ -24,7 +24,7 @@
     <useHitPoints>false</useHitPoints>
     <healthAffectsPrice>false</healthAffectsPrice>
     <thingCategories>
-      <li>ResourcesRaw</li>
+      <li>Attachment</li>
     </thingCategories>
     <burnableByRecipe>false</burnableByRecipe>
     <smeltable>true</smeltable>

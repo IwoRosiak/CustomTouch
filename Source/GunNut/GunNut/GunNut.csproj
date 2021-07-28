@@ -74,7 +74,6 @@
     <Compile Include="UI\GN_Command_VerbTarget.cs" />
     <Compile Include="Defs\DefsOf\GN_ThingDefOf.cs" />
     <Compile Include="Comps\GN_AttachmentComp.cs" />
-    <Compile Include="Comps\GN_AttachmentList.cs" />
     <Compile Include="UI\GN_StatPart_Quality.cs" />
     <Compile Include="HarmonyPatches\GN_HarmonyInitialise.cs" />
     <Compile Include="AI\JobDriver_EquipAttachment.cs" />
