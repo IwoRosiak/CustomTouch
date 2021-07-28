@@ -55,7 +55,9 @@ namespace GunNut
                     {
                         matSingle = eq.Graphic.MatSingle;
                     }
-                    drawLoc.y += 1;
+
+                    drawLoc.y += 0.00001f;
+
                     Graphics.DrawMesh(mesh, drawLoc, Quaternion.AngleAxis(num, Vector3.up), attachment.onWeaponGraphic.Graphic.MatSingle, 0);
                 }
             }
