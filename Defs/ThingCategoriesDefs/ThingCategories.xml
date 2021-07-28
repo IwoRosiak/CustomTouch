@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+  <ThingCategoryDef>
+    <defName>Attachment</defName>
+    <label>weapon accessories</label>
+    <parent>Manufactured</parent>
+    <resourceReadoutRoot>true</resourceReadoutRoot>
+  </ThingCategoryDef>
+</Defs>

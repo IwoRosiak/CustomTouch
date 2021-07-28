@@ -6,7 +6,6 @@ namespace GunNut
 {
     public class JobDriver_EquipAttachment : JobDriver
     {
-
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
             return this.pawn.Reserve(this.job.targetA, this.job, 1, -1, null, errorOnFailed) && this.pawn.Reserve(this.job.targetB, this.job, 1, -1, null, errorOnFailed);
@@ -29,9 +28,11 @@ namespace GunNut
                 }
                 return result;
             });
+            this.FailOnBurningImmobile(TargetIndex.B);
+            this.FailOnBurningImmobile(TargetIndex.A);
             yield return Toils_Reserve.Reserve(TargetIndex.A, 1, -1, null);
             yield return Toils_Reserve.Reserve(TargetIndex.B, 1, -1, null);
-            yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.ClosestTouch).FailOnDespawnedNullOrForbidden(TargetIndex.B);
+            yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.ClosestTouch).FailOnDespawnedNullOrForbidden(TargetIndex.B).FailOnSomeonePhysicallyInteracting(TargetIndex.B);
             yield return new Toil
             {
                 initAction = delegate ()
@@ -42,16 +43,15 @@ namespace GunNut
             };
             yield return Toils_Haul.StartCarryThing(TargetIndex.B, false, false, false);
 
-            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.InteractionCell).FailOnDestroyedOrNull(TargetIndex.B);
+            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.InteractionCell).FailOnDestroyedOrNull(TargetIndex.B).FailOnSomeonePhysicallyInteracting(TargetIndex.B);
 
             Toil findPlaceTarget = Toils_JobTransforms.SetTargetToIngredientPlaceCell(TargetIndex.A, TargetIndex.B, TargetIndex.B);
             yield return findPlaceTarget;
-            yield return Toils_Haul.PlaceHauledThingInCell(TargetIndex.B, findPlaceTarget, false, false);
+            yield return Toils_Haul.PlaceHauledThingInCell(TargetIndex.A, findPlaceTarget, false, false).FailOnDespawnedNullOrForbidden(TargetIndex.B).FailOnSomeonePhysicallyInteracting(TargetIndex.B);
             yield return new Toil
             {
                 initAction = delegate ()
                 {
-
                     base.GetActor().jobs.curJob.SetTarget(TargetIndex.B, this.attachmentIngredient);
                 },
                 defaultCompleteMode = ToilCompleteMode.Instant
@@ -73,7 +73,7 @@ namespace GunNut
                 Pawn actor = toil.actor;
                 Job curJob = actor.jobs.curJob;
 
-                GN_ThingComp weapon = curJob.GetTarget(TargetIndex.A).Thing.TryGetComp<GN_ThingComp>();
+                GN_AttachmentComp weapon = curJob.GetTarget(TargetIndex.A).Thing.TryGetComp<GN_AttachmentComp>();
                 Thing attachment = curJob.GetTarget(TargetIndex.B).Thing;
 
                 foreach (var slot in weapon.Slots)
@@ -95,10 +95,7 @@ namespace GunNut
                         break;
                     }
                 }
-
-
             });
-
 
             toil.handlingFacing = true;
             toil.defaultCompleteMode = ToilCompleteMode.Delay;
@@ -107,10 +104,6 @@ namespace GunNut
             toil.PlaySustainerOrSound(() => SoundDef.Named(soundDefName));
             return toil;
         }
-
-
-
-        //public const TargetIndex WorkbenchIndex = TargetIndex.A;
 
         public const TargetIndex WeaponMasterIndex = TargetIndex.A;
 
@@ -122,7 +115,5 @@ namespace GunNut
 
         // Token: 0x0400000C RID: 12
         private Thing attachmentIngredient;
-
-
     }
 }

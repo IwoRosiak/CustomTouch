@@ -6,7 +6,6 @@ namespace GunNut
 {
     public class JobDriver_RemoveAttachment : JobDriver
     {
-
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
             return this.pawn.Reserve(this.job.targetA, this.job, 1, -1, null, errorOnFailed);
@@ -32,11 +31,10 @@ namespace GunNut
             yield return Toils_Reserve.Reserve(TargetIndex.A, 1, -1, null);
             yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.ClosestTouch).FailOnDespawnedNullOrForbidden(TargetIndex.A);
 
-            yield return JobDriver_RemoveAttachment.DoRemoveModFromWeapon(150, "Interact_ConstructMetal").FailOnDespawnedNullOrForbiddenPlacedThings().FailOnCannotTouch(TargetIndex.A, PathEndMode.InteractionCell);
-            yield break;
+            yield return DoRemoveAttachFromWeapon(150, "Interact_ConstructMetal").FailOnDespawnedNullOrForbiddenPlacedThings().FailOnCannotTouch(TargetIndex.A, PathEndMode.InteractionCell);
         }
 
-        public static Toil DoRemoveModFromWeapon(int duration, string soundDefName)
+        public static Toil DoRemoveAttachFromWeapon(int duration, string soundDefName)
         {
             Toil toil = new Toil();
             toil.tickAction = delegate ()
@@ -51,21 +49,17 @@ namespace GunNut
 
                 var weapon = curJob.GetTarget(TargetIndex.A).Thing;
 
-                var weaponComp = weapon.TryGetComp<GN_ThingComp>();
+                var weaponComp = weapon.TryGetComp<GN_AttachmentComp>();
 
                 foreach (var slot in weaponComp.Slots)
                 {
                     if (slot.attachment != null)
                     {
-                        //slot.attachment. Destroy(DestroyMode.Vanish);
-
-                        Thing thing = ThingMaker.MakeThing(slot.attachment, null);
-                        GenPlace.TryPlaceThing(thing, weapon.Position, weapon.Map, ThingPlaceMode.Near, null, null, default(Rot4));
+                        Thing attachment = ThingMaker.MakeThing(slot.attachment, null);
+                        GenPlace.TryPlaceThing(attachment, weapon.Position, weapon.Map, ThingPlaceMode.Near, null, null, default(Rot4));
                         slot.attachment = null;
                     }
                 }
-
-
             });
             toil.handlingFacing = true;
             toil.defaultCompleteMode = ToilCompleteMode.Delay;
@@ -75,21 +69,10 @@ namespace GunNut
             return toil;
         }
 
-
-
-        //public const TargetIndex WorkbenchIndex = TargetIndex.A;
-
         public const TargetIndex WeaponMasterIndex = TargetIndex.A;
 
         public const TargetIndex AttachmentIngredientIndex = TargetIndex.B;
 
         public const PathEndMode GotoWeaponPathEndMode = PathEndMode.ClosestTouch;
-
-        private Thing weaponMaster;
-
-        // Token: 0x0400000C RID: 12
-        private Thing attachmentIngredient;
-
-
     }
 }

@@ -9,7 +9,6 @@
     <altitudeLayer>Item</altitudeLayer>
     <stackLimit>1</stackLimit>
     <statBases>
-      <Beauty>-4</Beauty>
       <MarketValue>1.9</MarketValue>
       <Mass>0.5</Mass>
     </statBases>
@@ -25,10 +24,17 @@
     <useHitPoints>false</useHitPoints>
     <healthAffectsPrice>false</healthAffectsPrice>
     <thingCategories>
-      <li>ResourcesRaw</li>
+      <li>Attachment</li>
     </thingCategories>
     <burnableByRecipe>false</burnableByRecipe>
     <smeltable>true</smeltable>
+    <graphicData>
+      <!--<texPath>Things/Item/Equipment/WeaponRanged/scope</texPath>-->
+      <texPath>Things/Item/Health/HealthItem</texPath>
+      <color>(64, 64, 64)</color>
+      <drawSize>0.80</drawSize>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
   </ThingDef>
 
   <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
@@ -36,10 +42,14 @@
     <label>scope</label>
     <weaponPart>scope</weaponPart>
     <description>Scope. Can be used to modify weapons.</description>
-    <graphicData>
-      <texPath>Things/Item/Resource/Steel</texPath>
-      <graphicClass>Graphic_StackCount</graphicClass>
-    </graphicData>
+    <onWeaponGraphic>
+      <texPath>Things/Item/Equipment/WeaponRanged/scope</texPath>
+      <drawSize>0.80</drawSize>
+      <graphicClass>Graphic_Single</graphicClass>
+    </onWeaponGraphic>
+  <!--  <alternateGraphics>
+      <texPath>Things/Item/Equipment/WeaponRanged/scope</texPath>
+    </alternateGraphics> -->
     <cooldownTimeReduction>0.5</cooldownTimeReduction>
     <accuracyImproveLong>0.1</accuracyImproveLong>
     <accuracyImproveMedium>0.50</accuracyImproveMedium>
@@ -47,7 +57,6 @@
     <accuracyImproveTouch>0.30</accuracyImproveTouch>
     <warmupTimeReduction>0.9</warmupTimeReduction>
     <damageIncrease>5.0</damageIncrease>
-
   </ThingDef>
 
   <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
@@ -80,10 +89,11 @@
     <label>stock</label>
     <weaponPart>stock</weaponPart>
     <description>Scope. Can be used to modify weapons.</description>
-    <graphicData>
-      <texPath>Things/Item/Resource/Steel</texPath>
-      <graphicClass>Graphic_StackCount</graphicClass>
-    </graphicData>
+    <onWeaponGraphic>
+      <texPath>Things/Item/Equipment/WeaponRanged/stock</texPath>
+      <drawSize>0.80</drawSize>
+      <graphicClass>Graphic_Single</graphicClass>
+    </onWeaponGraphic>
   </ThingDef>
 
 </Defs>

@@ -57,18 +57,31 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Accuracy.cs" />
-    <Compile Include="GN_Comps.cs" />
-    <Compile Include="GN_Defs.cs" />
-    <Compile Include="GN_StatPart_Quality.cs" />
-    <Compile Include="GN_Verb_Shoot.cs" />
-    <Compile Include="HarmonyPatches.cs" />
-    <Compile Include="JobDriver_EquipAttachment.cs" />
-    <Compile Include="JobDriver_RemoveAttachment.cs" />
+    <Compile Include="HarmonyPatches\GN_GetDamageAmountPatch.cs" />
+    <Compile Include="HarmonyPatches\GN_TryStartCastOnPatch.cs" />
+    <Compile Include="HarmonyPatches\GN_ThingIconPatch.cs" />
+    <Compile Include="HarmonyPatches\GN_CreateVerbTargetCommand.cs" />
+    <Compile Include="HarmonyPatches\GN_DrawEquipmentAimingPatch.cs" />
+    <Compile Include="HarmonyPatches\Patch Helpers\GN_AdjustedAccuracyPatchHelper.cs" />
+    <Compile Include="HarmonyPatches\GN_PrintPatch.cs" />
+    <Compile Include="Defs\GN_WeaponDef.cs" />
+    <Compile Include="Comps\GN_Slot.cs" />
+    <Compile Include="UI\GN_StatPart_Attachment.cs" />
+    <Compile Include="Defs\DefsOf\GN_StatCegoryDefOf.cs" />
+    <Compile Include="Comps\GN_AttachmentCompProperties.cs" />
+    <Compile Include="Defs\GN_AttachmentDef.cs" />
+    <Compile Include="UI\GN_Command_VerbTarget.cs" />
+    <Compile Include="GN_WeaponParts.cs" />
+    <Compile Include="Comps\GN_AttachmentComp.cs" />
+    <Compile Include="UI\GN_StatPart_Quality.cs" />
+    <Compile Include="HarmonyPatches\GN_HarmonyInitialise.cs" />
+    <Compile Include="AI\JobDriver_EquipAttachment.cs" />
+    <Compile Include="AI\JobDriver_RemoveAttachment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="0Harmony.dll" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
