@@ -66,6 +66,15 @@ namespace GunNut
             }
         }
 
+        public override void PostPrintOnto(SectionLayer layer)
+        {
+            base.PostPrintOnto(layer);
+            foreach (var attachment in AttachmentsOnWeapon)
+            {
+                //attachment.onWeaponGraphic.Graphic.Print(layer, parent, 0f);
+            }
+        }
+
         public override void PostExposeData()
         {
             Scribe_Collections.Look<GN_Slot>(ref Slots, "SlotsAttachment" + this.parent.ThingID, LookMode.Deep);

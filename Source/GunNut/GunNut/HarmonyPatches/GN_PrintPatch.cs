@@ -1,4 +1,6 @@
 ﻿using HarmonyLib;
+using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace GunNut
@@ -7,18 +9,16 @@ namespace GunNut
     public static class GN_PrintPatch
     {
         [HarmonyPostfix]
-        public static void GN_PrintPostfix(Graphic __instance, Thing thing, SectionLayer layer, float extraRotation)
+        public static void GN_PrintPostfix(Graphic __instance, SectionLayer layer, Thing thing, float extraRotation)
         {
-            if (__instance.data.texPath == thing.def.graphicData.texPath)
+            if (thing.TryGetComp<GN_AttachmentComp>() != null)
             {
-                if (thing.TryGetComp<GN_AttachmentComp>() != null)
+                foreach (var attachment in thing.TryGetComp<GN_AttachmentComp>()?.AttachmentsOnWeapon)
                 {
-                    var weapon = thing.TryGetComp<GN_AttachmentComp>();
+                    Vector3 center = thing.TrueCenter() + __instance.DrawOffset(thing.Rotation);
+                    center.y += 0.0001f;
 
-                    foreach (var attachment in weapon.AttachmentsOnWeapon)
-                    {
-                        attachment.onWeaponGraphic.Graphic.Print(layer, thing, extraRotation);
-                    }
+                    Printer_Plane.PrintPlane(layer, center, __instance.drawSize, attachment.onWeaponGraphic.Graphic.MatSingle, extraRotation);
                 }
             }
         }
