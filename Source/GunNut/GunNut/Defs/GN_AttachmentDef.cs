@@ -4,7 +4,7 @@ namespace GunNut
 {
     public class GN_AttachmentDef : ThingDef
     {
-        public GN_ThingDefOf.WeaponPart weaponPart;
+        public GN_WeaponParts.WeaponPart weaponPart;
 
         public GraphicData onWeaponGraphic;
 
@@ -25,6 +25,5 @@ namespace GunNut
         public float accuracyImproveMedium = 0;
 
         public float accuracyImproveLong = 0;
-
     }
 }

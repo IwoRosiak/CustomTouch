@@ -10,7 +10,7 @@ namespace GunNut
             Scribe_Values.Look(ref weaponPart, "weaponPart");
         }
 
-        public GN_ThingDefOf.WeaponPart weaponPart;
+        public GN_WeaponParts.WeaponPart weaponPart;
         public GN_AttachmentDef attachment = null;
     }
 }

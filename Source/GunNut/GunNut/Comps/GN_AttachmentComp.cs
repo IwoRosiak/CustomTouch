@@ -37,7 +37,6 @@ namespace GunNut
                         yield return slot.attachment;
                     }
                 }
-                //yield break;
             }
         }
 
@@ -63,7 +62,7 @@ namespace GunNut
             base.CompTick();
             if (Slots == null || Slots.Count == 0)
             {
-                Slots = this.SlotsProps;
+                Slots = SlotsProps;
             }
         }
 
@@ -145,7 +144,7 @@ namespace GunNut
             yield break;
         }
 
-        private IEnumerable<Thing> FindAvailableAttachmentForWeaponPart(Pawn pawn, GN_ThingDefOf.WeaponPart desiredPart)
+        private IEnumerable<Thing> FindAvailableAttachmentForWeaponPart(Pawn pawn, GN_WeaponParts.WeaponPart desiredPart)
         {
             if (pawn == null || !pawn.Spawned || pawn.Downed || pawn.Map == null)
             {
@@ -163,13 +162,13 @@ namespace GunNut
             }
         }
 
-        private IEnumerable<GN_AttachmentDef> GetDefsOfAttachmentsOnMap(Map map, GN_ThingDefOf.WeaponPart desiredPart)
+        private IEnumerable<GN_AttachmentDef> GetDefsOfAttachmentsOnMap(Map map, GN_WeaponParts.WeaponPart desiredPart)
         {
             List<GN_AttachmentDef> uniqueAttachmentDefs = new List<GN_AttachmentDef>();
 
             foreach (var thing in map.listerThings.ThingsInGroup(ThingRequestGroup.HaulableEver))
             {
-                if (thing.def.category.ToString() == "Attachment" && !uniqueAttachmentDefs.Contains((GN_AttachmentDef)thing.def))
+                if (thing.def.thingCategories[0].ToString() == "Attachment" && !uniqueAttachmentDefs.Contains((GN_AttachmentDef)thing.def))
                 {
                     uniqueAttachmentDefs.Add((GN_AttachmentDef)thing.def);
                 }

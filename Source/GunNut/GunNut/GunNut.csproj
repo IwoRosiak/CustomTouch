@@ -66,13 +66,12 @@
     <Compile Include="HarmonyPatches\GN_PrintPatch.cs" />
     <Compile Include="Defs\GN_WeaponDef.cs" />
     <Compile Include="Comps\GN_Slot.cs" />
-    <Compile Include="Defs\DefsOf\GN_SlotDefOf.cs" />
     <Compile Include="UI\GN_StatPart_Attachment.cs" />
     <Compile Include="Defs\DefsOf\GN_StatCegoryDefOf.cs" />
     <Compile Include="Comps\GN_AttachmentCompProperties.cs" />
     <Compile Include="Defs\GN_AttachmentDef.cs" />
     <Compile Include="UI\GN_Command_VerbTarget.cs" />
-    <Compile Include="Defs\DefsOf\GN_ThingDefOf.cs" />
+    <Compile Include="GN_WeaponParts.cs" />
     <Compile Include="Comps\GN_AttachmentComp.cs" />
     <Compile Include="UI\GN_StatPart_Quality.cs" />
     <Compile Include="HarmonyPatches\GN_HarmonyInitialise.cs" />
