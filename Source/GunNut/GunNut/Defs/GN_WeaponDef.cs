@@ -12,7 +12,6 @@ namespace GunNut
             {
                 yield return statDrawEntry;
             }
-
             var weapon = req.Thing.TryGetComp<GN_AttachmentComp>();
 
             float warmupImprove = 1.0f;

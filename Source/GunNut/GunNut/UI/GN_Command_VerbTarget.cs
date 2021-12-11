@@ -5,7 +5,7 @@ namespace GunNut
 {
     public class GN_Command_VerbTarget : Command_VerbTarget
     {
-        protected override void DrawIcon(Rect rect, Material buttonMat, GizmoRenderParms parms)
+        public override void DrawIcon(Rect rect, Material buttonMat, GizmoRenderParms parms)
         {
             base.DrawIcon(rect, buttonMat, parms);
             rect.position += new Vector2(this.iconOffset.x * rect.size.x, this.iconOffset.y * rect.size.y);
