@@ -30,7 +30,7 @@ namespace GunNut
         {
             get
             {
-                foreach (var slot in this.Slots)
+                foreach (var slot in SlotsOnWeapon)
                 {
                     if (slot.attachment != null)
                     {
@@ -40,11 +40,25 @@ namespace GunNut
             }
         }
 
+        public IEnumerable<GN_Slot> SlotsOnWeapon
+        {
+            get
+            {
+                foreach (var slot in Slots)
+                {
+                    if (IR_Init.WeaponsCustomInfo[parent.def.defName].defaultActive[slot.weaponPart])
+                    {
+                        yield return slot;
+                    }
+                }
+            }
+        }
+
         public bool HasAnyAttachments
         {
             get
             {
-                foreach (var slot in this.Slots)
+                foreach (var slot in SlotsOnWeapon)
                 {
                     if (slot.attachment != null)
                     {
@@ -55,7 +69,7 @@ namespace GunNut
             }
         }
 
-        public List<GN_Slot> Slots = new List<GN_Slot>();
+        private List<GN_Slot> Slots = new List<GN_Slot>();
 
         public override void CompTick()
         {
@@ -114,7 +128,7 @@ namespace GunNut
                 yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Remove all attachments.", giveJob, MenuOptionPriority.Default, null, null, 0f, null, null), pawn, this.parent, "ReservedBy");
             }
 
-            foreach (var slot in this.Slots)
+            foreach (var slot in SlotsOnWeapon)
             {
                 bool slotHasAttachment = slot.attachment != null;
 

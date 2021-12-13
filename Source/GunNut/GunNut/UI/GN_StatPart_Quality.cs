@@ -14,7 +14,7 @@ namespace GunNut
                 return;
             }
             float num;
-            if (req.Thing.TryGetComp<GN_AttachmentComp>() != null && req.Thing.TryGetComp<GN_AttachmentComp>().Slots != null)
+            if (req.Thing.TryGetComp<GN_AttachmentComp>() != null && req.Thing.TryGetComp<GN_AttachmentComp>().SlotsOnWeapon != null)
             {
                 float improvement = 1;
                 string defName = this.parentStat.defName;
@@ -71,7 +71,7 @@ namespace GunNut
                 string text = "StatsReport_QualityMultiplier".Translate() + ": x" + this.QualityMultiplier(qc).ToStringPercent();
                 float num = this.MaxGain(qc);
 
-                if (req.Thing.TryGetComp<GN_AttachmentComp>() != null && req.Thing.TryGetComp<GN_AttachmentComp>().Slots != null)
+                if (req.Thing.TryGetComp<GN_AttachmentComp>() != null && req.Thing.TryGetComp<GN_AttachmentComp>().SlotsOnWeapon != null)
                 {
                     float improvement = 1;
                     string defName = this.parentStat.defName;

@@ -49,9 +49,11 @@ namespace GunNut
 
                 var weapon = curJob.GetTarget(TargetIndex.A).Thing;
 
+                weapon.Notify_ColorChanged();
+
                 var weaponComp = weapon.TryGetComp<GN_AttachmentComp>();
 
-                foreach (var slot in weaponComp.Slots)
+                foreach (var slot in weaponComp.SlotsOnWeapon)
                 {
                     if (slot.attachment != null)
                     {

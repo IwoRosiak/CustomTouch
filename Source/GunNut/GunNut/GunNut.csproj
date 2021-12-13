@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Data\IR_Init.cs" />
     <Compile Include="Data\IR_SlotsData.cs" />
+    <Compile Include="HarmonyPatches\Base functionality\IR_SpecialDisplayStatsPatch.cs" />
     <Compile Include="HarmonyPatches\GN_GetDamageAmountPatch.cs" />
     <Compile Include="HarmonyPatches\GN_TryStartCastOnPatch.cs" />
     <Compile Include="HarmonyPatches\GN_ThingIconPatch.cs" />
@@ -68,6 +69,8 @@
     <Compile Include="HarmonyPatches\GN_PrintPatch.cs" />
     <Compile Include="Defs\GN_WeaponDef.cs" />
     <Compile Include="Comps\GN_Slot.cs" />
+    <Compile Include="Data\ModSettings\IR_Settings.cs" />
+    <Compile Include="Data\ModSettings\IR_GunNutMod.cs" />
     <Compile Include="UI\GN_StatPart_Attachment.cs" />
     <Compile Include="Defs\DefsOf\GN_StatCegoryDefOf.cs" />
     <Compile Include="Comps\GN_AttachmentCompProperties.cs" />
@@ -84,8 +87,6 @@
   <ItemGroup>
     <Content Include="0Harmony.dll" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="HarmonyPatches\Base functionality\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

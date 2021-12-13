@@ -33,7 +33,7 @@ namespace GunNut.HarmonyPatches
                 num = __instance.damageDef.defaultDamage;
             }
 
-            if (weapon.TryGetComp<GN_AttachmentComp>() != null && weapon.TryGetComp<GN_AttachmentComp>().Slots != null)
+            if (weapon.TryGetComp<GN_AttachmentComp>() != null && weapon.TryGetComp<GN_AttachmentComp>().SlotsOnWeapon != null)
             {
                 float improvement = 1;
 

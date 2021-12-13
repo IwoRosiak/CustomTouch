@@ -76,7 +76,7 @@ namespace GunNut
                 GN_AttachmentComp weapon = curJob.GetTarget(TargetIndex.A).Thing.TryGetComp<GN_AttachmentComp>();
                 Thing attachment = curJob.GetTarget(TargetIndex.B).Thing;
 
-                foreach (var slot in weapon.Slots)
+                foreach (var slot in weapon.SlotsOnWeapon)
                 {
                     var attachmentDef = (GN_AttachmentDef)attachment.def;
                     if (slot.weaponPart == attachmentDef.weaponPart)

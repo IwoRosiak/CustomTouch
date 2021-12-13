@@ -1,9 +1,6 @@
-﻿using RimWorld;
-using System.Collections.Generic;
-using Verse;
-
-namespace GunNut
+﻿namespace GunNut
 {
+    /*
     public class GN_WeaponDef : ThingDef
     {
         public override IEnumerable<StatDrawEntry> SpecialDisplayStats(StatRequest req)
@@ -21,7 +18,7 @@ namespace GunNut
                 warmupImprove -= attachment.warmupTimeReduction;
             }
 
-            foreach (var slot in weapon.Slots)
+            foreach (var slot in weapon.SlotsOnWeapon)
             {
                 string attachmentName;
                 string attachmentDesc;
@@ -42,4 +39,5 @@ namespace GunNut
             yield return new StatDrawEntry(StatCategoryDefOf.Weapon, "Final Warmup: ", (warmupImprove * req.Thing.def.Verbs[0].warmupTime).ToString() + " s", "Final warmup time after applying attachments.", 100, null, null, false);
         }
     }
+    */
 }
