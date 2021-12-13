@@ -2,20 +2,6 @@
 <Patch>
   <Operation Class="PatchOperationSequence">
     <operations>
-
-      <li Class="PatchOperationAdd">
-        <xpath>*/ThingDef[@ParentName="BaseHumanMakeableGun"]</xpath>
-    	  <value>
-          <tickerType>Normal</tickerType>
-        </value>
-      </li>
-<!--
-      <li Class="PatchOperationAttributeSet">
-        <xpath>*/ThingDef[@ParentName="BaseHumanMakeableGun"]</xpath>
-        <attribute>Class</attribute>
-        <value>GunNut.GN_WeaponDef</value>
-      </li>
--->
       <li Class="PatchOperationAdd">
         <xpath>*/ThingDef[@ParentName="BaseHumanMakeableGun"]</xpath>
         <value>
@@ -42,7 +28,6 @@
           </comps>
         </value>
       </li>
-
     </operations>
   </Operation>
 

@@ -40,10 +40,20 @@ namespace GunNut
             }
         }
 
+        public void InitSlots()
+        {
+            Slots = SlotsProps;
+        }
+
         public IEnumerable<GN_Slot> SlotsOnWeapon
         {
             get
             {
+                if (Slots.NullOrEmpty())
+                {
+                    InitSlots();
+                }
+
                 foreach (var slot in Slots)
                 {
                     if (IR_Init.WeaponsCustomInfo[parent.def.defName].defaultActive[slot.weaponPart])
@@ -70,24 +80,6 @@ namespace GunNut
         }
 
         private List<GN_Slot> Slots = new List<GN_Slot>();
-
-        public override void CompTick()
-        {
-            base.CompTick();
-            if (Slots == null || Slots.Count == 0)
-            {
-                Slots = SlotsProps;
-            }
-        }
-
-        public override void PostPrintOnto(SectionLayer layer)
-        {
-            base.PostPrintOnto(layer);
-            foreach (var attachment in AttachmentsOnWeapon)
-            {
-                //attachment.onWeaponGraphic.Graphic.Print(layer, parent, 0f);
-            }
-        }
 
         public override void PostExposeData()
         {
