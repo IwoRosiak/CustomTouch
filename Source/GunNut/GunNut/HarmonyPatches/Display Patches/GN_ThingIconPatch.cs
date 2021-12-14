@@ -21,7 +21,10 @@ namespace GunNut
                     Texture texture = attachment.onWeaponGraphic.Graphic.MatSingle.mainTexture;
 
                     Vector2 texProportions = new Vector2((float)texture.width, (float)attachment.uiIcon.height);
-                    Rect texCoords = new Rect(0f, 0f, 1f, 1f);
+
+                    Vector2 offset = IR_Init.GetPos(thing.def.defName, attachment.weaponPart);
+
+                    Rect texCoords = new Rect(0f + offset.y, 0f - offset.x, 1f + offset.y, 1f + offset.x);
                     if (attachment.onWeaponGraphic != null)
                     {
                         texProportions = attachment.onWeaponGraphic.drawSize.RotatedBy(attachment.defaultPlacingRot);

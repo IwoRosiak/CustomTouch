@@ -62,11 +62,11 @@
     <Compile Include="HarmonyPatches\Base functionality\IR_SpecialDisplayStatsPatch.cs" />
     <Compile Include="HarmonyPatches\GN_GetDamageAmountPatch.cs" />
     <Compile Include="HarmonyPatches\GN_TryStartCastOnPatch.cs" />
-    <Compile Include="HarmonyPatches\GN_ThingIconPatch.cs" />
+    <Compile Include="HarmonyPatches\Display Patches\GN_ThingIconPatch.cs" />
     <Compile Include="HarmonyPatches\GN_CreateVerbTargetCommand.cs" />
-    <Compile Include="HarmonyPatches\GN_DrawEquipmentAimingPatch.cs" />
+    <Compile Include="HarmonyPatches\Display Patches\GN_DrawEquipmentAimingPatch.cs" />
     <Compile Include="HarmonyPatches\Patch Helpers\GN_AdjustedAccuracyPatchHelper.cs" />
-    <Compile Include="HarmonyPatches\GN_PrintPatch.cs" />
+    <Compile Include="HarmonyPatches\Display Patches\GN_PrintPatch.cs" />
     <Compile Include="Defs\GN_WeaponDef.cs" />
     <Compile Include="Comps\GN_Slot.cs" />
     <Compile Include="Data\ModSettings\IR_Settings.cs" />

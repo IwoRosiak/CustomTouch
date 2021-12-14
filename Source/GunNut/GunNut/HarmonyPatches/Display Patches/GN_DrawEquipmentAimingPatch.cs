@@ -19,6 +19,7 @@ namespace GunNut
                 {
                     float num = aimAngle - 90f;
                     Mesh mesh;
+
                     if (aimAngle > 20f && aimAngle < 160f)
                     {
                         mesh = MeshPool.plane10;
@@ -58,7 +59,11 @@ namespace GunNut
 
                     drawLoc.y += 0.00001f;
 
-                    Graphics.DrawMesh(mesh, drawLoc, Quaternion.AngleAxis(num, Vector3.up), attachment.onWeaponGraphic.Graphic.MatSingle, 0);
+                    Vector2 offset = IR_Init.GetPos(eq.def.defName, attachment.weaponPart).RotatedBy(num);
+
+                    Vector3 finalOffset = new Vector3(offset.y, 0, offset.x);
+
+                    Graphics.DrawMesh(mesh, drawLoc + finalOffset, Quaternion.AngleAxis(num, Vector3.up), attachment.onWeaponGraphic.Graphic.MatSingle, 0);
                 }
             }
         }

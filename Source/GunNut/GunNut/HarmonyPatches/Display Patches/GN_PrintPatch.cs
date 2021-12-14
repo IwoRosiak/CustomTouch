@@ -17,7 +17,7 @@ namespace GunNut
                 {
                     if (slot.attachment != null)
                     {
-                        Vector2 offsetV2 = IR_Init.WeaponsCustomInfo[thing.def.defName].defaultPlacement[slot.weaponPart];
+                        Vector2 offsetV2 = IR_Init.GetPos(thing.def.defName, slot.weaponPart);
 
                         Log.Message("Not Rotated X: " + offsetV2.x);
 

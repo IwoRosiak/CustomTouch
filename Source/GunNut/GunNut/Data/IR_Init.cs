@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 using Verse;
 
 namespace GunNut
@@ -6,6 +7,16 @@ namespace GunNut
     [StaticConstructorOnStartup]
     public static class IR_Init
     {
+        public static Vector2 GetPos(string name, GN_WeaponParts.WeaponPart part)
+        {
+            return WeaponsCustomInfo[name].defaultPlacement[part];
+        }
+
+        public static bool IsActive(string name, GN_WeaponParts.WeaponPart part)
+        {
+            return WeaponsCustomInfo[name].defaultActive[part];
+        }
+
         static IR_Init()
         {
             WeaponsCustomInfo = new Dictionary<string, IR_SlotsData>();

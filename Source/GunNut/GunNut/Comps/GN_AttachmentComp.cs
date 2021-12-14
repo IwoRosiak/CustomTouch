@@ -2,6 +2,7 @@
 using RimWorld.Planet;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Verse;
 using Verse.AI;
@@ -42,8 +43,14 @@ namespace GunNut
 
         public void InitSlots()
         {
-            Slots = SlotsProps;
+            GN_Slot[] array = new GN_Slot[SlotsProps.Count()];
+
+            SlotsProps.CopyTo(array);
+
+            Slots.AddRange(array);
         }
+
+        private List<GN_Slot> Slots = new List<GN_Slot>();
 
         public IEnumerable<GN_Slot> SlotsOnWeapon
         {
@@ -56,7 +63,7 @@ namespace GunNut
 
                 foreach (var slot in Slots)
                 {
-                    if (IR_Init.WeaponsCustomInfo[parent.def.defName].defaultActive[slot.weaponPart])
+                    if (IR_Init.IsActive(parent.def.defName, slot.weaponPart))
                     {
                         yield return slot;
                     }
@@ -78,8 +85,6 @@ namespace GunNut
                 return false;
             }
         }
-
-        private List<GN_Slot> Slots = new List<GN_Slot>();
 
         public override void PostExposeData()
         {
