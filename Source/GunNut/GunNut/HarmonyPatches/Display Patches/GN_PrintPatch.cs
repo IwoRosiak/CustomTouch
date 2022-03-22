@@ -13,11 +13,23 @@ namespace GunNut
         {
             if (thing.TryGetComp<GN_AttachmentComp>() != null)
             {
+                /* Material mat;
+
+                 MaterialRequest req2 = default(MaterialRequest);
+                 req2.mainTex = IR_Textures.frame;
+                 req2.shader = ShaderDatabase.Cutout;
+                 mat = MaterialPool.MatFrom(req2);
+
+                 Vector3 centerFrame = thing.TrueCenter() + __instance.DrawOffset(thing.Rotation);
+                 centerFrame.y += 0.0001f;
+
+                 Printer_Plane.PrintPlane(layer, centerFrame, __instance.drawSize, mat, extraRotation);*/
+
                 foreach (var slot in thing.TryGetComp<GN_AttachmentComp>()?.SlotsOnWeapon)
                 {
                     if (slot.attachment != null)
                     {
-                        Vector2 offsetV2 = IR_Init.GetPos(thing.def.defName, slot.weaponPart);
+                        Vector2 offsetV2 = IR_Settings.GetPos(thing.def.defName, slot.weaponPart);
 
                         Log.Message("Not Rotated X: " + offsetV2.x);
 
@@ -30,9 +42,9 @@ namespace GunNut
                         Vector3 center = thing.TrueCenter() + __instance.DrawOffset(thing.Rotation) + offset;
 
                         Log.Message("Center: " + center.ToString());
-                        center.y += 0.0001f;
+                        center.y += 0.01f;
 
-                        Printer_Plane.PrintPlane(layer, center, __instance.drawSize, slot.attachment.onWeaponGraphic.Graphic.MatSingle, extraRotation);
+                        Printer_Plane.PrintPlane(layer, center, __instance.drawSize * slot.attachment.onWeaponGraphic.Graphic.drawSize, slot.attachment.onWeaponGraphic.Graphic.MatSingle, extraRotation);
                     }
                 }
             }

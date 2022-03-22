@@ -10,7 +10,13 @@ namespace GunNut
             scope,
             magazine,
             stock,
-            barrel
+            barrel,
+            barrelExt,
+            receiver,
+            grip,
+            foregrip,
+            undermount,
+            debug
         }
     }
 }

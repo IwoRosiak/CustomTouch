@@ -62,15 +62,75 @@
   <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
     <defName>Chuj</defName>
     <label>chujek</label>
+    <weaponPart>debug</weaponPart>
+    <description>Scope. Can be used to modify weapons.</description>
+    <onWeaponGraphic>
+      <texPath>frame</texPath>
+      <drawSize>1</drawSize>
+      <graphicClass>Graphic_Single</graphicClass>
+    </onWeaponGraphic>
+  </ThingDef>
+
+  <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+    <defName>Bolt_Action_Magazine</defName>
+    <label>Bolt-Action Magazine</label>
+    <weaponPart>magazine</weaponPart>
+    <description>Scope. Can be used to modify weapons.</description>
+    <onWeaponGraphic>
+      <texPath>Things/Item/Equipment/WeaponRanged/bolt_action_magazine</texPath>
+      <drawSize>0.80</drawSize>
+      <graphicClass>Graphic_Single</graphicClass>
+    </onWeaponGraphic>
+    <cooldownTimeReduction>0.2</cooldownTimeReduction>
+  </ThingDef>
+
+  <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+    <defName>Makeshift_Stock</defName>
+    <label>Makeshift Stock</label>
     <weaponPart>stock</weaponPart>
     <description>Scope. Can be used to modify weapons.</description>
+    <onWeaponGraphic>
+      <texPath>Things/Item/Equipment/WeaponRanged/stock</texPath>
+      <drawSize>0.80</drawSize>
+      <graphicClass>Graphic_Single</graphicClass>
+    </onWeaponGraphic>
+  </ThingDef>
 
 
-    <graphicData>
-      <texPath>Things/Item/Resource/Steel</texPath>
-      <graphicClass>Graphic_StackCount</graphicClass>
-    </graphicData>
+  <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+    <defName>Makeshift_Barrel</defName>
+    <label>Makeshift Stock</label>
+    <weaponPart>barrel</weaponPart>
+    <description>Scope. Can be used to modify weapons.</description>
+    <onWeaponGraphic>
+      <texPath>Things/Item/Equipment/WeaponRanged/scope</texPath>
+      <drawSize>0.80</drawSize>
+      <graphicClass>Graphic_Single</graphicClass>
+    </onWeaponGraphic>
+  </ThingDef>
 
+  <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+    <defName>Manufactured_Compensator</defName>
+    <label>Compensator</label>
+    <weaponPart>barrelExt</weaponPart>
+    <description>Compensator which fits most weapons. It reduces recoil. Especially effective on burst shot weapons.</description>
+    <onWeaponGraphic>
+      <texPath>Attachments/Industrial/compensator</texPath>
+      <drawSize>0.5</drawSize>
+      <graphicClass>Graphic_Single</graphicClass>
+    </onWeaponGraphic>
+  </ThingDef>
+
+  <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+    <defName>Makeshift_Receiver</defName>
+    <label>Makeshift Receiver</label>
+    <weaponPart>receiver</weaponPart>
+    <description>Scope. Can be used to modify weapons.</description>
+    <onWeaponGraphic>
+      <texPath>Things/Item/Equipment/WeaponRanged/scope</texPath>
+      <drawSize>0.80</drawSize>
+      <graphicClass>Graphic_Single</graphicClass>
+    </onWeaponGraphic>
   </ThingDef>
 
   <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">

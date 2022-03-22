@@ -22,7 +22,7 @@ namespace GunNut
 
                     Vector2 texProportions = new Vector2((float)texture.width, (float)attachment.uiIcon.height);
 
-                    Vector2 offset = IR_Init.GetPos(thing.def.defName, attachment.weaponPart);
+                    Vector2 offset = IR_Settings.GetPos(thing.def.defName, attachment.weaponPart);
 
                     Rect texCoords = new Rect(0f + offset.y, 0f - offset.x, 1f + offset.y, 1f + offset.x);
                     if (attachment.onWeaponGraphic != null)

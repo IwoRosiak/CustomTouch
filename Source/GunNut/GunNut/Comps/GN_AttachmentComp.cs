@@ -43,6 +43,8 @@ namespace GunNut
 
         public void InitSlots()
         {
+            Slots = new List<GN_Slot>();
+
             GN_Slot[] array = new GN_Slot[SlotsProps.Count()];
 
             SlotsProps.CopyTo(array);
@@ -60,10 +62,9 @@ namespace GunNut
                 {
                     InitSlots();
                 }
-
                 foreach (var slot in Slots)
                 {
-                    if (IR_Init.IsActive(parent.def.defName, slot.weaponPart))
+                    if (IR_Settings.IsActive(parent.def.defName, slot.weaponPart))
                     {
                         yield return slot;
                     }

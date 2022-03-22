@@ -2,10 +2,77 @@
 <Patch>
   <Operation Class="PatchOperationSequence">
     <operations>
+      <li Class="PatchOperationConditional">
+        <xpath>*/ThingDef[@ParentName="BaseHumanMakeableGun"]/comps</xpath>
+        <nomatch Class="PatchOperationAdd">
+          <xpath>*/ThingDef[@ParentName="BaseHumanMakeableGun"]</xpath>
+          <value>
+            <comps>
+              <li Class="GunNut.GN_AttachmentCompProperties">
+                <jobDefInstall>EquipAttachment</jobDefInstall>
+                <jobDefRemove>RemoveAttachment</jobDefRemove>
+                <slots>
+                </slots>
+              </li>
+            </comps>
+          </value>
+        </nomatch>
+        <match Class="PatchOperationAdd">
+          <xpath>*/ThingDef[@ParentName="BaseHumanMakeableGun"]/comps</xpath>
+          <value>
+              <li Class="GunNut.GN_AttachmentCompProperties">
+                <jobDefInstall>EquipAttachment</jobDefInstall>
+                <jobDefRemove>RemoveAttachment</jobDefRemove>
+                <slots>
+                </slots>
+              </li>
+          </value>
+        </match>
+      </li>
+
       <li Class="PatchOperationAdd">
-        <xpath>*/ThingDef[@ParentName="BaseHumanMakeableGun"]</xpath>
+        <xpath>*/ThingDef[defName="Gun_BoltActionRifle"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]/slots</xpath>
         <value>
-          <comps>
+            <li>
+              <weaponPart>scope</weaponPart>
+              <isActive>true</isActive>
+              <defaultPosition>(0.17,0)</defaultPosition>
+            </li>
+            <li>
+              <weaponPart>magazine</weaponPart>
+              <isActive>true</isActive>
+              <defaultPosition>(-0.1,-0.1)</defaultPosition>
+            </li>
+            <li>
+              <weaponPart>stock</weaponPart>
+              <isActive>true</isActive>
+              <defaultPosition>(0,-0.35)</defaultPosition>
+            </li>
+            <li>
+              <weaponPart>barrelExt</weaponPart>
+              <isActive>true</isActive>
+              <defaultPosition>(0,0.55)</defaultPosition>
+            </li>
+            <li>
+              <weaponPart>receiver</weaponPart>
+              <isActive>true</isActive>
+              <defaultPosition>(0,0)</defaultPosition>
+            </li>
+            <li>
+              <weaponPart>undermount</weaponPart>
+              <defaultPosition>(-0.1,0.3)</defaultPosition>
+              <isActive>true</isActive>
+            </li>
+            <li>
+              <weaponPart>debug</weaponPart>
+              <isActive>true</isActive>
+            </li>
+        </value>
+      </li>
+<!--
+      <li Class="PatchOperationAdd">
+        <xpath>*/ThingDef[defName="Gun_AssaultRifle"]/comps</xpath>
+        <value>
             <li Class="GunNut.GN_AttachmentCompProperties">
               <jobDefInstall>EquipAttachment</jobDefInstall>
               <jobDefRemove>RemoveAttachment</jobDefRemove>
@@ -13,21 +80,103 @@
                 <li>
                   <weaponPart>scope</weaponPart>
                   <isActive>true</isActive>
-                  <defaultPosition>(0.1,0)</defaultPosition>
+                  <defaultPosition>(0.17,0)</defaultPosition>
                 </li>
                 <li>
                   <weaponPart>magazine</weaponPart>
                   <isActive>true</isActive>
+                  <defaultPosition>(-0.1,-0.1)</defaultPosition>
                 </li>
                 <li>
                   <weaponPart>stock</weaponPart>
                   <isActive>true</isActive>
+                  <defaultPosition>(0,-0.35)</defaultPosition>
+                </li>
+                <li>
+                  <weaponPart>barrelExt</weaponPart>
+                  <isActive>true</isActive>
+                  <defaultPosition>(0.55,0.55)</defaultPosition>
+                </li>
+                <li>
+                  <weaponPart>receiver</weaponPart>
+                  <isActive>true</isActive>
+                  <defaultPosition>(0,0)</defaultPosition>
+                </li>
+                <li>
+                  <weaponPart>undermount</weaponPart>
+                  <defaultPosition>(-0.1,0.3)</defaultPosition>
+                  <isActive>true</isActive>
+                </li>
+                <li>
+                  <weaponPart>debug</weaponPart>
+                  <isActive>true</isActive>
                 </li>
               </slots>
             </li>
-          </comps>
         </value>
       </li>
+
+      <li Class="PatchOperationAdd">
+        <xpath>*/ThingDef[@ParentName="BaseHumanMakeableGun"]/comps</xpath>
+        <value>
+          <li>
+            <li Class="GunNut.GN_AttachmentCompProperties">
+              <jobDefInstall>EquipAttachment</jobDefInstall>
+              <jobDefRemove>RemoveAttachment</jobDefRemove>
+              <slots>
+                <li>
+                  <weaponPart>scope</weaponPart>
+                  <isActive>true</isActive>
+                  <defaultPosition>(0.2,0)</defaultPosition>
+                </li>
+                <li>
+                  <weaponPart>magazine</weaponPart>
+                  <isActive>true</isActive>
+                  <defaultPosition>(-0.15,-0.1)</defaultPosition>
+                </li>
+                <li>
+                  <weaponPart>stock</weaponPart>
+                  <isActive>true</isActive>
+                  <defaultPosition>(-0.05,-0.35)</defaultPosition>
+                </li>
+                <li>
+                  <weaponPart>barrel</weaponPart>
+                  <isActive>true</isActive>
+                  <defaultPosition>(0.3,0)</defaultPosition>
+                </li>
+                <li>
+                  <weaponPart>barrelExt</weaponPart>
+                  <isActive>true</isActive>
+                  <defaultPosition>(0,0.6)</defaultPosition>
+                </li>
+                <li>
+                  <weaponPart>receiver</weaponPart>
+                  <isActive>true</isActive>
+                  <defaultPosition>(0.5,0)</defaultPosition>
+                </li>
+                <li>
+                  <weaponPart>grip</weaponPart>
+                  <isActive>true</isActive>
+                </li>
+                <li>
+                  <weaponPart>foregrip</weaponPart>
+                  <isActive>true</isActive>
+                </li>
+                <li>
+                  <weaponPart>undermount</weaponPart>
+                  <isActive>true</isActive>
+                </li>
+                <li>
+                  <weaponPart>debug</weaponPart>
+                  <isActive>true</isActive>
+                </li>
+              </slots>
+            </li>
+          </li>
+        </value>
+      </li>
+
+    -->
     </operations>
   </Operation>
 

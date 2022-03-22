@@ -14,11 +14,39 @@ namespace GunNut
         {
             get
             {
+                if (slots.NullOrEmpty())
+                {
+                    slots = new List<GN_Slot>();
+                }
                 return this.slots;
             }
         }
 
-        public List<GN_Slot> slots;
+        public bool ContainsTypeOfSlot(GN_WeaponParts.WeaponPart type)
+        {
+            foreach (var slot in Slots)
+            {
+                if (slot.weaponPart == type)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public GN_Slot GetSlotOfType(GN_WeaponParts.WeaponPart type)
+        {
+            foreach (var slot in Slots)
+            {
+                if (slot.weaponPart == type)
+                {
+                    return slot;
+                }
+            }
+            return null;
+        }
+
+        public List<GN_Slot> slots = new List<GN_Slot>();
 
         public JobDef jobDefInstall;
 

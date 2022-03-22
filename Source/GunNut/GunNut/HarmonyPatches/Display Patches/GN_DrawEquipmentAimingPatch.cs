@@ -59,11 +59,13 @@ namespace GunNut
 
                     drawLoc.y += 0.00001f;
 
-                    Vector2 offset = IR_Init.GetPos(eq.def.defName, attachment.weaponPart).RotatedBy(num);
+                    Vector2 offset = IR_Settings.GetPos(eq.def.defName, attachment.weaponPart).RotatedBy(num);
 
                     Vector3 finalOffset = new Vector3(offset.y, 0, offset.x);
 
-                    Graphics.DrawMesh(mesh, drawLoc + finalOffset, Quaternion.AngleAxis(num, Vector3.up), attachment.onWeaponGraphic.Graphic.MatSingle, 0);
+                    Vector3 scale = new Vector3(attachment.onWeaponGraphic.Graphic.drawSize.x,0, attachment.onWeaponGraphic.Graphic.drawSize.y);
+                    Graphics.DrawMesh(mesh, Matrix4x4.TRS(drawLoc + finalOffset, Quaternion.AngleAxis(num, Vector3.up), scale), attachment.onWeaponGraphic.Graphic.MatSingle,0);
+                    //Graphics.DrawMesh(mesh, drawLoc + finalOffset, Quaternion.AngleAxis(num, Vector3.up), attachment.onWeaponGraphic.Graphic.MatSingle, 0);
                 }
             }
         }
