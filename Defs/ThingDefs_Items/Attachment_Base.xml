@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <ThingDef Name="GunModBase" Abstract="True">
+        <thingClass>ThingWithComps</thingClass>
+        <category>Item</category>
+        <resourceReadoutPriority>Middle</resourceReadoutPriority>
+        <selectable>true</selectable>
+        <altitudeLayer>Item</altitudeLayer>
+        <stackLimit>1</stackLimit>
+        <statBases>
+            <MarketValue>1.9</MarketValue>
+            <Mass>0.5</Mass>
+        </statBases>
+        <comps>
+            <li Class="CompProperties_Forbiddable"/>
+        </comps>
+        <alwaysHaulable>true</alwaysHaulable>
+        <drawGUIOverlay>true</drawGUIOverlay>
+        <rotatable>false</rotatable>
+        <pathCost>14</pathCost>
+        <soundInteract>Metal_Drop</soundInteract>
+        <soundDrop>Metal_Drop</soundDrop>
+        <useHitPoints>false</useHitPoints>
+        <healthAffectsPrice>false</healthAffectsPrice>
+        <thingCategories>
+            <li>Attachment</li>
+        </thingCategories>
+        <burnableByRecipe>false</burnableByRecipe>
+        <smeltable>true</smeltable>
+        <graphicData>
+            <!--<texPath>Things/Item/Equipment/WeaponRanged/scope</texPath>-->
+            <texPath>Things/Item/Health/HealthItem</texPath>
+            <color>(64, 64, 64)</color>
+            <drawSize>0.80</drawSize>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+    </ThingDef>
+</Defs>

@@ -18,7 +18,7 @@ namespace GunNut
 
         public override void ExposeData()
         {
-            Scribe_Collections.Look(ref WeaponsCustomInfo, "WeaponsCustomInfo5",LookMode.Value, LookMode.Deep);
+            Scribe_Collections.Look(ref WeaponsCustomInfo, "WeaponsCustomInfo6",LookMode.Value, LookMode.Deep);
             Scribe_Values.Look(ref isFirstLaunch, "isFirstLaunch", true);
 
             base.ExposeData();
@@ -28,20 +28,20 @@ namespace GunNut
         {
             if (WeaponsCustomInfo.ContainsKey(thing.defName))
             {
-                return WeaponsCustomInfo[thing.defName].position[part];
+                return WeaponsCustomInfo[thing.defName].GetPosition(part);
             } 
 
-            return WeaponsDefaultInfo[thing.defName].position[part];
+            return WeaponsDefaultInfo[thing.defName].GetPosition(part);
         }
 
         public static Vector2 GetPos(string name, GN_WeaponParts.WeaponPart part)
         {
             if (WeaponsCustomInfo.ContainsKey(name))
             {
-                return WeaponsCustomInfo[name].position[part];
+                return WeaponsCustomInfo[name].GetPosition(part);
             }
 
-            return WeaponsDefaultInfo[name].position[part];
+            return WeaponsDefaultInfo[name].GetPosition(part);
         }
 
         public static float GetSize(string name, GN_WeaponParts.WeaponPart part)
@@ -64,6 +64,32 @@ namespace GunNut
             return WeaponsDefaultInfo[name].isEnabled[part];
         }
 
+        public static List<WeaponTags> GetWeaponTags(string name)
+        {
+            if (WeaponsCustomInfo.ContainsKey(name))
+            {
+                return WeaponsCustomInfo[name].weaponTags;
+            }
+
+            return WeaponsDefaultInfo[name].weaponTags;
+        }
+
+        public static void RemoveWeaponTag(string name, WeaponTags tag)
+        {
+            if (WeaponsCustomInfo.ContainsKey(name))
+            {
+                WeaponsCustomInfo[name].weaponTags.Remove(tag);
+            }
+        }
+
+        public static void AddWeaponTag(string name, WeaponTags tag)
+        {
+            if (WeaponsCustomInfo.ContainsKey(name))
+            {
+                WeaponsCustomInfo[name].weaponTags.Add(tag);
+            }
+        }
+
         public static void NotifyChangeMade(ThingDef thing)
         {
             if (!WeaponsCustomInfo.ContainsKey(thing.defName))
@@ -72,6 +98,7 @@ namespace GunNut
                 newSlot.position = new Dictionary<GN_WeaponParts.WeaponPart, Vector2>(WeaponsDefaultInfo[thing.defName].position);
                 newSlot.size = new Dictionary<GN_WeaponParts.WeaponPart, float> ( WeaponsDefaultInfo[thing.defName].size);
                 newSlot.isEnabled = new Dictionary<GN_WeaponParts.WeaponPart, bool>(WeaponsDefaultInfo[thing.defName].isEnabled);
+                newSlot.weaponTags = new List<WeaponTags>(WeaponsDefaultInfo[thing.defName].weaponTags);
 
                 WeaponsCustomInfo.Add(thing.defName, newSlot);
             }
@@ -104,6 +131,7 @@ namespace GunNut
                     slotData.isEnabled = new Dictionary<GN_WeaponParts.WeaponPart, bool>();
                     slotData.position = new Dictionary<GN_WeaponParts.WeaponPart, Vector2>();
                     slotData.size = new Dictionary<GN_WeaponParts.WeaponPart, float>();
+                    slotData.weaponTags = new List<WeaponTags>(compProp.tags);
 
                     Log.Message("Adding " + thingDef.defName);
 

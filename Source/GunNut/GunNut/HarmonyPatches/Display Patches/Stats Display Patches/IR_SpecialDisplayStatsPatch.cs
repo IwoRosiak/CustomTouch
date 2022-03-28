@@ -11,12 +11,12 @@ namespace GunNut.HarmonyPatches.Base_functionality
         [HarmonyPostfix]
         public static IEnumerable<StatDrawEntry> GN_GetDamageAmount_PostFix(IEnumerable<StatDrawEntry> __result, ThingDef __instance, StatRequest req)
         {
-            Log.Message("hi!");
+           //Log.Message("hi!");
 
             var weapon = req.Thing.TryGetComp<GN_AttachmentComp>();
             if (weapon != null)
             {
-                Log.Message("Not null!");
+                //Log.Message("Not null!");
 
                 float warmupImprove = 1.0f;
 

@@ -17,6 +17,11 @@ namespace GunNut
                 var weapon = eq.TryGetComp<GN_AttachmentComp>();
                 foreach (var attachment in weapon.AttachmentsOnWeapon)
                 {
+                    if (attachment.onWeaponGraphic == null)
+                    {
+                        continue;
+                    }
+
                     float num = aimAngle - 90f;
                     Mesh mesh;
 
@@ -64,6 +69,8 @@ namespace GunNut
                     Vector3 finalOffset = new Vector3(offset.y, 0, offset.x);
 
                     Vector3 scale = new Vector3(attachment.onWeaponGraphic.Graphic.drawSize.x,0, attachment.onWeaponGraphic.Graphic.drawSize.y);
+                    scale *= IR_Settings.GetSize(eq.def.defName, attachment.weaponPart);
+
                     Graphics.DrawMesh(mesh, Matrix4x4.TRS(drawLoc + finalOffset, Quaternion.AngleAxis(num, Vector3.up), scale), attachment.onWeaponGraphic.Graphic.MatSingle,0);
                     //Graphics.DrawMesh(mesh, drawLoc + finalOffset, Quaternion.AngleAxis(num, Vector3.up), attachment.onWeaponGraphic.Graphic.MatSingle, 0);
                 }

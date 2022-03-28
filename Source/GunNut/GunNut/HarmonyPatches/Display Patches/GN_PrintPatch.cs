@@ -27,8 +27,9 @@ namespace GunNut
 
                 foreach (var slot in thing.TryGetComp<GN_AttachmentComp>()?.SlotsOnWeapon)
                 {
-                    if (slot.attachment != null)
+                    if (slot.attachment != null && slot.attachment.onWeaponGraphic != null)
                     {
+
                         Vector2 offsetV2 = IR_Settings.GetPos(thing.def.defName, slot.weaponPart);
 
                         Log.Message("Not Rotated X: " + offsetV2.x);
@@ -44,7 +45,7 @@ namespace GunNut
                         Log.Message("Center: " + center.ToString());
                         center.y += 0.01f;
 
-                        Printer_Plane.PrintPlane(layer, center, __instance.drawSize * slot.attachment.onWeaponGraphic.Graphic.drawSize, slot.attachment.onWeaponGraphic.Graphic.MatSingle, extraRotation);
+                        Printer_Plane.PrintPlane(layer, center, __instance.drawSize * slot.attachment.onWeaponGraphic.Graphic.drawSize * IR_Settings.GetSize(thing.def.defName, slot.weaponPart), slot.attachment.onWeaponGraphic.Graphic.MatSingle, extraRotation);
                     }
                 }
             }

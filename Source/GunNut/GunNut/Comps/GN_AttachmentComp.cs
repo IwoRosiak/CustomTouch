@@ -175,12 +175,33 @@ namespace GunNut
             {
                 foreach (var attachmentDef in GetDefsOfAttachmentsOnMap(pawn.Map, desiredPart))
                 {
-                    if (attachmentDef.weaponPart == desiredPart)
+                    if (attachmentDef.weaponPart == desiredPart && IsMatchingTags(attachmentDef))
                     {
                         yield return GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForDef(attachmentDef), PathEndMode.InteractionCell, TraverseParms.For(pawn, pawn.NormalMaxDanger(), TraverseMode.ByPawn, false, false, false), 9999f, (Thing x) => !x.IsForbidden(pawn) && pawn.CanReserve(x, 1, -1, null, false), null, 0, -1, false, RegionType.Set_Passable, false);
                     }
                 }
             }
+        }
+
+        private bool IsMatchingTags(GN_AttachmentDef attachment)
+        {
+            foreach (WeaponTags tag in attachment.requiredTags)
+            {
+                if (!IR_Settings.GetWeaponTags(parent.def.defName).Contains(tag))
+                {
+                    return false;
+                }
+            }
+
+            foreach (WeaponTags tag in attachment.conflictingTags)
+            {
+                if (IR_Settings.GetWeaponTags(parent.def.defName).Contains(tag))
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         private IEnumerable<GN_AttachmentDef> GetDefsOfAttachmentsOnMap(Map map, GN_WeaponParts.WeaponPart desiredPart)

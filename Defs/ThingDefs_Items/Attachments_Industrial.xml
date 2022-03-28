@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+        <defName>Attachment_ACOG</defName>
+        <label>ACOG</label>
+        <weaponPart>scope</weaponPart>
+        <size>medium</size>
+        <description>Specialist sight which allows for moderate amount of zoom. Highly effective on medium distance encounters.</description>
+    </ThingDef>
+
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+        <defName>Attachment_Dot_Sight</defName>
+        <label>Dot Sight</label>
+        <weaponPart>scope</weaponPart>
+        <size>medium</size>
+        <description>Classic dot sight which dramatically improves aiming performance on a lot of weapons.</description>
+    </ThingDef>
+
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+        <defName>Attachment_Big_Scope</defName>
+        <label>Scope(x8-16)</label>
+        <weaponPart>scope</weaponPart>
+        <size>big</size>
+        <description>A scope with high zoom. Effective on single shot weapons.</description>
+    </ThingDef>
+
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+        <defName>Attachment_NV_Scope</defName>
+        <label>Night-vision Scope</label>
+        <weaponPart>scope</weaponPart>
+        <size>medium</size>
+        <description>Scope with moderate amount of zoom but comes with night-vision which reduces penalty when shooting in the dark.</description>
+    </ThingDef>
+
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+        <defName>Attachment_Skeleton_Stock</defName>
+        <label>Skeleton Stock</label>
+        <weaponPart>stock</weaponPart>
+        <size>medium</size>
+        <description>Cheap, light-weight stock thanks to it skeleton structure.</description>
+    </ThingDef>
+
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+        <defName>Attachment_Undermount_Straight_Grip</defName>
+        <label>Composite Grip</label>
+        <weaponPart>foregrip</weaponPart>
+        <size>big</size>
+        <description>Rubber handle which can be easily attached under most guns. Useful for controlling recoil.</description>
+    </ThingDef>
+
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+        <defName>Attachment_Undermount_Angled_Grip</defName>
+        <label>Angled Grip</label>
+        <weaponPart>foregrip</weaponPart>
+        <size>big</size>
+        <description>Rubber handle which can be easily attached under most guns. Its form allows for moderate recoil control and improved aiming times.</description>
+    </ThingDef>
+
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+        <defName>Attachment_Shotgun_Magazine</defName>
+        <label>Shotgun Magazine</label>
+        <weaponPart>shotgunMagazine</weaponPart>
+        <size>big</size>
+        <description>Extension to the tube which holds bullets for shotguns. Although it makes weapon heavier, it does reduce cooldown time.</description>
+    </ThingDef>
+
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+        <defName>Attachment_Magazine</defName>
+        <label>Specialist reloader</label>
+        <weaponPart>magazine</weaponPart>
+        <size>big</size>
+        <description>Well made composite attachment for magazine which allows for quick reload times.</description>
+    </ThingDef>
+
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+        <defName>Attachment_Nozzle</defName>
+        <label>Nozzle</label>
+        <weaponPart>barrelExt</weaponPart>
+        <size>medium</size>
+        <description>A nozzle crafted using well mantained spare parts and specialist equipment. It works through redirecting gas of the outgoing bullet.</description>
+    </ThingDef>
+
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+        <defName>Attachment_Silencer</defName>
+        <label>Silencer</label>
+        <weaponPart>barrelExt</weaponPart>
+        <size>medium</size>
+        <description>A silencer which muffles the shots what allows for safer hunting at the expense of damage.</description>
+    </ThingDef>
+
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+        <defName>Attachment_Bolt-action_Handle</defName>
+        <label>Bolt-action Handle</label>
+        <weaponPart>receiver</weaponPart>
+        <size>big</size>
+        <description>Well crafted handle which improves reload times on bolt-action weapons.</description>
+        <requiredTags>
+          <li>boltAction</li>
+        </requiredTags>
+    </ThingDef>
+
+</Defs>

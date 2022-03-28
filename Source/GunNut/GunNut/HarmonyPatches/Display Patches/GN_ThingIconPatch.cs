@@ -12,6 +12,7 @@ namespace GunNut
         [HarmonyPostfix]
         public static void GN_AdjustFullCyclePostfix(Thing thing, Rect rect)
         {
+            /*
             if (thing.TryGetComp<GN_AttachmentComp>() != null)
             {
                 var weapon = thing.TryGetComp<GN_AttachmentComp>();
@@ -33,9 +34,10 @@ namespace GunNut
                             texCoords = new Rect(0f, 0.5f, 0.25f, 0.25f);
                         }
                     }
-                    Widgets.DrawTextureFitted(rect, texture, GenUI.IconDrawScale(attachment) * 1, texProportions, texCoords, attachment.uiIconAngle, null);
+                    Widgets.DrawTextureFitted(rect, texture, GenUI.IconDrawScale(attachment) * IR_Settings.GetSize(thing.def.defName, attachment.weaponPart), texProportions, texCoords, attachment.uiIconAngle, null);
                 }
             }
+            */
         }
     }
 }

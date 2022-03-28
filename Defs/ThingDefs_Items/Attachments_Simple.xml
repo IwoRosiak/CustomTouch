@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+        <defName>Attachment_Simple_Sight</defName>
+        <label>Makeshift Sight</label>
+        <weaponPart>scope</weaponPart>
+        <size>medium</size>
+        <description>A makeshift sight crafted using spare parts, old pipes and screws. It won't allow for much improvement except for better visibility when aiming.</description>
+    </ThingDef>
+    
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+        <defName>Attachment_Taped_Magazines</defName>
+        <label>Taped magazine</label>
+        <weaponPart>magazine</weaponPart>
+        <size>medium</size>
+        <description>Two magazines taped together which should in theory improve reload times between shots. In theory.</description>
+    </ThingDef>
+    
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+        <defName>Attachment_Simple_Nozzle</defName>
+        <label>Makeshift Nozzle</label>
+        <weaponPart>barrelExt</weaponPart>
+        <size>medium</size>
+        <description>A nozzle crafted using spare parts and fittings. Improvement is not very noticible.</description>
+    </ThingDef>
+    
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+        <defName>Attachment_Simple_Bayonet</defName>
+        <label>Makeshift Bayonet</label>
+        <weaponPart>barrel</weaponPart>
+        <size>big</size>
+        <description>A knife screwed in on the barrel to allow for easier melee attacks. Quite effective when it does not fall off.</description>
+    </ThingDef>
+    
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+        <defName>Attachment_Simple_Shotgun_Shells_Holder</defName>
+        <label>Shotgun Shell Holder</label>
+        <weaponPart>magazine</weaponPart>
+        <size>big</size>
+        <description>Plastic holder which allows for storing spare shotgun shells on the side of the weapon.</description>
+    </ThingDef>
+    
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+        <defName>Attachment_Simple_Shotgun_Shells_Pouch</defName>
+        <label>Stock with Ammo Pouch</label>
+        <weaponPart>stock</weaponPart>
+        <size>big</size>
+        <description>Stock that comes with built-in leather ammo pouch for easier access to shells in case of a gunfight.</description>
+    </ThingDef>
+    
+</Defs>

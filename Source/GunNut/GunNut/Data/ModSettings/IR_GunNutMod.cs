@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Verse;
 
@@ -61,6 +62,10 @@ namespace GunNut
                 DrawAttachmentsPosButtons(weaponRect);
                 DrawAttachmentsSizeButtons(weaponRect);
 
+                Rect weaponTagsRect = new Rect(masterRect.x + masterRect.width * 0.5f, masterRect.y , masterRect.width * 0.5f, masterRect.height * 0.5f);
+
+                DrawWeaponsTagsChoiceButtons(weaponTagsRect);
+
                 Rect attachmentChoiceRect = new Rect(masterRect.x + masterRect.width * 0.7f, masterRect.y + masterRect.height * 0.5f, masterRect.width * 0.3f, masterRect.height * 0.5f);
 
                 DrawAttachmentsChoiceButtons(attachmentChoiceRect);
@@ -80,7 +85,8 @@ namespace GunNut
             {
                 foreach (var attachmentType in attachmentsLists.Keys)
                 {
-                    if (!IR_Settings.IsActive(curWeapon.defName, attachmentType))
+                    /*
+                    if (!IR_Settings.IsActive(curWeapon.defName, attachmentType) || attachmentsLists[attachmentType][0].Equals(null) || attachmentsLists[attachmentType][0].onWeaponGraphic.Equals(null))
                     {
                         continue;
                     }
@@ -88,12 +94,13 @@ namespace GunNut
                     Vector2 drawLoc = rect.center;
                     Vector2 offset = IR_Settings.GetPos(curWeapon.defName, attachmentType) * pixelRatio;
 
-                    drawLoc += offset;
+                    drawLoc += new Vector2 (offset.y, -offset.x) *2;
 
                     Texture text = attachmentsLists[attachmentType][0].onWeaponGraphic.Graphic.MatNorth.mainTexture;
                     float scale = attachmentsLists[attachmentType][0].onWeaponGraphic.Graphic.drawSize.x;
 
                     Widgets.DrawTextureRotated(drawLoc, text, 0, (scale * weaponScale) * IR_Settings.GetSize(curWeapon.defName, attachmentType));
+                    */
                 }
             }
         }
@@ -111,30 +118,30 @@ namespace GunNut
             if (Widgets.ButtonText (westBtn,"-X"))
             {
                 IR_Settings.NotifyChangeMade(curWeapon);
-                var temp = IR_Settings.WeaponsCustomInfo[curWeapon.defName].position[curAttachmentType];
-                temp.x -= 0.1f;
-                IR_Settings.WeaponsCustomInfo[curWeapon.defName].position[curAttachmentType] = temp;
+                var temp = IR_Settings.WeaponsCustomInfo[curWeapon.defName].GetPosition(curAttachmentType);
+                temp.y -= 0.05f;
+                IR_Settings.WeaponsCustomInfo[curWeapon.defName].SetPosition(curAttachmentType, temp);
             }
             if (Widgets.ButtonText(eastBtn, "+X"))
             {
                 IR_Settings.NotifyChangeMade(curWeapon);
-                var temp = IR_Settings.WeaponsCustomInfo[curWeapon.defName].position[curAttachmentType];
-                temp.x += 0.1f;
-                IR_Settings.WeaponsCustomInfo[curWeapon.defName].position[curAttachmentType] = temp;
+                var temp = IR_Settings.WeaponsCustomInfo[curWeapon.defName].GetPosition(curAttachmentType);
+                temp.y += 0.05f;
+                IR_Settings.WeaponsCustomInfo[curWeapon.defName].SetPosition(curAttachmentType, temp);
             }
             if (Widgets.ButtonText(northBtn, "+Y"))
             {
                 IR_Settings.NotifyChangeMade(curWeapon);
-                var temp = IR_Settings.WeaponsCustomInfo[curWeapon.defName].position[curAttachmentType];
-                temp.y -= 0.1f;
-                IR_Settings.WeaponsCustomInfo[curWeapon.defName].position[curAttachmentType] = temp;
+                var temp = IR_Settings.WeaponsCustomInfo[curWeapon.defName].GetPosition(curAttachmentType);
+                temp.x += 0.05f;
+                IR_Settings.WeaponsCustomInfo[curWeapon.defName].SetPosition(curAttachmentType, temp);
             }
             if (Widgets.ButtonText(southBtn, "-Y"))
             {
                 IR_Settings.NotifyChangeMade(curWeapon);
-                var temp = IR_Settings.WeaponsCustomInfo[curWeapon.defName].position[curAttachmentType];
-                temp.y += 0.1f;
-                IR_Settings.WeaponsCustomInfo[curWeapon.defName].position[curAttachmentType] = temp;
+                var temp = IR_Settings.WeaponsCustomInfo[curWeapon.defName].GetPosition(curAttachmentType);
+                temp.x -= 0.05f;
+                IR_Settings.WeaponsCustomInfo[curWeapon.defName].SetPosition(curAttachmentType, temp);
             }
         }
 
@@ -249,6 +256,46 @@ namespace GunNut
             }
 
             Widgets.EndScrollView();
+        }
+
+        private void DrawWeaponsTagsChoiceButtons(Rect rect)
+        {
+            int pos = 0;
+
+            foreach (var tag in IR_Settings.GetWeaponTags(curWeapon.defName))
+            {
+                Rect tagRect = new Rect(rect.x, rect.y + (pos * buttonHeight), buttonWidth, buttonHeight);
+
+                if (Widgets.ButtonText(tagRect, tag.ToString()))
+                {
+                    IR_Settings.NotifyChangeMade(curWeapon);
+                    IR_Settings.RemoveWeaponTag(curWeapon.defName, tag);
+                    break;
+                }
+
+                pos+= 1;
+            }
+
+            pos = 0;
+            foreach (WeaponTags tag in Enum.GetValues(typeof(WeaponTags)))
+            {
+                if (IR_Settings.GetWeaponTags(curWeapon.defName).Contains(tag))
+                {
+                    continue;
+                }
+
+                Rect tagRect = new Rect(rect.x + buttonWidth, rect.y + (pos * buttonHeight), buttonWidth, buttonHeight);
+
+                if (Widgets.ButtonText(tagRect, tag.ToString()))
+                {
+                    IR_Settings.NotifyChangeMade(curWeapon);
+                    IR_Settings.AddWeaponTag(curWeapon.defName, tag);
+                    break;
+                }
+
+                pos += 1;
+            }
+            Widgets.DrawBox(rect);
         }
 
         private bool IsWeaponReady(ThingDef weapon)

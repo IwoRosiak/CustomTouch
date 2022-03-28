@@ -16,6 +16,8 @@ namespace GunNut
         public GN_WeaponParts.WeaponPart weaponPart;
         public GN_AttachmentDef attachment = null;
 
+        public bool isBig= false;
+
         public Vector2 defaultPosition = Vector2.zero;
         public bool isActive = true;
     }

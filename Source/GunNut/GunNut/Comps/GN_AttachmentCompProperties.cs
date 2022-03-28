@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Verse;
 
 namespace GunNut
@@ -48,8 +49,25 @@ namespace GunNut
 
         public List<GN_Slot> slots = new List<GN_Slot>();
 
+        public List<WeaponTags> tags = new List<WeaponTags>();
+
         public JobDef jobDefInstall;
 
         public JobDef jobDefRemove;
+    }
+
+
+    public enum WeaponTags
+    {
+        shotgun,
+        pistol,
+        singleHand,
+        boltAction,
+        noStock,
+        automatic,
+        semiAutomatic,
+        machineGun,
+        sniper,
+        undermount
     }
 }

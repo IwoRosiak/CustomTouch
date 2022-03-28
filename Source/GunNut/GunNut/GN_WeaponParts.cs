@@ -16,6 +16,7 @@ namespace GunNut
             grip,
             foregrip,
             undermount,
+            shotgunMagazine,
             debug
         }
     }

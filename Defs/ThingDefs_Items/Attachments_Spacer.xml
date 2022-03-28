@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+        <defName>Attachment_Infrared_Scope</defName>
+        <label>Infrared Scope</label>
+        <weaponPart>scope</weaponPart>
+        <size>big</size>
+        <description>Specialist scope which comes with heat detecting visuals what allows for easier aiming at night and during unfavorable weather conditions.</description>
+    </ThingDef>
+    
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+        <defName>Attachment_Gun_Link</defName>
+        <label>Gun Link</label>
+        <weaponPart>grip</weaponPart>
+        <size>medium</size>
+        <description>Advanced sensors which synchronises the user with the weapon. It improves accuracy, aiming times as long as the user is wearing gun link.</description>
+    </ThingDef>
+    
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+        <defName>Attachment_Undermount_Grenade</defName>
+        <label>Undermount Grenade Launcher</label>
+        <weaponPart>undermount</weaponPart>
+        <size>big</size>
+        <description>Undermount grenade launcher which functions as a seperate weapon. Allows for shooting grenade projectiles but needs to be refueled after use.</description>
+    </ThingDef>
+    
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+        <defName>Attachment_Semi_Receiver</defName>
+        <label>Semi-automatic Receiver</label>
+        <weaponPart>receiver</weaponPart>
+        <size>big</size>
+        <description>Specialist receiver which transforms bolt-action operated weapons into semi-automatic increasing rate of fire drastically.</description>
+    </ThingDef>
+</Defs>
