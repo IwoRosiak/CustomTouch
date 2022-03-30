@@ -52,6 +52,8 @@ namespace GunNut
             Slots.AddRange(array);
         }
 
+       
+
         private List<GN_Slot> Slots = new List<GN_Slot>();
 
         public IEnumerable<GN_Slot> SlotsOnWeapon

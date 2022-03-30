@@ -18,7 +18,7 @@ namespace GunNut
 
         public override void ExposeData()
         {
-            Scribe_Collections.Look(ref WeaponsCustomInfo, "WeaponsCustomInfo6",LookMode.Value, LookMode.Deep);
+            Scribe_Collections.Look(ref WeaponsCustomInfo, "WeaponsCustomInfo7",LookMode.Value, LookMode.Deep);
             Scribe_Values.Look(ref isFirstLaunch, "isFirstLaunch", true);
 
             base.ExposeData();

@@ -265,6 +265,14 @@
     <attribute>Class</attribute>
     <value>GunNut.GN_StatPart_Quality</value>
   </Operation>
+  
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/StatDef[defName="MarketValue"]/parts</xpath>
+    <value>
+      <li Class="GunNut.IR_StatPart_MarketValue">
+      </li>
+    </value>
+  </Operation>
 
   <Operation Class="PatchOperationAdd">
     <xpath>/Defs/StatDef[defName="RangedWeapon_Cooldown"]</xpath>
@@ -275,170 +283,7 @@
       </parts>
     </value>
   </Operation>
-<!--
-  <Operation Class="PatchOperationSequence">
-    <operations>
-      <li Class="PatchOperationAdd">
-        <xpath>*/ThingDef[@ParentName="BaseHumanMakeableGun"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]/slots</xpath>
-        <value>
-
-        </value>
-      </li>
-    </operations>
-  </Operation>
-
-      <li Class="PatchOperationAdd">
-        <xpath>/Defs/ThingDef[defName="Gun_Revolver"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]/slots</xpath>
-        <value>
-          <li>
-            <weaponPart>scope</weaponPart>
-          </li>
-          <li>
-            <weaponPart>magazine</weaponPart>
-          </li>
-          <li>
-            <weaponPart>stock</weaponPart>
-          </li>
-        </value>
-      </li>
-
-      <li Class="PatchOperationAdd">
-        <xpath>/Defs/ThingDef[defName="Gun_BoltActionRifle"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]/slots</xpath>
-        <value>
-          <li>
-            <weaponPart>scope</weaponPart>
-          </li>
-          <li>
-            <weaponPart>magazine</weaponPart>
-          </li>
-          <li>
-            <weaponPart>stock</weaponPart>
-          </li>
-        </value>
-      </li>
-
-      <li Class="PatchOperationAdd">
-        <xpath>/Defs/ThingDef[defName="Gun_MachinePistol"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]/slots</xpath>
-        <value>
-          <li>
-            <weaponPart>scope</weaponPart>
-          </li>
-          <li>
-            <weaponPart>magazine</weaponPart>
-          </li>
-          <li>
-            <weaponPart>stock</weaponPart>
-          </li>
-        </value>
-      </li>
-
-      <li Class="PatchOperationAdd">
-        <xpath>/Defs/ThingDef[defName="Gun_PumpShotgun"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]/slots</xpath>
-        <value>
-          <li>
-            <weaponPart>scope</weaponPart>
-          </li>
-          <li>
-            <weaponPart>magazine</weaponPart>
-          </li>
-          <li>
-            <weaponPart>stock</weaponPart>
-          </li>
-        </value>
-      </li>
-
-      <li Class="PatchOperationAdd">
-        <xpath>/Defs/ThingDef[defName="Gun_ChainShotgun"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]/slots</xpath>
-        <value>
-          <li>
-            <weaponPart>scope</weaponPart>
-          </li>
-          <li>
-            <weaponPart>magazine</weaponPart>
-          </li>
-          <li>
-            <weaponPart>stock</weaponPart>
-          </li>
-        </value>
-      </li>
-
-      <li Class="PatchOperationAdd">
-        <xpath>/Defs/ThingDef[defName="Gun_HeavySMG"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]/slots</xpath>
-        <value>
-          <li>
-            <weaponPart>scope</weaponPart>
-          </li>
-          <li>
-            <weaponPart>magazine</weaponPart>
-          </li>
-          <li>
-            <weaponPart>stock</weaponPart>
-          </li>
-        </value>
-      </li>
-
-      <li Class="PatchOperationAdd">
-        <xpath>/Defs/ThingDef[defName="Gun_LMG"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]/slots</xpath>
-        <value>
-          <li>
-            <weaponPart>scope</weaponPart>
-          </li>
-          <li>
-            <weaponPart>magazine</weaponPart>
-          </li>
-          <li>
-            <weaponPart>stock</weaponPart>
-          </li>
-        </value>
-      </li>
-
-      <li Class="PatchOperationAdd">
-        <xpath>/Defs/ThingDef[defName="Gun_AssaultRifle"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]/slots</xpath>
-        <value>
-          <li>
-            <weaponPart>scope</weaponPart>
-          </li>
-          <li>
-            <weaponPart>magazine</weaponPart>
-          </li>
-          <li>
-            <weaponPart>stock</weaponPart>
-          </li>
-        </value>
-      </li>
-
-      <li Class="PatchOperationAdd">
-        <xpath>/Defs/ThingDef[defName="Gun_SniperRifle"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]/slots</xpath>
-        <value>
-          <li>
-            <weaponPart>scope</weaponPart>
-          </li>
-          <li>
-            <weaponPart>magazine</weaponPart>
-          </li>
-          <li>
-            <weaponPart>stock</weaponPart>
-          </li>
-        </value>
-      </li>
-
-      <li Class="PatchOperationAdd">
-        <xpath>/Defs/ThingDef[defName="Gun_Minigun"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]/slots</xpath>
-        <value>
-          <li>
-            <weaponPart>scope</weaponPart>
-          </li>
-          <li>
-            <weaponPart>magazine</weaponPart>
-          </li>
-          <li>
-            <weaponPart>stock</weaponPart>
-          </li>
-        </value>
-      </li>
-    </operations>
-  </Operation>-->
-
+  
   <!--<Operation Class="PatchOperationAttributeSet">
     <xpath>/Defs/StatDef[defName="RangedWeapon_DamageMultiplier"]/parts/li</xpath>
     <attribute>Class</attribute>

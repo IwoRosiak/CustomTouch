@@ -59,6 +59,11 @@
   <ItemGroup>
     <Compile Include="Data\IR_Init.cs" />
     <Compile Include="Data\IR_SlotsCords.cs" />
+    <Compile Include="Data\ModSettings\IR_Drawer_Attachments.cs" />
+    <Compile Include="Data\ModSettings\IR_Drawer_Table.cs" />
+    <Compile Include="Data\ModSettings\IR_Drawer_Weapons.cs" />
+    <Compile Include="Data\ModSettings\IR_Drawer_Coordinator.cs" />
+    <Compile Include="Data\ModSettings\IR_Drawer.cs" />
     <Compile Include="HarmonyPatches\Display Patches\Stats Display Patches\IR_SpecialDisplayStatsPatch.cs" />
     <Compile Include="HarmonyPatches\Stats Patches\GN_GetDamageAmountPatch.cs" />
     <Compile Include="HarmonyPatches\Stats Patches\GN_TryStartCastOnPatch.cs" />
@@ -84,6 +89,7 @@
     <Compile Include="AI\JobDriver_EquipAttachment.cs" />
     <Compile Include="AI\JobDriver_RemoveAttachment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\IR_StatPart_Attachment_MarketValue.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="0Harmony.dll" />

@@ -8,7 +8,7 @@
         <altitudeLayer>Item</altitudeLayer>
         <stackLimit>1</stackLimit>
         <statBases>
-            <MarketValue>1.9</MarketValue>
+            <MarketValue>100</MarketValue>
             <Mass>0.5</Mass>
         </statBases>
         <comps>

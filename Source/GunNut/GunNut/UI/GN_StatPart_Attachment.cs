@@ -17,6 +17,7 @@ namespace GunNut
                 float improvement = 1;
                 foreach (var attachment in req.Thing.TryGetComp<GN_AttachmentComp>().AttachmentsOnWeapon)
                 {
+
                     if (this.parentStat.defName == "RangedWeapon_Cooldown")
                     {
                         improvement -= attachment.cooldownTimeReduction;

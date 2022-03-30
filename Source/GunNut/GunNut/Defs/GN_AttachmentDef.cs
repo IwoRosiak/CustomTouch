@@ -13,7 +13,11 @@ namespace GunNut
 
         public GraphicData onWeaponGraphic;
 
-        public float damageIncreasePer = 0;
+        //IMPLEMENTED
+        public float accuracyImproveTouch = 0;
+        public float accuracyImproveShort = 0;
+        public float accuracyImproveMedium = 0;
+        public float accuracyImproveLong = 0;
 
         public float damageIncrease = 0;
 
@@ -21,12 +25,8 @@ namespace GunNut
 
         public float cooldownTimeReduction = 0;
 
+        //NOT IMPLEMENTED
         public float massReduction = 0;
-
-        public float accuracyImproveTouch = 0;
-        public float accuracyImproveShort = 0;
-        public float accuracyImproveMedium = 0;
-        public float accuracyImproveLong = 0;
 
         public float noiseOFfset = 0;
         public float meleeDamageOffset = 0;

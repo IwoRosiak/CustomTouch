@@ -8,21 +8,32 @@ namespace GunNut.HarmonyPatches.Base_functionality
     [HarmonyPatch(typeof(ThingDef), "SpecialDisplayStats")]
     public static class IR_SpecialDisplayStatsPatch
     {
+        
         [HarmonyPostfix]
         public static IEnumerable<StatDrawEntry> GN_GetDamageAmount_PostFix(IEnumerable<StatDrawEntry> __result, ThingDef __instance, StatRequest req)
         {
-           //Log.Message("hi!");
-
+            //Log.Message("hi!");
             var weapon = req.Thing.TryGetComp<GN_AttachmentComp>();
             if (weapon != null)
             {
-                //Log.Message("Not null!");
-
-                float warmupImprove = 1.0f;
-
-                foreach (var attachment in weapon.AttachmentsOnWeapon)
+                foreach (StatDrawEntry statDrawEntry in __result)
                 {
-                    warmupImprove -= attachment.warmupTimeReduction;
+                    if (statDrawEntry.LabelCap.Equals("RangedWarmupTime".Translate()))
+                    {
+                        float warmupImprove = 1.0f;
+
+                        foreach (var attachment in weapon.AttachmentsOnWeapon)
+                        {
+                            warmupImprove -= attachment.warmupTimeReduction;
+                            
+                        }
+
+                        yield return new StatDrawEntry(StatCategoryDefOf.Weapon_Ranged, "RangedWarmupTime".Translate(), (warmupImprove * req.Thing.def.Verbs[0].warmupTime).ToString() + " s", "Final warmup time after applying attachments.", 100, null, null, false);
+                        continue;
+                    }
+
+
+                    yield return statDrawEntry;
                 }
 
                 foreach (var slot in weapon.SlotsOnWeapon)
@@ -43,9 +54,12 @@ namespace GunNut.HarmonyPatches.Base_functionality
                     yield return new StatDrawEntry(GN_StatCategoryDefOf.Attachments, slot.weaponPart.ToString(), attachmentName.CapitalizeFirst(), attachmentDesc, 5391, null, null, false);
                 }
 
-                yield return new StatDrawEntry(StatCategoryDefOf.Weapon, "Final Warmup: ", (warmupImprove * req.Thing.def.Verbs[0].warmupTime).ToString() + " s", "Final warmup time after applying attachments.", 100, null, null, false);
+               
+
+               
             }
         }
+    
     }
 }
 
