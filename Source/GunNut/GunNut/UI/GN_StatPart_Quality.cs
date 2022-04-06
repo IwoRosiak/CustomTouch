@@ -23,19 +23,19 @@ namespace GunNut
                 {
                     if (defName == "AccuracyLong")
                     {
-                        improvement += attachment.accuracyImproveLong;
+                        improvement += attachment.accuracyLong;
                     }
                     else if (defName == "AccuracyMedium")
                     {
-                        improvement += attachment.accuracyImproveMedium;
+                        improvement += attachment.accuracyMedium;
                     }
                     else if (defName == "AccuracyShort")
                     {
-                        improvement += attachment.accuracyImproveShort;
+                        improvement += attachment.accuracyShort;
                     }
                     else if (defName == "AccuracyTouch")
                     {
-                        improvement += attachment.accuracyImproveTouch;
+                        improvement += attachment.accuracyTouch;
                     }
                     else if (defName == "RangedWeapon_DamageMultiplier")
                     {
@@ -44,7 +44,7 @@ namespace GunNut
                             Log.Message(item.ToString());
                         }
 
-                        improvement += attachment.damageIncrease;
+                        improvement += attachment.damageMult;
                     }
                 }
 
@@ -80,23 +80,23 @@ namespace GunNut
                     {
                         if (defName == "AccuracyLong")
                         {
-                            improvement += attachment.accuracyImproveLong;
+                            improvement += attachment.accuracyLong;
                         }
                         else if (defName == "AccuracyMedium")
                         {
-                            improvement += attachment.accuracyImproveMedium;
+                            improvement += attachment.accuracyMedium;
                         }
                         else if (defName == "AccuracyShort")
                         {
-                            improvement += attachment.accuracyImproveShort;
+                            improvement += attachment.accuracyShort;
                         }
                         else if (defName == "AccuracyTouch")
                         {
-                            improvement += attachment.accuracyImproveTouch;
+                            improvement += attachment.accuracyTouch;
                         }
                         else if (defName == "RangedWeapon_DamageMultiplier")
                         {
-                            improvement += attachment.damageIncrease;
+                            improvement += attachment.damageMult;
                         }
                     }
 

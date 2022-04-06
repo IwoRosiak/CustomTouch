@@ -59,11 +59,13 @@
   <ItemGroup>
     <Compile Include="Data\IR_Init.cs" />
     <Compile Include="Data\IR_SlotsCords.cs" />
-    <Compile Include="Data\ModSettings\IR_Drawer_Attachments.cs" />
-    <Compile Include="Data\ModSettings\IR_Drawer_Table.cs" />
-    <Compile Include="Data\ModSettings\IR_Drawer_Weapons.cs" />
-    <Compile Include="Data\ModSettings\IR_Drawer_Coordinator.cs" />
-    <Compile Include="Data\ModSettings\IR_Drawer.cs" />
+    <Compile Include="Data\ModSettings\IR_SectionDrawer_AttachmentsChoice.cs" />
+    <Compile Include="Data\ModSettings\IR_SectionDrawer_PatchCreator.cs" />
+    <Compile Include="Data\ModSettings\IR_SectionDrawer_Table.cs" />
+    <Compile Include="Data\ModSettings\IR_SectionDrawer_Weapons.cs" />
+    <Compile Include="Data\ModSettings\IR_SectionDrawer_Coordinator.cs" />
+    <Compile Include="Data\ModSettings\IR_SectionDrawer.cs" />
+    <Compile Include="Data\ModSettings\IR_SectionDrawer_WeaponTags.cs" />
     <Compile Include="HarmonyPatches\Display Patches\Stats Display Patches\IR_SpecialDisplayStatsPatch.cs" />
     <Compile Include="HarmonyPatches\Stats Patches\GN_GetDamageAmountPatch.cs" />
     <Compile Include="HarmonyPatches\Stats Patches\GN_TryStartCastOnPatch.cs" />

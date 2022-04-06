@@ -67,7 +67,9 @@ namespace GunNut
         automatic,
         semiAutomatic,
         machineGun,
-        sniper,
-        undermount
+        undermountRail,
+        hasScope,
+        hasScopeRail,
+        hasPump
     }
 }

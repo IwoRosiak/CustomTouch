@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
+    <!--SCOPES-->
+    
+    
+    <!--STOCKS-->
+    
+    
+    
+    
+    <!--UNDERMOUNT-->
+    
+    
+    
+    
+    
+    <!-- MAGAZINES -->
+    
+    
+    <!-- BARREL EXT 
     <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
         <defName>Attachment_Radiator</defName>
         <label>Radiation Radiator</label>
@@ -7,7 +25,10 @@
         <size>medium</size>
         <description>A peculiar attachment of unknown origin. Bullets shot from the weapon are infused with radiation what causes victims on the receiving end to suffer from radiation sickness. Especially useful for crown control.</description>
     </ThingDef>
+    -->
     
+    
+    <!--RECEIVER 
     <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
         <defName>Attachment_Oil_Coater</defName>
         <label>Napalm Bullet Coater</label>
@@ -15,4 +36,19 @@
         <size>medium</size>
         <description>A peculiar device of unknown origin. It appears to coat bullets in the receiver with some kind of napalm which is ignited when in contact with water... most likely supposed to be triggered by blood by design.</description>
     </ThingDef>
+    
+    -->
+    
+    <!--BARREL -->
+    
+    
+    
+    <!--GRIP -->
+    
+    
+    
+    <!--FOREGRIP -->
+    
+    
+    
 </Defs>

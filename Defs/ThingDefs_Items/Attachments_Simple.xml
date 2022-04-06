@@ -1,37 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
-    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+    <ThingDef Name="Attachment_Simple" ParentName="GunModBase" Abstract="True">
+        <recipeMaker>
+            <skillRequirements>
+                <Crafting>5</Crafting>
+            </skillRequirements>
+            <recipeUsers>
+                <li>TableMachining</li>
+                <li>CraftingSpot</li>
+            </recipeUsers>
+        </recipeMaker>
+        <costList>
+            <Steel>20</Steel>
+            <ComponentIndustrial>1</ComponentIndustrial>
+        </costList>
+        <statBases>
+            <WorkToMake>300</WorkToMake>
+        </statBases>
+    </ThingDef>
+    
+    <!--SCOPES-->
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Simple">
         <defName>Attachment_Simple_Sight</defName>
         <label>Makeshift Sight</label>
         <weaponPart>scope</weaponPart>
-        <size>medium</size>
         <description>A makeshift sight crafted using spare parts, old pipes and screws. It won't allow for much improvement except for better visibility when aiming.</description>
+        <warmupMult>-0.15</warmupMult>
+        <statBases>
+            <MarketValue>10</MarketValue>
+            <Mass>0.15</Mass>
+        </statBases>
     </ThingDef>
     
-    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
-        <defName>Attachment_Taped_Magazines</defName>
-        <label>Taped magazine</label>
-        <weaponPart>magazine</weaponPart>
-        <size>medium</size>
-        <description>Two magazines taped together which should in theory improve reload times between shots. In theory.</description>
-    </ThingDef>
-    
-    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
-        <defName>Attachment_Simple_Nozzle</defName>
-        <label>Makeshift Nozzle</label>
-        <weaponPart>barrelExt</weaponPart>
-        <size>medium</size>
-        <description>A nozzle crafted using spare parts and fittings. Improvement is not very noticible.</description>
-    </ThingDef>
-    
-    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
-        <defName>Attachment_Simple_Bayonet</defName>
-        <label>Makeshift Bayonet</label>
-        <weaponPart>barrel</weaponPart>
-        <size>big</size>
-        <description>A knife screwed in on the barrel to allow for easier melee attacks. Quite effective when it does not fall off.</description>
-    </ThingDef>
-    
+    <!--STOCKS
     <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
         <defName>Attachment_Simple_Shotgun_Shells_Holder</defName>
         <label>Shotgun Shell Holder</label>
@@ -39,13 +40,68 @@
         <size>big</size>
         <description>Plastic holder which allows for storing spare shotgun shells on the side of the weapon.</description>
     </ThingDef>
-    
     <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
         <defName>Attachment_Simple_Shotgun_Shells_Pouch</defName>
         <label>Stock with Ammo Pouch</label>
         <weaponPart>stock</weaponPart>
         <size>big</size>
         <description>Stock that comes with built-in leather ammo pouch for easier access to shells in case of a gunfight.</description>
+    </ThingDef> -->
+    
+    
+    <!--UNDERMOUNT
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+        <defName>Attachment_Simple_Bayonet</defName>
+        <label>Makeshift Bayonet</label>
+        <weaponPart>barrel</weaponPart>
+        <size>big</size>
+        <description>A knife screwed in on the barrel to allow for easier melee attacks. Quite effective when it does not fall off.</description>
+    </ThingDef> -->
+    
+    
+    
+    
+    <!-- MAGAZINES 
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+        <defName>Attachment_Taped_Magazines</defName>
+        <label>Taped magazine</label>
+        <weaponPart>magazine</weaponPart>
+        <size>medium</size>
+        <description>Two magazines taped together which should in theory improve reload times between shots. In theory.</description>
+    </ThingDef>-->
+    
+    <!-- BARREL EXT -->
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Simple">
+        <defName>Attachment_Simple_Nozzle</defName>
+        <label>Makeshift Nozzle</label>
+        <weaponPart>barrelExt</weaponPart>
+        <size>medium</size>
+        <description>A nozzle crafted using spare parts and fittings. Improvement is not very noticible.</description>
+        <cooldownMult>-0.15</cooldownMult>
+        <statBases>
+            <MarketValue>10</MarketValue>
+            <Mass>0.1</Mass>
+        </statBases>
     </ThingDef>
+    
+    
+    <!--RECEIVER -->
+    
+    
+    
+    <!--BARREL -->
+    
+    
+    
+    <!--GRIP 
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+        <defName>Attachment_Simple_Wooden_Grip</defName>
+        <label>Wooden Grip</label>
+        <weaponPart>grip</weaponPart>
+        <description>Wooden grip which in theory should help to hold on</description>
+    </ThingDef>-->
+    
+    
+    <!--FOREGRIP -->
     
 </Defs>

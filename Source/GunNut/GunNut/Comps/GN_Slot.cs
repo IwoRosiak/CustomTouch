@@ -19,6 +19,6 @@ namespace GunNut
         public bool isBig= false;
 
         public Vector2 defaultPosition = Vector2.zero;
-        public bool isActive = true;
+        public bool isActive = false;
     }
 }

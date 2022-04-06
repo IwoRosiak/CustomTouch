@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+    <Operation Class="PatchOperationAttributeSet">
+        <xpath>/Defs/StatDef[@Name="AccuracyBase"]/parts/li</xpath>
+        <attribute>Class</attribute>
+        <value>GunNut.GN_StatPart_Quality</value>
+    </Operation>
+    
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/StatDef[defName="MarketValue"]/parts</xpath>
+        <value>
+            <li Class="GunNut.IR_StatPart_MarketValue">
+            </li>
+        </value>
+    </Operation>
+    
+    <!--
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/StatDef[defName="RangedWeapon_Cooldown"]</xpath>
+    <value>
+      <parts>
+        <li Class="GunNut.GN_StatPart_Attachment">
+        </li>
+      </parts>
+    </value>
+  </Operation> -->
+    
+    -->
+    <!--<Operation Class="PatchOperationAttributeSet">
+    <xpath>/Defs/StatDef[defName="RangedWeapon_DamageMultiplier"]/parts/li</xpath>
+    <attribute>Class</attribute>
+    <value>GunNut.GN_StatPart_Quality</value>
+  </Operation>-->
+</Patch>

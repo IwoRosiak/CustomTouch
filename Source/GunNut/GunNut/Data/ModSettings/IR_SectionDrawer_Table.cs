@@ -8,18 +8,18 @@ using Verse;
 
 namespace GunNut
 {
-    internal class IR_Drawer_Table : IR_Drawer
+    internal class IR_SectionDrawer_Table : IR_SectionDrawer
     {
-        public IR_Drawer_Table(IR_Drawer_Coordinator _parent) : base(_parent)
+        public IR_SectionDrawer_Table(IR_SectionDrawer_Coordinator _parent) : base(_parent)
         {
         }
 
         public override void Draw(Rect rect)
         {
-            
+            DrawCraftingTable(rect);
         }
 
-        public void DrawCraftingTable(Rect rect)
+        private void DrawCraftingTable(Rect rect)
         {
             Widgets.LabelFit(new Rect(rect.x, rect.y, buttonWidth * 2, buttonHeight), "Current weapon: " + parent.CurWeapon.label);
             //Widgets.LabelFit(new Rect(rect.x, rect.y + buttonHeight, buttonWidth * 2, buttonHeight), "Position: " + IR_Settings.GetPos(CurrentWeapon.defName, curAttachmentType).ToString());
@@ -31,6 +31,7 @@ namespace GunNut
 
             DrawAttachments(craftingTable);
             DrawAttachmentsPosButtons(craftingTable );
+            DrawAttachmentsSizeButtons(craftingTable);
 
             //Draw attachments
 
@@ -41,13 +42,13 @@ namespace GunNut
             }
         }
 
-        public void DrawWeapon(Rect rect)
+        private void DrawWeapon(Rect rect)
         {
             Texture text = parent.CurWeapon.graphic.MatNorth.mainTexture;
             Widgets.DrawTextureRotated(rect.center, text, 0, parent.CurWeapon.graphic.drawSize.x * weaponScale);
         }
 
-        public void DrawAttachmentsSizeButtons(Rect rect)
+        private void DrawAttachmentsSizeButtons(Rect rect)
         {
             Rect sizeMinusBtn = new Rect(rect.x, rect.y + rect.height - buttonHeight, smallButtonWidth, buttonHeight);
             Rect sizePlusBtn = new Rect(rect.x + smallButtonWidth, rect.y + rect.height - buttonHeight, smallButtonWidth, buttonHeight);
@@ -68,7 +69,7 @@ namespace GunNut
             }
         }
 
-        public void DrawAttachmentsPosButtons(Rect rect)
+        private void DrawAttachmentsPosButtons(Rect rect)
         {
 
             Rect westBtn = new Rect(rect.x, rect.y + rect.height / 2 - buttonHeight / 2, tinyButtonWidth, buttonHeight);
@@ -106,7 +107,7 @@ namespace GunNut
             }
         }
 
-        public void DrawAttachments(Rect rect)
+        private void DrawAttachments(Rect rect)
         {
             foreach (var attachmentType in parent.attachmentsLists.Keys)
             {

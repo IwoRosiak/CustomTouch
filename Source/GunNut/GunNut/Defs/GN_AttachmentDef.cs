@@ -9,24 +9,24 @@ namespace GunNut
         public List<WeaponTags> conflictingTags = new List<WeaponTags>();
 
         public GN_WeaponParts.WeaponPart weaponPart;
-        public AttachmentSize size;
+        public AttachmentSize size = AttachmentSize.medium;
 
         public GraphicData onWeaponGraphic;
 
         //IMPLEMENTED
-        public float accuracyImproveTouch = 0;
-        public float accuracyImproveShort = 0;
-        public float accuracyImproveMedium = 0;
-        public float accuracyImproveLong = 0;
+        public float accuracyTouch = 0;
+        public float accuracyShort = 0;
+        public float accuracyMedium = 0;
+        public float accuracyLong = 0;
 
-        public float damageIncrease = 0;
+        public float damageMult = 0;
 
-        public float warmupTimeReduction = 0;
+        public float warmupMult = 0;
 
-        public float cooldownTimeReduction = 0;
+        public float cooldownMult = 0;
 
         //NOT IMPLEMENTED
-        public float massReduction = 0;
+        public float massOffset = 0;
 
         public float noiseOFfset = 0;
         public float meleeDamageOffset = 0;

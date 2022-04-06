@@ -8,6 +8,7 @@
         <altitudeLayer>Item</altitudeLayer>
         <stackLimit>1</stackLimit>
         <statBases>
+            <WorkToMake>500</WorkToMake>
             <MarketValue>100</MarketValue>
             <Mass>0.5</Mass>
         </statBases>
@@ -34,5 +35,23 @@
             <drawSize>0.80</drawSize>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
+        <recipeMaker>
+            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+            <workSkill>Crafting</workSkill>
+            <effectWorking>Smith</effectWorking>
+            <soundWorking>Recipe_Smith</soundWorking>
+            <recipeUsers>
+                <li>TableMachining</li>
+            </recipeUsers>
+            <unfinishedThingDef>UnfinishedGun</unfinishedThingDef>
+            <researchPrerequisite>Gunsmithing</researchPrerequisite>
+            <skillRequirements>
+                <Crafting>6</Crafting>
+            </skillRequirements>
+        </recipeMaker>
+        <costList>
+            <Steel>30</Steel>
+            <ComponentIndustrial>2</ComponentIndustrial>
+        </costList>
     </ThingDef>
 </Defs>

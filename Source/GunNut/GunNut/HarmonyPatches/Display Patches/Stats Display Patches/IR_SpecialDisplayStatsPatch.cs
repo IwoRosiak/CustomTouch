@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using RimWorld;
 using System.Collections.Generic;
+using UnityEngine;
 using Verse;
 
 namespace GunNut.HarmonyPatches.Base_functionality
@@ -24,11 +25,11 @@ namespace GunNut.HarmonyPatches.Base_functionality
 
                         foreach (var attachment in weapon.AttachmentsOnWeapon)
                         {
-                            warmupImprove -= attachment.warmupTimeReduction;
+                            warmupImprove -= attachment.warmupMult;
                             
                         }
 
-                        yield return new StatDrawEntry(StatCategoryDefOf.Weapon_Ranged, "RangedWarmupTime".Translate(), (warmupImprove * req.Thing.def.Verbs[0].warmupTime).ToString() + " s", "Final warmup time after applying attachments.", 100, null, null, false);
+                        yield return new StatDrawEntry(StatCategoryDefOf.Weapon_Ranged, "RangedWarmupTime".Translate(), (Mathf.Round(warmupImprove * req.Thing.def.Verbs[0].warmupTime)).ToString() + " s", "Final warmup time after applying attachments.", 100, null, null, false);
                         continue;
                     }
 

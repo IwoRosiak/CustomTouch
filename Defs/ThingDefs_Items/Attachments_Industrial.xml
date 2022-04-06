@@ -1,62 +1,224 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
-
-    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+    <ThingDef Name="Attachment_Industrial" ParentName="GunModBase" Abstract="True">
+        <recipeMaker>
+            <skillRequirements>
+                <Crafting>6</Crafting>
+            </skillRequirements>
+        </recipeMaker>
+        <costList>
+            <Steel>25</Steel>
+            <Plasteel>5</Plasteel>
+            <ComponentIndustrial>1</ComponentIndustrial>
+        </costList>
+        <statBases>
+            <WorkToMake>500</WorkToMake>
+        </statBases>
+    </ThingDef>
+    
+<!--SCOPES-->
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial">
         <defName>Attachment_ACOG</defName>
         <label>ACOG</label>
         <weaponPart>scope</weaponPart>
-        <size>medium</size>
         <description>Specialist sight which allows for moderate amount of zoom. Highly effective on medium distance encounters.</description>
+        <accuracyTouch>-0.05</accuracyTouch>
+        <accuracyMedium>0.10</accuracyMedium>
+        <accuracyLong>0.03</accuracyLong>
+        <warmupMult>-0.05</warmupMult>
+        <statBases>
+            <MarketValue>100</MarketValue>
+            <Mass>0.2</Mass>
+        </statBases>
     </ThingDef>
 
-    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial">
         <defName>Attachment_Dot_Sight</defName>
         <label>Dot Sight</label>
         <weaponPart>scope</weaponPart>
-        <size>medium</size>
         <description>Classic dot sight which dramatically improves aiming performance on a lot of weapons.</description>
+        <accuracyTouch>0.05</accuracyTouch>
+        <accuracyShort>0.10</accuracyShort>
+        <accuracyMedium>0.03</accuracyMedium>
+        <warmupMult>0.05</warmupMult>
+        <statBases>
+            <MarketValue>70</MarketValue>
+            <Mass>0.1</Mass>
+        </statBases>
+        <conflictingTags>
+            <li>hasScope</li>
+        </conflictingTags>
     </ThingDef>
 
-    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial">
         <defName>Attachment_Big_Scope</defName>
         <label>Scope(x8-16)</label>
         <weaponPart>scope</weaponPart>
-        <size>big</size>
-        <description>A scope with high zoom. Effective on single shot weapons.</description>
+        <description>A scope with high zoom. Effective on single shot weapons. It's sheer size makes the weapon a bit more cumbersome to carry.</description>
+        <recipeMaker>
+            <skillRequirements>
+                <Crafting>12</Crafting>
+            </skillRequirements>
+        </recipeMaker>
+        <accuracyTouch>-0.15</accuracyTouch>
+        <accuracyShort>-0.05</accuracyShort>
+        <accuracyMedium>0.08</accuracyMedium>
+        <accuracyLong>0.15</accuracyLong>
+        <warmupMult>-0.1</warmupMult>
+        <statBases>
+            <MarketValue>180</MarketValue>
+            <Mass>1.3</Mass>
+            <WorkToMake>1000</WorkToMake>
+        </statBases>
+        <costList>
+            <Steel>20</Steel>
+            <Plasteel>10</Plasteel>
+            <ComponentIndustrial>4</ComponentIndustrial>
+        </costList>
+        <requiredTags>
+            <li>hasScopeRail</li>
+        </requiredTags>
+    </ThingDef>
+    
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial">
+        <defName>Attachment_Small_Scope</defName>
+        <label>Scope(x2-4)</label>
+        <weaponPart>scope</weaponPart>
+        <description>A scope with small zoom. Effective on automatic and semi automatic weapons. It makes the weapon a bit less handy to carry around.</description>
+        <accuracyTouch>-0.05</accuracyTouch>
+        <accuracyMedium>0.05</accuracyMedium>
+        <accuracyLong>0.1</accuracyLong>
+        <warmupMult>-0.03</warmupMult>
+        <statBases>
+            <MarketValue>140</MarketValue>
+            <Mass>0.8</Mass>
+        </statBases>
+        <requiredTags>
+            <li>hasScopeRail</li>
+        </requiredTags>
     </ThingDef>
 
-    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial">
         <defName>Attachment_NV_Scope</defName>
         <label>Night-vision Scope</label>
         <weaponPart>scope</weaponPart>
-        <size>medium</size>
-        <description>Scope with moderate amount of zoom but comes with night-vision which reduces penalty when shooting in the dark.</description>
+        <description>Scope with moderate amount of zoom but comes with night-vision which reduces penalty when shooting in the dark. It's short range forces the user to shoot from closer distance.</description>
+        <recipeMaker>
+            <skillRequirements>
+                <Crafting>10</Crafting>
+            </skillRequirements>
+        </recipeMaker>
+        <costList>
+            <Steel>15</Steel>
+            <Plasteel>15</Plasteel>
+            <ComponentIndustrial>5</ComponentIndustrial>
+        </costList>
+        <accuracyMedium>-0.05</accuracyMedium>
+        <accuracyLong>-0.4</accuracyLong>
+        <statBases>
+            <MarketValue>300</MarketValue>
+            <Mass>0.7</Mass>
+            <WorkToMake>1000</WorkToMake>
+        </statBases>
+        <requiredTags>
+            <li>hasScopeRail</li>
+        </requiredTags>
     </ThingDef>
 
-    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+<!--STOCKS-->
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial">
+        <defName>Attachment_Light_Stock</defName>
+        <label>Light Stock</label>
+        <weaponPart>stock</weaponPart>
+        <description>A stock specificaly designed for small weapons like sub-machine guns and pistols. It makes the weapon more uncomfortable to carry around.</description>
+        <accuracyTouch>0.1</accuracyTouch>
+        <accuracyShort>0.02</accuracyShort>
+        <warmupMult>-0.1</warmupMult>
+        <cooldownMult>-0.2</cooldownMult>
+        <statBases>
+            <MarketValue>60</MarketValue>
+            <Mass>0.2</Mass>
+        </statBases>
+        <requiredTags>
+            <li>noStock</li>
+        </requiredTags>
+    </ThingDef>
+    
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial">
         <defName>Attachment_Skeleton_Stock</defName>
         <label>Skeleton Stock</label>
         <weaponPart>stock</weaponPart>
         <size>medium</size>
-        <description>Cheap, light-weight stock thanks to it skeleton structure.</description>
+        <description>Cheap, light-weight stock thanks to it skeletar structure.</description>
+        <warmupMult>-0.1</warmupMult>
+        <cooldownMult>-0.25</cooldownMult>
+        <statBases>
+            <MarketValue>90</MarketValue>
+            <Mass>0.4</Mass>
+        </statBases>
+        <conflictingTags>
+            <li>singleHand</li>
+        </conflictingTags>
     </ThingDef>
 
-    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial">
+        <defName>Attachment_Sharpshooter_Stock</defName>
+        <label>Sharhshooter Stock</label>
+        <weaponPart>stock</weaponPart>
+        <size>big</size>
+        <description>A stock designed to negate recoil on powerful, high-caliber rifles. Less effective on automatic weapons.</description>
+        <recipeMaker>
+            <skillRequirements>
+                <Crafting>12</Crafting>
+            </skillRequirements>
+        </recipeMaker>
+        <warmupMult>-0.05</warmupMult>
+        <cooldownMult>-0.4</cooldownMult>
+        <statBases>
+            <MarketValue>270</MarketValue>
+            <Mass>0.8</Mass>
+            <WorkToMake>1000</WorkToMake>
+        </statBases>
+        <conflictingTags>
+            <li>singleHand</li>
+        </conflictingTags>
+    </ThingDef>
+    
+<!--UNDERMOUNT-->
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial">
         <defName>Attachment_Undermount_Straight_Grip</defName>
         <label>Composite Grip</label>
-        <weaponPart>foregrip</weaponPart>
-        <size>big</size>
-        <description>Rubber handle which can be easily attached under most guns. Useful for controlling recoil.</description>
+        <weaponPart>undermount</weaponPart>
+        <description>Rubber handle which can be easily attached under most guns with mounting. Useful for controlling recoil. It is cheap and efficient.</description>
+        <warmupMult>-0.02</warmupMult>
+        <cooldownMult>-0.1</cooldownMult>
+        <statBases>
+            <MarketValue>40</MarketValue>
+            <Mass>0.1</Mass>
+        </statBases>
+        <requiredTags>
+            <li>undermountRail</li>
+        </requiredTags>
     </ThingDef>
 
-    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial">
         <defName>Attachment_Undermount_Angled_Grip</defName>
         <label>Angled Grip</label>
-        <weaponPart>foregrip</weaponPart>
-        <size>big</size>
-        <description>Rubber handle which can be easily attached under most guns. Its form allows for moderate recoil control and improved aiming times.</description>
+        <weaponPart>undermount</weaponPart>
+        <description>Rubber handle which can be easily attached under most guns. Its form allows for moderate recoil control and improved aiming times. It is cheap and efficient.</description>
+        <warmupMult>-0.05</warmupMult>
+        <cooldownMult>-0.04</cooldownMult>
+        <statBases>
+            <MarketValue>40</MarketValue>
+            <Mass>0.1</Mass>
+        </statBases>
+        <requiredTags>
+            <li>undermountRail</li>
+        </requiredTags>
     </ThingDef>
 
+<!-- MAGAZINES 
     <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
         <defName>Attachment_Shotgun_Magazine</defName>
         <label>Shotgun Magazine</label>
@@ -71,33 +233,149 @@
         <weaponPart>magazine</weaponPart>
         <size>big</size>
         <description>Well made composite attachment for magazine which allows for quick reload times.</description>
-    </ThingDef>
+    </ThingDef>-->
 
-    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
+<!-- BARREL EXT -->
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial">
         <defName>Attachment_Nozzle</defName>
         <label>Nozzle</label>
         <weaponPart>barrelExt</weaponPart>
-        <size>medium</size>
-        <description>A nozzle crafted using well mantained spare parts and specialist equipment. It works through redirecting gas of the outgoing bullet.</description>
+        <description>A nozzle crafted using well mantained spare parts and specialist equipment. It works through redirecting gas of the outgoing bullet to increase bullets speed.</description>
+        <damageMult>0.05</damageMult>
+        <cooldownMult>0.05</cooldownMult>
+        <statBases>
+            <MarketValue>40</MarketValue>
+            <Mass>0.1</Mass>
+        </statBases>
     </ThingDef>
 
+<!--
     <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
         <defName>Attachment_Silencer</defName>
         <label>Silencer</label>
         <weaponPart>barrelExt</weaponPart>
         <size>medium</size>
         <description>A silencer which muffles the shots what allows for safer hunting at the expense of damage.</description>
-    </ThingDef>
+    </ThingDef> -->
 
-    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
-        <defName>Attachment_Bolt-action_Handle</defName>
-        <label>Bolt-action Handle</label>
+<!--RECEIVER -->
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial">
+        <defName>Attachment_Bolt-action_Lever</defName>
+        <label>Ergonomic Bolt-action Lever</label>
         <weaponPart>receiver</weaponPart>
-        <size>big</size>
-        <description>Well crafted handle which improves reload times on bolt-action weapons.</description>
+        <description>Well crafted lever which improves reload times on bolt-action weapons.</description>
+        <warmupMult>-0.02</warmupMult>
+        <cooldownMult>-0.02</cooldownMult>
+        <statBases>
+            <MarketValue>60</MarketValue>
+            <Mass>0.05</Mass>
+        </statBases>
         <requiredTags>
           <li>boltAction</li>
         </requiredTags>
     </ThingDef>
+   
 
+<!--BARREL -->
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial">
+        <defName>Attachment_Precision_Barrel</defName>
+        <label>Precision Barrel</label>
+        <weaponPart>barrel</weaponPart>
+        <description>Precision barrel for high accuracy weapons. Drastically improves accuracy and bullets damage.</description>
+        <damageMult>0.05</damageMult>
+        <accuracyTouch>0.03</accuracyTouch>
+        <accuracyShort>0.04</accuracyShort>
+        <accuracyMedium>0.06</accuracyMedium>
+        <accuracyLong>0.03</accuracyLong>
+        <statBases>
+            <MarketValue>280</MarketValue>
+            <Mass>0.2</Mass>
+            <WorkToMake>1500</WorkToMake>
+        </statBases>
+        <conflictingTags>
+            <li>singleHand</li>
+            <li>shotgun</li>
+        </conflictingTags>
+    </ThingDef>
+    
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial">
+        <defName>Attachment_Precision_Slide</defName>
+        <label>Precision Slide</label>
+        <weaponPart>barrel</weaponPart>
+        <description>Precision slide for better fire-rate and accuracy.</description>
+        <recipeMaker>
+            <skillRequirements>
+                <Crafting>10</Crafting>
+            </skillRequirements>
+        </recipeMaker>
+        <accuracyTouch>0.05</accuracyTouch>
+        <accuracyShort>0.03</accuracyShort>
+        <accuracyMedium>0.01</accuracyMedium>
+        <cooldownMult>-0.5</cooldownMult>
+        <statBases>
+            <MarketValue>100</MarketValue>
+            <Mass>0.1</Mass>
+            <WorkToMake>800</WorkToMake>
+        </statBases>
+        <requiredTags>
+            <li>pistol</li>
+        </requiredTags>
+    </ThingDef>
+<!--GRIP -->
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial">
+        <defName>Attachment_Rubber_Grip</defName>
+        <label>Rubber Grip</label>
+        <weaponPart>grip</weaponPart>
+        <description>Rubber grip that provides ergonomic hold onto the weapon. Makes it easier to control recoil.</description>
+        <cooldownMult>-0.25</cooldownMult>
+        <statBases>
+            <MarketValue>40</MarketValue>
+            <Mass>0.1</Mass>
+        </statBases>
+        <conflictingTags>
+            <li>pistol</li>
+        </conflictingTags>
+    </ThingDef>
+    
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial">
+        <defName>Attachment_Rubber_Pistol_Grip</defName>
+        <label>Rubber Pistol Grip</label>
+        <weaponPart>grip</weaponPart>
+        <description>Rubber grip that provides ergonomic hold onto the weapon. Makes it easier to control recoil.</description>
+        <cooldownMult>-0.40</cooldownMult>
+        <statBases>
+            <MarketValue>40</MarketValue>
+            <Mass>0.05</Mass>
+        </statBases>
+        <requiredTags>
+            <li>pistol</li>
+        </requiredTags>
+    </ThingDef>
+    
+<!--FOREGRIP -->
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial">
+        <defName>Attachment_Ventilated_Foregrip</defName>
+        <label>Ventilated Foregrip</label>
+        <weaponPart>foregrip</weaponPart>
+        <description>Ventilated foregrip for automatic weapons. Improves hold on the weapon.</description>
+        <cooldownMult>-0.1</cooldownMult>
+        <statBases>
+            <MarketValue>80</MarketValue>
+            <Mass>0.2</Mass>
+        </statBases>
+    </ThingDef>
+    
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial">
+        <defName>Attachment_Composite_Pump</defName>
+        <label>Composite Pump</label>
+        <weaponPart>foregrip</weaponPart>
+        <description>Ergonomic shotgun pump which makes it easier to load the next bullet into the chamber after firing. It also provides better footing for lining up shots.</description>
+        <cooldownMult>-0.1</cooldownMult>
+        <warmupMult>-0.1</warmupMult>
+        <statBases>
+            <MarketValue>80</MarketValue>
+            <Mass>0.3</Mass>
+        </statBases>
+    </ThingDef>
+    
 </Defs>

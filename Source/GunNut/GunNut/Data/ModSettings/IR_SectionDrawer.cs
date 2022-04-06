@@ -8,7 +8,7 @@ using Verse;
 
 namespace GunNut
 {
-    internal abstract class IR_Drawer
+    internal abstract class IR_SectionDrawer
     {
         protected const int buttonHeight = 40;
         protected const int buttonWidth = 180;
@@ -19,9 +19,11 @@ namespace GunNut
 
         protected const int sliderWidth = 16;
 
-        protected IR_Drawer_Coordinator parent;
+        protected IR_SectionDrawer_Coordinator parent;
 
-        public IR_Drawer(IR_Drawer_Coordinator _parent)
+        protected Rect myRect;
+
+        public IR_SectionDrawer(IR_SectionDrawer_Coordinator _parent)
         {
             parent = _parent;
         }

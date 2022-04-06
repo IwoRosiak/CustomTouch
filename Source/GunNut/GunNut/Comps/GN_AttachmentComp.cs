@@ -187,6 +187,8 @@ namespace GunNut
 
         private bool IsMatchingTags(GN_AttachmentDef attachment)
         {
+            bool result = true;
+
             foreach (WeaponTags tag in attachment.requiredTags)
             {
                 if (!IR_Settings.GetWeaponTags(parent.def.defName).Contains(tag))
@@ -210,13 +212,18 @@ namespace GunNut
         {
             List<GN_AttachmentDef> uniqueAttachmentDefs = new List<GN_AttachmentDef>();
 
-            foreach (var thing in map.listerThings.ThingsInGroup(ThingRequestGroup.HaulableEver))
+            if (map!= null && map.listerThings!= null)
             {
-                if (thing.def.thingCategories[0].ToString() == "Attachment" && !uniqueAttachmentDefs.Contains((GN_AttachmentDef)thing.def))
+                foreach (var thing in map.listerThings.ThingsInGroup(ThingRequestGroup.HaulableEver))
                 {
-                    uniqueAttachmentDefs.Add((GN_AttachmentDef)thing.def);
+                    if (thing?.def?.thingCategories[0]?.ToString() == "Attachment" && !uniqueAttachmentDefs.Contains((GN_AttachmentDef)thing.def))
+                    {
+                        uniqueAttachmentDefs.Add((GN_AttachmentDef)thing.def);
+                    }
                 }
             }
+
+            
             return uniqueAttachmentDefs;
         }
     }

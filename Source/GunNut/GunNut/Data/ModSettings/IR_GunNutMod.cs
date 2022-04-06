@@ -9,7 +9,8 @@ namespace GunNut
     {
         private IR_Settings settings;
 
-        private IR_Drawer_Coordinator drawerCoordinator;
+        private IR_SectionDrawer_Coordinator drawerCoordinator;
+
 
         public IR_GunNutMod(ModContentPack content) : base(content)
         {
@@ -21,7 +22,7 @@ namespace GunNut
         {
             if (drawerCoordinator == null)
             {
-                drawerCoordinator = new IR_Drawer_Coordinator(null);
+                drawerCoordinator = new IR_SectionDrawer_Coordinator(null);
             }
 
             drawerCoordinator.Draw(inRect);

@@ -8,19 +8,22 @@ using Verse;
 
 namespace GunNut
 {
-    internal class IR_Drawer_Attachments : IR_Drawer
+    internal class IR_SectionDrawer_AttachmentsChoice : IR_SectionDrawer
     {
-
+        public IR_SectionDrawer_AttachmentsChoice(IR_SectionDrawer_Coordinator _parent) : base(_parent)
+        {
+        }
 
         public override void Draw(Rect rect)
         {
+            DrawAttachmentsChoiceButtons(rect);
         }
+
+
+
+
 
         private Vector2 scrollAttachments = new Vector2();
-
-        public IR_Drawer_Attachments(IR_Drawer_Coordinator _parent) : base(_parent)
-        {
-        }
 
         public void DrawAttachmentsChoiceButtons(Rect rect)
         {
@@ -36,6 +39,9 @@ namespace GunNut
             Widgets.BeginScrollView(scrollRect, ref scrollAttachments, viewRect);
             foreach (var attachmentType in parent.attachmentsLists.Keys)
             {
+                Log.Message(attachmentType.ToString());
+                y += buttonHeight;
+
                 if (Widgets.ButtonText(new Rect(x, y, smallButtonWidth, buttonHeight), attachmentType.ToString()))
                 {
                     parent.curAttachmentType = attachmentType;
@@ -49,7 +55,7 @@ namespace GunNut
                     IR_Settings.WeaponsCustomInfo[parent.CurWeapon.defName].isEnabled[attachmentType] = temp;
                 }
 
-                y += buttonHeight;
+                
             }
             Widgets.EndScrollView();
         }

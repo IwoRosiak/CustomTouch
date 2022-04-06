@@ -8,11 +8,16 @@ using Verse;
 
 namespace GunNut
 {
-    internal class IR_Drawer_Coordinator : IR_Drawer
+    internal class IR_SectionDrawer_Coordinator : IR_SectionDrawer
     {
-        private IR_Drawer_Attachments drawerAttachment;
-        private IR_Drawer_Weapons drawerWeapons;
-        private IR_Drawer_Table drawerTable;
+        private IR_SectionDrawer_AttachmentsChoice drawerAttachment;
+        private IR_SectionDrawer_Weapons drawerWeapons;
+        private IR_SectionDrawer_WeaponTags drawerWeaponTags;
+        private IR_SectionDrawer_Table drawerTable;
+
+        private IR_SectionDrawer_PatchCreator patchCreator;
+
+        public ModContentPack curMod;
 
         public List<ThingDef> weapons = new List<ThingDef>();
         private ThingDef curWeapon;
@@ -20,22 +25,27 @@ namespace GunNut
         public Dictionary<GN_WeaponParts.WeaponPart, List<GN_AttachmentDef>> attachmentsLists = new Dictionary<GN_WeaponParts.WeaponPart, List<GN_AttachmentDef>>();
         public GN_WeaponParts.WeaponPart curAttachmentType;
 
+        public List<ModContentPack> loadedModsWithWeapons = new List<ModContentPack>();
+
         public ThingDef CurWeapon
         {
             get { return curWeapon; }
             set { curWeapon = value; }
         }
 
-        public IR_Drawer_Coordinator(IR_Drawer_Coordinator _parent) : base(_parent)
+        public IR_SectionDrawer_Coordinator(IR_SectionDrawer_Coordinator _parent) : base(_parent)
         {
-            drawerAttachment = new IR_Drawer_Attachments(this);
-            drawerWeapons = new IR_Drawer_Weapons(this);
-            drawerTable = new IR_Drawer_Table(this);
+            drawerAttachment = new IR_SectionDrawer_AttachmentsChoice(this);
+            drawerWeapons = new IR_SectionDrawer_Weapons(this);
+            drawerTable = new IR_SectionDrawer_Table(this);
+            drawerWeaponTags = new IR_SectionDrawer_WeaponTags(this);
+            patchCreator= new IR_SectionDrawer_PatchCreator(this);
 
             parent = this;
 
             LoadCompatibleWeapons();
             LoadAttachments();
+            LoadModsWithWeapons();
         }
 
         public override void Draw(Rect rect)
@@ -53,16 +63,23 @@ namespace GunNut
             Rect attachmentChoiceRect = new Rect(masterRect.x + masterRect.width - attachmentChoiceWidthOffset, masterRect.y + masterRect.height * 0.5f, attachmentChoiceWidthOffset, masterRect.height * 0.5f);
 
 
-
-            drawerWeapons.DrawWeaponChoiceButtons(weaponsButtonsRect);
+            drawerWeapons.Draw(weaponsButtonsRect);
             
             if (curWeapon != null)
             {
-                drawerWeapons.DrawWeaponsTagsChoiceButtons(weaponTagsRect);
+                if (Widgets.ButtonText(new Rect(weaponRect.x, weaponRect.y +50, buttonWidth, buttonHeight), "Get weapon patch")) 
+                {
+                    Log.Message(patchCreator.GetWeaponXPatch(curWeapon));
+                }
 
-                drawerTable.DrawCraftingTable(weaponRect);
+                if (Widgets.ButtonText(new Rect(weaponRect.x, weaponRect.y + 100, buttonWidth, buttonHeight), "Get mod patch"))
+                {
+                    Log.Message(patchCreator.GetModXPatch());
+                }
 
-                drawerAttachment.DrawAttachmentsChoiceButtons(attachmentChoiceRect);
+                drawerWeaponTags.Draw(weaponTagsRect);
+                drawerTable.Draw(weaponRect);
+                drawerAttachment.Draw(attachmentChoiceRect);
             }
 
         }
@@ -94,6 +111,26 @@ namespace GunNut
                 attachmentsLists[attachmentDef.weaponPart].Add(attachmentDef);
 
                 curAttachmentType = attachmentDef.weaponPart;
+            }
+        }
+
+        private void LoadModsWithWeapons()
+        {
+            foreach (ModContentPack mod in LoadedModManager.RunningModsListForReading)
+            {
+                foreach (Def def in  mod.AllDefs)
+                {
+                    if (def.GetType() == typeof(ThingDef))
+                    {
+                        ThingDef thingDef = (ThingDef)def;
+
+                        if (thingDef.IsRangedWeapon)
+                        {
+                            loadedModsWithWeapons.Add(mod);
+                            break;
+                        }
+                    }
+                }
             }
         }
     }

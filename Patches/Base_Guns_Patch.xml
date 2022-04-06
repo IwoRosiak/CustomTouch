@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+    <Operation Class="PatchOperationAdd">
+        <xpath>//Defs/ThingDef[contains(defName, "Gun_") and not(contains(defName,"Turret"))]/comps</xpath>
+        <value>
+            <li Class="GunNut.GN_AttachmentCompProperties">
+                <jobDefInstall>EquipAttachment</jobDefInstall>
+                <jobDefRemove>RemoveAttachment</jobDefRemove>
+                <slots>
+                    <li>
+                        <weaponPart>scope</weaponPart>
+                    </li>
+                    <li>
+                        <weaponPart>magazine</weaponPart>
+                    </li>
+                    <li>
+                        <weaponPart>stock</weaponPart>
+                    </li>
+                    <li>
+                        <weaponPart>barrelExt</weaponPart>
+                    </li>
+                    <li>
+                        <weaponPart>receiver</weaponPart>
+                    </li>
+                    <li>
+                        <weaponPart>undermount</weaponPart>
+                    </li>
+                    <li>
+                        <weaponPart>grip</weaponPart>
+                    </li>
+                </slots>
+            </li>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>//Defs/ThingDef[contains(defName, "Gun_") and not(comps) and not(contains(defName,"Turret"))]</xpath>
+        <value>
+            <comps>
+                <li Class="GunNut.GN_AttachmentCompProperties">
+                    <jobDefInstall>EquipAttachment</jobDefInstall>
+                    <jobDefRemove>RemoveAttachment</jobDefRemove>
+                    <slots>
+                        <li>
+                            <weaponPart>scope</weaponPart>
+                        </li>
+                        <li>
+                            <weaponPart>magazine</weaponPart>
+                        </li>
+                        <li>
+                            <weaponPart>stock</weaponPart>
+                        </li>
+                        <li>
+                            <weaponPart>barrelExt</weaponPart>
+                        </li>
+                        <li>
+                            <weaponPart>receiver</weaponPart>
+                        </li>
+                        <li>
+                            <weaponPart>undermount</weaponPart>
+                        </li>
+                        <li>
+                            <weaponPart>grip</weaponPart>
+                        </li>
+                    </slots>
+                </li>
+            </comps>
+        </value>
+    </Operation>
+</Patch>

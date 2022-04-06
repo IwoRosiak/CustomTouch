@@ -41,7 +41,7 @@ namespace GunNut.HarmonyPatches
                 {
                     if (attachment != null)
                     {
-                        improvement += attachment.damageIncrease;
+                        improvement += attachment.damageMult;
                     }
                 }
 

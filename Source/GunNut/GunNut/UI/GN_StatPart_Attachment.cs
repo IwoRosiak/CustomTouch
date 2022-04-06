@@ -20,11 +20,11 @@ namespace GunNut
 
                     if (this.parentStat.defName == "RangedWeapon_Cooldown")
                     {
-                        improvement -= attachment.cooldownTimeReduction;
+                        improvement -= attachment.cooldownMult;
                     }
                     else if (this.parentStat.defName == "RangedWeapon_DamageMultiplier")
                     {
-                        improvement += attachment.damageIncrease;
+                        improvement += attachment.damageMult;
                     }
                 }
 
@@ -51,11 +51,11 @@ namespace GunNut
                     {
                         if (this.parentStat.defName == "RangedWeapon_Cooldown")
                         {
-                            improvement -= attachment.cooldownTimeReduction;
+                            improvement -= attachment.cooldownMult;
                         }
                         else if (this.parentStat.defName == "RangedWeapon_DamageMultiplier")
                         {
-                            improvement += attachment.damageIncrease;
+                            improvement += attachment.damageMult;
                         }
                     }
 
