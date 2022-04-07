@@ -25,7 +25,7 @@ namespace GunNut
 
                  Printer_Plane.PrintPlane(layer, centerFrame, __instance.drawSize, mat, extraRotation);*/
 
-                foreach (var slot in thing.TryGetComp<GN_AttachmentComp>()?.SlotsOnWeapon)
+                foreach (var slot in thing.TryGetComp<GN_AttachmentComp>()?.ActiveSlots)
                 {
                     if (slot.attachment != null && slot.attachment.onWeaponGraphic != null)
                     {

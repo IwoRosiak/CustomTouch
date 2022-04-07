@@ -57,6 +57,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AttachmentData\Effects\IR_Base_Effect.cs" />
+    <Compile Include="AttachmentData\IR_WeaponSlotsInfo.cs" />
     <Compile Include="Data\IR_Init.cs" />
     <Compile Include="Data\IR_SlotsCords.cs" />
     <Compile Include="Data\ModSettings\IR_SectionDrawer_AttachmentsChoice.cs" />
@@ -67,25 +69,26 @@
     <Compile Include="Data\ModSettings\IR_SectionDrawer.cs" />
     <Compile Include="Data\ModSettings\IR_SectionDrawer_WeaponTags.cs" />
     <Compile Include="HarmonyPatches\Display Patches\Stats Display Patches\IR_SpecialDisplayStatsPatch.cs" />
-    <Compile Include="HarmonyPatches\Stats Patches\GN_GetDamageAmountPatch.cs" />
+    <Compile Include="HarmonyPatches\Stats Patches\Damage\GN_GetDamageAmountPatch.cs" />
     <Compile Include="HarmonyPatches\Stats Patches\GN_TryStartCastOnPatch.cs" />
     <Compile Include="HarmonyPatches\Display Patches\GN_ThingIconPatch.cs" />
     <Compile Include="HarmonyPatches\Stats Patches\GN_CreateVerbTargetCommand.cs" />
     <Compile Include="HarmonyPatches\Display Patches\GN_DrawEquipmentAimingPatch.cs" />
     <Compile Include="HarmonyPatches\Stats Patches\GN_AdjustedAccuracyPatchHelper.cs" />
     <Compile Include="HarmonyPatches\Display Patches\GN_PrintPatch.cs" />
-    <Compile Include="Defs\GN_WeaponDef.cs" />
-    <Compile Include="Comps\GN_Slot.cs" />
+    <Compile Include="AttachmentData\GN_Slot.cs" />
     <Compile Include="Data\ModSettings\IR_Settings.cs" />
     <Compile Include="Data\ModSettings\IR_GunNutMod.cs" />
+    <Compile Include="HarmonyPatches\Stats Patches\Weather Effect\IR_HitReportFor_Patch.cs" />
+    <Compile Include="HarmonyPatches\Stats Patches\Weather Effect\IR_HitReportGetString_Patch.cs" />
     <Compile Include="IR_Textures.cs" />
     <Compile Include="UI\GN_StatPart_Attachment.cs" />
     <Compile Include="Defs\DefsOf\GN_StatCegoryDefOf.cs" />
-    <Compile Include="Comps\GN_AttachmentCompProperties.cs" />
+    <Compile Include="Comps\AttachmentComp\GN_AttachmentCompProperties.cs" />
     <Compile Include="Defs\GN_AttachmentDef.cs" />
     <Compile Include="UI\GN_Command_VerbTarget.cs" />
     <Compile Include="GN_WeaponParts.cs" />
-    <Compile Include="Comps\GN_AttachmentComp.cs" />
+    <Compile Include="Comps\AttachmentComp\GN_AttachmentComp.cs" />
     <Compile Include="UI\GN_StatPart_Quality.cs" />
     <Compile Include="HarmonyPatches\GN_HarmonyInitialise.cs" />
     <Compile Include="AI\JobDriver_EquipAttachment.cs" />

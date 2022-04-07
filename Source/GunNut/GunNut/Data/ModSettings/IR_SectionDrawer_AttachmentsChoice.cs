@@ -39,7 +39,6 @@ namespace GunNut
             Widgets.BeginScrollView(scrollRect, ref scrollAttachments, viewRect);
             foreach (var attachmentType in parent.attachmentsLists.Keys)
             {
-                Log.Message(attachmentType.ToString());
                 y += buttonHeight;
 
                 if (Widgets.ButtonText(new Rect(x, y, smallButtonWidth, buttonHeight), attachmentType.ToString()))

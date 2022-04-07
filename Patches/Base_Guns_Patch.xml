@@ -6,29 +6,6 @@
             <li Class="GunNut.GN_AttachmentCompProperties">
                 <jobDefInstall>EquipAttachment</jobDefInstall>
                 <jobDefRemove>RemoveAttachment</jobDefRemove>
-                <slots>
-                    <li>
-                        <weaponPart>scope</weaponPart>
-                    </li>
-                    <li>
-                        <weaponPart>magazine</weaponPart>
-                    </li>
-                    <li>
-                        <weaponPart>stock</weaponPart>
-                    </li>
-                    <li>
-                        <weaponPart>barrelExt</weaponPart>
-                    </li>
-                    <li>
-                        <weaponPart>receiver</weaponPart>
-                    </li>
-                    <li>
-                        <weaponPart>undermount</weaponPart>
-                    </li>
-                    <li>
-                        <weaponPart>grip</weaponPart>
-                    </li>
-                </slots>
             </li>
         </value>
     </Operation>
@@ -39,7 +16,14 @@
                 <li Class="GunNut.GN_AttachmentCompProperties">
                     <jobDefInstall>EquipAttachment</jobDefInstall>
                     <jobDefRemove>RemoveAttachment</jobDefRemove>
-                    <slots>
+                </li>
+            </comps>
+        </value>
+    </Operation>
+</Patch>
+
+<!-- 
+<slots>
                         <li>
                             <weaponPart>scope</weaponPart>
                         </li>
@@ -62,8 +46,7 @@
                             <weaponPart>grip</weaponPart>
                         </li>
                     </slots>
-                </li>
-            </comps>
-        </value>
-    </Operation>
-</Patch>
+
+
+
+-->

@@ -53,7 +53,7 @@ namespace GunNut
 
                 var weaponComp = weapon.TryGetComp<GN_AttachmentComp>();
 
-                foreach (var slot in weaponComp.SlotsOnWeapon)
+                foreach (var slot in weaponComp.ActiveSlots)
                 {
                     if (slot.attachment != null)
                     {

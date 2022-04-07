@@ -133,14 +133,14 @@ namespace GunNut
                     slotData.size = new Dictionary<GN_WeaponParts.WeaponPart, float>();
                     slotData.weaponTags = new List<WeaponTags>(compProp.tags);
 
-                    Log.Message("Adding " + thingDef.defName);
+                    //Log.Message("Adding " + thingDef.defName);
 
                     foreach (GN_WeaponParts.WeaponPart weaponPart in Enum.GetValues(typeof(GN_WeaponParts.WeaponPart)))
                     {
                         if (compProp.ContainsTypeOfSlot(weaponPart))
                         {
                             GN_Slot slot = compProp.GetSlotOfType(weaponPart);
-                            slotData.isEnabled.Add(slot.weaponPart, slot.isActive);
+                            slotData.isEnabled.Add(slot.weaponPart, true);
                             slotData.position.Add(slot.weaponPart, slot.defaultPosition);
                             slotData.size.Add(slot.weaponPart, 1);
                         } else

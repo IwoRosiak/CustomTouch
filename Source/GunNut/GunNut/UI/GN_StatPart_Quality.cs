@@ -14,12 +14,12 @@ namespace GunNut
                 return;
             }
             float num;
-            if (req.Thing.TryGetComp<GN_AttachmentComp>() != null && req.Thing.TryGetComp<GN_AttachmentComp>().SlotsOnWeapon != null)
+            if (req.Thing.TryGetComp<GN_AttachmentComp>() != null && req.Thing.TryGetComp<GN_AttachmentComp>().ActiveSlots != null)
             {
                 float improvement = 1;
                 string defName = this.parentStat.defName;
 
-                foreach (var attachment in req.Thing.TryGetComp<GN_AttachmentComp>().AttachmentsOnWeapon)
+                foreach (var attachment in req.Thing.TryGetComp<GN_AttachmentComp>().ActiveAttachments)
                 {
                     if (defName == "AccuracyLong")
                     {
@@ -71,12 +71,12 @@ namespace GunNut
                 string text = "StatsReport_QualityMultiplier".Translate() + ": x" + this.QualityMultiplier(qc).ToStringPercent();
                 float num = this.MaxGain(qc);
 
-                if (req.Thing.TryGetComp<GN_AttachmentComp>() != null && req.Thing.TryGetComp<GN_AttachmentComp>().SlotsOnWeapon != null)
+                if (req.Thing.TryGetComp<GN_AttachmentComp>() != null && req.Thing.TryGetComp<GN_AttachmentComp>().ActiveSlots != null)
                 {
                     float improvement = 1;
                     string defName = this.parentStat.defName;
 
-                    foreach (var attachment in req.Thing.TryGetComp<GN_AttachmentComp>().AttachmentsOnWeapon)
+                    foreach (var attachment in req.Thing.TryGetComp<GN_AttachmentComp>().ActiveAttachments)
                     {
                         if (defName == "AccuracyLong")
                         {

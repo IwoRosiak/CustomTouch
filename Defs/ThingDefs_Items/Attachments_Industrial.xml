@@ -26,6 +26,7 @@
         <accuracyMedium>0.10</accuracyMedium>
         <accuracyLong>0.03</accuracyLong>
         <warmupMult>-0.05</warmupMult>
+        <zoomvision>0.05</zoomvision>
         <statBases>
             <MarketValue>100</MarketValue>
             <Mass>0.2</Mass>
@@ -64,6 +65,7 @@
         <accuracyShort>-0.05</accuracyShort>
         <accuracyMedium>0.08</accuracyMedium>
         <accuracyLong>0.15</accuracyLong>
+        <zoomvision>0.4</zoomvision>
         <warmupMult>-0.1</warmupMult>
         <statBases>
             <MarketValue>180</MarketValue>
@@ -89,6 +91,7 @@
         <accuracyMedium>0.05</accuracyMedium>
         <accuracyLong>0.1</accuracyLong>
         <warmupMult>-0.03</warmupMult>
+        <zoomvision>0.05</zoomvision>
         <statBases>
             <MarketValue>140</MarketValue>
             <Mass>0.8</Mass>
@@ -115,6 +118,8 @@
         </costList>
         <accuracyMedium>-0.05</accuracyMedium>
         <accuracyLong>-0.4</accuracyLong>
+        <nightvision>0.5</nightvision>
+        <zoomvision>0.2</zoomvision>
         <statBases>
             <MarketValue>300</MarketValue>
             <Mass>0.7</Mass>

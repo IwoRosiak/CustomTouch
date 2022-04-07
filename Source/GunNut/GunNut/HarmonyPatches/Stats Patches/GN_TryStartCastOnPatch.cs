@@ -17,7 +17,7 @@ namespace GunNut
             {
                 float warmupImprove = 1.0f;
                 var weapon = __instance.EquipmentSource.TryGetComp<GN_AttachmentComp>();
-                foreach (var attachment in weapon.AttachmentsOnWeapon)
+                foreach (var attachment in weapon.ActiveAttachments)
                 {
                     warmupImprove -= attachment.warmupMult;
                 }

@@ -11,6 +11,8 @@ namespace GunNut
 {
     public class GN_AttachmentComp : ThingComp
     {
+        private IR_WeaponSlotsInfo slotsInfo;
+
         public GN_AttachmentCompProperties Props
         {
             get
@@ -27,11 +29,11 @@ namespace GunNut
             }
         }
 
-        public IEnumerable<GN_AttachmentDef> AttachmentsOnWeapon
+        public IEnumerable<GN_AttachmentDef> ActiveAttachments
         {
             get
             {
-                foreach (var slot in SlotsOnWeapon)
+                foreach (var slot in ActiveSlots)
                 {
                     if (slot.attachment != null)
                     {
@@ -41,44 +43,35 @@ namespace GunNut
             }
         }
 
-        public void InitSlots()
-        {
-            Slots = new List<GN_Slot>();
-
-            GN_Slot[] array = new GN_Slot[SlotsProps.Count()];
-
-            SlotsProps.CopyTo(array);
-
-            Slots.AddRange(array);
-        }
-
-       
-
-        private List<GN_Slot> Slots = new List<GN_Slot>();
-
-        public IEnumerable<GN_Slot> SlotsOnWeapon
+        public IEnumerable<GN_Slot> ActiveSlots
         {
             get
             {
-                if (Slots.NullOrEmpty())
+                if (slotsInfo == null)
                 {
                     InitSlots();
                 }
-                foreach (var slot in Slots)
+                foreach (var slot in slotsInfo.GetSlots())
                 {
-                    if (IR_Settings.IsActive(parent.def.defName, slot.weaponPart))
-                    {
-                        yield return slot;
-                    }
+                    yield return slot;
                 }
             }
         }
+
+        public void InitSlots()
+        {
+            if (slotsInfo == null)
+            {
+                slotsInfo = new IR_WeaponSlotsInfo(this);
+            }
+        }
+
 
         public bool HasAnyAttachments
         {
             get
             {
-                foreach (var slot in SlotsOnWeapon)
+                foreach (var slot in ActiveSlots)
                 {
                     if (slot.attachment != null)
                     {
@@ -89,9 +82,11 @@ namespace GunNut
             }
         }
 
+        //COMP STUFF
+
         public override void PostExposeData()
         {
-            Scribe_Collections.Look<GN_Slot>(ref Slots, "SlotsAttachment" + this.parent.ThingID, LookMode.Deep);
+            Scribe_Deep.Look<IR_WeaponSlotsInfo>(ref slotsInfo, "SlotsInfo" + parent.ThingID, this);
         }
 
         private bool TryInstallAttachment(Pawn pawn, Thing attachment)
@@ -128,7 +123,7 @@ namespace GunNut
                 yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("Remove all attachments.", giveJob, MenuOptionPriority.Default, null, null, 0f, null, null), pawn, this.parent, "ReservedBy");
             }
 
-            foreach (var slot in SlotsOnWeapon)
+            foreach (var slot in ActiveSlots)
             {
                 bool slotHasAttachment = slot.attachment != null;
 
@@ -187,8 +182,6 @@ namespace GunNut
 
         private bool IsMatchingTags(GN_AttachmentDef attachment)
         {
-            bool result = true;
-
             foreach (WeaponTags tag in attachment.requiredTags)
             {
                 if (!IR_Settings.GetWeaponTags(parent.def.defName).Contains(tag))
@@ -222,7 +215,6 @@ namespace GunNut
                     }
                 }
             }
-
             
             return uniqueAttachmentDefs;
         }

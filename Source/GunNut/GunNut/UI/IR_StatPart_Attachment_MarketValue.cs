@@ -17,9 +17,9 @@ namespace GunNut
 			{
 				GN_AttachmentComp comp = req.Thing.TryGetComp<GN_AttachmentComp>();
 
-				if (comp != null && req.Thing.TryGetComp<GN_AttachmentComp>().SlotsOnWeapon != null)
+				if (comp != null && req.Thing.TryGetComp<GN_AttachmentComp>().ActiveSlots != null)
                 {
-					foreach (GN_AttachmentDef attachment in comp.AttachmentsOnWeapon)
+					foreach (GN_AttachmentDef attachment in comp.ActiveAttachments)
                     {
                         //float valueOffset = StatDefOf.MarketValue.GetStatPart<StatPart_Quality>()
                        // float num = val;
@@ -41,9 +41,9 @@ namespace GunNut
             {
                 StringBuilder text = new StringBuilder();
 
-                if (req.Thing.TryGetComp<GN_AttachmentComp>() != null && req.Thing.TryGetComp<GN_AttachmentComp>().SlotsOnWeapon != null )
+                if (req.Thing.TryGetComp<GN_AttachmentComp>() != null && req.Thing.TryGetComp<GN_AttachmentComp>().ActiveSlots != null )
                 {
-                    foreach (var attachment in req.Thing.TryGetComp<GN_AttachmentComp>().AttachmentsOnWeapon)
+                    foreach (var attachment in req.Thing.TryGetComp<GN_AttachmentComp>().ActiveAttachments)
                     {
                        text.AppendLine(attachment.label + ": " + attachment.BaseMarketValue.ToStringByStyle(ToStringStyle.Money, ToStringNumberSense.Offset)); 
                     }

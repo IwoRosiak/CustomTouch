@@ -12,10 +12,10 @@ namespace GunNut
                 return;
             }
             float num = 0;
-            if (req.Thing.TryGetComp<GN_AttachmentComp>() != null && req.Thing.TryGetComp<GN_AttachmentComp>().SlotsOnWeapon != null)
+            if (req.Thing.TryGetComp<GN_AttachmentComp>() != null && req.Thing.TryGetComp<GN_AttachmentComp>().ActiveSlots != null)
             {
                 float improvement = 1;
-                foreach (var attachment in req.Thing.TryGetComp<GN_AttachmentComp>().AttachmentsOnWeapon)
+                foreach (var attachment in req.Thing.TryGetComp<GN_AttachmentComp>().ActiveAttachments)
                 {
 
                     if (this.parentStat.defName == "RangedWeapon_Cooldown")
@@ -44,10 +44,10 @@ namespace GunNut
             {
                 string text = "";
 
-                if (req.Thing.TryGetComp<GN_AttachmentComp>() != null && req.Thing.TryGetComp<GN_AttachmentComp>().SlotsOnWeapon != null)
+                if (req.Thing.TryGetComp<GN_AttachmentComp>() != null && req.Thing.TryGetComp<GN_AttachmentComp>().ActiveSlots != null)
                 {
                     float improvement = 1;
-                    foreach (var attachment in req.Thing.TryGetComp<GN_AttachmentComp>().AttachmentsOnWeapon)
+                    foreach (var attachment in req.Thing.TryGetComp<GN_AttachmentComp>().ActiveAttachments)
                     {
                         if (this.parentStat.defName == "RangedWeapon_Cooldown")
                         {

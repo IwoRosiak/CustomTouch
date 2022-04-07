@@ -16,7 +16,7 @@ namespace GunNut
             {
                 var weapon = eq.TryGetComp<GN_AttachmentComp>();
 
-                foreach (var attachment in weapon.AttachmentsOnWeapon)
+                foreach (var attachment in weapon.ActiveAttachments)
                 {
                     if (attachment.onWeaponGraphic == null)
                     {

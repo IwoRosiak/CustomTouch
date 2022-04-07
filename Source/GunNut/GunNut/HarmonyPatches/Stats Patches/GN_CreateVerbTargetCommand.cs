@@ -7,6 +7,7 @@ namespace GunNut
     [HarmonyPatch(typeof(VerbTracker), "CreateVerbTargetCommand")]
     public static class GN_CreateVerbTargetCommand
     {
+        
         [HarmonyPrefix]
         public static bool GN_GetDamageAmount_PostFix(VerbTracker __instance, Thing ownerThing, Verb verb, ref Command_VerbTarget __result)
         {

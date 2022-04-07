@@ -33,11 +33,11 @@ namespace GunNut.HarmonyPatches
                 num = __instance.damageDef.defaultDamage;
             }
 
-            if (weapon.TryGetComp<GN_AttachmentComp>() != null && weapon.TryGetComp<GN_AttachmentComp>().SlotsOnWeapon != null)
+            if (weapon.TryGetComp<GN_AttachmentComp>() != null && weapon.TryGetComp<GN_AttachmentComp>().ActiveSlots != null)
             {
                 float improvement = 1;
 
-                foreach (var attachment in weapon.TryGetComp<GN_AttachmentComp>().AttachmentsOnWeapon)
+                foreach (var attachment in weapon.TryGetComp<GN_AttachmentComp>().ActiveAttachments)
                 {
                     if (attachment != null)
                     {

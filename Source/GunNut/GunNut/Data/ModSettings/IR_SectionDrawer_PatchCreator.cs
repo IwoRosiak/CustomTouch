@@ -57,16 +57,16 @@ namespace GunNut
             StringBuilder patch = new StringBuilder();
             string attachmentInfo = GetAttachmentInfoAsListForXPatch(weapon);
 
-            patch.AppendLine("<Operation Class=\"PatchOperationReplace\">");
+            patch.AppendLine("<Operation Class=\"PatchOperationAdd\">");
             patch.AppendLine("<xpath>/Defs/ThingDef[defName=\"" + weapon.defName + "\"]/comps/li[@Class=\"GunNut.GN_AttachmentCompProperties\"]</xpath>");
             patch.AppendLine("<value>");
-            patch.AppendLine("<li Class=\"GunNut.GN_AttachmentCompProperties\">");
-            patch.AppendLine("<jobDefInstall>EquipAttachment</jobDefInstall>");
-            patch.AppendLine("<jobDefRemove>RemoveAttachment</jobDefRemove>");
+      //      patch.AppendLine("<li Class=\"GunNut.GN_AttachmentCompProperties\">");
+      //      patch.AppendLine("<jobDefInstall>EquipAttachment</jobDefInstall>");
+      //      patch.AppendLine("<jobDefRemove>RemoveAttachment</jobDefRemove>");
             patch.AppendLine("<slots>");
             patch.AppendLine(attachmentInfo);
             patch.AppendLine("</slots>");
-            patch.AppendLine("</li>");
+      //      patch.AppendLine("</li>");
             patch.AppendLine("</value>");
             patch.AppendLine("</Operation>");
 
@@ -111,7 +111,6 @@ namespace GunNut
 
                 tags.AppendLine("<li>");
                 tags.AppendLine("<weaponPart>" + part.ToString() + "</weaponPart>");
-                tags.AppendLine("<isActive>" + isActive + "</isActive>");
                 tags.AppendLine("<defaultPosition>" + pos.ToString() + "</defaultPosition>");
                 tags.AppendLine("</li>");
 
