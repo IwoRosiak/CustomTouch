@@ -22,8 +22,8 @@ namespace GunNut
         public List<ThingDef> weapons = new List<ThingDef>();
         private ThingDef curWeapon;
 
-        public Dictionary<GN_WeaponParts.WeaponPart, List<GN_AttachmentDef>> attachmentsLists = new Dictionary<GN_WeaponParts.WeaponPart, List<GN_AttachmentDef>>();
-        public GN_WeaponParts.WeaponPart curAttachmentType;
+        public Dictionary<IR_AttachmentType, List<GN_AttachmentDef>> attachmentsLists = new Dictionary<IR_AttachmentType, List<GN_AttachmentDef>>();
+        public IR_AttachmentType curAttachmentType;
 
         public List<ModContentPack> loadedModsWithWeapons = new List<ModContentPack>();
 

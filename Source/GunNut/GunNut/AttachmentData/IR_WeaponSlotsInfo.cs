@@ -11,7 +11,7 @@ namespace GunNut
     {
         GN_AttachmentComp parent;
 
-        private Dictionary<GN_WeaponParts.WeaponPart, GN_Slot> slots = new Dictionary<GN_WeaponParts.WeaponPart, GN_Slot>();
+        private Dictionary<IR_AttachmentType, GN_Slot> slots = new Dictionary<IR_AttachmentType, GN_Slot>();
 
         public IR_WeaponSlotsInfo(GN_AttachmentComp _parent)
         {
@@ -24,12 +24,12 @@ namespace GunNut
         {
             List<GN_Slot> resultSlots = new List<GN_Slot>();
 
-            if (slots.Count != Enum.GetValues(typeof(GN_WeaponParts.WeaponPart)).EnumerableCount())
+            if (slots.Count != Enum.GetValues(typeof(IR_AttachmentType)).EnumerableCount())
             {
                 UpdateSlots();
             }
 
-            foreach (KeyValuePair<GN_WeaponParts.WeaponPart, GN_Slot> slot in slots)
+            foreach (KeyValuePair<IR_AttachmentType, GN_Slot> slot in slots)
             {
                 if (IR_Settings.IsActive(parent.parent.def.defName, slot.Key))
                 {
@@ -42,7 +42,7 @@ namespace GunNut
 
         private void InitSlots()
         {
-            slots = new Dictionary<GN_WeaponParts.WeaponPart, GN_Slot>();
+            slots = new Dictionary<IR_AttachmentType, GN_Slot>();
 
             List<GN_Slot> initSlots = new List<GN_Slot>();
 
@@ -60,7 +60,7 @@ namespace GunNut
 
         private void UpdateSlots()
         {
-            foreach (GN_WeaponParts.WeaponPart part in Enum.GetValues(typeof(GN_WeaponParts.WeaponPart)))
+            foreach (IR_AttachmentType part in Enum.GetValues(typeof(IR_AttachmentType)))
             {
                 if (!slots.ContainsKey(part))
                 {

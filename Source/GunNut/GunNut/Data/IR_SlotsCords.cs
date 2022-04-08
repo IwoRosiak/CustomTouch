@@ -8,18 +8,18 @@ namespace GunNut
     {
         public List<WeaponTags> weaponTags;
 
-        public Dictionary<GN_WeaponParts.WeaponPart, Vector2> position;
-        public Dictionary<GN_WeaponParts.WeaponPart, bool> isEnabled;
+        public Dictionary<IR_AttachmentType, Vector2> position;
+        public Dictionary<IR_AttachmentType, bool> isEnabled;
 
-        public Dictionary<GN_WeaponParts.WeaponPart, bool> isFront;
-        public Dictionary<GN_WeaponParts.WeaponPart, float> size;
+        public Dictionary<IR_AttachmentType, bool> isFront;
+        public Dictionary<IR_AttachmentType, float> size;
 
-        public Vector2 GetPosition(GN_WeaponParts.WeaponPart part)
+        public Vector2 GetPosition(IR_AttachmentType part)
         {
             return position[part]/10;
         }
 
-        public void SetPosition(GN_WeaponParts.WeaponPart part, Vector2 pos)
+        public void SetPosition(IR_AttachmentType part, Vector2 pos)
         {
             position[part] = pos*10;
         }

@@ -24,7 +24,7 @@ namespace GunNut
             base.ExposeData();
         }
 
-        public static Vector2 GetPos(ThingDef thing, GN_WeaponParts.WeaponPart part)
+        public static Vector2 GetPos(ThingDef thing, IR_AttachmentType part)
         {
             if (WeaponsCustomInfo.ContainsKey(thing.defName))
             {
@@ -34,7 +34,7 @@ namespace GunNut
             return WeaponsDefaultInfo[thing.defName].GetPosition(part);
         }
 
-        public static Vector2 GetPos(string name, GN_WeaponParts.WeaponPart part)
+        public static Vector2 GetPos(string name, IR_AttachmentType part)
         {
             if (WeaponsCustomInfo.ContainsKey(name))
             {
@@ -44,7 +44,7 @@ namespace GunNut
             return WeaponsDefaultInfo[name].GetPosition(part);
         }
 
-        public static float GetSize(string name, GN_WeaponParts.WeaponPart part)
+        public static float GetSize(string name, IR_AttachmentType part)
         {
             if (WeaponsCustomInfo.ContainsKey(name))
             {
@@ -54,7 +54,7 @@ namespace GunNut
             return WeaponsDefaultInfo[name].size[part];
         }
 
-        public static bool IsActive(string name, GN_WeaponParts.WeaponPart part)
+        public static bool IsActive(string name, IR_AttachmentType part)
         {
             if (WeaponsCustomInfo.ContainsKey(name))
             {
@@ -95,9 +95,9 @@ namespace GunNut
             if (!WeaponsCustomInfo.ContainsKey(thing.defName))
             {
                 IR_SlotsCords newSlot = new IR_SlotsCords();
-                newSlot.position = new Dictionary<GN_WeaponParts.WeaponPart, Vector2>(WeaponsDefaultInfo[thing.defName].position);
-                newSlot.size = new Dictionary<GN_WeaponParts.WeaponPart, float> ( WeaponsDefaultInfo[thing.defName].size);
-                newSlot.isEnabled = new Dictionary<GN_WeaponParts.WeaponPart, bool>(WeaponsDefaultInfo[thing.defName].isEnabled);
+                newSlot.position = new Dictionary<IR_AttachmentType, Vector2>(WeaponsDefaultInfo[thing.defName].position);
+                newSlot.size = new Dictionary<IR_AttachmentType, float> ( WeaponsDefaultInfo[thing.defName].size);
+                newSlot.isEnabled = new Dictionary<IR_AttachmentType, bool>(WeaponsDefaultInfo[thing.defName].isEnabled);
                 newSlot.weaponTags = new List<WeaponTags>(WeaponsDefaultInfo[thing.defName].weaponTags);
 
                 WeaponsCustomInfo.Add(thing.defName, newSlot);
@@ -128,14 +128,14 @@ namespace GunNut
 
                     IR_SlotsCords slotData = new IR_SlotsCords();
 
-                    slotData.isEnabled = new Dictionary<GN_WeaponParts.WeaponPart, bool>();
-                    slotData.position = new Dictionary<GN_WeaponParts.WeaponPart, Vector2>();
-                    slotData.size = new Dictionary<GN_WeaponParts.WeaponPart, float>();
+                    slotData.isEnabled = new Dictionary<IR_AttachmentType, bool>();
+                    slotData.position = new Dictionary<IR_AttachmentType, Vector2>();
+                    slotData.size = new Dictionary<IR_AttachmentType, float>();
                     slotData.weaponTags = new List<WeaponTags>(compProp.tags);
 
                     //Log.Message("Adding " + thingDef.defName);
 
-                    foreach (GN_WeaponParts.WeaponPart weaponPart in Enum.GetValues(typeof(GN_WeaponParts.WeaponPart)))
+                    foreach (IR_AttachmentType weaponPart in Enum.GetValues(typeof(IR_AttachmentType)))
                     {
                         if (compProp.ContainsTypeOfSlot(weaponPart))
                         {

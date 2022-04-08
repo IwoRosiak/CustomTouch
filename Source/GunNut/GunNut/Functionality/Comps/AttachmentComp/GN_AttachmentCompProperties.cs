@@ -23,7 +23,7 @@ namespace GunNut
             }
         }
 
-        public bool ContainsTypeOfSlot(GN_WeaponParts.WeaponPart type)
+        public bool ContainsTypeOfSlot(IR_AttachmentType type)
         {
             foreach (var slot in Slots)
             {
@@ -35,7 +35,7 @@ namespace GunNut
             return false;
         }
 
-        public GN_Slot GetSlotOfType(GN_WeaponParts.WeaponPart type)
+        public GN_Slot GetSlotOfType(IR_AttachmentType type)
         {
             foreach (var slot in Slots)
             {

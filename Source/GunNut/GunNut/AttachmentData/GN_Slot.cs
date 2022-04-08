@@ -11,7 +11,7 @@ namespace GunNut
             Scribe_Values.Look(ref weaponPart, "weaponPart");
         }
 
-        public GN_WeaponParts.WeaponPart weaponPart;
+        public IR_AttachmentType weaponPart;
         public GN_AttachmentDef attachment = null;
 
         public Vector2 defaultPosition = Vector2.zero;

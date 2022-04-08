@@ -9,8 +9,7 @@ namespace GunNut
         public List<WeaponTags> requiredTags = new List<WeaponTags>();
         public List<WeaponTags> conflictingTags = new List<WeaponTags>();
 
-        public GN_WeaponParts.WeaponPart weaponPart;
-        public AttachmentSize size = AttachmentSize.medium;
+        public IR_AttachmentType weaponPart;
 
         public GraphicData onWeaponGraphic;
 
@@ -160,12 +159,5 @@ namespace GunNut
             }
         }
 
-    }
-
-    public enum AttachmentSize
-    {
-        small,
-        medium,
-        big
     }
 }

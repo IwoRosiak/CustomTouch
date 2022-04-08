@@ -40,8 +40,6 @@ namespace GunNut
             return patch.ToString();
         }
 
-
-
         public string GetWeaponXPatch(ThingDef weapon)
         {
             StringBuilder patch = new StringBuilder();
@@ -94,7 +92,7 @@ namespace GunNut
         {
             StringBuilder tags = new StringBuilder();
 
-            foreach (GN_WeaponParts.WeaponPart part in   Enum.GetValues(typeof(GN_WeaponParts.WeaponPart)))
+            foreach (IR_AttachmentType part in   Enum.GetValues(typeof(IR_AttachmentType)))
             {
                 if (!IR_Settings.WeaponsCustomInfo.ContainsKey(weapon.defName))
                 {

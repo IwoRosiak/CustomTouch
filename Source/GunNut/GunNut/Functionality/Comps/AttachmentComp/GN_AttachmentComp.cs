@@ -162,7 +162,7 @@ namespace GunNut
             yield break;
         }
 
-        private IEnumerable<Thing> FindAvailableAttachmentForWeaponPart(Pawn pawn, GN_WeaponParts.WeaponPart desiredPart)
+        private IEnumerable<Thing> FindAvailableAttachmentForWeaponPart(Pawn pawn, IR_AttachmentType desiredPart)
         {
             if (pawn == null || !pawn.Spawned || pawn.Downed || pawn.Map == null)
             {
@@ -201,7 +201,7 @@ namespace GunNut
             return true;
         }
 
-        private IEnumerable<GN_AttachmentDef> GetDefsOfAttachmentsOnMap(Map map, GN_WeaponParts.WeaponPart desiredPart)
+        private IEnumerable<GN_AttachmentDef> GetDefsOfAttachmentsOnMap(Map map, IR_AttachmentType desiredPart)
         {
             List<GN_AttachmentDef> uniqueAttachmentDefs = new List<GN_AttachmentDef>();
 
