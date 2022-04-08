@@ -67,6 +67,7 @@
     <Compile Include="Data\ModSettings\IR_SectionDrawer_Coordinator.cs" />
     <Compile Include="Data\ModSettings\IR_SectionDrawer.cs" />
     <Compile Include="Data\ModSettings\IR_SectionDrawer_WeaponTags.cs" />
+    <Compile Include="Functionality\Attachment Effects\Burst Shots Effect\IR_ExtraBurstShots_Patch.cs" />
     <Compile Include="Functionality\Display\UI\IR_SpecialDisplayStatsPatch.cs" />
     <Compile Include="Data\IR_Patch_Helper.cs" />
     <Compile Include="Functionality\Attachment Effects\Damage\GN_GetDamageAmountPatch.cs" />

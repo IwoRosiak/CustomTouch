@@ -20,11 +20,8 @@ namespace GunNut
         public float accuracyLong = 0;
 
         public float damageMult = 0;
-
         public float warmupMult = 0;
-
         public float cooldownMult = 0;
-
 
         public float nightvision = 0;
         public float infravision = 0;
@@ -32,11 +29,14 @@ namespace GunNut
 
         public float silencerEffect = 0;
 
+        public float burstShotsMult = 0;
+        public int burstShotsOffset = 0;
+
         //NOT IMPLEMENTED
         public float reflectiveEffect = 0; //easier to hit if you have that
         public float massOffset = 0; //adding attachment mass to weapons
 
-        public float noiseOFfset = 0; // reducing chance for enraging animal
+
         public float meleeDamageOffset = 0; 
         public float meleeSpeedOffset = 0;
 

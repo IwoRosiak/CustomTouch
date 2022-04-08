@@ -261,7 +261,8 @@
         <defName>Attachment_Magazine</defName>
         <label>Specialist reloader</label>
         <weaponPart>magazine</weaponPart>
-        <size>big</size>
+        <
+        >big</size>
         <description>Well made composite attachment for magazine which allows for quick reload times.</description>
     </ThingDef>-->
 
@@ -286,6 +287,7 @@
         <weaponPart>barrelExt</weaponPart>
         <description>A silencer which muffles the shots what allows for safer hunting at the expense of damage.</description>
         <silencerEffect>0.30</silencerEffect>
+        <burstShotsOffset>2</burstShotsOffset>
     </ThingDef> 
 
 <!--RECEIVER -->

@@ -194,11 +194,6 @@
             <isActive>True</isActive>
             <defaultPosition>(0.0, 0.0)</defaultPosition>
           </li>
-          <li>
-            <weaponPart>shotgunMagazine</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
         </slots>
       </li>
     </value>
