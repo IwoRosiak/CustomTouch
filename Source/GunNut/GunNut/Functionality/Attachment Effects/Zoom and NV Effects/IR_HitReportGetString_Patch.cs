@@ -18,9 +18,6 @@ namespace GunNut.HarmonyPatches.Stats_Patches.Weather_Effect
         [HarmonyPostfix]
         public static void WeatherOffsetPostfix( ShotReport __instance, ref string __result)
         {
-            // if (__result.factorFromWeather) 
-
-            //__result += 
             if (__result.Contains("Weather"))
             {
                 TargetInfo thing = (TargetInfo)targetInfo.GetValue(__instance);
@@ -30,12 +27,8 @@ namespace GunNut.HarmonyPatches.Stats_Patches.Weather_Effect
                 index += "Weather         ".Count();
 
                 string value = __result.Substring(index, 2);
-
-
                 int effectRedFromAttach = int.Parse(value);
 
-
-                //Log.Message((map.weatherManager.CurWeatherAccuracyMultiplier * 100).ToString() +" map effect " + value + " string");
                 float modEffect = effectRedFromAttach - (float)Math.Floor(map.weatherManager.CurWeatherAccuracyMultiplier*100) ;
 
                 modEffect = (float)Math.Ceiling(modEffect);
@@ -67,13 +60,9 @@ namespace GunNut.HarmonyPatches.Stats_Patches.Weather_Effect
                 index += "Target size       ".Count();
 
                 string value = __result.Substring(index, 2);
-
-
                 int effectRedFromAttach = int.Parse(value);
 
                 float modEffect = effectRedFromAttach - (bodySize * 100);
-
-                //modEffect = (float)Math.Ceiling(modEffect);
 
                 if (modEffect >= 1 || modEffect <= -1)
                 {

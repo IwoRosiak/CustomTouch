@@ -31,12 +31,14 @@ namespace GunNut
         public float infravision = 0;
         public float zoomvision = 0;
 
+        public float silencerEffect = 0;
+
         //NOT IMPLEMENTED
         public float reflectiveEffect = 0; //easier to hit if you have that
-        public float massOffset = 0;
+        public float massOffset = 0; //adding attachment mass to weapons
 
-        public float noiseOFfset = 0;
-        public float meleeDamageOffset = 0;
+        public float noiseOFfset = 0; // reducing chance for enraging animal
+        public float meleeDamageOffset = 0; 
         public float meleeSpeedOffset = 0;
 
         public override IEnumerable<StatDrawEntry> SpecialDisplayStats(StatRequest req)

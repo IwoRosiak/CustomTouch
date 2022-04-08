@@ -32,17 +32,12 @@ namespace GunNut
 
                         Vector2 offsetV2 = IR_Settings.GetPos(thing.def.defName, slot.weaponPart);
 
-                        Log.Message("Not Rotated X: " + offsetV2.x);
-
                         offsetV2 = offsetV2.RotatedBy(extraRotation);
-
-                        Log.Message("Rotated X: " + offsetV2.x);
 
                         Vector3 offset = new Vector3(offsetV2.y, 0, offsetV2.x);
 
                         Vector3 center = thing.TrueCenter() + __instance.DrawOffset(thing.Rotation) + offset;
-
-                        Log.Message("Center: " + center.ToString());
+                      
                         center.y += 0.01f;
 
                         Printer_Plane.PrintPlane(layer, center, __instance.drawSize * slot.attachment.onWeaponGraphic.Graphic.drawSize * IR_Settings.GetSize(thing.def.defName, slot.weaponPart), slot.attachment.onWeaponGraphic.Graphic.MatSingle, extraRotation);

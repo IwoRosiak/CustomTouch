@@ -105,7 +105,7 @@
         <defName>Attachment_NV_Scope</defName>
         <label>Night-vision Scope</label>
         <weaponPart>scope</weaponPart>
-        <description>Scope with moderate amount of zoom but comes with night-vision which reduces penalty when shooting in the dark. It's short range forces the user to shoot from closer distance.</description>
+        <description>Scope which comes with night-vision which reduces penalty when shooting in the dark. It's short range forces the user to shoot from closer distance.</description>
         <recipeMaker>
             <skillRequirements>
                 <Crafting>10</Crafting>
@@ -124,6 +124,33 @@
             <MarketValue>300</MarketValue>
             <Mass>0.7</Mass>
             <WorkToMake>1000</WorkToMake>
+        </statBases>
+        <requiredTags>
+            <li>hasScopeRail</li>
+        </requiredTags>
+    </ThingDef>
+    
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial">
+        <defName>Attachment_Small_NV_Scope</defName>
+        <label>Small night-vision scope</label>
+        <weaponPart>scope</weaponPart>
+        <description>Small scope which comes with night-vision which reduces penalty when shooting in the dark. This particular scope was designed to mantain long distance capabilities but it sacrafices night-vision strength for it.</description>
+        <recipeMaker>
+            <skillRequirements>
+                <Crafting>8</Crafting>
+            </skillRequirements>
+        </recipeMaker>
+        <costList>
+            <Steel>10</Steel>
+            <Plasteel>5</Plasteel>
+            <ComponentIndustrial>3</ComponentIndustrial>
+        </costList>
+        <accuracyLong>-0.05</accuracyLong>
+        <nightvision>0.2</nightvision>
+        <statBases>
+            <MarketValue>230</MarketValue>
+            <Mass>0.3</Mass>
+            <WorkToMake>650</WorkToMake>
         </statBases>
         <requiredTags>
             <li>hasScopeRail</li>
@@ -153,7 +180,6 @@
         <defName>Attachment_Skeleton_Stock</defName>
         <label>Skeleton Stock</label>
         <weaponPart>stock</weaponPart>
-        <size>medium</size>
         <description>Cheap, light-weight stock thanks to it skeletar structure.</description>
         <warmupMult>-0.1</warmupMult>
         <cooldownMult>-0.25</cooldownMult>
@@ -171,7 +197,6 @@
         <defName>Attachment_Sharpshooter_Stock</defName>
         <label>Sharhshooter Stock</label>
         <weaponPart>stock</weaponPart>
-        <size>big</size>
         <description>A stock designed to negate recoil on powerful, high-caliber rifles. Less effective on automatic weapons.</description>
         <recipeMaker>
             <skillRequirements>
@@ -254,14 +279,14 @@
         </statBases>
     </ThingDef>
 
-<!--
+
     <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
         <defName>Attachment_Silencer</defName>
         <label>Silencer</label>
         <weaponPart>barrelExt</weaponPart>
-        <size>medium</size>
         <description>A silencer which muffles the shots what allows for safer hunting at the expense of damage.</description>
-    </ThingDef> -->
+        <silencerEffect>0.30</silencerEffect>
+    </ThingDef> 
 
 <!--RECEIVER -->
     <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial">

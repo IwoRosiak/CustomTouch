@@ -57,7 +57,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AttachmentData\Effects\IR_Base_Effect.cs" />
     <Compile Include="AttachmentData\IR_WeaponSlotsInfo.cs" />
     <Compile Include="Data\IR_Init.cs" />
     <Compile Include="Data\IR_SlotsCords.cs" />
@@ -69,6 +68,7 @@
     <Compile Include="Data\ModSettings\IR_SectionDrawer.cs" />
     <Compile Include="Data\ModSettings\IR_SectionDrawer_WeaponTags.cs" />
     <Compile Include="HarmonyPatches\Display Patches\Stats Display Patches\IR_SpecialDisplayStatsPatch.cs" />
+    <Compile Include="HarmonyPatches\IR_Patch_Helper.cs" />
     <Compile Include="HarmonyPatches\Stats Patches\Damage\GN_GetDamageAmountPatch.cs" />
     <Compile Include="HarmonyPatches\Stats Patches\GN_TryStartCastOnPatch.cs" />
     <Compile Include="HarmonyPatches\Display Patches\GN_ThingIconPatch.cs" />
@@ -79,8 +79,10 @@
     <Compile Include="AttachmentData\GN_Slot.cs" />
     <Compile Include="Data\ModSettings\IR_Settings.cs" />
     <Compile Include="Data\ModSettings\IR_GunNutMod.cs" />
-    <Compile Include="HarmonyPatches\Stats Patches\Weather Effect\IR_HitReportFor_Patch.cs" />
-    <Compile Include="HarmonyPatches\Stats Patches\Weather Effect\IR_HitReportGetString_Patch.cs" />
+    <Compile Include="HarmonyPatches\Stats Patches\Zoom and NV Effects\IR_HitReportFor_Patch.cs" />
+    <Compile Include="HarmonyPatches\Stats Patches\Zoom and NV Effects\IR_HitReportGetString_Patch.cs" />
+    <Compile Include="HarmonyPatches\Stats Patches\Silencer Effect\IR_SilencerEffect_Patch.cs" />
+    <Compile Include="HarmonyPatches\Stats Patches\Silencer Effect\IR_SilencerEffect_Readout_Patch.cs" />
     <Compile Include="IR_Textures.cs" />
     <Compile Include="UI\GN_StatPart_Attachment.cs" />
     <Compile Include="Defs\DefsOf\GN_StatCegoryDefOf.cs" />
