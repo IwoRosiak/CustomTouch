@@ -7,7 +7,7 @@ namespace GunNut
 {
     [HarmonyPatch(typeof(Verb), "TryStartCastOn")]
     [HarmonyPatch(new Type[] { typeof(LocalTargetInfo), typeof(LocalTargetInfo), typeof(bool), typeof(bool), typeof(bool) })]
-    public static class GN_TryStartCastOnPatch
+    public static class IR_TryStartCastOnPatch
     {
         //TO-DO Make prefix?
         [HarmonyPostfix]

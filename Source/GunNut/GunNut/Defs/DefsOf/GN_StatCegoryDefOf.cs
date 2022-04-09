@@ -3,11 +3,11 @@
 namespace GunNut
 {
     [DefOf]
-    public static class GN_StatCategoryDefOf
+    public static class IR_StatCategoryDefOf
     {
-        static GN_StatCategoryDefOf()
+        static IR_StatCategoryDefOf()
         {
-            DefOfHelper.EnsureInitializedInCtor(typeof(GN_StatCategoryDefOf));
+            DefOfHelper.EnsureInitializedInCtor(typeof(IR_StatCategoryDefOf));
         }
 
         public static StatCategoryDef Attachments;

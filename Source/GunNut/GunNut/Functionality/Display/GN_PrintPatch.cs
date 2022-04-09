@@ -9,7 +9,7 @@ namespace GunNut
     public static class GN_PrintPatch
     {
         [HarmonyPostfix]
-        public static void GN_PrintPostfix(Graphic __instance, SectionLayer layer, Thing thing, float extraRotation)
+        public static void IR_PrintPostfix(Graphic __instance, SectionLayer layer, Thing thing, float extraRotation)
         {
             if (thing.TryGetComp<GN_AttachmentComp>() != null)
             {

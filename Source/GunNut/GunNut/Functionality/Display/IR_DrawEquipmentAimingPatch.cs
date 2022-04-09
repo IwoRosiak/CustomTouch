@@ -7,7 +7,7 @@ using Verse;
 namespace GunNut
 {
     [HarmonyPatch(typeof(PawnRenderer), "DrawEquipmentAiming", new Type[] { typeof(Thing), typeof(Vector3), typeof(float) })]
-    public static class GN_DrawEquipmentAimingPatch
+    public static class IR_DrawEquipmentAimingPatch
     {
         [HarmonyPostfix]
         private static void PawnRendererPatch(Thing eq, Vector3 drawLoc, float aimAngle, PawnRenderer __instance)

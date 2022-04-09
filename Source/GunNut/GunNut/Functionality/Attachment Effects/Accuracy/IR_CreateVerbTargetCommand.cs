@@ -5,11 +5,11 @@ using Verse;
 namespace GunNut
 {
     [HarmonyPatch(typeof(VerbTracker), "CreateVerbTargetCommand")]
-    public static class GN_CreateVerbTargetCommand
+    public static class IR_CreateVerbTargetCommand
     {
         
         [HarmonyPrefix]
-        public static bool GN_GetDamageAmount_PostFix(VerbTracker __instance, Thing ownerThing, Verb verb, ref Command_VerbTarget __result)
+        public static bool IR_CreateVerbTargetCommand_Prefix(VerbTracker __instance, Thing ownerThing, Verb verb, ref Command_VerbTarget __result)
         {
             GN_Command_VerbTarget command_VerbTarget = new GN_Command_VerbTarget();
             ThingStyleDef styleDef = ownerThing.StyleDef;

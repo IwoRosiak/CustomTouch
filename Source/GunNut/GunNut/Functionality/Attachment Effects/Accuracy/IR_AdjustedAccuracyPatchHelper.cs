@@ -3,7 +3,7 @@ using Verse;
 
 namespace GunNut
 {
-    public static class GN_AdjustedAccuracyPatchHelper
+    public static class IR_AdjustedAccuracyPatchHelper
     {
         public static float AdjustedAccuracy(RangeCategory category, Thing equipment)
         {

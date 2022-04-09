@@ -23,19 +23,6 @@ namespace GunNut.Functionality.Attachment_Effects.Burst_Shots_Effect
         }
     }
 
-    [HarmonyPatch(typeof(Verb), "WarmupComplete")]
-    //[HarmonyPatch(new Type[] { typeof(LocalTargetInfo), typeof(LocalTargetInfo), typeof(bool), typeof(bool), typeof(bool) })]
-    public static class IR_WarmupCompletePatch
-    {
-        //TO-DO Make prefix?
-        [HarmonyPostfix]
-        public static void AccuracyPostfix(Verb __instance, ref float ___burstShotsLeft)
-        {
-            //___burstShotsLeft = 5;
-            
-        }
-    }
-
     [HarmonyPatch(typeof(Verb_Shoot), "get_ShotsPerBurst")]
     //[HarmonyPatch(new Type[] { typeof(LocalTargetInfo), typeof(LocalTargetInfo), typeof(bool), typeof(bool), typeof(bool) })]
     public static class IR_WarmupCompletePatch1

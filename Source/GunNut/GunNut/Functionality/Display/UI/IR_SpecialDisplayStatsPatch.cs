@@ -53,7 +53,7 @@ namespace GunNut.HarmonyPatches.Base_functionality
                         attachmentDesc.Append("This slot is open for an attachment. It is either holding the default part or is simply empty. "); //Default " + slot.weaponPart.ToString() + " that came with the weapon.";
                     }
 
-                    yield return new StatDrawEntry(GN_StatCategoryDefOf.Attachments, slot.weaponPart.ToString(), attachmentName.CapitalizeFirst(), attachmentDesc.ToString(), 5391, null, null, false);
+                    yield return new StatDrawEntry(IR_StatCategoryDefOf.Attachments, slot.weaponPart.ToString(), attachmentName.CapitalizeFirst(), attachmentDesc.ToString(), 5391, null, null, false);
                 }
              
             }

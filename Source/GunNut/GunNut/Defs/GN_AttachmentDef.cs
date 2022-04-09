@@ -57,52 +57,52 @@ namespace GunNut
         {
             if (accuracyTouch != 0)
             {
-                yield return new StatDrawEntry(GN_StatCategoryDefOf.Attachments, "Accuracy touch", (1 + accuracyTouch).ToStringByStyle(ToStringStyle.PercentTwo, ToStringNumberSense.Factor), "Accuracy improvement over a touch distance.", 2753, null, null, false);
+                yield return new StatDrawEntry(IR_StatCategoryDefOf.Attachments, "Accuracy touch", (1 + accuracyTouch).ToStringByStyle(ToStringStyle.PercentTwo, ToStringNumberSense.Factor), "Accuracy improvement over a touch distance.", 2753, null, null, false);
             }
 
             if (accuracyShort != 0)
             {
-                yield return new StatDrawEntry(GN_StatCategoryDefOf.Attachments, "Accuracy short", (1 + accuracyShort).ToStringByStyle(ToStringStyle.PercentTwo, ToStringNumberSense.Factor), "Accuracy improvement over a short distance.", 2753, null, null, false);
+                yield return new StatDrawEntry(IR_StatCategoryDefOf.Attachments, "Accuracy short", (1 + accuracyShort).ToStringByStyle(ToStringStyle.PercentTwo, ToStringNumberSense.Factor), "Accuracy improvement over a short distance.", 2753, null, null, false);
             }
 
             if (accuracyMedium != 0)
             {
-                yield return new StatDrawEntry(GN_StatCategoryDefOf.Attachments, "Accuracy medium", (1 + accuracyMedium).ToStringByStyle(ToStringStyle.PercentTwo, ToStringNumberSense.Factor), "Accuracy improvement over a medium distance.", 2753, null, null, false);
+                yield return new StatDrawEntry(IR_StatCategoryDefOf.Attachments, "Accuracy medium", (1 + accuracyMedium).ToStringByStyle(ToStringStyle.PercentTwo, ToStringNumberSense.Factor), "Accuracy improvement over a medium distance.", 2753, null, null, false);
             }
 
             if (accuracyLong != 0)
             {
-                yield return new StatDrawEntry(GN_StatCategoryDefOf.Attachments, "Accuracy long", (1 + accuracyLong).ToStringByStyle(ToStringStyle.PercentTwo, ToStringNumberSense.Factor), "Accuracy improvement over a long distance.", 2753, null, null, false);
+                yield return new StatDrawEntry(IR_StatCategoryDefOf.Attachments, "Accuracy long", (1 + accuracyLong).ToStringByStyle(ToStringStyle.PercentTwo, ToStringNumberSense.Factor), "Accuracy improvement over a long distance.", 2753, null, null, false);
             }
 
             if (cooldownMult != 0)
             {
-                yield return new StatDrawEntry(GN_StatCategoryDefOf.Attachments, "Cooldown", (1 + cooldownMult).ToStringByStyle(ToStringStyle.PercentTwo, ToStringNumberSense.Factor), "Cooldown multiplier.", 2753, null, null, false);
+                yield return new StatDrawEntry(IR_StatCategoryDefOf.Attachments, "Cooldown", (1 + cooldownMult).ToStringByStyle(ToStringStyle.PercentTwo, ToStringNumberSense.Factor), "Cooldown multiplier.", 2753, null, null, false);
             }
 
             if (warmupMult != 0)
             {
-                yield return new StatDrawEntry(GN_StatCategoryDefOf.Attachments, "Warmup", (1 + warmupMult).ToStringByStyle(ToStringStyle.PercentTwo, ToStringNumberSense.Factor), "Warmup multiplier.", 2753, null, null, false);
+                yield return new StatDrawEntry(IR_StatCategoryDefOf.Attachments, "Warmup", (1 + warmupMult).ToStringByStyle(ToStringStyle.PercentTwo, ToStringNumberSense.Factor), "Warmup multiplier.", 2753, null, null, false);
             }
 
             if (damageMult != 0)
             {
-                yield return new StatDrawEntry(GN_StatCategoryDefOf.Attachments, "Damage", (1 - damageMult).ToStringByStyle(ToStringStyle.PercentOne, ToStringNumberSense.Factor), "Damage multiplier.", 2753, null, null, false);
+                yield return new StatDrawEntry(IR_StatCategoryDefOf.Attachments, "Damage", (1 - damageMult).ToStringByStyle(ToStringStyle.PercentOne, ToStringNumberSense.Factor), "Damage multiplier.", 2753, null, null, false);
             }
 
             if (nightvision != 0)
             {
-                yield return new StatDrawEntry(GN_StatCategoryDefOf.Attachments, "Night-vision", nightvision.ToStringByStyle(ToStringStyle.PercentOne), "This attachment provides night-vision capabilities to the weapon it is installed to. Night-vision provides 25% of its strength as debuff negation for harsh weather accuracy penalties.", 2753, null, null, false);
+                yield return new StatDrawEntry(IR_StatCategoryDefOf.Attachments, "Night-vision", nightvision.ToStringByStyle(ToStringStyle.PercentOne), "This attachment provides night-vision capabilities to the weapon it is installed to. Night-vision provides 25% of its strength as debuff negation for harsh weather accuracy penalties.", 2753, null, null, false);
             }
 
             if (infravision != 0)
             {
-                yield return new StatDrawEntry(GN_StatCategoryDefOf.Attachments, "Infra-vision", infravision.ToStringByStyle(ToStringStyle.PercentOne), "Infra-vision makes it easier to observe targets in un-favourable conditions such as snow or rain. It is not as effective for tracking targets at night.", 2753, null, null, false);
+                yield return new StatDrawEntry(IR_StatCategoryDefOf.Attachments, "Infra-vision", infravision.ToStringByStyle(ToStringStyle.PercentOne), "Infra-vision makes it easier to observe targets in un-favourable conditions such as snow or rain. It is not as effective for tracking targets at night.", 2753, null, null, false);
             }
 
             if (zoomvision != 0)
             {
-                yield return new StatDrawEntry(GN_StatCategoryDefOf.Attachments, "Zoom", zoomvision.ToStringByStyle(ToStringStyle.PercentOne), "Zoom capabilities make it easier to hit smaller targets.", 2753, null, null, false);
+                yield return new StatDrawEntry(IR_StatCategoryDefOf.Attachments, "Zoom", zoomvision.ToStringByStyle(ToStringStyle.PercentOne), "Zoom capabilities make it easier to hit smaller targets.", 2753, null, null, false);
             }
         }
 
