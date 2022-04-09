@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <ThingDef Name="Attachment_Simple_Textile" ParentName="GunModBase" Abstract="True">
+        <recipeMaker>
+            <skillRequirements>
+                <Crafting>3</Crafting>
+            </skillRequirements>
+            <effectWorking>Tailor</effectWorking>
+            <soundWorking>Recipe_Tailor</soundWorking>
+            <recipeUsers>
+                <li>ElectricTailoringBench</li>
+                <li>HandTailoringBench</li>
+            </recipeUsers>
+            <unfinishedThingDef>UnfinishedApparel</unfinishedThingDef>
+        </recipeMaker>
+        <costList>
+            <Steel>20</Steel>
+            <ComponentIndustrial>1</ComponentIndustrial>
+        </costList>
+        <statBases>
+            <WorkToMake>300</WorkToMake>
+            <MarketValue>30</MarketValue>
+            <Mass>0.05</Mass>
+        </statBases>
+        <costStuffCount>15</costStuffCount>
+        <stuffCategories>
+            <li>Fabric</li>
+            <li>Leathery</li>
+        </stuffCategories>
+    </ThingDef>
+    
+    <!--SCOPES-->
+    
+    
+    <!--STOCKS -->
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Simple_Textile">
+        <defName>Attachment_Recoil_Pad</defName>
+        <label>Recoil Pad</label>
+        <weaponPart>stock</weaponPart>
+        <description>A recoil pad that can be put on the stock of most weapons. It does not reduce the recoil, but helps to mitigate the consequences of it in form of sore arms and shoulders.</description>
+        <cooldownMult>-0.20</cooldownMult>
+        <conflictingTags>
+            <li>noStock</li>
+        </conflictingTags>
+    </ThingDef>
+    
+    <!--UNDERMOUNT -->
+    
+    <!-- MAGAZINES --> 
+    
+    <!-- BARREL EXT -->
+
+    <!--RECEIVER -->
+    
+    <!--BARREL -->
+    
+    
+    <!--GRIP -->
+    <!--FOREGRIP -->
+    
+    
+</Defs>

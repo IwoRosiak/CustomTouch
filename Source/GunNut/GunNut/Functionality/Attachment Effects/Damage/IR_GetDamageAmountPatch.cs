@@ -15,8 +15,13 @@ namespace GunNut.HarmonyPatches
         private static readonly FieldInfo damageAmountBase = AccessTools.Field(typeof(ProjectileProperties), "damageAmountBase");
 
         [HarmonyPrefix]
-        public static bool IR_GetDamageAmount_PreFix(ref int __result, ProjectileProperties __instance, Thing weapon, StringBuilder explanation)
+        public static bool IR_GetDamageAmount_PreFix(ref int __result, ProjectileProperties __instance, Thing weapon, StringBuilder explanation = null)
         {
+            if (explanation == null)
+            {
+                return true;
+            }
+
             float weaponDamageMultiplier = (weapon != null) ? weapon.GetStatValue(StatDefOf.RangedWeapon_DamageMultiplier, true) : 1f;
             int num;
             if ((int)damageAmountBase.GetValue(__instance) != -1)
@@ -33,10 +38,10 @@ namespace GunNut.HarmonyPatches
                 num = __instance.damageDef.defaultDamage;
             }
 
+            float improvement = 1;
+
             if (weapon.TryGetComp<GN_AttachmentComp>() != null && weapon.TryGetComp<GN_AttachmentComp>().ActiveSlots != null)
             {
-                float improvement = 1;
-
                 foreach (var attachment in weapon.TryGetComp<GN_AttachmentComp>().ActiveAttachments)
                 {
                     if (attachment != null)
@@ -48,11 +53,11 @@ namespace GunNut.HarmonyPatches
                 if (explanation != null)
                 {
                     explanation.AppendLine("StatsReport_BaseValue".Translate() + ": " + num);
-                    explanation.Append("StatsReport_QualityMultiplier".Translate() + ": " + (weaponDamageMultiplier / improvement).ToStringPercent());
+                    explanation.Append("StatsReport_QualityMultiplier".Translate() + ": " + (weaponDamageMultiplier).ToStringPercent());
                 }
                 explanation.Append("\nAttachment multiplier" + ": " + improvement.ToStringPercent());
             }
-            num = Mathf.RoundToInt((float)num * weaponDamageMultiplier);
+            num = Mathf.RoundToInt((float)num * weaponDamageMultiplier * improvement);
             if (explanation != null)
             {
                 explanation.AppendLine();

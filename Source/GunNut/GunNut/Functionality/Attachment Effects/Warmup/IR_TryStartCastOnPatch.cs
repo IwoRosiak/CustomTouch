@@ -19,7 +19,7 @@ namespace GunNut
                 var weapon = __instance.EquipmentSource.TryGetComp<GN_AttachmentComp>();
                 foreach (var attachment in weapon.ActiveAttachments)
                 {
-                    warmupImprove -= attachment.warmupMult;
+                    warmupImprove += attachment.warmupMult;
                 }
 
                 ShootLine newShootLine;

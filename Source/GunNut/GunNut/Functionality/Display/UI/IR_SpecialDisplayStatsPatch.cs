@@ -70,7 +70,7 @@ namespace GunNut.HarmonyPatches.Base_functionality
 
                     foreach (var attachment in weapon.ActiveAttachments)
                     {
-                        warmupImprove -= attachment.warmupMult;
+                        warmupImprove += attachment.warmupMult;
 
                     }
 

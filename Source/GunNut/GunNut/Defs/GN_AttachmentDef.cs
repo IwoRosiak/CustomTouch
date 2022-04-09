@@ -88,7 +88,7 @@ namespace GunNut
 
             if (damageMult != 0)
             {
-                yield return new StatDrawEntry(IR_StatCategoryDefOf.Attachments, "Damage", (1 - damageMult).ToStringByStyle(ToStringStyle.PercentOne, ToStringNumberSense.Factor), "Damage multiplier.", 2753, null, null, false);
+                yield return new StatDrawEntry(IR_StatCategoryDefOf.Attachments, "Damage", (1 + damageMult).ToStringByStyle(ToStringStyle.PercentOne, ToStringNumberSense.Factor), "Damage multiplier.", 2753, null, null, false);
             }
 
             if (nightvision != 0)
@@ -104,6 +104,16 @@ namespace GunNut
             if (zoomvision != 0)
             {
                 yield return new StatDrawEntry(IR_StatCategoryDefOf.Attachments, "Zoom", zoomvision.ToStringByStyle(ToStringStyle.PercentOne), "Zoom capabilities make it easier to hit smaller targets.", 2753, null, null, false);
+            }
+
+            if (silencerEffect != 0)
+            {
+                yield return new StatDrawEntry(IR_StatCategoryDefOf.Attachments, "Noise", (1-silencerEffect).ToStringByStyle(ToStringStyle.PercentOne), "Noise affects how much likely an animal is to attack you back after harm.", 2753, null, null, false);
+            }
+
+            if (burstShotsOffset != 0)
+            {
+                yield return new StatDrawEntry(IR_StatCategoryDefOf.Attachments, "Bullets per shot", burstShotsOffset.ToStringWithSign(), "How many bullets are shot during a burst on top of base amount.", 2753, null, null, false);
             }
         }
 
@@ -131,7 +141,7 @@ namespace GunNut
 
             if (cooldownMult != 0)
             {
-                yield return "Cooldown: " + (1+cooldownMult).ToStringByStyle(ToStringStyle.PercentZero, ToStringNumberSense.Factor);
+                yield return "Cooldown: " + (1+ cooldownMult).ToStringByStyle(ToStringStyle.PercentZero, ToStringNumberSense.Factor);
             }
 
             if (warmupMult != 0)
@@ -141,22 +151,32 @@ namespace GunNut
 
             if (damageMult != 0)
             {
-                yield return "Damage: " + (1 - damageMult).ToStringByStyle(ToStringStyle.PercentZero, ToStringNumberSense.Factor);
+                yield return "Damage: " + (1 + damageMult).ToStringByStyle(ToStringStyle.PercentZero, ToStringNumberSense.Factor);
             }
 
             if (nightvision != 0)
             {
-                yield return "Night-vision strength: " + nightvision.ToStringByStyle(ToStringStyle.PercentZero, ToStringNumberSense.Factor);
+                yield return "Night-vision strength: " + nightvision.ToStringByStyle(ToStringStyle.PercentZero);
             }
 
             if (infravision != 0)
             {
-                yield return "Infra-vision strength: " + infravision.ToStringByStyle(ToStringStyle.PercentZero, ToStringNumberSense.Factor);
+                yield return "Infra-vision strength: " + infravision.ToStringByStyle(ToStringStyle.PercentZero);
             }
 
             if (zoomvision != 0)
             {
-                yield return "Zoom strength: " + zoomvision.ToStringByStyle(ToStringStyle.PercentZero, ToStringNumberSense.Factor);
+                yield return "Zoom strength: " + zoomvision.ToStringByStyle(ToStringStyle.PercentZero);
+            }
+
+            if (silencerEffect != 0)
+            {
+                yield return "Noise: " + (1 - silencerEffect).ToStringByStyle(ToStringStyle.PercentZero, ToStringNumberSense.Factor);
+            }
+
+            if (burstShotsOffset != 0)
+            {
+                yield return "Bullets per shot: " + burstShotsOffset.ToStringWithSign();
             }
         }
 

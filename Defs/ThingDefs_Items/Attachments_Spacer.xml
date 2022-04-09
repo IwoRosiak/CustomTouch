@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
-    <!--SCOPES-->
+    <!--SCOPES
     <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
         <defName>Attachment_Infrared_Scope</defName>
         <label>Infrared Scope</label>
         <weaponPart>scope</weaponPart>
         <description>Specialist scope which comes with heat detecting visuals what allows for easier aiming at night and during unfavorable weather conditions.</description>
-    </ThingDef>
+    </ThingDef>-->
     <!--STOCKS-->
     
     
-    <!--UNDERMOUNT-->
+    <!--UNDERMOUNT
     <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
         <defName>Attachment_Undermount_Grenade</defName>
         <label>Undermount Grenade Launcher</label>
@@ -23,7 +23,7 @@
         <label>Undermount UV Laser</label>
         <weaponPart>undermount</weaponPart>
         <description>Rubber handle which can be easily attached under most guns. Its form allows for moderate recoil control and improved aiming times.</description>
-    </ThingDef>
+    </ThingDef>-->
     
     <!-- MAGAZINES -->
     
@@ -31,12 +31,7 @@
     
     
     <!--RECEIVER -->
-    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
-        <defName>Attachment_Semi_Receiver</defName>
-        <label>Semi-automatic Receiver</label>
-        <weaponPart>receiver</weaponPart>
-        <description>Specialist receiver which transforms bolt-action operated weapons into semi-automatic increasing rate of fire drastically.</description>
-    </ThingDef>
+
     
     
     <!--BARREL -->

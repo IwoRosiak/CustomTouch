@@ -64,37 +64,6 @@
     
     
     <!--STOCKS -->
-    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Simple">
-        <defName>Attachment_Recoil_Pad</defName>
-        <label>Recoil Pad</label>
-        <weaponPart>stock</weaponPart>
-        <description>A recoil pad that can be put on the stock of most weapons. It does not reduce the recoil, but helps to mitigate the consequences of it in form of sore arms and shoulders.</description>
-        <cooldownMult>-0.20</cooldownMult>
-        <statBases>
-            <MarketValue>30</MarketValue>
-            <Mass>0.05</Mass>
-        </statBases>
-        <recipeMaker>
-            <skillRequirements>
-                <Crafting>3</Crafting>
-            </skillRequirements>
-            <effectWorking>Tailor</effectWorking>
-            <soundWorking>Recipe_Tailor</soundWorking>
-            <recipeUsers>
-                <li>ElectricTailoringBench</li>
-                <li>HandTailoringBench</li>
-            </recipeUsers>
-            <unfinishedThingDef>UnfinishedApparel</unfinishedThingDef>
-        </recipeMaker>
-        <costStuffCount>15</costStuffCount>
-        <stuffCategories>
-            <li>Fabric</li>
-            <li>Leathery</li>
-        </stuffCategories>
-        <conflictingTags>
-            <li>noStock</li>
-        </conflictingTags>
-    </ThingDef>
     
     <!--UNDERMOUNT -->
 

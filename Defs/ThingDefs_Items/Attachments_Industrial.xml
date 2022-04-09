@@ -17,34 +17,7 @@
     </ThingDef>
     
 <!--SCOPES-->
-    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial">
-        <defName>Attachment_NV_Scope</defName>
-        <label>Night-vision Scope</label>
-        <weaponPart>scope</weaponPart>
-        <description>Scope which comes with night-vision which reduces penalty when shooting in the dark. It's short range forces the user to shoot from closer distance.</description>
-        <recipeMaker>
-            <skillRequirements>
-                <Crafting>10</Crafting>
-            </skillRequirements>
-        </recipeMaker>
-        <costList>
-            <Steel>15</Steel>
-            <Plasteel>15</Plasteel>
-            <ComponentIndustrial>5</ComponentIndustrial>
-        </costList>
-        <accuracyMedium>-0.05</accuracyMedium>
-        <accuracyLong>-0.4</accuracyLong>
-        <nightvision>0.5</nightvision>
-        <zoomvision>0.2</zoomvision>
-        <statBases>
-            <MarketValue>300</MarketValue>
-            <Mass>0.7</Mass>
-            <WorkToMake>1000</WorkToMake>
-        </statBases>
-        <requiredTags>
-            <li>hasScopeRail</li>
-        </requiredTags>
-    </ThingDef>
+    
     <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial">
         <defName>Attachment_Small_NV_Scope</defName>
         <label>Small night-vision scope</label>
@@ -71,28 +44,7 @@
             <li>hasScopeRail</li>
         </requiredTags>
     </ThingDef>
-    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial">
-        <defName>Attachment_ACOG</defName>
-        <label>ACOG</label>
-        <weaponPart>scope</weaponPart>
-        <description>Specialist sight which allows for customizable amount of zoom. It is highly effective on medium distances, but does not diminish the accuracy of the weapon on other distances. It is using radiation to illuminate its insides allowing for a slightly better view at night.</description>
-        <accuracyTouch>-0.02</accuracyTouch>
-        <accuracyMedium>0.15</accuracyMedium>
-        <accuracyLong>0.03</accuracyLong>
-        <warmupMult>-0.05</warmupMult>
-        <zoomvision>0.1</zoomvision>
-        <nightvision>0.1</nightvision>
-        <statBases>
-            <MarketValue>250</MarketValue>
-            <Mass>0.2</Mass>
-        </statBases>
-        <costList>
-            <Steel>25</Steel>
-            <Plasteel>5</Plasteel>
-            <ComponentIndustrial>2</ComponentIndustrial>
-            <Uranium>3</Uranium>
-        </costList>
-    </ThingDef>
+    
 
     <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial">
         <defName>Attachment_Reflex_Sight</defName>
@@ -106,41 +58,11 @@
         <statBases>
             <MarketValue>70</MarketValue>
             <Mass>0.1</Mass>
+            <WorkToMake>500</WorkToMake>
         </statBases>
         <conflictingTags>
             <li>hasScope</li>
         </conflictingTags>
-    </ThingDef>
-
-    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial">
-        <defName>Attachment_Big_Scope</defName>
-        <label>Scope(x8-16)</label>
-        <weaponPart>scope</weaponPart>
-        <description>A scope with high zoom. Effective on single shot weapons. It's sheer size makes the weapon a bit more cumbersome to carry.</description>
-        <recipeMaker>
-            <skillRequirements>
-                <Crafting>12</Crafting>
-            </skillRequirements>
-        </recipeMaker>
-        <accuracyTouch>-0.15</accuracyTouch>
-        <accuracyShort>-0.05</accuracyShort>
-        <accuracyMedium>0.08</accuracyMedium>
-        <accuracyLong>0.15</accuracyLong>
-        <zoomvision>0.4</zoomvision>
-        <warmupMult>-0.1</warmupMult>
-        <statBases>
-            <MarketValue>180</MarketValue>
-            <Mass>1.3</Mass>
-            <WorkToMake>1000</WorkToMake>
-        </statBases>
-        <costList>
-            <Steel>20</Steel>
-            <Plasteel>10</Plasteel>
-            <ComponentIndustrial>4</ComponentIndustrial>
-        </costList>
-        <requiredTags>
-            <li>hasScopeRail</li>
-        </requiredTags>
     </ThingDef>
     
     <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial">
@@ -187,6 +109,7 @@
         <statBases>
             <MarketValue>140</MarketValue>
             <Mass>0.8</Mass>
+            <WorkToMake>500</WorkToMake>
         </statBases>
         <requiredTags>
             <li>hasScopeRail</li>
@@ -208,6 +131,7 @@
         <statBases>
             <MarketValue>60</MarketValue>
             <Mass>0.2</Mass>
+            <WorkToMake>500</WorkToMake>
         </statBases>
         <requiredTags>
             <li>noStock</li>
@@ -224,71 +148,13 @@
         <statBases>
             <MarketValue>90</MarketValue>
             <Mass>0.4</Mass>
+            <WorkToMake>500</WorkToMake>
         </statBases>
-        <conflictingTags>
-            <li>singleHand</li>
-        </conflictingTags>
-    </ThingDef>
-
-
-    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial">
-        <defName>Attachment_Sharpshooter_Stock</defName>
-        <label>Sharhshooter Stock</label>
-        <weaponPart>stock</weaponPart>
-        <description>A stock designed to negate recoil on powerful, high-caliber rifles. Less effective on automatic weapons. Thanks to it movable elements, it can be adjusted to fit the shooter better, therefore increasing effectivness. A must have for every sniper.</description>
-        <recipeMaker>
-            <skillRequirements>
-                <Crafting>12</Crafting>
-            </skillRequirements>
-        </recipeMaker>
-        <accuracyMedium>0.07</accuracyMedium>
-        <accuracyLong>0.1</accuracyLong>
-        <warmupMult>-0.15</warmupMult>
-        <cooldownMult>-0.6</cooldownMult>
-        <statBases>
-            <MarketValue>270</MarketValue>
-            <Mass>0.8</Mass>
-            <WorkToMake>1000</WorkToMake>
-        </statBases>
-        <costList>
-            <Steel>35</Steel>
-            <Plasteel>10</Plasteel>
-            <ComponentIndustrial>2</ComponentIndustrial>
-        </costList>
         <conflictingTags>
             <li>singleHand</li>
         </conflictingTags>
     </ThingDef>
     
-    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial">
-        <defName>Attachment_Assault_Stock</defName>
-        <label>Assault stock</label>
-        <weaponPart>stock</weaponPart>
-        <description>Advanced stock which fits most advanced, precision rifles. Most useful for automatic fire weapons.</description>
-        <recipeMaker>
-            <skillRequirements>
-                <Crafting>12</Crafting>
-            </skillRequirements>
-        </recipeMaker>
-        <accuracyTouch>0.2</accuracyTouch>
-        <accuracyShort>0.2</accuracyShort>
-        <accuracyMedium>0.15</accuracyMedium>
-        <warmupMult>-0.1</warmupMult>
-        <cooldownMult>-0.2</cooldownMult>
-        <statBases>
-            <MarketValue>270</MarketValue>
-            <Mass>0.8</Mass>
-            <WorkToMake>1000</WorkToMake>
-        </statBases>
-            <costList>
-                <Steel>35</Steel>
-                <Plasteel>10</Plasteel>
-                <ComponentIndustrial>2</ComponentIndustrial>
-            </costList>
-        <conflictingTags>
-            <li>singleHand</li>
-        </conflictingTags>
-    </ThingDef>
     
 <!--UNDERMOUNT-->
     <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial">
@@ -301,6 +167,7 @@
         <statBases>
             <MarketValue>40</MarketValue>
             <Mass>0.1</Mass>
+            <WorkToMake>500</WorkToMake>
         </statBases>
         <requiredTags>
             <li>undermountRail</li>
@@ -317,6 +184,7 @@
         <statBases>
             <MarketValue>40</MarketValue>
             <Mass>0.1</Mass>
+            <WorkToMake>500</WorkToMake>
         </statBases>
         <requiredTags>
             <li>undermountRail</li>
@@ -383,77 +251,15 @@
         <statBases>
             <MarketValue>60</MarketValue>
             <Mass>0.05</Mass>
+            <WorkToMake>500</WorkToMake>
         </statBases>
         <requiredTags>
           <li>boltAction</li>
         </requiredTags>
     </ThingDef>
-   
-    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial">
-        <defName>Attachment_Automatic_Receiver</defName>
-        <label>Automatic receiver</label>
-        <weaponPart>receiver</weaponPart>
-        <description>A receiver which gives the weapon an option to shoot with constant fire while holding the trigger. This specialist receiver can be used on pistols and rifles alike.</description>
-        <burstShotsOffset>2</burstShotsOffset>
-        <damageMult>-0.2</damageMult>
-        <cooldownMult>0.7</cooldownMult>
-        <statBases>
-            <MarketValue>60</MarketValue>
-            <Mass>0.05</Mass>
-        </statBases>
-        <requiredTags>
-            <li>semiAutomatic</li>
-        </requiredTags>
-        <conflictingTags>
-            <li>boltAction</li>
-        </conflictingTags>
-    </ThingDef>
 
 <!--BARREL -->
-    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial">
-        <defName>Attachment_Precision_Barrel</defName>
-        <label>Precision Barrel</label>
-        <weaponPart>barrel</weaponPart>
-        <description>Precision barrel for high accuracy weapons. Drastically improves accuracy and bullets damage.</description>
-        <damageMult>0.05</damageMult>
-        <accuracyTouch>0.03</accuracyTouch>
-        <accuracyShort>0.04</accuracyShort>
-        <accuracyMedium>0.06</accuracyMedium>
-        <accuracyLong>0.03</accuracyLong>
-        <statBases>
-            <MarketValue>280</MarketValue>
-            <Mass>0.2</Mass>
-            <WorkToMake>1500</WorkToMake>
-        </statBases>
-        <conflictingTags>
-            <li>singleHand</li>
-            <li>shotgun</li>
-        </conflictingTags>
-    </ThingDef>
     
-    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial">
-        <defName>Attachment_Precision_Slide</defName>
-        <label>Precision Slide</label>
-        <weaponPart>barrel</weaponPart>
-        <description>Precision slide for better fire-rate and accuracy.</description>
-        <recipeMaker>
-            <skillRequirements>
-                <Crafting>10</Crafting>
-            </skillRequirements>
-        </recipeMaker>
-        <accuracyTouch>0.05</accuracyTouch>
-        <accuracyShort>0.03</accuracyShort>
-        <accuracyMedium>0.01</accuracyMedium>
-        <cooldownMult>-0.5</cooldownMult>
-        <statBases>
-            <MarketValue>100</MarketValue>
-            <Mass>0.1</Mass>
-            <WorkToMake>800</WorkToMake>
-        </statBases>
-        <requiredTags>
-            <li>pistol</li>
-        </requiredTags>
-    </ThingDef>
 <!--GRIP -->
     <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial">
         <defName>Attachment_Rubber_Grip</defName>
@@ -464,6 +270,7 @@
         <statBases>
             <MarketValue>40</MarketValue>
             <Mass>0.1</Mass>
+            <WorkToMake>500</WorkToMake>
         </statBases>
         <conflictingTags>
             <li>pistol</li>
@@ -479,6 +286,7 @@
         <statBases>
             <MarketValue>40</MarketValue>
             <Mass>0.05</Mass>
+            <WorkToMake>500</WorkToMake>
         </statBases>
         <requiredTags>
             <li>pistol</li>
@@ -495,6 +303,7 @@
         <statBases>
             <MarketValue>80</MarketValue>
             <Mass>0.2</Mass>
+            <WorkToMake>500</WorkToMake>
         </statBases>
     </ThingDef>
     
@@ -508,6 +317,7 @@
         <statBases>
             <MarketValue>80</MarketValue>
             <Mass>0.3</Mass>
+            <WorkToMake>500</WorkToMake>
         </statBases>
     </ThingDef>
     
