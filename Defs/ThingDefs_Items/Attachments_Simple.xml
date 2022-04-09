@@ -32,51 +32,97 @@
         </statBases>
     </ThingDef>
     
-    <!--STOCKS
-    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
-        <defName>Attachment_Simple_Shotgun_Shells_Holder</defName>
-        <label>Shotgun Shell Holder</label>
-        <weaponPart>magazine</weaponPart>
-        <description>Plastic holder which allows for storing spare shotgun shells on the side of the weapon.</description>
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Simple">
+        <defName>Attachment_Simple_Scope</defName>
+        <label>Makeshift Scope</label>
+        <weaponPart>scope</weaponPart>
+        <description>A makeshift scope crafted using spare parts, old pipes, screws and lenses. This scope provides small amount of zoom to better see the target, but the image is heavily distorted reducing the accuracy.</description>
+        <warmupMult>0.05</warmupMult>
+        <zoomvision>0.25</zoomvision>
+        <accuracyTouch>-0.05</accuracyTouch>
+        <accuracyShort>-0.03</accuracyShort>
+        <accuracyMedium>-0.02</accuracyMedium>
+        <accuracyLong>-0.02</accuracyLong>
+        <statBases>
+            <MarketValue>15</MarketValue>
+            <Mass>0.25</Mass>
+        </statBases>
     </ThingDef>
-    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
-        <defName>Attachment_Simple_Shotgun_Shells_Pouch</defName>
-        <label>Stock with Ammo Pouch</label>
+    
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Simple">
+        <defName>Attachment_Simple_Night_Sight</defName>
+        <label>Makeshift Night Sight</label>
+        <weaponPart>scope</weaponPart>
+        <description>A makeshift iron sight with a touch of fluorecent radiation to keep it visible at night.</description>
+        <warmupMult>-0.15</warmupMult>
+        <nightvision>0.1</nightvision>
+        <statBases>
+            <MarketValue>30</MarketValue>
+            <Mass>0.15</Mass>
+        </statBases>
+    </ThingDef>
+    
+    
+    <!--STOCKS -->
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Simple">
+        <defName>Attachment_Recoil_Pad</defName>
+        <label>Recoil Pad</label>
         <weaponPart>stock</weaponPart>
-        <description>Stock that comes with built-in leather ammo pouch for easier access to shells in case of a gunfight.</description>
-    </ThingDef> -->
+        <description>A recoil pad that can be put on the stock of most weapons. It does not reduce the recoil, but helps to mitigate the consequences of it in form of sore arms and shoulders.</description>
+        <cooldownMult>-0.20</cooldownMult>
+        <statBases>
+            <MarketValue>30</MarketValue>
+            <Mass>0.05</Mass>
+        </statBases>
+        <recipeMaker>
+            <skillRequirements>
+                <Crafting>3</Crafting>
+            </skillRequirements>
+            <effectWorking>Tailor</effectWorking>
+            <soundWorking>Recipe_Tailor</soundWorking>
+            <recipeUsers>
+                <li>ElectricTailoringBench</li>
+                <li>HandTailoringBench</li>
+            </recipeUsers>
+            <unfinishedThingDef>UnfinishedApparel</unfinishedThingDef>
+        </recipeMaker>
+        <costStuffCount>15</costStuffCount>
+        <stuffCategories>
+            <li>Fabric</li>
+            <li>Leathery</li>
+        </stuffCategories>
+        <conflictingTags>
+            <li>noStock</li>
+        </conflictingTags>
+    </ThingDef>
+    
+    <!--UNDERMOUNT -->
+
     
     
-    <!--UNDERMOUNT
-    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
-        <defName>Attachment_Simple_Bayonet</defName>
-        <label>Makeshift Bayonet</label>
-        <weaponPart>barrel</weaponPart>
-        <description>A knife screwed in on the barrel to allow for easier melee attacks. Quite effective when it does not fall off.</description>
-    </ThingDef> -->
     
     
-    
-    
-    <!-- MAGAZINES 
-    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
-        <defName>Attachment_Taped_Magazines</defName>
-        <label>Taped magazine</label>
-        <weaponPart>magazine</weaponPart>
-        <description>Two magazines taped together which should in theory improve reload times between shots. In theory.</description>
-    </ThingDef>-->
+    <!-- MAGAZINES --> 
+   
     
     <!-- BARREL EXT -->
     <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Simple">
-        <defName>Attachment_Simple_Nozzle</defName>
-        <label>Makeshift Nozzle</label>
+        <defName>Attachment_Simple_Silencer</defName>
+        <label>Simple Silencer</label>
         <weaponPart>barrelExt</weaponPart>
-        <description>A nozzle crafted using spare parts and fittings. Improvement is not very noticible.</description>
-        <cooldownMult>-0.15</cooldownMult>
+        <description>A silencer crafted with low quality resources. It displays signs of being created without appriopiate tools. It reduces the sound of the weapon as well as hides flash from it.</description>
+        <damageMult>-0.05</damageMult>
+        <accuracyLong>-0.1</accuracyLong>
+        <cooldownMult>-0.1</cooldownMult>
         <statBases>
-            <MarketValue>10</MarketValue>
-            <Mass>0.1</Mass>
+            <MarketValue>40</MarketValue>
+            <Mass>0.2</Mass>
+            <WorkToMake>500</WorkToMake>
         </statBases>
+        <costList>
+            <Steel>40</Steel>
+            <ComponentIndustrial>2</ComponentIndustrial>
+        </costList>
     </ThingDef>
     
     
@@ -88,14 +134,27 @@
     
     
     
-    <!--GRIP 
-    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
-        <defName>Attachment_Simple_Wooden_Grip</defName>
-        <label>Wooden Grip</label>
+    <!--GRIP -->
+    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Simple">
+        <defName>Attachment_Simple_Grip</defName>
+        <label>Simple Grip</label>
         <weaponPart>grip</weaponPart>
-        <description>Wooden grip which in theory should help to hold on</description>
-    </ThingDef>-->
-    
+        <description>Profiled wooden grip designed for rifles. Improves handling of the weapon.</description>
+        <warmupMult>-0.1</warmupMult>
+        <cooldownMult>-0.1</cooldownMult>
+        <statBases>
+            <MarketValue>10</MarketValue>
+            <Mass>0.1</Mass>
+            <WorkToMake>300</WorkToMake>
+        </statBases>
+        <costList>
+            <WoodLog>15</WoodLog>
+            <ComponentIndustrial>1</ComponentIndustrial>
+        </costList>
+        <conflictingTags>
+            <li>pistol</li>
+        </conflictingTags>
+    </ThingDef>
     
     <!--FOREGRIP -->
     

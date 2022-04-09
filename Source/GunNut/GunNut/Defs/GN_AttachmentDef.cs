@@ -29,8 +29,9 @@ namespace GunNut
 
         public float silencerEffect = 0;
 
-        public float burstShotsMult = 0;
+        //public float burstShotsMult = 0;
         public int burstShotsOffset = 0;
+        public float fireRateMult = 0;
 
         //NOT IMPLEMENTED
         public float reflectiveEffect = 0; //easier to hit if you have that

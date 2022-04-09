@@ -44,13 +44,9 @@
     
   
     <!--GRIP -->
-    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="GunModBase">
-        <defName>Attachment_Gun_Link</defName>
-        <label>Gun Link</label>
-        <weaponPart>grip</weaponPart>
-        <description>Advanced sensors which synchronises the user with the weapon. It improves accuracy, aiming times as long as the user is wearing gun link.</description>
-    </ThingDef>
-    
+    <!--
+
+    -->
     <!--FOREGRIP -->
     
 </Defs>
