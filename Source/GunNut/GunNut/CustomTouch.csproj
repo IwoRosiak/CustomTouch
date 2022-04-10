@@ -69,6 +69,10 @@
     <Compile Include="Data\ModSettings\IR_SectionDrawer_WeaponTags.cs" />
     <Compile Include="Functionality\Attachment Effects\Burst Shots Effect\IR_ExtraBurstShots_Patch.cs" />
     <Compile Include="Functionality\Attachment Effects\Fire Rate Effect\IR_FireRate_Patch.cs" />
+    <Compile Include="Functionality\Attachment Effects\Zoom Effect\IR_ZoomEffect_TextReadout_Patch.cs" />
+    <Compile Include="Functionality\Attachment Effects\Weather Effect\IR_WeatherEffect_TextReadout_Patch.cs" />
+    <Compile Include="Functionality\Attachment Effects\Zoom Effect\IR_ZoomEffect_Patch.cs" />
+    <Compile Include="Functionality\Attachment Effects\Weather Effect\IR_WeatherEffect_Patch.cs" />
     <Compile Include="Functionality\Display\UI\IR_SpecialDisplayStatsPatch.cs" />
     <Compile Include="Data\IR_Patch_Helper.cs" />
     <Compile Include="Functionality\Attachment Effects\Damage\IR_GetDamageAmountPatch.cs" />

@@ -10,10 +10,11 @@ using static HarmonyLib.AccessTools;
 
 namespace GunNut.HarmonyPatches.Stats_Patches
 {
-    
+    /*
     [HarmonyPatch(typeof(ShotReport), "HitReportFor")]
     public static class IR_HitReportFor_Patch
     {
+        
         //public 
         private static readonly FieldInfo weatherEffect = AccessTools.Field(typeof(ShotReport), "factorFromWeather");
         //private static readonly FieldInfo smokeEffect = AccessTools.Field(typeof(ShotReport), "factorFromWeather");
@@ -23,7 +24,12 @@ namespace GunNut.HarmonyPatches.Stats_Patches
         [HarmonyPostfix]
         public static void WeatherOffsetPostfix(Thing caster, Verb verb, LocalTargetInfo target, ref ShotReport __result)
         {   
+            return;
+
             GN_AttachmentComp comp =  verb.EquipmentSource.TryGetComp<GN_AttachmentComp>();
+
+            //ShotReport shooty = new ShotReport();
+            Log.Message(__result.ToString());
 
             if (comp == null)
                 return;
@@ -46,11 +52,6 @@ namespace GunNut.HarmonyPatches.Stats_Patches
             {
                 ChangeSizeOffset(ref __result, smallSizeEffect);
             }
-
-            if (weatherInfluence!= 0)
-            {
-                ChangeWeatherOffset(ref __result, weatherInfluence);
-            }
         }
 
         public static void ChangeDarknessOffset(ref ShotReport __result, float nv)
@@ -62,16 +63,6 @@ namespace GunNut.HarmonyPatches.Stats_Patches
             AccessTools.StructFieldRefAccess<ShotReport, float>(ref __result, darknessEffect) = 1 - newDarknessEffect * nv;
         }
 
-        public static void ChangeWeatherOffset(ref ShotReport __result, float nv)
-        {
-            float newWeatherEffect = (float)weatherEffect.GetValue(__result);
-
-            newWeatherEffect = 1 - newWeatherEffect;
-
-            newWeatherEffect -= newWeatherEffect * nv;
-
-            AccessTools.StructFieldRefAccess<ShotReport, float>(ref __result, weatherEffect) = 1 - newWeatherEffect;
-        }
 
         public static void ChangeSizeOffset(ref ShotReport __result, float zoom)
         {
@@ -90,4 +81,5 @@ namespace GunNut.HarmonyPatches.Stats_Patches
         }
 
     }
+    }*/
 }

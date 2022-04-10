@@ -10,6 +10,7 @@ using Verse;
 
 namespace GunNut.HarmonyPatches.Stats_Patches.Weather_Effect
 {
+    /*
     [HarmonyPatch(typeof(ShotReport), "GetTextReadout")]
     public static class IR_HitReportGetString_Patch
     {
@@ -72,5 +73,5 @@ namespace GunNut.HarmonyPatches.Stats_Patches.Weather_Effect
                 }
             }
         }
-    }
+    }*/
 }
