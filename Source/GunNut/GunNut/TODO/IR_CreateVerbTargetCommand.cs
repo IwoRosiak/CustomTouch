@@ -4,6 +4,8 @@ using Verse;
 
 namespace GunNut
 {
+    //A display patch which is extremely unefficient. I should create a transpiler which will get me "verb" (which is the mine reason for this abomination);
+    /*
     [HarmonyPatch(typeof(VerbTracker), "CreateVerbTargetCommand")]
     public static class IR_CreateVerbTargetCommand
     {
@@ -50,5 +52,5 @@ namespace GunNut
             __result = command_VerbTarget;
             return false;
         }
-    }
+    }*/
 }

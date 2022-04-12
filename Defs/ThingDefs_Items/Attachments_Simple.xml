@@ -3,7 +3,7 @@
     <ThingDef Name="Attachment_Simple" ParentName="GunModBase" Abstract="True">
         <recipeMaker>
             <skillRequirements>
-                <Crafting>5</Crafting>
+                <Crafting>4</Crafting>
             </skillRequirements>
             <recipeUsers>
                 <li>TableMachining</li>
@@ -12,13 +12,14 @@
         </recipeMaker>
         <costList>
             <Steel>20</Steel>
-            <ComponentIndustrial>1</ComponentIndustrial>
         </costList>
         <statBases>
+            <MarketValue>30</MarketValue>
+            <Mass>0.2</Mass>
             <WorkToMake>300</WorkToMake>
         </statBases>
     </ThingDef>
-    
+
     <!--SCOPES-->
     <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Simple">
         <defName>Attachment_Simple_Sight</defName>
@@ -26,12 +27,8 @@
         <weaponPart>scope</weaponPart>
         <description>A makeshift sight crafted using spare parts, old pipes and screws. It won't allow for much improvement except for better visibility when aiming.</description>
         <warmupMult>-0.15</warmupMult>
-        <statBases>
-            <MarketValue>10</MarketValue>
-            <Mass>0.15</Mass>
-        </statBases>
     </ThingDef>
-    
+
     <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Simple">
         <defName>Attachment_Simple_Scope</defName>
         <label>Makeshift Scope</label>
@@ -43,12 +40,8 @@
         <accuracyShort>-0.03</accuracyShort>
         <accuracyMedium>-0.02</accuracyMedium>
         <accuracyLong>-0.02</accuracyLong>
-        <statBases>
-            <MarketValue>15</MarketValue>
-            <Mass>0.25</Mass>
-        </statBases>
     </ThingDef>
-    
+
     <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Simple">
         <defName>Attachment_Simple_Night_Sight</defName>
         <label>Makeshift Night Sight</label>
@@ -56,53 +49,30 @@
         <description>A makeshift iron sight with a touch of fluorecent radiation to keep it visible at night.</description>
         <warmupMult>-0.15</warmupMult>
         <nightvision>0.1</nightvision>
-        <statBases>
-            <MarketValue>30</MarketValue>
-            <Mass>0.15</Mass>
-        </statBases>
-    </ThingDef>
-    
-    
-    <!--STOCKS -->
-    
-    <!--UNDERMOUNT -->
-
-    
-    
-    
-    
-    <!-- MAGAZINES --> 
-   
-    
-    <!-- BARREL EXT -->
-    <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Simple">
-        <defName>Attachment_Simple_Silencer</defName>
-        <label>Simple Silencer</label>
-        <weaponPart>barrelExt</weaponPart>
-        <description>A silencer crafted with low quality resources. It displays signs of being created without appriopiate tools. It reduces the sound of the weapon as well as hides flash from it.</description>
-        <damageMult>-0.05</damageMult>
-        <accuracyLong>-0.1</accuracyLong>
-        <cooldownMult>-0.1</cooldownMult>
-        <statBases>
-            <MarketValue>40</MarketValue>
-            <Mass>0.2</Mass>
-            <WorkToMake>500</WorkToMake>
-        </statBases>
         <costList>
-            <Steel>40</Steel>
-            <ComponentIndustrial>2</ComponentIndustrial>
+            <Steel>20</Steel>
+            <Uranium>1</Uranium>
         </costList>
     </ThingDef>
-    
-    
+
+
+    <!--STOCKS -->
+
+    <!--UNDERMOUNT -->
+
+
+    <!-- MAGAZINES -->
+
+
+    <!-- BARREL EXT -->
+
+
     <!--RECEIVER -->
-    
-    
-    
+
+
     <!--BARREL -->
-    
-    
-    
+
+
     <!--GRIP -->
     <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Simple">
         <defName>Attachment_Simple_Grip</defName>
@@ -124,7 +94,7 @@
             <li>pistol</li>
         </conflictingTags>
     </ThingDef>
-    
+
     <!--FOREGRIP -->
-    
+
 </Defs>

@@ -24,7 +24,6 @@ namespace GunNut.Functionality.Attachment_Effects.Burst_Shots_Effect
     }
 
     [HarmonyPatch(typeof(Verb_Shoot), "get_ShotsPerBurst")]
-    //[HarmonyPatch(new Type[] { typeof(LocalTargetInfo), typeof(LocalTargetInfo), typeof(bool), typeof(bool), typeof(bool) })]
     public static class IR_WarmupCompletePatch1
     {
         [HarmonyPostfix]
@@ -38,8 +37,7 @@ namespace GunNut.Functionality.Attachment_Effects.Burst_Shots_Effect
             {
                 comp = ((Pawn)__instance.Caster).equipment.Primary.TryGetComp<GN_AttachmentComp>();
             }
-            
-            float extraShots;
+           
 
             if (comp != null)
             {

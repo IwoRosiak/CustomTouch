@@ -12,12 +12,13 @@ namespace GunNut
         [HarmonyPostfix]
         private static void PawnRendererPatch(Thing eq, Vector3 drawLoc, float aimAngle, PawnRenderer __instance)
         {
-            if (eq.TryGetComp<GN_AttachmentComp>() != null)
-            {
-                var weapon = eq.TryGetComp<GN_AttachmentComp>();
+            GN_AttachmentComp weapon;
 
+            if ((weapon = eq.TryGetComp<GN_AttachmentComp>()) != null)
+            {
                 foreach (var attachment in weapon.ActiveAttachments)
                 {
+
                     if (attachment.onWeaponGraphic == null)
                     {
                         continue;

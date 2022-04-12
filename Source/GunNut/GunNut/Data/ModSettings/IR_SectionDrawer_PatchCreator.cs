@@ -25,6 +25,12 @@ namespace GunNut
             StringBuilder patch = new StringBuilder();
 
             patch.AppendLine("<Patch>");
+            patch.AppendLine("<Operation Class=\"PatchOperationFindMod\">");
+            patch.AppendLine("<mods>");
+            patch.AppendLine("<li>" + parent.curMod.Name + "</li>");
+            patch.AppendLine("</mods>");
+            patch.AppendLine("<match Class=\"PatchOperationSequence\">");
+            patch.AppendLine("<operations>");
             foreach (var weapon in parent.weapons)
             {
                 if (weapon.modContentPack.Equals(parent.curMod))
@@ -36,6 +42,9 @@ namespace GunNut
                    
                 }
             }
+            patch.AppendLine("</operations>");
+            patch.AppendLine("</match>");
+            patch.AppendLine("</Operation>");
             patch.AppendLine("</Patch>");
             return patch.ToString();
         }
@@ -55,18 +64,14 @@ namespace GunNut
             StringBuilder patch = new StringBuilder();
             string attachmentInfo = GetAttachmentInfoAsListForXPatch(weapon);
 
-            patch.AppendLine("<Operation Class=\"PatchOperationAdd\">");
+            patch.AppendLine("<li Class=\"PatchOperationAdd\">");
             patch.AppendLine("<xpath>/Defs/ThingDef[defName=\"" + weapon.defName + "\"]/comps/li[@Class=\"GunNut.GN_AttachmentCompProperties\"]</xpath>");
             patch.AppendLine("<value>");
-      //      patch.AppendLine("<li Class=\"GunNut.GN_AttachmentCompProperties\">");
-      //      patch.AppendLine("<jobDefInstall>EquipAttachment</jobDefInstall>");
-      //      patch.AppendLine("<jobDefRemove>RemoveAttachment</jobDefRemove>");
             patch.AppendLine("<slots>");
             patch.AppendLine(attachmentInfo);
             patch.AppendLine("</slots>");
-      //      patch.AppendLine("</li>");
             patch.AppendLine("</value>");
-            patch.AppendLine("</Operation>");
+            patch.AppendLine("</li>");
 
             return patch.ToString();
         }

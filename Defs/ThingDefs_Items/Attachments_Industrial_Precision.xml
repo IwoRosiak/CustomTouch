@@ -16,9 +16,12 @@
             <Mass>0.7</Mass>
             <WorkToMake>1000</WorkToMake>
         </statBases>
+        <prerequisites>
+            <li>PrecisionRifling</li>
+        </prerequisites>
     </ThingDef>
-    
-<!--SCOPES-->
+
+    <!--SCOPES-->
     <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial_Precision">
         <defName>Attachment_Small_Infrared_Scope</defName>
         <label>Small Infrared Scope</label>
@@ -27,19 +30,9 @@
         <warmupMult>0.2</warmupMult>
         <nightvision>0.2</nightvision>
         <infravision>0.4</infravision>
-        <statBases>
-            <MarketValue>350</MarketValue>
-            <Mass>0.7</Mass>
-            <WorkToMake>1300</WorkToMake>
-        </statBases>
-        <costList>
-            <Steel>15</Steel>
-            <Plasteel>15</Plasteel>
-            <ComponentIndustrial>5</ComponentIndustrial>
-        </costList>
     </ThingDef>
-    
-    
+
+
     <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial_Precision">
         <defName>Attachment_NV_Scope</defName>
         <label>Night-vision Scope</label>
@@ -49,22 +42,12 @@
         <accuracyLong>-0.4</accuracyLong>
         <nightvision>0.5</nightvision>
         <zoomvision>0.2</zoomvision>
-        <statBases>
-            <MarketValue>300</MarketValue>
-            <Mass>0.7</Mass>
-            <WorkToMake>1000</WorkToMake>
-        </statBases>
-        <costList>
-            <Steel>20</Steel>
-            <Plasteel>10</Plasteel>
-            <ComponentIndustrial>4</ComponentIndustrial>
-        </costList>
         <requiredTags>
             <li>hasScopeRail</li>
         </requiredTags>
     </ThingDef>
-    
-    
+
+
     <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial_Precision">
         <defName>Attachment_ACOG</defName>
         <label>ACOG</label>
@@ -76,11 +59,6 @@
         <warmupMult>-0.05</warmupMult>
         <zoomvision>0.1</zoomvision>
         <nightvision>0.1</nightvision>
-        <statBases>
-            <MarketValue>250</MarketValue>
-            <Mass>0.2</Mass>
-            <WorkToMake>800</WorkToMake>
-        </statBases>
         <costList>
             <Steel>10</Steel>
             <Plasteel>10</Plasteel>
@@ -100,25 +78,13 @@
         <accuracyLong>0.15</accuracyLong>
         <zoomvision>0.4</zoomvision>
         <warmupMult>-0.1</warmupMult>
-        <statBases>
-            <MarketValue>180</MarketValue>
-            <Mass>1.3</Mass>
-            <WorkToMake>800</WorkToMake>
-        </statBases>
-        <costList>
-            <Steel>20</Steel>
-            <Plasteel>10</Plasteel>
-            <ComponentIndustrial>2</ComponentIndustrial>
-        </costList>
         <requiredTags>
             <li>hasScopeRail</li>
         </requiredTags>
     </ThingDef>
-    
-    
-    
 
-<!--STOCKS-->
+
+    <!--STOCKS-->
     <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial_Precision">
         <defName>Attachment_Sharpshooter_Stock</defName>
         <label>Sharhshooter Stock</label>
@@ -128,21 +94,11 @@
         <accuracyLong>0.1</accuracyLong>
         <warmupMult>-0.15</warmupMult>
         <cooldownMult>-0.6</cooldownMult>
-        <statBases>
-            <MarketValue>320</MarketValue>
-            <Mass>0.8</Mass>
-            <WorkToMake>1000</WorkToMake>
-        </statBases>
-        <costList>
-            <Steel>30</Steel>
-            <Plasteel>15</Plasteel>
-            <ComponentIndustrial>2</ComponentIndustrial>
-        </costList>
         <conflictingTags>
             <li>singleHand</li>
         </conflictingTags>
     </ThingDef>
-    
+
     <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial_Precision">
         <defName>Attachment_Assault_Stock</defName>
         <label>Assault stock</label>
@@ -153,31 +109,21 @@
         <accuracyMedium>0.15</accuracyMedium>
         <warmupMult>-0.1</warmupMult>
         <cooldownMult>-0.2</cooldownMult>
-        <statBases>
-            <MarketValue>270</MarketValue>
-            <Mass>0.8</Mass>
-            <WorkToMake>1000</WorkToMake>
-        </statBases>
-            <costList>
-                <Steel>25</Steel>
-                <Plasteel>10</Plasteel>
-                <ComponentIndustrial>2</ComponentIndustrial>
-            </costList>
         <conflictingTags>
             <li>singleHand</li>
         </conflictingTags>
     </ThingDef>
-    
-<!--UNDERMOUNT-->
-    
 
-<!-- MAGAZINES -->
- 
+    <!--UNDERMOUNT-->
 
-<!-- BARREL EXT -->
+
+    <!-- MAGAZINES -->
+
+
+    <!-- BARREL EXT -->
 
     <!--RECEIVER  -->
-    
+
     <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial_Precision">
         <defName>Attachment_Automatic_Receiver</defName>
         <label>Automatic receiver</label>
@@ -186,11 +132,6 @@
         <burstShotsOffset>2</burstShotsOffset>
         <damageMult>-0.2</damageMult>
         <cooldownMult>0.7</cooldownMult>
-        <statBases>
-            <MarketValue>450</MarketValue>
-            <Mass>0.15</Mass>
-            <WorkToMake>1300</WorkToMake>
-        </statBases>
         <requiredTags>
             <li>semiAutomatic</li>
         </requiredTags>
@@ -199,7 +140,7 @@
         </conflictingTags>
     </ThingDef>
 
-<!--BARREL -->
+    <!--BARREL -->
     <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial_Precision">
         <defName>Attachment_Precision_Barrel</defName>
         <label>Precision Barrel</label>
@@ -210,20 +151,15 @@
         <accuracyShort>0.04</accuracyShort>
         <accuracyMedium>0.06</accuracyMedium>
         <accuracyLong>0.03</accuracyLong>
-        <statBases>
-            <MarketValue>300</MarketValue>
-            <Mass>0.2</Mass>
-            <WorkToMake>1200</WorkToMake>
-        </statBases>
         <conflictingTags>
             <li>singleHand</li>
             <li>shotgun</li>
         </conflictingTags>
     </ThingDef>
-    
-<!--GRIP -->
-    
-    
-<!--FOREGRIP -->
-    
+
+    <!--GRIP -->
+
+
+    <!--FOREGRIP -->
+
 </Defs>

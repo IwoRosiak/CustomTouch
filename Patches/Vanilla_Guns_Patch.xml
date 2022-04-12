@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Patch>
   <Operation Class="PatchOperationReplace">
     <xpath>/Defs/ThingDef[defName="Gun_Revolver"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
@@ -6,7 +6,7 @@
       <li Class="GunNut.GN_AttachmentCompProperties">
         <jobDefInstall>EquipAttachment</jobDefInstall>
         <jobDefRemove>RemoveAttachment</jobDefRemove>
-        <slots> </slots>
+        <slots></slots>
       </li>
     </value>
   </Operation>
@@ -478,7 +478,7 @@
   <Operation Class="PatchOperationAdd">
     <xpath>/Defs/ThingDef[defName="Gun_Minigun"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
     <value>
-      <tags> </tags>
+      <tags></tags>
     </value>
   </Operation>
 </Patch>

@@ -10,7 +10,6 @@ using Verse;
 
 namespace GunNut.Functionality.Attachment_Effects.Zoom_and_NV_Effects
 {
-    [HarmonyDebug]
     [HarmonyPatch(typeof(ShotReport), "HitReportFor")]
     public static class IR_WeatherEffect_Patch
     {

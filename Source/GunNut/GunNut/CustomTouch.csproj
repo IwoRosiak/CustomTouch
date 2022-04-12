@@ -7,8 +7,8 @@
     <ProjectGuid>{25FB14F1-EE1B-4BAA-BD79-75B8421DDF66}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GunNut</RootNamespace>
-    <AssemblyName>GunNut</AssemblyName>
+    <RootNamespace>CustomTouch</RootNamespace>
+    <AssemblyName>CustomTouch</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -57,6 +57,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AttachmentData\IR_AttachmentStats.cs" />
     <Compile Include="AttachmentData\IR_WeaponSlotsInfo.cs" />
     <Compile Include="Data\IR_Init.cs" />
     <Compile Include="Data\IR_SlotsCords.cs" />
@@ -73,20 +74,19 @@
     <Compile Include="Functionality\Attachment Effects\Weather Effect\IR_WeatherEffect_TextReadout_Patch.cs" />
     <Compile Include="Functionality\Attachment Effects\Zoom Effect\IR_ZoomEffect_Patch.cs" />
     <Compile Include="Functionality\Attachment Effects\Weather Effect\IR_WeatherEffect_Patch.cs" />
+    <Compile Include="Functionality\Display\IR_TextureMask_Patch.cs" />
     <Compile Include="Functionality\Display\UI\IR_SpecialDisplayStatsPatch.cs" />
     <Compile Include="Data\IR_Patch_Helper.cs" />
     <Compile Include="Functionality\Attachment Effects\Damage\IR_GetDamageAmountPatch.cs" />
     <Compile Include="Functionality\Attachment Effects\Warmup\IR_TryStartCastOnPatch.cs" />
-    <Compile Include="Functionality\Display\GN_ThingIconPatch.cs" />
-    <Compile Include="Functionality\Attachment Effects\Accuracy\IR_CreateVerbTargetCommand.cs" />
+    <Compile Include="TODO\GN_ThingIconPatch.cs" />
+    <Compile Include="TODO\IR_CreateVerbTargetCommand.cs" />
     <Compile Include="Functionality\Display\IR_DrawEquipmentAimingPatch.cs" />
     <Compile Include="Functionality\Attachment Effects\Accuracy\IR_AdjustedAccuracyPatchHelper.cs" />
     <Compile Include="Functionality\Display\GN_PrintPatch.cs" />
     <Compile Include="AttachmentData\GN_Slot.cs" />
     <Compile Include="Data\ModSettings\IR_Settings.cs" />
     <Compile Include="Data\ModSettings\IR_GunNutMod.cs" />
-    <Compile Include="Functionality\Attachment Effects\Zoom and NV Effects\IR_HitReportFor_Patch.cs" />
-    <Compile Include="Functionality\Attachment Effects\Zoom and NV Effects\IR_HitReportGetString_Patch.cs" />
     <Compile Include="Functionality\Attachment Effects\Silencer Effect\IR_SilencerEffect_Patch.cs" />
     <Compile Include="Functionality\Attachment Effects\Silencer Effect\IR_SilencerEffect_Readout_Patch.cs" />
     <Compile Include="Data\IR_Textures.cs" />
@@ -94,7 +94,7 @@
     <Compile Include="Defs\DefsOf\GN_StatCegoryDefOf.cs" />
     <Compile Include="Functionality\Comps\AttachmentComp\GN_AttachmentCompProperties.cs" />
     <Compile Include="Defs\GN_AttachmentDef.cs" />
-    <Compile Include="Functionality\Display\UI\GN_Command_VerbTarget.cs" />
+    <Compile Include="TODO\GN_Command_VerbTarget.cs" />
     <Compile Include="AttachmentData\IR_AttachmentType.cs" />
     <Compile Include="Functionality\Comps\AttachmentComp\GN_AttachmentComp.cs" />
     <Compile Include="Functionality\Attachment Effects\Accuracy\GN_StatPart_Quality.cs" />
