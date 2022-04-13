@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
   <!--================ General ================-->
@@ -7,6 +7,27 @@
     <defName>Attachments</defName>
     <label>Attachments</label>
     <displayOrder>100</displayOrder>
+    <displayAllByDefault>false</displayAllByDefault>
+  </StatCategoryDef>
+
+  <StatCategoryDef>
+    <defName>Attachment_Req_Tags</defName>
+    <label>required features</label>
+    <displayOrder>101</displayOrder>
+    <displayAllByDefault>true</displayAllByDefault>
+  </StatCategoryDef>
+
+  <StatCategoryDef>
+    <defName>Attachment_Conf_Tags</defName>
+    <label>conflicting features</label>
+    <displayOrder>102</displayOrder>
+    <displayAllByDefault>true</displayAllByDefault>
+  </StatCategoryDef>
+
+  <StatCategoryDef>
+    <defName>Weapon_Tags</defName>
+    <label>Tags for attachments</label>
+    <displayOrder>102</displayOrder>
     <displayAllByDefault>true</displayAllByDefault>
   </StatCategoryDef>
 

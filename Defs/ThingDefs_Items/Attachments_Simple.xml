@@ -91,7 +91,7 @@
             <ComponentIndustrial>1</ComponentIndustrial>
         </costList>
         <conflictingTags>
-            <li>pistol</li>
+            <li>tag_isPistol</li>
         </conflictingTags>
     </ThingDef>
 

@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using CustomTouch;
+using RimWorld;
 using RimWorld.Planet;
 using System;
 using System.Collections.Generic;
@@ -182,7 +183,7 @@ namespace GunNut
 
         private bool IsMatchingTags(GN_AttachmentDef attachment)
         {
-            foreach (WeaponTags tag in attachment.requiredTags)
+            foreach (IR_AttachmentTag tag in attachment.requiredTags)
             {
                 if (!IR_Settings.GetWeaponTags(parent.def.defName).Contains(tag))
                 {
@@ -190,7 +191,7 @@ namespace GunNut
                 }
             }
 
-            foreach (WeaponTags tag in attachment.conflictingTags)
+            foreach (IR_AttachmentTag tag in attachment.conflictingTags)
             {
                 if (IR_Settings.GetWeaponTags(parent.def.defName).Contains(tag))
                 {

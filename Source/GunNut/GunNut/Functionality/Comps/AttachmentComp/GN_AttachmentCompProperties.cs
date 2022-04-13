@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CustomTouch;
+using System;
 using System.Collections.Generic;
 using Verse;
 
@@ -49,27 +50,10 @@ namespace GunNut
 
         public List<GN_Slot> slots = new List<GN_Slot>();
 
-        public List<WeaponTags> tags = new List<WeaponTags>();
+        public List<IR_AttachmentTag> tags = new List<IR_AttachmentTag>();
 
         public JobDef jobDefInstall;
 
         public JobDef jobDefRemove;
-    }
-
-
-    public enum WeaponTags
-    {
-        shotgun,
-        pistol,
-        singleHand,
-        boltAction,
-        noStock,
-        automatic,
-        semiAutomatic,
-        machineGun,
-        undermountRail,
-        hasScope,
-        hasScopeRail,
-        hasPump
     }
 }

@@ -59,7 +59,6 @@
   <ItemGroup>
     <Compile Include="AttachmentData\IR_AttachmentStats.cs" />
     <Compile Include="AttachmentData\IR_WeaponSlotsInfo.cs" />
-    <Compile Include="Data\IR_Init.cs" />
     <Compile Include="Data\IR_SlotsCords.cs" />
     <Compile Include="Data\ModSettings\IR_SectionDrawer_AttachmentsChoice.cs" />
     <Compile Include="Data\ModSettings\IR_SectionDrawer_PatchCreator.cs" />
@@ -68,6 +67,7 @@
     <Compile Include="Data\ModSettings\IR_SectionDrawer_Coordinator.cs" />
     <Compile Include="Data\ModSettings\IR_SectionDrawer.cs" />
     <Compile Include="Data\ModSettings\IR_SectionDrawer_WeaponTags.cs" />
+    <Compile Include="Defs\IR_WeaponTags.cs" />
     <Compile Include="Functionality\Attachment Effects\Burst Shots Effect\IR_ExtraBurstShots_Patch.cs" />
     <Compile Include="Functionality\Attachment Effects\Fire Rate Effect\IR_FireRate_Patch.cs" />
     <Compile Include="Functionality\Attachment Effects\Zoom Effect\IR_ZoomEffect_TextReadout_Patch.cs" />

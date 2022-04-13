@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CustomTouch;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -81,14 +82,14 @@ namespace GunNut
         {
             StringBuilder patch = new StringBuilder();
 
-            patch.AppendLine("<Operation Class=\"PatchOperationAdd\">");
+            patch.AppendLine("<li Class=\"PatchOperationAdd\">");
             patch.AppendLine("<xpath>/Defs/ThingDef[defName=\"" + weapon.defName + "\"]/comps/li[@Class=\"GunNut.GN_AttachmentCompProperties\"]</xpath>");
             patch.AppendLine("<value>");
             patch.AppendLine("<tags>");
             patch.AppendLine(GetWeaponTagsAsListForXPatch(weapon));
             patch.AppendLine("</tags>");
             patch.AppendLine("</value>");
-            patch.AppendLine("</Operation>");
+            patch.AppendLine("</li>");
 
             return patch.ToString();
         }
@@ -126,9 +127,9 @@ namespace GunNut
         {
             StringBuilder tags = new StringBuilder();
 
-            foreach(WeaponTags tag in IR_Settings.GetWeaponTags(weapon.defName))
+            foreach(IR_AttachmentTag tag in IR_Settings.GetWeaponTags(weapon.defName))
             {
-                tags.AppendLine("<li>"+tag.ToString() +"</li>");
+                tags.AppendLine("<li>"+tag.defName +"</li>");
             }
 
             return tags.ToString();

@@ -67,15 +67,14 @@ namespace GunNut
             
             if (curWeapon != null)
             {
-                if (Widgets.ButtonText(new Rect(weaponRect.x, weaponRect.y +50, buttonWidth, buttonHeight), "Get weapon patch")) 
+                if (Prefs.DevMode)
                 {
-                    Log.Message(patchCreator.GetWeaponXPatch(curWeapon));
+                    if (Widgets.ButtonText(new Rect(weaponRect.x, weaponRect.y + 50, buttonWidth, buttonHeight), "Get mod patch"))
+                    {
+                        Log.Message(patchCreator.GetModXPatch());
+                    }
                 }
 
-                if (Widgets.ButtonText(new Rect(weaponRect.x, weaponRect.y + 100, buttonWidth, buttonHeight), "Get mod patch"))
-                {
-                    Log.Message(patchCreator.GetModXPatch());
-                }
 
                 drawerWeaponTags.Draw(weaponTagsRect);
                 drawerTable.Draw(weaponRect);
@@ -103,6 +102,7 @@ namespace GunNut
 
             foreach (GN_AttachmentDef attachmentDef in GenDefDatabase.GetAllDefsInDatabaseForDef(typeof(GN_AttachmentDef)))
             {
+                
                 if (!attachmentsLists.ContainsKey(attachmentDef.weaponPart))
                 {
                     attachmentsLists.Add(attachmentDef.weaponPart, new List<GN_AttachmentDef>());

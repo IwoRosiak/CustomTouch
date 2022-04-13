@@ -1,12 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using GunNut;
+using System.Collections.Generic;
 using UnityEngine;
 using Verse;
 
-namespace GunNut
+namespace CustomTouch
 {
     public class IR_SlotsCords : IExposable
     {
-        public List<WeaponTags> weaponTags;
+        public List<IR_AttachmentTag> weaponTags;
 
         public Dictionary<IR_AttachmentType, Vector2> position;
         public Dictionary<IR_AttachmentType, bool> isEnabled;
@@ -26,7 +27,7 @@ namespace GunNut
 
         public void ExposeData()
         {
-            Scribe_Collections.Look(ref weaponTags, "weaponTags", LookMode.Value);
+            Scribe_Collections.Look(ref weaponTags, "weaponTags", LookMode.Def);
             Scribe_Collections.Look(ref position, "defaultPlacement", LookMode.Value, LookMode.Value);
             Scribe_Collections.Look(ref isEnabled, "defaultActive", LookMode.Value, LookMode.Value);
             Scribe_Collections.Look(ref isFront, "isFront", LookMode.Value, LookMode.Value);

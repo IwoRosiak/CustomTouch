@@ -6,4 +6,11 @@
     <parent>Manufactured</parent>
     <resourceReadoutRoot>true</resourceReadoutRoot>
   </ThingCategoryDef>
+
+  <StatCategoryDef>
+    <defName>Attachment_Tags</defName>
+    <label>attachment requirements</label>
+    <displayOrder>20</displayOrder>
+    <displayAllByDefault>false</displayAllByDefault>
+  </StatCategoryDef>
 </Defs>

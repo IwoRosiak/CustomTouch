@@ -11,10 +11,17 @@ namespace GunNut
 
         private IR_SectionDrawer_Coordinator drawerCoordinator;
 
-
+        
         public IR_GunNutMod(ModContentPack content) : base(content)
         {
-            this.settings = GetSettings<IR_Settings>();
+            LongEventHandler.ExecuteWhenFinished(() => { 
+                
+                settings = GetSettings<IR_Settings>();
+                IR_Settings.Initialise();
+                
+                });
+
+            //this.settings = GetSettings<IR_Settings>();
 
         }
 
@@ -32,7 +39,7 @@ namespace GunNut
 
         public override string SettingsCategory()
         {
-            return "Gun Nut Alpha v0.3.0";
+            return "Custom Touch";
         }
 
     }

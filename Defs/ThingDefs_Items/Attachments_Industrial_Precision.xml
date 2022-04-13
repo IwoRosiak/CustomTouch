@@ -5,6 +5,10 @@
             <skillRequirements>
                 <Crafting>10</Crafting>
             </skillRequirements>
+            <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+            <recipeUsers>
+                <li>TableMachining</li>
+            </recipeUsers>
         </recipeMaker>
         <costList>
             <Steel>20</Steel>
@@ -16,15 +20,13 @@
             <Mass>0.7</Mass>
             <WorkToMake>1000</WorkToMake>
         </statBases>
-        <prerequisites>
-            <li>PrecisionRifling</li>
-        </prerequisites>
+
     </ThingDef>
 
     <!--SCOPES-->
     <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial_Precision">
         <defName>Attachment_Small_Infrared_Scope</defName>
-        <label>Small Infrared Scope</label>
+        <label>small infrared scope</label>
         <weaponPart>scope</weaponPart>
         <description>Specialist scope which comes with heat detecting visuals what allows for easier aiming at night and during unfavorable weather conditions. It takes a while to recognise the correct target so aiming takes slightly longer.</description>
         <warmupMult>0.2</warmupMult>
@@ -35,7 +37,7 @@
 
     <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial_Precision">
         <defName>Attachment_NV_Scope</defName>
-        <label>Night-vision Scope</label>
+        <label>night-vision scope</label>
         <weaponPart>scope</weaponPart>
         <description>Scope which comes with night-vision which reduces penalty when shooting in the dark. It's short range forces the user to shoot from closer distance.</description>
         <accuracyMedium>-0.05</accuracyMedium>
@@ -43,7 +45,7 @@
         <nightvision>0.5</nightvision>
         <zoomvision>0.2</zoomvision>
         <requiredTags>
-            <li>hasScopeRail</li>
+            <li>tag_hasScopeRail</li>
         </requiredTags>
     </ThingDef>
 
@@ -69,7 +71,7 @@
 
     <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial_Precision">
         <defName>Attachment_Big_Scope</defName>
-        <label>Scope(x8-16)</label>
+        <label>scope(x8-16)</label>
         <weaponPart>scope</weaponPart>
         <description>A scope with high zoom. Effective on single shot weapons. It's sheer size makes the weapon a bit more cumbersome to carry.</description>
         <accuracyTouch>-0.15</accuracyTouch>
@@ -79,7 +81,7 @@
         <zoomvision>0.4</zoomvision>
         <warmupMult>-0.1</warmupMult>
         <requiredTags>
-            <li>hasScopeRail</li>
+            <li>tag_hasScopeRail</li>
         </requiredTags>
     </ThingDef>
 
@@ -87,21 +89,21 @@
     <!--STOCKS-->
     <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial_Precision">
         <defName>Attachment_Sharpshooter_Stock</defName>
-        <label>Sharhshooter Stock</label>
+        <label>sharhshooter stock</label>
         <weaponPart>stock</weaponPart>
         <description>A stock designed to negate recoil on powerful, high-caliber rifles. Less effective on automatic weapons. Thanks to it movable elements, it can be adjusted to fit the shooter better, therefore increasing effectivness. A must have for every sniper.</description>
         <accuracyMedium>0.07</accuracyMedium>
         <accuracyLong>0.1</accuracyLong>
         <warmupMult>-0.15</warmupMult>
         <cooldownMult>-0.6</cooldownMult>
-        <conflictingTags>
-            <li>singleHand</li>
-        </conflictingTags>
+        <requiredTags>
+            <li>tag_isTwoHand</li>
+        </requiredTags>
     </ThingDef>
 
     <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial_Precision">
         <defName>Attachment_Assault_Stock</defName>
-        <label>Assault stock</label>
+        <label>sssault stock</label>
         <weaponPart>stock</weaponPart>
         <description>Advanced stock which fits most advanced, precision rifles. Most useful for automatic fire weapons.</description>
         <accuracyTouch>0.2</accuracyTouch>
@@ -109,9 +111,9 @@
         <accuracyMedium>0.15</accuracyMedium>
         <warmupMult>-0.1</warmupMult>
         <cooldownMult>-0.2</cooldownMult>
-        <conflictingTags>
-            <li>singleHand</li>
-        </conflictingTags>
+        <requiredTags>
+            <li>tag_isTwoHand</li>
+        </requiredTags>
     </ThingDef>
 
     <!--UNDERMOUNT-->
@@ -126,24 +128,24 @@
 
     <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial_Precision">
         <defName>Attachment_Automatic_Receiver</defName>
-        <label>Automatic receiver</label>
+        <label>automatic receiver</label>
         <weaponPart>receiver</weaponPart>
         <description>A receiver which gives the weapon an option to shoot with constant fire while holding the trigger. This specialist receiver can be used on pistols and rifles alike.</description>
         <burstShotsOffset>2</burstShotsOffset>
         <damageMult>-0.2</damageMult>
         <cooldownMult>0.7</cooldownMult>
         <requiredTags>
-            <li>semiAutomatic</li>
+            <li>tag_isSemiAutomatic</li>
         </requiredTags>
         <conflictingTags>
-            <li>boltAction</li>
+            <li>tag_isBoltAction</li>
         </conflictingTags>
     </ThingDef>
 
     <!--BARREL -->
     <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial_Precision">
         <defName>Attachment_Precision_Barrel</defName>
-        <label>Precision Barrel</label>
+        <label>precision barrel</label>
         <weaponPart>barrel</weaponPart>
         <description>Precision barrel for high accuracy weapons. Drastically improves accuracy and bullets damage.</description>
         <damageMult>0.05</damageMult>
@@ -151,9 +153,11 @@
         <accuracyShort>0.04</accuracyShort>
         <accuracyMedium>0.06</accuracyMedium>
         <accuracyLong>0.03</accuracyLong>
+        <requiredTags>
+            <li>tag_isTwoHand</li>
+        </requiredTags>
         <conflictingTags>
-            <li>singleHand</li>
-            <li>shotgun</li>
+            <li>tag_isShotgun</li>
         </conflictingTags>
     </ThingDef>
 

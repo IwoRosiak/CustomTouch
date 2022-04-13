@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CustomTouch;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Verse;
@@ -18,7 +19,7 @@ namespace GunNut
 
         public override void ExposeData()
         {
-            Scribe_Collections.Look(ref WeaponsCustomInfo, "WeaponsCustomInfo9",LookMode.Value, LookMode.Deep);
+            Scribe_Collections.Look(ref WeaponsCustomInfo, "WeaponsCustomInfo19",LookMode.Value, LookMode.Deep);
             Scribe_Values.Look(ref isFirstLaunch, "isFirstLaunch", true);
 
             base.ExposeData();
@@ -64,7 +65,7 @@ namespace GunNut
             return WeaponsDefaultInfo[name].isEnabled[part];
         }
 
-        public static List<WeaponTags> GetWeaponTags(string name)
+        public static List<IR_AttachmentTag> GetWeaponTags(string name)
         {
             if (WeaponsCustomInfo.ContainsKey(name))
             {
@@ -74,7 +75,7 @@ namespace GunNut
             return WeaponsDefaultInfo[name].weaponTags;
         }
 
-        public static void RemoveWeaponTag(string name, WeaponTags tag)
+        public static void RemoveWeaponTag(string name, IR_AttachmentTag tag)
         {
             if (WeaponsCustomInfo.ContainsKey(name))
             {
@@ -82,7 +83,7 @@ namespace GunNut
             }
         }
 
-        public static void AddWeaponTag(string name, WeaponTags tag)
+        public static void AddWeaponTag(string name, IR_AttachmentTag tag)
         {
             if (WeaponsCustomInfo.ContainsKey(name))
             {
@@ -98,7 +99,7 @@ namespace GunNut
                 newSlot.position = new Dictionary<IR_AttachmentType, Vector2>(WeaponsDefaultInfo[thing.defName].position);
                 newSlot.size = new Dictionary<IR_AttachmentType, float> ( WeaponsDefaultInfo[thing.defName].size);
                 newSlot.isEnabled = new Dictionary<IR_AttachmentType, bool>(WeaponsDefaultInfo[thing.defName].isEnabled);
-                newSlot.weaponTags = new List<WeaponTags>(WeaponsDefaultInfo[thing.defName].weaponTags);
+                newSlot.weaponTags = new List<IR_AttachmentTag>(WeaponsDefaultInfo[thing.defName].weaponTags);
 
                 WeaponsCustomInfo.Add(thing.defName, newSlot);
             }
@@ -116,7 +117,7 @@ namespace GunNut
             if (WeaponsCustomInfo.NullOrEmpty())
             {
                 WeaponsCustomInfo = new Dictionary<string, IR_SlotsCords>();
-            }
+            } 
 
             WeaponsDefaultInfo = new Dictionary<string, IR_SlotsCords>();
 
@@ -131,7 +132,7 @@ namespace GunNut
                     slotData.isEnabled = new Dictionary<IR_AttachmentType, bool>();
                     slotData.position = new Dictionary<IR_AttachmentType, Vector2>();
                     slotData.size = new Dictionary<IR_AttachmentType, float>();
-                    slotData.weaponTags = new List<WeaponTags>(compProp.tags);
+                    slotData.weaponTags = new List<IR_AttachmentTag>(compProp.tags);
 
                     //Log.Message("Adding " + thingDef.defName);
 

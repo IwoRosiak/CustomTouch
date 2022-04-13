@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CustomTouch;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -40,7 +41,7 @@ namespace GunNut
             {
                 Rect tagRect = new Rect(activeTagsRect.x, activeTagsRect.y + (pos * buttonHeight), mediumButtonWidth, buttonHeight);
 
-                if (Widgets.ButtonText(tagRect, tag.ToString()))
+                if (Widgets.ButtonText(tagRect, tag.label.CapitalizeFirst()))
                 {
                     IR_Settings.NotifyChangeMade(parent.CurWeapon);
                     IR_Settings.RemoveWeaponTag(parent.CurWeapon.defName, tag);
@@ -51,13 +52,13 @@ namespace GunNut
             }
             Widgets.EndScrollView();
 
-            Rect unactiveTagsRect = new Rect(rect.x + mediumButtonWidth + sliderWidth, rect.y + buttonHeight, mediumButtonWidth, (Enum.GetValues(typeof(WeaponTags)).EnumerableCount() - IR_Settings.GetWeaponTags(parent.CurWeapon.defName).Count) * buttonHeight);
+            Rect unactiveTagsRect = new Rect(rect.x + mediumButtonWidth + sliderWidth, rect.y + buttonHeight, mediumButtonWidth, (GenDefDatabase.GetAllDefsInDatabaseForDef(typeof(IR_AttachmentTag)).EnumerableCount() - IR_Settings.GetWeaponTags(parent.CurWeapon.defName).Count) * buttonHeight);
             Rect unactiveTagsScrollRect = new Rect(rect.x + mediumButtonWidth + sliderWidth, rect.y + buttonHeight, mediumButtonWidth + sliderWidth, rect.height - buttonHeight - 12);
 
             Widgets.BeginScrollView(unactiveTagsScrollRect, ref scrollPosUnactiveTags, unactiveTagsRect);
 
             pos = 0;
-            foreach (WeaponTags tag in Enum.GetValues(typeof(WeaponTags)))
+            foreach (IR_AttachmentTag tag in GenDefDatabase.GetAllDefsInDatabaseForDef(typeof(IR_AttachmentTag)))
             {
                 if (IR_Settings.GetWeaponTags(parent.CurWeapon.defName).Contains(tag))
                 {
@@ -66,7 +67,7 @@ namespace GunNut
 
                 Rect tagRect = new Rect(unactiveTagsRect.x, unactiveTagsRect.y + (pos * buttonHeight), mediumButtonWidth, buttonHeight);
 
-                if (Widgets.ButtonText(tagRect, tag.ToString()))
+                if (Widgets.ButtonText(tagRect, tag.label.CapitalizeFirst()))
                 {
                     IR_Settings.NotifyChangeMade(parent.CurWeapon);
                     IR_Settings.AddWeaponTag(parent.CurWeapon.defName, tag);

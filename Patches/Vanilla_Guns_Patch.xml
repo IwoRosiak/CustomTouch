@@ -1,484 +1,511 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <Operation Class="PatchOperationReplace">
-    <xpath>/Defs/ThingDef[defName="Gun_Revolver"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
-    <value>
-      <li Class="GunNut.GN_AttachmentCompProperties">
-        <jobDefInstall>EquipAttachment</jobDefInstall>
-        <jobDefRemove>RemoveAttachment</jobDefRemove>
-        <slots></slots>
-      </li>
-    </value>
-  </Operation>
-  <Operation Class="PatchOperationAdd">
-    <xpath>/Defs/ThingDef[defName="Gun_Revolver"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
-    <value>
-      <tags>
-        <li>pistol</li>
-      </tags>
-    </value>
-  </Operation>
-  <Operation Class="PatchOperationReplace">
-    <xpath>/Defs/ThingDef[defName="Gun_Autopistol"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
-    <value>
-      <li Class="GunNut.GN_AttachmentCompProperties">
-        <jobDefInstall>EquipAttachment</jobDefInstall>
-        <jobDefRemove>RemoveAttachment</jobDefRemove>
-        <slots>
-          <li>
-            <weaponPart>stock</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>barrel</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>barrelExt</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>grip</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>undermount</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-        </slots>
-      </li>
-    </value>
-  </Operation>
-  <Operation Class="PatchOperationAdd">
-    <xpath>/Defs/ThingDef[defName="Gun_Autopistol"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
-    <value>
-      <tags>
-        <li>pistol</li>
-        <li>singleHand</li>
-        <li>noStock</li>
-        <li>semiAutomatic</li>
-      </tags>
-    </value>
-  </Operation>
-  <Operation Class="PatchOperationReplace">
-    <xpath>/Defs/ThingDef[defName="Gun_MachinePistol"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
-    <value>
-      <li Class="GunNut.GN_AttachmentCompProperties">
-        <jobDefInstall>EquipAttachment</jobDefInstall>
-        <jobDefRemove>RemoveAttachment</jobDefRemove>
-        <slots>
-          <li>
-            <weaponPart>stock</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>barrel</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>barrelExt</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>grip</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-        </slots>
-      </li>
-    </value>
-  </Operation>
-  <Operation Class="PatchOperationAdd">
-    <xpath>/Defs/ThingDef[defName="Gun_MachinePistol"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
-    <value>
-      <tags>
-        <li>singleHand</li>
-        <li>noStock</li>
-        <li>automatic</li>
-        <li>machineGun</li>
-      </tags>
-    </value>
-  </Operation>
-  <Operation Class="PatchOperationReplace">
-    <xpath>/Defs/ThingDef[defName="Gun_BoltActionRifle"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
-    <value>
-      <li Class="GunNut.GN_AttachmentCompProperties">
-        <jobDefInstall>EquipAttachment</jobDefInstall>
-        <jobDefRemove>RemoveAttachment</jobDefRemove>
-        <slots>
-          <li>
-            <weaponPart>stock</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>barrel</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>barrelExt</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>receiver</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>grip</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>foregrip</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>undermount</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-        </slots>
-      </li>
-    </value>
-  </Operation>
-  <Operation Class="PatchOperationAdd">
-    <xpath>/Defs/ThingDef[defName="Gun_BoltActionRifle"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
-    <value>
-      <tags>
-        <li>boltAction</li>
-        <li>hasScopeRail</li>
-      </tags>
-    </value>
-  </Operation>
-  <Operation Class="PatchOperationReplace">
-    <xpath>/Defs/ThingDef[defName="Gun_PumpShotgun"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
-    <value>
-      <li Class="GunNut.GN_AttachmentCompProperties">
-        <jobDefInstall>EquipAttachment</jobDefInstall>
-        <jobDefRemove>RemoveAttachment</jobDefRemove>
-        <slots>
-          <li>
-            <weaponPart>scope</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>stock</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>receiver</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>grip</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>foregrip</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-        </slots>
-      </li>
-    </value>
-  </Operation>
-  <Operation Class="PatchOperationAdd">
-    <xpath>/Defs/ThingDef[defName="Gun_PumpShotgun"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
-    <value>
-      <tags>
-        <li>shotgun</li>
-        <li>hasPump</li>
-      </tags>
-    </value>
-  </Operation>
-  <Operation Class="PatchOperationReplace">
-    <xpath>/Defs/ThingDef[defName="Gun_ChainShotgun"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
-    <value>
-      <li Class="GunNut.GN_AttachmentCompProperties">
-        <jobDefInstall>EquipAttachment</jobDefInstall>
-        <jobDefRemove>RemoveAttachment</jobDefRemove>
-        <slots>
-          <li>
-            <weaponPart>scope</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>stock</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>receiver</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>grip</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-        </slots>
-      </li>
-    </value>
-  </Operation>
-  <Operation Class="PatchOperationAdd">
-    <xpath>/Defs/ThingDef[defName="Gun_ChainShotgun"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
-    <value>
-      <tags>
-        <li>shotgun</li>
-        <li>automatic</li>
-        <li>hasScopeRail</li>
-      </tags>
-    </value>
-  </Operation>
-  <Operation Class="PatchOperationReplace">
-    <xpath>/Defs/ThingDef[defName="Gun_HeavySMG"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
-    <value>
-      <li Class="GunNut.GN_AttachmentCompProperties">
-        <jobDefInstall>EquipAttachment</jobDefInstall>
-        <jobDefRemove>RemoveAttachment</jobDefRemove>
-        <slots>
-          <li>
-            <weaponPart>scope</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>stock</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>barrel</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>receiver</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>grip</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-        </slots>
-      </li>
-    </value>
-  </Operation>
-  <Operation Class="PatchOperationAdd">
-    <xpath>/Defs/ThingDef[defName="Gun_HeavySMG"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
-    <value>
-      <tags>
-        <li>automatic</li>
-        <li>machineGun</li>
-        <li>hasScopeRail</li>
-      </tags>
-    </value>
-  </Operation>
-  <Operation Class="PatchOperationReplace">
-    <xpath>/Defs/ThingDef[defName="Gun_LMG"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
-    <value>
-      <li Class="GunNut.GN_AttachmentCompProperties">
-        <jobDefInstall>EquipAttachment</jobDefInstall>
-        <jobDefRemove>RemoveAttachment</jobDefRemove>
-        <slots>
-          <li>
-            <weaponPart>scope</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>stock</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>barrel</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>receiver</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>grip</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>foregrip</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-        </slots>
-      </li>
-    </value>
-  </Operation>
-  <Operation Class="PatchOperationAdd">
-    <xpath>/Defs/ThingDef[defName="Gun_LMG"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
-    <value>
-      <tags>
-        <li>automatic</li>
-        <li>machineGun</li>
-        <li>hasScopeRail</li>
-      </tags>
-    </value>
-  </Operation>
-  <Operation Class="PatchOperationReplace">
-    <xpath>/Defs/ThingDef[defName="Gun_AssaultRifle"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
-    <value>
-      <li Class="GunNut.GN_AttachmentCompProperties">
-        <jobDefInstall>EquipAttachment</jobDefInstall>
-        <jobDefRemove>RemoveAttachment</jobDefRemove>
-        <slots>
-          <li>
-            <weaponPart>scope</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>stock</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>barrel</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>receiver</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>grip</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>foregrip</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>undermount</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-        </slots>
-      </li>
-    </value>
-  </Operation>
-  <Operation Class="PatchOperationAdd">
-    <xpath>/Defs/ThingDef[defName="Gun_AssaultRifle"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
-    <value>
-      <tags>
-        <li>automatic</li>
-        <li>machineGun</li>
-        <li>undermountRail</li>
-        <li>hasScopeRail</li>
-      </tags>
-    </value>
-  </Operation>
-  <Operation Class="PatchOperationReplace">
-    <xpath>/Defs/ThingDef[defName="Gun_SniperRifle"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
-    <value>
-      <li Class="GunNut.GN_AttachmentCompProperties">
-        <jobDefInstall>EquipAttachment</jobDefInstall>
-        <jobDefRemove>RemoveAttachment</jobDefRemove>
-        <slots>
-          <li>
-            <weaponPart>scope</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>stock</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>barrel</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>receiver</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>grip</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>foregrip</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-          <li>
-            <weaponPart>undermount</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-        </slots>
-      </li>
-    </value>
-  </Operation>
-  <Operation Class="PatchOperationAdd">
-    <xpath>/Defs/ThingDef[defName="Gun_SniperRifle"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
-    <value>
-      <tags>
-        <li>boltAction</li>
-        <li>undermountRail</li>
-        <li>hasScope</li>
-        <li>hasScopeRail</li>
-      </tags>
-    </value>
-  </Operation>
-  <Operation Class="PatchOperationReplace">
-    <xpath>/Defs/ThingDef[defName="Gun_Minigun"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
-    <value>
-      <li Class="GunNut.GN_AttachmentCompProperties">
-        <jobDefInstall>EquipAttachment</jobDefInstall>
-        <jobDefRemove>RemoveAttachment</jobDefRemove>
-        <slots>
-          <li>
-            <weaponPart>receiver</weaponPart>
-            <isActive>True</isActive>
-            <defaultPosition>(0.0, 0.0)</defaultPosition>
-          </li>
-        </slots>
-      </li>
-    </value>
-  </Operation>
-  <Operation Class="PatchOperationAdd">
-    <xpath>/Defs/ThingDef[defName="Gun_Minigun"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
-    <value>
-      <tags></tags>
-    </value>
-  </Operation>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Core</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="Gun_Autopistol"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
+                    <value>
+                        <slots>
+                            <li>
+                                <weaponPart>scope</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>stock</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>barrel</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>barrelExt</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>receiver</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>grip</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>undermount</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+
+                        </slots>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="Gun_Autopistol"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
+                    <value>
+                        <tags>
+                            <li>tag_isPistol</li>
+                            <li>tag_isSingleHand</li>
+                            <li>tag_hasUndermountRail</li>
+                            <li>tag_isSemiAutomatic</li>
+
+                        </tags>
+                    </value>
+                </li>
+
+
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="Gun_MachinePistol"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
+                    <value>
+                        <slots>
+                            <li>
+                                <weaponPart>scope</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>stock</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>barrelExt</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>receiver</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>grip</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+
+                        </slots>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="Gun_MachinePistol"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
+                    <value>
+                        <tags>
+                            <li>tag_isMachineGun</li>
+                            <li>tag_isSingleHand</li>
+                            <li>tag_isAutomatic</li>
+
+                        </tags>
+                    </value>
+                </li>
+
+
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="Gun_BoltActionRifle"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
+                    <value>
+                        <slots>
+                            <li>
+                                <weaponPart>scope</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>stock</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>barrel</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>barrelExt</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>receiver</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>grip</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>foregrip</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>undermount</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+
+                        </slots>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="Gun_BoltActionRifle"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
+                    <value>
+                        <tags>
+                            <li>tag_isTwoHand</li>
+                            <li>tag_isBoltAction</li>
+                            <li>tag_hasStock</li>
+                            <li>tag_hasScopeRail</li>
+
+                        </tags>
+                    </value>
+                </li>
+
+
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="Gun_PumpShotgun"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
+                    <value>
+                        <slots>
+                            <li>
+                                <weaponPart>scope</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>stock</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>barrel</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>barrelExt</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>receiver</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>grip</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>foregrip</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+
+                        </slots>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="Gun_PumpShotgun"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
+                    <value>
+                        <tags>
+                            <li>tag_isShotgun</li>
+                            <li>tag_isTwoHand</li>
+                            <li>tag_isPumpAction</li>
+                            <li>tag_hasStock</li>
+                            <li>tag_hasScopeRail</li>
+
+                        </tags>
+                    </value>
+                </li>
+
+
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="Gun_ChainShotgun"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
+                    <value>
+                        <slots>
+                            <li>
+                                <weaponPart>scope</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>stock</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>barrel</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>barrelExt</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>receiver</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>grip</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>undermount</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+
+                        </slots>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="Gun_ChainShotgun"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
+                    <value>
+                        <tags>
+                            <li>tag_isTwoHand</li>
+                            <li>tag_isAutomatic</li>
+                            <li>tag_hasStock</li>
+                            <li>tag_hasScopeRail</li>
+                            <li>tag_hasUndermountRail</li>
+
+                        </tags>
+                    </value>
+                </li>
+
+
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="Gun_HeavySMG"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
+                    <value>
+                        <slots>
+                            <li>
+                                <weaponPart>scope</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>stock</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>barrel</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>barrelExt</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>receiver</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>grip</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>foregrip</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+
+                        </slots>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="Gun_HeavySMG"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
+                    <value>
+                        <tags>
+                            <li>tag_isMachineGun</li>
+                            <li>tag_isTwoHand</li>
+                            <li>tag_isAutomatic</li>
+                            <li>tag_hasStock</li>
+                            <li>tag_hasScopeRail</li>
+
+                        </tags>
+                    </value>
+                </li>
+
+
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="Gun_LMG"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
+                    <value>
+                        <slots>
+                            <li>
+                                <weaponPart>scope</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>stock</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>barrel</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>barrelExt</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>receiver</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>grip</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>foregrip</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>undermount</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+
+                        </slots>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="Gun_LMG"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
+                    <value>
+                        <tags>
+                            <li>tag_isTwoHand</li>
+                            <li>tag_isMachineGun</li>
+                            <li>tag_isAutomatic</li>
+                            <li>tag_hasStock</li>
+                            <li>tag_hasScopeRail</li>
+                            <li>tag_hasUndermountRail</li>
+
+                        </tags>
+                    </value>
+                </li>
+
+
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="Gun_AssaultRifle"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
+                    <value>
+                        <slots>
+                            <li>
+                                <weaponPart>scope</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>stock</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>barrel</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>barrelExt</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>receiver</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>grip</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>foregrip</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>undermount</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+
+                        </slots>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="Gun_AssaultRifle"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
+                    <value>
+                        <tags>
+                            <li>tag_isMachineGun</li>
+                            <li>tag_isTwoHand</li>
+                            <li>tag_isAutomatic</li>
+                            <li>tag_hasStock</li>
+                            <li>tag_hasScopeRail</li>
+                            <li>tag_hasUndermountRail</li>
+
+                        </tags>
+                    </value>
+                </li>
+
+
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="Gun_SniperRifle"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
+                    <value>
+                        <slots>
+                            <li>
+                                <weaponPart>scope</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>stock</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>barrel</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>barrelExt</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>receiver</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>grip</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>undermount</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+
+                        </slots>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="Gun_SniperRifle"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
+                    <value>
+                        <tags>
+                            <li>tag_isTwoHand</li>
+                            <li>tag_isBoltAction</li>
+                            <li>tag_hasScope</li>
+                            <li>tag_hasStock</li>
+                            <li>tag_hasScopeRail</li>
+                            <li>tag_hasUndermountRail</li>
+
+                        </tags>
+                    </value>
+                </li>
+
+
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="Gun_Minigun"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
+                    <value>
+                        <slots>
+                            <li>
+                                <weaponPart>barrel</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+                            <li>
+                                <weaponPart>grip</weaponPart>
+                                <defaultPosition>(0.0, 0.0)</defaultPosition>
+                            </li>
+
+                        </slots>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="Gun_Minigun"]/comps/li[@Class="GunNut.GN_AttachmentCompProperties"]</xpath>
+                    <value>
+                        <tags>
+                            <li>tag_isAutomatic</li>
+
+                        </tags>
+                    </value>
+                </li>
+
+
+            </operations>
+        </match>
+    </Operation>
 </Patch>

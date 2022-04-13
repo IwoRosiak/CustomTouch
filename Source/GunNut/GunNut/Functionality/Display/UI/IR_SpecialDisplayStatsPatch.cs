@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using CustomTouch;
+using HarmonyLib;
 using RimWorld;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,7 +56,15 @@ namespace GunNut.HarmonyPatches.Base_functionality
 
                     yield return new StatDrawEntry(IR_StatCategoryDefOf.Attachments, slot.weaponPart.ToString(), attachmentName.CapitalizeFirst(), attachmentDesc.ToString(), 5391, null, null, false);
                 }
-             
+                
+
+                List<string> displayedTags= new List<string>();
+                foreach (IR_AttachmentTag tag in IR_Settings.GetWeaponTags(__instance.defName))
+                {
+                    Log.Message(tag.defName);
+                    yield return new StatDrawEntry(IR_StatCategoryDefOf.Weapon_Tags, tag.shortExplanation, " ", tag.longExplanation, 5392, null, null, false);
+
+                }
             }
         }
 

@@ -76,7 +76,6 @@ namespace GunNut
 
         public void ExposeData()
         {
-            //Scribe_Values.Look(ref parent, "parent");
             Scribe_Collections.Look(ref slots, "SlotsAttachment" +parent.parent.ThingID, LookMode.Value, LookMode.Deep);
         }
     }

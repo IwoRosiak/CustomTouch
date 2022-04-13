@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <!--WEAPON TYPES -->
+    <CustomTouch.IR_AttachmentTag>
+        <defName>tag_isShotgun</defName>
+        <label>is shotgun</label>
+        <longExplanation>Shotgun type of firearms shoot with shells.</longExplanation>
+        <shortExplanation>is a shotgun</shortExplanation>
+    </CustomTouch.IR_AttachmentTag>
+
+    <CustomTouch.IR_AttachmentTag>
+        <defName>tag_isMachineGun</defName>
+        <label>is machine gun</label>
+        <longExplanation>Machine guns usually feature rapid fire capabilities of shooting bullets.</longExplanation>
+        <shortExplanation>is a machine gun</shortExplanation>
+    </CustomTouch.IR_AttachmentTag>
+
+    <CustomTouch.IR_AttachmentTag>
+        <defName>tag_isPistol</defName>
+        <label>is pistol</label>
+        <longExplanation>Pistol are a semi-automatic weapons which fit one hand.</longExplanation>
+        <shortExplanation>is a pistol</shortExplanation>
+    </CustomTouch.IR_AttachmentTag>
+
+    <!-- SIZE -->
+    <CustomTouch.IR_AttachmentTag>
+        <defName>tag_isSingleHand</defName>
+        <label>one-handed</label>
+        <longExplanation>Single handed weapon can be operated with one hand effectively.</longExplanation>
+        <shortExplanation>is one handed</shortExplanation>
+    </CustomTouch.IR_AttachmentTag>
+
+    <CustomTouch.IR_AttachmentTag>
+        <defName>tag_isTwoHand</defName>
+        <label>two-handed</label>
+        <longExplanation>Two handed weapons require the use of both arms to operate effictively.</longExplanation>
+        <shortExplanation>is two handed</shortExplanation>
+    </CustomTouch.IR_AttachmentTag>
+
+    <!--RECEIVER TYPES -->
+    <CustomTouch.IR_AttachmentTag>
+        <defName>tag_isAutomatic</defName>
+        <label>is automatic</label>
+        <longExplanation>Automatic weapons feature automatic receivers capable of shooting multiple projectiles in one burst. Automatic weapons can shoot any type of projectiles (bullets, shells).</longExplanation>
+        <shortExplanation>has automatic receiver</shortExplanation>
+    </CustomTouch.IR_AttachmentTag>
+
+    <CustomTouch.IR_AttachmentTag>
+        <defName>tag_isSemiAutomatic</defName>
+        <label>is semi-automatic</label>
+        <longExplanation>Semi-automatic weapons shoot one projectile with each pull of the trigger. The receiver is capable of loading the next bullet from the amazing by itself.</longExplanation>
+        <shortExplanation>has semi-automatic receiver</shortExplanation>
+    </CustomTouch.IR_AttachmentTag>
+
+    <CustomTouch.IR_AttachmentTag>
+        <defName>tag_isBoltAction</defName>
+        <label>is bolt-action</label>
+        <longExplanation>Bolt-action rifles need to be manually operated to load the next bullet into the chamber before each shot.</longExplanation>
+        <shortExplanation>has bolt-action receiver</shortExplanation>
+    </CustomTouch.IR_AttachmentTag>
+
+    <CustomTouch.IR_AttachmentTag>
+        <defName>tag_isPumpAction</defName>
+        <label>is pump-action</label>
+        <longExplanation>Pump-action shotguns need to be manually operated to load the next shell into the chamber before each shot.</longExplanation>
+        <shortExplanation>has pump-action receiver</shortExplanation>
+    </CustomTouch.IR_AttachmentTag>
+    <!--GRAPHIC FEATURE EXISTENCE -->
+    <CustomTouch.IR_AttachmentTag>
+        <defName>tag_hasScope</defName>
+        <label>has scope</label>
+        <longExplanation>The weapon features a big scope by default, obscuring potential attachments in terms of visual aspects.</longExplanation>
+        <shortExplanation>has scope by default</shortExplanation>
+    </CustomTouch.IR_AttachmentTag>
+
+    <CustomTouch.IR_AttachmentTag>
+        <defName>tag_hasStock</defName>
+        <label>has stock</label>
+        <longExplanation>The weapon features a big stock by default, obscuring potential attachments in terms of visual aspects.</longExplanation>
+        <shortExplanation>has stock by default</shortExplanation>
+    </CustomTouch.IR_AttachmentTag>
+
+    <!--LOGIC FEATURE EXISTENCE -->
+    <CustomTouch.IR_AttachmentTag>
+        <defName>tag_hasScopeRail</defName>
+        <label>has scope rail</label>
+        <longExplanation>The weapon features mounting rail for a scope.</longExplanation>
+        <shortExplanation>has a mounting rail for a scope</shortExplanation>
+    </CustomTouch.IR_AttachmentTag>
+
+    <CustomTouch.IR_AttachmentTag>
+        <defName>tag_hasUndermountRail</defName>
+        <label>has undermount rail</label>
+        <longExplanation>The weapon features mounting rail for an undermount.</longExplanation>
+        <shortExplanation>has a mounting rail for an undermount</shortExplanation>
+    </CustomTouch.IR_AttachmentTag>
+</Defs>

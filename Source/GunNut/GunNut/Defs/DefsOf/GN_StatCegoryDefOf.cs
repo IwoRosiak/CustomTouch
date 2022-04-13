@@ -11,5 +11,8 @@ namespace GunNut
         }
 
         public static StatCategoryDef Attachments;
+        public static StatCategoryDef Attachment_Req_Tags;
+        public static StatCategoryDef Attachment_Conf_Tags;
+        public static StatCategoryDef Weapon_Tags;
     }
 }

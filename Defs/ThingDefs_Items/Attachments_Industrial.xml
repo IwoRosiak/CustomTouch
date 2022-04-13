@@ -5,6 +5,10 @@
             <skillRequirements>
                 <Crafting>8</Crafting>
             </skillRequirements>
+            <researchPrerequisite>Gunsmithing</researchPrerequisite>
+            <recipeUsers>
+                <li>TableMachining</li>
+            </recipeUsers>
         </recipeMaker>
         <costList>
             <Steel>25</Steel>
@@ -16,32 +20,20 @@
             <Mass>0.5</Mass>
             <WorkToMake>500</WorkToMake>
         </statBases>
-        <prerequisites>
-            <li>Machining</li>
-        </prerequisites>
+
     </ThingDef>
 
     <!--SCOPES-->
 
     <ThingDef Class="GunNut.GN_AttachmentDef" ParentName="Attachment_Industrial">
         <defName>Attachment_Small_NV_Scope</defName>
-        <label>Small night-vision scope</label>
+        <label>Simple night-vision scope</label>
         <weaponPart>scope</weaponPart>
         <description>Small scope which comes with night-vision which reduces penalty when shooting in the dark. This particular scope was designed to mantain long distance capabilities but it sacrafices night-vision strength for it.</description>
-        <costList>
-            <Steel>20</Steel>
-            <Plasteel>5</Plasteel>
-            <ComponentIndustrial>3</ComponentIndustrial>
-        </costList>
         <accuracyLong>-0.05</accuracyLong>
         <nightvision>0.2</nightvision>
-        <statBases>
-            <MarketValue>230</MarketValue>
-            <Mass>0.3</Mass>
-            <WorkToMake>650</WorkToMake>
-        </statBases>
         <requiredTags>
-            <li>hasScopeRail</li>
+            <li>tag_hasScopeRail</li>
         </requiredTags>
     </ThingDef>
 
@@ -55,13 +47,8 @@
         <accuracyShort>0.10</accuracyShort>
         <accuracyMedium>0.03</accuracyMedium>
         <warmupMult>0.05</warmupMult>
-        <statBases>
-            <MarketValue>70</MarketValue>
-            <Mass>0.1</Mass>
-            <WorkToMake>500</WorkToMake>
-        </statBases>
         <conflictingTags>
-            <li>hasScope</li>
+            <li>tag_hasScope</li>
         </conflictingTags>
     </ThingDef>
 
@@ -77,7 +64,7 @@
         <zoomvision>0.2</zoomvision>
         <warmupMult>-0.06</warmupMult>
         <requiredTags>
-            <li>hasScopeRail</li>
+            <li>tag_hasScopeRail</li>
         </requiredTags>
     </ThingDef>
 
@@ -102,7 +89,7 @@
         <cooldownMult>-0.5</cooldownMult>
         <silencerEffect>-0.05</silencerEffect>
         <requiredTags>
-            <li>pistol</li>
+            <li>tag_isPistol</li>
         </requiredTags>
     </ThingDef>
 
@@ -114,7 +101,7 @@
         <silencerEffect>0.40</silencerEffect>
         <damageMult>-0.05</damageMult>
         <conflictingTags>
-            <li>shotgun</li>
+            <li>tag_isShotgun</li>
         </conflictingTags>
     </ThingDef>
 
@@ -134,7 +121,7 @@
         <description>Ventilated foregrip for automatic weapons. Improves hold on the weapon.</description>
         <cooldownMult>-0.4</cooldownMult>
         <requiredTags>
-            <li>machineGun</li>
+            <li>tag_isMachineGun</li>
         </requiredTags>
     </ThingDef>
 
@@ -146,5 +133,6 @@
         <cooldownMult>-0.1</cooldownMult>
         <warmupMult>-0.1</warmupMult>
     </ThingDef>
+
 
 </Defs>

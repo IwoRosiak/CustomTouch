@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using CustomTouch;
+using RimWorld;
 using System.Collections.Generic;
 using Verse;
 
@@ -6,8 +7,8 @@ namespace GunNut
 {
     public class GN_AttachmentDef : ThingDef
     {
-        public List<WeaponTags> requiredTags = new List<WeaponTags>();
-        public List<WeaponTags> conflictingTags = new List<WeaponTags>();
+        public List<IR_AttachmentTag> requiredTags = new List<IR_AttachmentTag>();
+        public List<IR_AttachmentTag> conflictingTags = new List<IR_AttachmentTag>();
 
         public IR_AttachmentType weaponPart;
 
@@ -114,6 +115,19 @@ namespace GunNut
             if (burstShotsOffset != 0)
             {
                 yield return new StatDrawEntry(IR_StatCategoryDefOf.Attachments, "Bullets per shot", burstShotsOffset.ToStringWithSign(), "How many bullets are shot during a burst on top of base amount.", 2753, null, null, false);
+            }
+
+
+            //Tags
+            foreach (IR_AttachmentTag tag in requiredTags)
+            {
+                yield return new StatDrawEntry(IR_StatCategoryDefOf.Attachment_Req_Tags, tag.shortExplanation, "", tag.longExplanation, 2753, null, null, false);
+
+            }
+            foreach (IR_AttachmentTag tag in conflictingTags)
+            {
+                yield return new StatDrawEntry(IR_StatCategoryDefOf.Attachment_Conf_Tags, tag.shortExplanation, "", tag.longExplanation, 2753, null, null, false);
+
             }
         }
 
