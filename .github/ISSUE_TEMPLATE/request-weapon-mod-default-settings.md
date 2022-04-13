@@ -3,7 +3,7 @@ name: Request weapon mod default settings
 about: Request the addition of default settings for any weapon mod out there in the
   RimWorld
 title: "[DEFAULTSETTINGSREQ] - Name of the mod"
-labels: ''
+labels: default settings
 assignees: IwoRosiak
 
 ---
