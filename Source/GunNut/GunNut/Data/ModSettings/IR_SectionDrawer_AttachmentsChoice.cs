@@ -30,8 +30,8 @@ namespace GunNut
             Widgets.LabelFit(new Rect(rect.x, rect.y, rect.width, buttonHeight), "Attachments Choice");
             Widgets.DrawLineHorizontal(rect.x, rect.y + (buttonHeight * 0.8f), smallButtonWidth + tinyButtonWidth);
 
-            Rect viewRect = new Rect(rect.x, rect.y + buttonHeight, smallButtonWidth + tinyButtonWidth, buttonHeight * (parent.attachmentsLists.Keys.Count));
-            Rect scrollRect = new Rect(rect.x, rect.y + buttonHeight, smallButtonWidth + tinyButtonWidth + sliderWidth, rect.height - buttonHeight);
+            Rect viewRect = new Rect(rect.x, rect.y + buttonHeight, smallButtonWidth + tinyButtonWidth*2, buttonHeight * (parent.attachmentsLists.Keys.Count));
+            Rect scrollRect = new Rect(rect.x, rect.y + buttonHeight, smallButtonWidth + tinyButtonWidth*2 + sliderWidth, rect.height - buttonHeight);
 
             float x = rect.x;
             float y = rect.y + buttonHeight;
@@ -42,6 +42,7 @@ namespace GunNut
                 if (Widgets.ButtonText(new Rect(x, y, smallButtonWidth, buttonHeight), attachmentType.ToString()))
                 {
                     parent.curAttachmentType = attachmentType;
+                    parent.isEditingMasks = false;
                 }
 
                 if (Widgets.ButtonText(new Rect(x + smallButtonWidth, y, smallButtonWidth / 2, buttonHeight), IR_Settings.IsActive(parent.CurWeapon.defName, attachmentType).ToString()))
@@ -50,6 +51,12 @@ namespace GunNut
                     bool temp = IR_Settings.IsActive(parent.CurWeapon.defName, attachmentType);
                     temp = !temp;
                     IR_Settings.WeaponsCustomInfo[parent.CurWeapon.defName].isEnabled[attachmentType] = temp;
+                }
+
+                if (Widgets.ButtonText(new Rect(x + smallButtonWidth + smallButtonWidth / 2, y, smallButtonWidth / 2, buttonHeight), "Mask"))
+                {
+                    parent.curAttachmentType = attachmentType;
+                    parent.isEditingMasks = true;
                 }
                 y += buttonHeight;
 

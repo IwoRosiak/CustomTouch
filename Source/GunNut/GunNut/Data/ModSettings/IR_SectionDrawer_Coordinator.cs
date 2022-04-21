@@ -19,6 +19,8 @@ namespace GunNut
 
         public ModContentPack curMod;
 
+        public bool isEditingMasks;
+
         public List<ThingDef> weapons = new List<ThingDef>();
         private ThingDef curWeapon;
 
@@ -60,7 +62,7 @@ namespace GunNut
             Rect weaponTagsRect = new Rect(masterRect.x + masterRect.width - tagsWidthOffset, masterRect.y, tagsWidthOffset, masterRect.height * 0.5f);
 
             float attachmentChoiceWidthOffset = smallButtonWidth + tinyButtonWidth + sliderWidth;
-            Rect attachmentChoiceRect = new Rect(masterRect.x + masterRect.width - attachmentChoiceWidthOffset, masterRect.y + masterRect.height * 0.5f, attachmentChoiceWidthOffset, masterRect.height * 0.5f);
+            Rect attachmentChoiceRect = new Rect(masterRect.x + masterRect.width - attachmentChoiceWidthOffset*2, masterRect.y + masterRect.height * 0.5f, attachmentChoiceWidthOffset*2, masterRect.height * 0.5f);
 
 
             drawerWeapons.Draw(weaponsButtonsRect);

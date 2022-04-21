@@ -1,10 +1,26 @@
 ﻿using HarmonyLib;
 using RimWorld;
 using System;
+using UnityEngine;
 using Verse;
 
 namespace GunNut
 {
+
+
+   [HarmonyPatch(typeof(ParseHelper), "FromStringRect")]
+
+    public static class IR_TryStartCastOnPatchsd
+    {
+        //TO-DO Make prefix?
+        [HarmonyPrefix]
+        public static bool AccuracyPostfixsss(string str, ref Rect __result)
+        {
+            Log.Message(str + "parsed!");
+            return true;
+        }
+    }
+
     [HarmonyPatch(typeof(Verb), "TryStartCastOn")]
     [HarmonyPatch(new Type[] { typeof(LocalTargetInfo), typeof(LocalTargetInfo), typeof(bool), typeof(bool), typeof(bool) })]
     public static class IR_TryStartCastOnPatch

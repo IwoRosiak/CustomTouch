@@ -17,10 +17,12 @@
                             <li>
                                 <weaponPart>stock</weaponPart>
                                 <defaultPosition>(0.0, 0.0)</defaultPosition>
+                                
                             </li>
                             <li>
                                 <weaponPart>barrel</weaponPart>
                                 <defaultPosition>(0.0, 0.0)</defaultPosition>
+                                <defaultMask>(5, 5, 5,5)</defaultMask>
                             </li>
                             <li>
                                 <weaponPart>barrelExt</weaponPart>

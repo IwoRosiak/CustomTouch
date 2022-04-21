@@ -16,5 +16,7 @@ namespace GunNut
 
         public Vector2 defaultPosition = Vector2.zero;
         public bool isActive = false;
+
+        public Rect defaultMask = Rect.zero;
     }
 }

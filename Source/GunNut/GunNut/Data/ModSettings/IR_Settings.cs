@@ -19,7 +19,7 @@ namespace GunNut
 
         public override void ExposeData()
         {
-            Scribe_Collections.Look(ref WeaponsCustomInfo, "WeaponsCustomInfo19",LookMode.Value, LookMode.Deep);
+            Scribe_Collections.Look(ref WeaponsCustomInfo, "WeaponsCustomInfo26",LookMode.Value, LookMode.Deep);
             Scribe_Values.Look(ref isFirstLaunch, "isFirstLaunch", true);
 
             base.ExposeData();
@@ -53,6 +53,16 @@ namespace GunNut
             }
 
             return WeaponsDefaultInfo[name].size[part];
+        }
+
+        public static Rect GetMask(string name, IR_AttachmentType part)
+        {
+            if (WeaponsCustomInfo.ContainsKey(name))
+            {
+                return WeaponsCustomInfo[name].masks[part];
+            }
+
+            return WeaponsDefaultInfo[name].masks[part];
         }
 
         public static bool IsActive(string name, IR_AttachmentType part)
@@ -100,6 +110,7 @@ namespace GunNut
                 newSlot.size = new Dictionary<IR_AttachmentType, float> ( WeaponsDefaultInfo[thing.defName].size);
                 newSlot.isEnabled = new Dictionary<IR_AttachmentType, bool>(WeaponsDefaultInfo[thing.defName].isEnabled);
                 newSlot.weaponTags = new List<IR_AttachmentTag>(WeaponsDefaultInfo[thing.defName].weaponTags);
+                newSlot.masks = new Dictionary<IR_AttachmentType, Rect>(WeaponsDefaultInfo[thing.defName].masks);
 
                 WeaponsCustomInfo.Add(thing.defName, newSlot);
             }
@@ -133,6 +144,7 @@ namespace GunNut
                     slotData.position = new Dictionary<IR_AttachmentType, Vector2>();
                     slotData.size = new Dictionary<IR_AttachmentType, float>();
                     slotData.weaponTags = new List<IR_AttachmentTag>(compProp.tags);
+                    slotData.masks = new Dictionary<IR_AttachmentType, Rect>();
 
                     //Log.Message("Adding " + thingDef.defName);
 
@@ -144,11 +156,13 @@ namespace GunNut
                             slotData.isEnabled.Add(slot.weaponPart, true);
                             slotData.position.Add(slot.weaponPart, slot.defaultPosition);
                             slotData.size.Add(slot.weaponPart, 1);
+                            slotData.masks.Add(slot.weaponPart, slot.defaultMask);
                         } else
                         {
                             slotData.isEnabled.Add(weaponPart, false);
                             slotData.position.Add(weaponPart, Vector3.zero);
                             slotData.size.Add(weaponPart, 1);
+                            slotData.masks.Add(weaponPart, Rect.zero);
                         }
                     }
 

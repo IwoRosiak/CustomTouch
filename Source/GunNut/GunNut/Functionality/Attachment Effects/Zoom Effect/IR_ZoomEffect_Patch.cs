@@ -55,15 +55,14 @@ namespace GunNut.Functionality.Attachment_Effects.Zoom_and_NV_Effects
             float result = shotReportVal;
             result = Mathf.Clamp(result, 0.5f, 2);
 
-            GN_AttachmentComp comp = verb.EquipmentSource.TryGetComp<GN_AttachmentComp>();
+            GN_AttachmentComp comp;
 
-            if (comp != null)
+            if ((comp = verb.EquipmentSource.TryGetComp<GN_AttachmentComp>()) != null)
             {
-                float zoom = 0;
-                foreach (var item in comp.ActiveAttachments)
-                {
-                    zoom += item.zoomvision;
-                }
+                float zoom = comp.ActiveSlots
+                    .Where(slot => slot.isActive && slot.attachment!=null && slot.attachment.zoomvision != 0)
+                    .Sum(slot => slot.attachment.zoomvision);
+                
 
                 float newEffectOffset = result * zoom;
 
