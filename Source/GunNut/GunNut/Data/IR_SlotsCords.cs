@@ -60,7 +60,6 @@ namespace CustomTouch
                 foreach (var pair in masksString)
                 {
                     masks.Add(pair.Key, ParseHelper.FromStringRect(pair.Value));
-                    Log.Message(pair.Value);
                 }
             }
 

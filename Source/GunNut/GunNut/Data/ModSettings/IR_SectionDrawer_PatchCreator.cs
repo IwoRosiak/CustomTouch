@@ -111,11 +111,12 @@ namespace GunNut
 
                 Vector2 pos = IR_Settings.GetPos(weapon.defName, part);
 
-
+                Rect rect = IR_Settings.GetMask(weapon.defName, part);
 
                 tags.AppendLine("<li>");
                 tags.AppendLine("<weaponPart>" + part.ToString() + "</weaponPart>");
                 tags.AppendLine("<defaultPosition>" + pos.ToString() + "</defaultPosition>");
+                tags.AppendLine("<defaultMask>" + rect.ToString() + "</defaultMask>");
                 tags.AppendLine("</li>");
 
                 

@@ -234,22 +234,22 @@ namespace GunNut
         {
             foreach (var attachmentType in parent.attachmentsLists.Keys)
             {
-                /*
-                if (!IR_Settings.IsActive(curWeapon.defName, attachmentType) || attachmentsLists[attachmentType][0].Equals(null) || attachmentsLists[attachmentType][0].onWeaponGraphic.Equals(null))
+                
+                if (!IR_Settings.IsActive(parent.CurWeapon.defName, attachmentType) || parent.attachmentsLists[attachmentType][0].Equals(null) )//|| parent.attachmentsLists[attachmentType][0].onWeaponGraphic.Equals(null))
                 {
                     continue;
                 }
 
                 Vector2 drawLoc = rect.center;
-                Vector2 offset = IR_Settings.GetPos(curWeapon.defName, attachmentType) * pixelRatio;
+                Vector2 offset = IR_Settings.GetPos(parent.CurWeapon.defName, attachmentType) * 96;
 
                 drawLoc += new Vector2 (offset.y, -offset.x) *2;
 
-                Texture text = attachmentsLists[attachmentType][0].onWeaponGraphic.Graphic.MatNorth.mainTexture;
-                float scale = attachmentsLists[attachmentType][0].onWeaponGraphic.Graphic.drawSize.x;
+                //Texture text = parent.attachmentsLists[attachmentType][0].onWeaponGraphic.Graphic.MatNorth.mainTexture;
+                //float scale = parent.attachmentsLists[attachmentType][0].onWeaponGraphic.Graphic.drawSize.x;
 
-                Widgets.DrawTextureRotated(drawLoc, text, 0, (scale * weaponScale) * IR_Settings.GetSize(curWeapon.defName, attachmentType));
-                */
+                //Widgets.DrawTextureRotated(drawLoc, text, 0, (scale * weaponScale) * IR_Settings.GetSize(parent.CurWeapon.defName, attachmentType));
+                
             }
 
         }
