@@ -74,6 +74,7 @@
     <Compile Include="Functionality\Attachment Effects\Weather Effect\IR_WeatherEffect_TextReadout_Patch.cs" />
     <Compile Include="Functionality\Attachment Effects\Zoom Effect\IR_ZoomEffect_Patch.cs" />
     <Compile Include="Functionality\Attachment Effects\Weather Effect\IR_WeatherEffect_Patch.cs" />
+    <Compile Include="Functionality\Comps\AttachmentComp\TextureUpdater\TextureUpdater.cs" />
     <Compile Include="Functionality\Display\IR_TextureMask_Patch.cs" />
     <Compile Include="Functionality\Display\UI\IR_SpecialDisplayStatsPatch.cs" />
     <Compile Include="Data\IR_Patch_Helper.cs" />

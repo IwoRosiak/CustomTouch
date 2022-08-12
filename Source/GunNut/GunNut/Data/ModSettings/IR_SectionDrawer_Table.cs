@@ -76,18 +76,24 @@ namespace GunNut
                     drawBorder = true;
                 }
 
-                for (int i = 0; i <= Mathf.FloorToInt(mask1.width); i++)
+                int maskStartX = Mathf.FloorToInt(texture2D.width * mask1.x);
+                int maskStartY = Mathf.FloorToInt(texture2D.height * mask1.y);
+                int maskWidth = Mathf.FloorToInt(texture2D.width * mask1.width);
+                int maskHeight = Mathf.FloorToInt(texture2D.height * mask1.height);
+
+
+                for (int i = 0; i <= maskWidth; i++)
                 {
-                    for (int j = 0; j <= Mathf.FloorToInt(mask1.height); j++)
+                    for (int j = 0; j <= maskHeight; j++)
                     {
                         Color colorToFill = new Color(0, 0, 0, 0);
 
-                        if (parent.isEditingMasks && drawBorder && (i == 0 || j ==0 || i == Mathf.FloorToInt(mask1.width) || j == Mathf.FloorToInt(mask1.height)))
+                        if (parent.isEditingMasks && drawBorder && (i == 0 || j ==0 || i == maskWidth || j == maskHeight))
                         {
                             colorToFill=new Color(255, 255, 255, 100);
                         } 
 
-                        texture2D.SetPixel(Mathf.FloorToInt(mask1.x) + i, Mathf.FloorToInt(mask1.y) + j, colorToFill);
+                        texture2D.SetPixel(maskStartX + i, maskStartY + j, colorToFill);
 
                     }
                 }
@@ -142,28 +148,28 @@ namespace GunNut
                 {
                     IR_Settings.NotifyChangeMade(parent.CurWeapon);
                     Rect temp = IR_Settings.WeaponsCustomInfo[parent.CurWeapon.defName].masks[parent.curAttachmentType];
-                    temp.x -= 1;
+                    temp.x -= 0.05f;
                     IR_Settings.WeaponsCustomInfo[parent.CurWeapon.defName].masks[parent.curAttachmentType] = temp;
                 }
                 if (Widgets.ButtonText(eastBtn, "+X"))
                 {
                     IR_Settings.NotifyChangeMade(parent.CurWeapon);
                     Rect temp = IR_Settings.WeaponsCustomInfo[parent.CurWeapon.defName].masks[parent.curAttachmentType];
-                    temp.x += 1;
+                    temp.x += 0.05f;
                     IR_Settings.WeaponsCustomInfo[parent.CurWeapon.defName].masks[parent.curAttachmentType] = temp;
                 }
                 if (Widgets.ButtonText(northBtn, "+Y"))
                 {
                     IR_Settings.NotifyChangeMade(parent.CurWeapon);
                     Rect temp = IR_Settings.WeaponsCustomInfo[parent.CurWeapon.defName].masks[parent.curAttachmentType];
-                    temp.y += 1;
+                    temp.y += 0.05f;
                     IR_Settings.WeaponsCustomInfo[parent.CurWeapon.defName].masks[parent.curAttachmentType] = temp;
                 }
                 if (Widgets.ButtonText(southBtn, "-Y"))
                 {
                     IR_Settings.NotifyChangeMade(parent.CurWeapon);
                     Rect temp = IR_Settings.WeaponsCustomInfo[parent.CurWeapon.defName].masks[parent.curAttachmentType];
-                    temp.y -= 1;
+                    temp.y -= 0.05f;
                     IR_Settings.WeaponsCustomInfo[parent.CurWeapon.defName].masks[parent.curAttachmentType] = temp;
                 }
 
@@ -171,28 +177,28 @@ namespace GunNut
                 {
                     IR_Settings.NotifyChangeMade(parent.CurWeapon);
                     Rect temp = IR_Settings.WeaponsCustomInfo[parent.CurWeapon.defName].masks[parent.curAttachmentType];
-                    temp.width -= 1;
+                    temp.width -= 0.05f;
                     IR_Settings.WeaponsCustomInfo[parent.CurWeapon.defName].masks[parent.curAttachmentType] = temp;
                 }
                 if (Widgets.ButtonText(eastBtnR, "+W"))
                 {
                     IR_Settings.NotifyChangeMade(parent.CurWeapon);
                     Rect temp = IR_Settings.WeaponsCustomInfo[parent.CurWeapon.defName].masks[parent.curAttachmentType];
-                    temp.width += 1;
+                    temp.width += 0.05f;
                     IR_Settings.WeaponsCustomInfo[parent.CurWeapon.defName].masks[parent.curAttachmentType] = temp;
                 }
                 if (Widgets.ButtonText(northBtnR, "+H"))
                 {
                     IR_Settings.NotifyChangeMade(parent.CurWeapon);
                     Rect temp = IR_Settings.WeaponsCustomInfo[parent.CurWeapon.defName].masks[parent.curAttachmentType];
-                    temp.height += 1;
+                    temp.height += 0.05f;
                     IR_Settings.WeaponsCustomInfo[parent.CurWeapon.defName].masks[parent.curAttachmentType] = temp;
                 }
                 if (Widgets.ButtonText(southBtnR, "-H"))
                 {
                     IR_Settings.NotifyChangeMade(parent.CurWeapon);
                     Rect temp = IR_Settings.WeaponsCustomInfo[parent.CurWeapon.defName].masks[parent.curAttachmentType];
-                    temp.height -= 1;
+                    temp.height -= 0.05f;
                     IR_Settings.WeaponsCustomInfo[parent.CurWeapon.defName].masks[parent.curAttachmentType] = temp;
                 }
 

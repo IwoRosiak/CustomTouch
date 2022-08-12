@@ -59,10 +59,17 @@ namespace GunNut
         {
             if (WeaponsCustomInfo.ContainsKey(name))
             {
+                Log.Message("Absent1!");
                 return WeaponsCustomInfo[name].masks[part];
             }
+            if (WeaponsDefaultInfo.ContainsKey(name))
+            {
+                Log.Message("Absent2!");
+                return WeaponsDefaultInfo[name].masks[part];
+            }
+            Log.Error("Name "+ name +" is not found...");
 
-            return WeaponsDefaultInfo[name].masks[part];
+            return new Rect(0, 0, 0, 0);
         }
 
         public static bool IsActive(string name, IR_AttachmentType part)

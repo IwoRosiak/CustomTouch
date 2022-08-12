@@ -1,4 +1,5 @@
 ﻿using CustomTouch;
+using CustomTouch.Functionality.Comps.AttachmentComp.TextureUpdater;
 using RimWorld;
 using RimWorld.Planet;
 using System;
@@ -86,34 +87,28 @@ namespace GunNut
         public Texture attachmentTexture;
         public bool shouldUpdateTexture= true;
 
-        public void UpdateTexture(Material mat)
+        public void UpdateTexture(Texture original,Material mat)
         {
             if (shouldUpdateTexture)
             {
-                Texture mainTexture = mat.mainTexture;
+                TextureUpdater textureUpdater = new TextureUpdater(mat);
 
-                int width = mainTexture.width;
-                int width2 = mainTexture.width;
-                Texture2D texture2D = new Texture2D(width, width2, TextureFormat.ARGB32, false);
-                RenderTexture renderTexture = new RenderTexture(width, width2, 0, (RenderTextureFormat)0, 1);
-                Graphics.Blit(mainTexture, renderTexture, mat, 0);
-                RenderTexture.active = renderTexture;
+                textureUpdater.StartTextureProcessing(original);
 
-                texture2D.ReadPixels(new Rect(0f, 0f, (float)width, (float)width2), 0, 0, false);
-
-                for (int i = 0; i < 20; i++)
+                List<Rect> masks = new List<Rect>();
+                
+                foreach (GN_AttachmentDef def in ActiveAttachments)
                 {
-                    for (int j = 20; j < 45; j++)
-                    {
-                        texture2D.SetPixel(i, j, new Color(0, 0, 0, 0));
-
-                    }
+                    masks.Add(IR_Settings.GetMask(parent.def.defName, def.weaponPart));
                 }
-                texture2D.Apply();
 
-                attachmentTexture = texture2D;
+                textureUpdater.UpdateTextureBasedOnMasks(masks);
+
+                attachmentTexture = textureUpdater.ProcessedTexture;
 
                 shouldUpdateTexture = false;
+
+                Log.Message("Updated texture for " + this.parent.def.defName);
             }
         }
 

@@ -91,6 +91,9 @@ namespace GunNut
                         //curJob.GetTarget(TargetIndex.A).Thing.ForceSetStateToUnspawned();
                         //curJob.GetTarget(TargetIndex.A).Thing.Map.mapDrawer.RegenerateEverythingNow();
                         //curJob.GetTarget(TargetIndex.A).Thing.Map.mapDrawer.SectionAt(curJob.GetTarget(TargetIndex.A).Thing.Position).RegenerateAllLayers();
+
+                        weapon.shouldUpdateTexture = true;
+
                         curJob.GetTarget(TargetIndex.A).Thing.DirtyMapMesh(curJob.GetTarget(TargetIndex.A).Thing.Map);
                         break;
                     }
@@ -102,6 +105,9 @@ namespace GunNut
             toil.defaultDuration = duration;
             toil.WithProgressBarToilDelay(TargetIndex.A, false, -0.5f);
             toil.PlaySustainerOrSound(() => SoundDef.Named(soundDefName));
+
+            
+
             return toil;
         }
 

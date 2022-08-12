@@ -18,10 +18,18 @@ namespace GunNut.Functionality.Display
             GN_AttachmentComp comp;
             if ((comp = (thing as ThingWithComps).TryGetComp<GN_AttachmentComp>()) != null)
             {
-                comp.UpdateTexture(__result);
-                
+                Material newMat = new Material(__result);
 
-                __result.mainTexture = comp.attachmentTexture;
+                comp.UpdateTexture(__result.mainTexture, newMat);
+
+                
+                if (!comp.shouldUpdateTexture)
+                {
+                    newMat.mainTexture = comp.attachmentTexture;
+                }
+
+                __result = newMat;
+
             }
         }
     }
